@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect URLs without trailing slash to have a trailing slash
+  RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{2,4}|\/)$
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+
+  # Handle React Router (SPA) - redirect all non-existent files or directories to index.php
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [L]
+
+  RewriteRule ^index\.php$ - [L]
+
+
+  # Custom error handling (optional)
+  ErrorDocument 404 /index.php
+
+  # Enforce HTTPS on all resources (optional)
+  Header always set Content-Security-Policy "upgrade-insecure-requests;"
+</IfModule>
