@@ -1,84 +1,113 @@
-<nav class="navbar navbar-expand-lg   " id="navbar">
+<?php
+$currentPage = basename($_SERVER['PHP_SELF'] ?? '');
+?>
+<nav class="navbar navbar-expand-lg robotics-navbar" id="navbar">
 	<div class="container">
-		<a class="navbar-brand" href="index.php"><img src="assets/image/new-images/logo.png" alt="" class="w-100"></a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span>
-				<i class="fa-solid fa-bars  fs-4" onclick="changeIcon()" id="open-icon"></i>
-				<i class="fa-solid fa-xmark fa-flip-horizontal fs-2 text-primary" onclick="changeIcon()" id="close-icon" style="display: none;"></i>
-			</span>
+		<a class="navbar-brand robotics-navbar-brand d-flex align-items-center" href="index.php">
+			<img src="assets/image/new-images/logo-white.png" alt="Intellekt Genie Robotics" class="img-fluid" style="max-height: 42px;">
+		</a>
+		<button class="navbar-toggler robotics-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" onclick="changeIcon()">
+			<i class="fa-solid fa-bars" id="open-icon"></i>
+			<i class="fa-solid fa-xmark text-white" id="close-icon" style="display: none;"></i>
 		</button>
-		<div class="collapse navbar-collapse " id="navbarNavDropdown">
-			<ul class="navbar-nav gap-3 ms-auto text-start ps-3">
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="index.php">Home</a>
-				</li>
-				<li class="nav-item dropdown  dropdown-1">
-					<a class="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						About Us<i class="fas fa-angle-down ps-2 "></i>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav ms-auto align-items-lg-center">
+				<!-- 1. Home -->
+				<li class="nav-item robotics-nav-item">
+					<a class="nav-link robotics-nav-link <?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : ''; ?>" aria-current="page" href="index.php">
+						Home
 					</a>
-					<ul class="dropdown-menu dropdown-menu-1 main">
-						<li class="dropdown-submenu dropdown ">
-							<a class="dropdown-item  d-flex justify-between align-items-center " href="company-profile.php"> Company Profile </a>
+				</li>
+
+				<!-- 2. Our Work -->
+				<li class="nav-item dropdown robotics-nav-item">
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Our Work <i class="fa-solid fa-chevron-down ms-1"></i>
+					</a>
+					<ul class="dropdown-menu robotics-dropdown-menu">
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="#explore-amrs">
+								<span><i class="fa-solid fa-robot me-2"></i> Autonomous Mobile Robots (AMRs)</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="our-team.php">Our Team</a>
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="#explore-arms">
+								<span><i class="fa-solid fa-microchip me-2"></i> Robotic Arms & Manipulation</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="#automation">
+								<span><i class="fa-solid fa-gears me-2"></i> Industrial Automation & Vision</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="services.php">
+								<span><i class="fa-solid fa-industry me-2"></i> Custom Deployment Solutions</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
 					</ul>
 				</li>
-				<li class="nav-item dropdown  dropdown-1">
-					<a class="nav-link " href="services.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Services<i class="fas fa-angle-down ps-2 "></i>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-1 dropdown-menu-service main">
 
-						<li class="dropdown-submenu dropdown ">
-							<a class="dropdown-item  d-flex justify-between align-items-center " href="services.php">Corporate Training </a>
+				<!-- 3. Company -->
+				<li class="nav-item dropdown robotics-nav-item">
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['company-profile.php', 'our-team.php', 'leadership.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Company <i class="fa-solid fa-chevron-down ms-1"></i>
+					</a>
+					<ul class="dropdown-menu robotics-dropdown-menu">
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="company-profile.php">
+								<span><i class="fa-solid fa-building me-2"></i> Company Profile</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="services.php"> Organization Restructure solutions</a>
-						</li>
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="services.php"> Value- Added Programmes for colleges</a>
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="our-team.php">
+								<span><i class="fa-solid fa-users me-2"></i> Our Team & Leadership</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
 					</ul>
 				</li>
 
-
-				<li class="nav-item dropdown dropdown-1 ">
-					<a class="nav-link " href="programmes.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Programmes <i class="fas fa-angle-down ps-1 "></i>
+				<!-- 4. Resources -->
+				<li class="nav-item dropdown robotics-nav-item">
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Resources <i class="fa-solid fa-chevron-down ms-1"></i>
 					</a>
-					<ul class="dropdown-menu dropdown-menu-1  main">
-
-						<li class="dropdown-submenu dropdown ">
-							<a class="dropdown-item  d-flex justify-between align-items-center " href="behavioural.php">Behavioural </a>
-
+					<ul class="dropdown-menu robotics-dropdown-menu">
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="gallary.php">
+								<span><i class="fa-solid fa-photo-film me-2"></i> Showcase & Gallery</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
-
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="business-management.php">Business Management </a>
-
+						<li>
+							<a class="dropdown-item robotics-dropdown-item" href="programmes.php">
+								<span><i class="fa-solid fa-book-open me-2"></i> Technical Documentation</span>
+								<i class="fa-solid fa-arrow-right"></i>
+							</a>
 						</li>
-
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="compliance.php">Compliance </a>
-
-						</li>
-
-						<li class="dropdown-submenu dropdown">
-							<a class="dropdown-item  text-wrap d-flex justify-between align-items-center flex-row" href="leadership.php">Leadership </a>
-
-						</li>
-
 					</ul>
 				</li>
 
-				<li class="nav-item">
-					<a class="nav-link " aria-current="page" href="gallary.php">Gallery</a>
+				<!-- 5. Contact -->
+				<li class="nav-item robotics-nav-item">
+					<a class="nav-link robotics-nav-link <?php echo ($currentPage == 'contact-us.php') ? 'active' : ''; ?>" href="contact-us.php">
+						Contact
+					</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link " href="contact-us.php">Contact Us</a>
+
+				<!-- Navbar CTA Button -->
+				<li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+					<a href="contact-us.php" class="robotics-nav-btn">
+						<span>Contact Us</span>
+						<i class="fa-solid fa-arrow-right-long"></i>
+					</a>
 				</li>
 			</ul>
 		</div>

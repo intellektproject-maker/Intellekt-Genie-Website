@@ -25,4 +25,5 @@
 	<link rel="stylesheet" href="assets/css/root.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/robotics-theme.css">
 </head>

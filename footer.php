@@ -1,6 +1,6 @@
   <button id="scrollToTopBtn" title="Go to top" class=" fs-5 "><i class="fas fa-arrow-up"></i></button>
 
-  <footer class="container-fluid">
+  <footer class="container-fluid" id="footer">
       <div class="container">
           <div class="row pt-5">
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -8,13 +8,13 @@
                   <div class=" ">
                       <div class="sigma-footer-logo ">
                           <a href="index.php">
-                              <img src="assets/image/new-images/logo.png" alt="Logo" class=" w-75">
+                              <img src="assets/image/new-images/logo-white.png" alt="Logo" class=" w-75">
                           </a>
                       </div>
                   </div>
                   <div class=" text-light">
                       <p class=" py-4  text-justify">
-                          If your goal is to improve profitability, our customized training solutions are designed to drive performance, productivity, and sustainable growth.
+                          Delivering cutting-edge autonomous mobile robotics, intelligent manipulation, and industrial automation solutions for next-generation facilities.
                       </p>
                   </div>
 
@@ -27,13 +27,11 @@
                       </h4>
                   </div>
                   <ul class=" ps-1">
-                      <li class="py-2"><a href="index.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap  me-2 text-primary"></i>Home</a></li>
-                      <li class="py-2"><a href="company-profile.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>Company Profile</a></li>
-                      <li class="py-2"><a href="services.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>Services</a></li>
-                      <li class="py-2"><a href="programmes.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>Training Programmes</a></li>
-                      <!-- <li class="py-2"><a href="testimonials.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>Testimonials</a></li> -->
-                      <li class="py-2"><a href="gallary.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>Gallery</a></li>
-                      <li class="py-2"><a href="contact-us.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-graduation-cap me-2 text-primary"></i>contact Us </a></li>
+                      <li class="py-2"><a href="index.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Home</a></li>
+                      <li class="py-2"><a href="services.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Our Work</a></li>
+                      <li class="py-2"><a href="company-profile.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Company</a></li>
+                      <li class="py-2"><a href="programmes.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Resources</a></li>
+                      <li class="py-2"><a href="contact-us.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Contact</a></li>
                   </ul>
 
               </div>
