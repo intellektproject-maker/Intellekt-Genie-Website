@@ -23,7 +23,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				<!-- 2. Our Work -->
 				<li class="nav-item dropdown robotics-nav-item">
 					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Our Work <i class="fa-solid fa-chevron-down ms-1"></i>
+						Our Work
 					</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
 						<li>
@@ -56,7 +56,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				<!-- 3. Company -->
 				<li class="nav-item dropdown robotics-nav-item">
 					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['company-profile.php', 'our-team.php', 'leadership.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Company <i class="fa-solid fa-chevron-down ms-1"></i>
+						Company
 					</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
 						<li>
@@ -77,7 +77,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				<!-- 4. Resources -->
 				<li class="nav-item dropdown robotics-nav-item">
 					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Resources <i class="fa-solid fa-chevron-down ms-1"></i>
+						Resources
 					</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
 						<li>
@@ -93,13 +93,6 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 							</a>
 						</li>
 					</ul>
-				</li>
-
-				<!-- 5. Contact -->
-				<li class="nav-item robotics-nav-item">
-					<a class="nav-link robotics-nav-link <?php echo ($currentPage == 'contact-us.php') ? 'active' : ''; ?>" href="contact-us.php">
-						Contact
-					</a>
 				</li>
 
 				<!-- Navbar CTA Button -->
