@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -178,29 +178,107 @@
     <!-- ================= END ROBOTICS HERO SECTION ================= -->
 
 
-    <section class=" py-5 sigma-why-choose-us-area  sigma-section-specing-has-bg bg-sigma-section-bg sigma-animation">
-        <div class="container-md">
-            <div class="py-5 grid grid-cols-2 items-center gap-[80px] xl:gap-[30px] lg:grid-cols-1 lg:flex-row-reverse pt-5 pb-4">
-                <div class="sigma-wcu-details lg:order-2 lg:text-center lg:mx-auto">
-                    <h2 class="sigma-section-title mb-0 text-sigma-title -tracking-[.94px] w-[515px] lg:w-full">Why
-                        choose Intellekt Genie?</h2>
-                    <p class="sigma-wcu-text text-[16px] leading-[26px] text-paragraph pt-[20px] w-[515px] lg:w-full text-justify">
-                        At Intellekt Genie Private Limited, we understand that small and mid-sized companies have unique challenges—and enormous potential. That’s why we specialize in delivering practical, impactful, and affordable solutions that help businesses scale and teams thrive.
+        <!-- ================= ROBOTICS WHY CHOOSE US SECTION ================= -->
+    <section class="robotics-why-section">
+        <div class="container">
+            <div class="robotics-why-grid">
+
+                <!-- Content Column -->
+                <div class="robotics-why-content">
+                    <div class="robotics-section-kicker">
+                        <span class="robotics-section-kicker-line"></span>
+                        <span>WHY INTELLEKT GENIE</span>
+                    </div>
+
+                    <h2 class="robotics-why-title">
+                        Engineering Intelligence
+                        <br>
+                        for Real-World Impact.
+                    </h2>
+
+                    <p class="robotics-why-description">
+                        At Intellekt Genie Private Limited, we develop practical robotics,
+                        automation, and intelligent engineering solutions designed to address
+                        real operational challenges.
                     </p>
-                    <p class="why-choose-us-btn"><a href="company-profile.php" class="btn "> view more</a></p>
+
+                    <p class="robotics-why-description">
+                        From autonomous mobile robots and robotic manipulation to AI-powered
+                        perception and industrial integration, our approach combines reliable
+                        engineering with scalable innovation.
+                    </p>
+
+                    <div class="robotics-why-features">
+
+                        <div class="robotics-why-feature">
+                            <div class="robotics-why-feature-icon">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <div>
+                                <h3>Practical Solutions</h3>
+                                <p>Technology engineered around real operational requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="robotics-why-feature">
+                            <div class="robotics-why-feature-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h3>Reliable Technology</h3>
+                                <p>Dependable systems built with safety, stability, and precision in mind.</p>
+                            </div>
+                        </div>
+
+                        <div class="robotics-why-feature">
+                            <div class="robotics-why-feature-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3>Scalable Engineering</h3>
+                                <p>Flexible solutions designed to evolve with future requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="robotics-why-feature">
+                            <div class="robotics-why-feature-icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3>Long-Term Partnership</h3>
+                                <p>Collaborative support from concept development to deployment.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="company-profile.php" class="robotics-why-button">
+                        <span>Discover Our Approach</span>
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
                 </div>
-                <div class="sigma-wcu-image mx-auto lg:order-1">
-                    <img src="assets/image/new-images/why-choose-us.webp" alt="Why Choose Us" class="rounded">
+
+                <!-- Image Column -->
+                <div class="robotics-why-visual">
+                    <div class="robotics-why-image-frame">
+                        <img
+                            src="assets/image/new-images/robotics-why-choose-us.webp"
+                            alt="Intellekt Genie autonomous mobile robot and robotic automation systems"
+                            loading="lazy"
+                        >
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+    <!-- ================= END ROBOTICS WHY CHOOSE US SECTION ================= -->
 
     <section class="container why-choose-us-cnt py-3">
         <div class="row d-flex justify-content-center align-items-center py-4">
 
             <div class="col-12 title mb-5 d-flex justify-content-center align-items-center flex-column">
-                <h3 class="text-dark fw-bold"> Here’s why organizations choose us:</h3>
+                <h3 class="text-dark fw-bold"> Hereâ€™s why organizations choose us:</h3>
                 <img src="./assets/image/new-images/lamp-blue.png" alt="lamp-blue">
             </div>
 
@@ -211,7 +289,7 @@
             </div>
             <div class="py-3  col-12 col-md-4   order-md-1 order-2">
                 <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Tailored Training Programs: </h5>
-                <p class=" text-justify">From leadership development to skill enhancement, we design programs that directly address your team’s needs and industry requirements.</p>
+                <p class=" text-justify">From leadership development to skill enhancement, we design programs that directly address your teamâ€™s needs and industry requirements.</p>
             </div>
 
             <div class="py-3  col-12 col-md-4  order-md-2 order-3">
@@ -223,11 +301,11 @@
             </div>
             <div class="py-3  col-12 col-md-4  order-md-4 order-4">
                 <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Measurable Results: </h5>
-                <p class=" text-justify">Our solutions are not just about training—they’re about creating lasting change that shows up in performance and growth.</p>
+                <p class=" text-justify">Our solutions are not just about trainingâ€”theyâ€™re about creating lasting change that shows up in performance and growth.</p>
             </div>
             <div class="py-3  col-12 col-md-3  order-md-5 order-5">
                 <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Partner in Growth: </h5>
-                <p class=" text-justify">We don’t just deliver sessions; we work alongside you as a growth partner to ensure long-term success.</p>
+                <p class=" text-justify">We donâ€™t just deliver sessions; we work alongside you as a growth partner to ensure long-term success.</p>
             </div>
 
 
