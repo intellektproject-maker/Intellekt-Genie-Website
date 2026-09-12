@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -178,253 +178,168 @@
     <!-- ================= END ROBOTICS HERO SECTION ================= -->
 
 
-        <!-- ================= ROBOTICS WHY CHOOSE US SECTION ================= -->
-    <section class="robotics-why-section">
-        <div class="container">
-            <div class="robotics-why-grid">
-
-                <!-- Content Column -->
-                <div class="robotics-why-content">
-                    <div class="robotics-section-kicker">
-                        <span class="robotics-section-kicker-line"></span>
-                        <span>WHY INTELLEKT GENIE</span>
-                    </div>
-
-                    <h2 class="robotics-why-title">
-                        Engineering Intelligence
-                        <br>
-                        for Real-World Impact.
-                    </h2>
-
-                    <p class="robotics-why-description">
-                        At Intellekt Genie Private Limited, we develop practical robotics,
-                        automation, and intelligent engineering solutions designed to address
-                        real operational challenges.
-                    </p>
-
-                    <p class="robotics-why-description">
-                        From autonomous mobile robots and robotic manipulation to AI-powered
-                        perception and industrial integration, our approach combines reliable
-                        engineering with scalable innovation.
-                    </p>
-
-                    <div class="robotics-why-features">
-
-                        <div class="robotics-why-feature">
-                            <div class="robotics-why-feature-icon">
-                                <i class="fa-solid fa-gears"></i>
-                            </div>
-                            <div>
-                                <h3>Practical Solutions</h3>
-                                <p>Technology engineered around real operational requirements.</p>
-                            </div>
-                        </div>
-
-                        <div class="robotics-why-feature">
-                            <div class="robotics-why-feature-icon">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <h3>Reliable Technology</h3>
-                                <p>Dependable systems built with safety, stability, and precision in mind.</p>
-                            </div>
-                        </div>
-
-                        <div class="robotics-why-feature">
-                            <div class="robotics-why-feature-icon">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <h3>Scalable Engineering</h3>
-                                <p>Flexible solutions designed to evolve with future requirements.</p>
-                            </div>
-                        </div>
-
-                        <div class="robotics-why-feature">
-                            <div class="robotics-why-feature-icon">
-                                <i class="fa-solid fa-handshake"></i>
-                            </div>
-                            <div>
-                                <h3>Long-Term Partnership</h3>
-                                <p>Collaborative support from concept development to deployment.</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <a href="company-profile.php" class="robotics-why-button">
-                        <span>Discover Our Approach</span>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-
-                <!-- Image Column -->
-                <div class="robotics-why-visual">
-                    <div class="robotics-why-image-frame">
-                        <img
-                            src="assets/image/new-images/robotics-why-choose-us.webp"
-                            alt="Intellekt Genie autonomous mobile robot and robotic automation systems"
-                            loading="lazy"
-                        >
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- ================= END ROBOTICS WHY CHOOSE US SECTION ================= -->
-
     <!-- =========================================================
-     INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
-     ========================================================= -->
-<section class="robotics-choice-section" id="robotics-solutions">
-    <div class="robotics-choice-container">
+         INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
+         ========================================================= -->
+    <section class="robotics-choice-section" id="robotics-solutions">
 
-        <!-- Section Heading -->
-        <div class="robotics-choice-heading">
-            <span class="robotics-choice-eyebrow">
-                BUILDING A SMARTER TOMORROW
-            </span>
+        <div class="robotics-choice-container">
 
-            <h2>
-                Why Choose
-                <span>Intellekt Robotics</span>
-            </h2>
+            <!-- SECTION HEADING -->
+            <div class="robotics-choice-heading">
+                <span class="robotics-choice-eyebrow">
+                    BUILDING A SMARTER TOMORROW
+                </span>
 
-            <p>
-                We develop practical robotics and automation solutions
-                while training students through hands-on robotics internships.
-            </p>
-        </div>
+                <h2>
+                    Why Choose
+                    <span>Intellekt Robotics</span>
+                </h2>
 
-
-        <!-- Main Layout -->
-        <div class="robotics-choice-layout">
-
-            <!-- LEFT FEATURE COLUMN -->
-            <div class="robotics-choice-column robotics-choice-left">
-
-                <!-- Feature 1 -->
-                <article class="robotics-choice-card">
-                    <div class="robotics-choice-icon">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-
-                    <div class="robotics-choice-card-content">
-                        <h3>Autonomous Mobile Robots</h3>
-                        <p>
-                            We develop AMR solutions that support
-                            intelligent material movement, navigation,
-                            and operational efficiency.
-                        </p>
-                    </div>
-                </article>
-
-
-                <!-- Feature 2 -->
-                <article class="robotics-choice-card">
-                    <div class="robotics-choice-icon">
-                        <i class="fa-solid fa-gears"></i>
-                    </div>
-
-                    <div class="robotics-choice-card-content">
-                        <h3>Robotics and Automation</h3>
-                        <p>
-                            We design practical robotic systems,
-                            automation workflows, and engineering
-                            solutions for real-world applications.
-                        </p>
-                    </div>
-                </article>
-
-            </div>
-
-
-            <!-- CENTER ROBOT VISUAL -->
-            <div class="robotics-choice-center">
-
-                <div class="robotics-choice-orbit robotics-choice-orbit-one"></div>
-                <div class="robotics-choice-orbit robotics-choice-orbit-two"></div>
-
-                <div class="robotics-choice-center-label">
-                    <span>INTELLIGENT</span>
-                    <span>AUTONOMOUS</span>
-                    <span>SCALABLE</span>
-                </div>
-
-                <!-- Inline Spider Robot Illustration -->
-               <!-- Spider Robot Image -->
-<div class="robotics-spider-visual">
-    <img
-        src="assets/image/robotics-spider-bot.png"
-        alt="Intellekt Robotics spider robot waving hello"
-        class="robotics-spider-image"
-    >
-</div>
-
-
-            <!-- RIGHT FEATURE COLUMN -->
-            <div class="robotics-choice-column robotics-choice-right">
-
-                <!-- Feature 3 -->
-                <article class="robotics-choice-card">
-                    <div class="robotics-choice-icon">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-
-                    <div class="robotics-choice-card-content">
-                        <h3>Student Internships</h3>
-                        <p>
-                            We welcome students as interns and provide
-                            practical training in robotics, AMRs,
-                            automation, AI, and embedded systems.
-                        </p>
-                    </div>
-                </article>
-
-
-                <!-- Feature 4 -->
-                <article class="robotics-choice-card">
-                    <div class="robotics-choice-icon">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-
-                    <div class="robotics-choice-card-content">
-                        <h3>Intelligent Perception</h3>
-                        <p>
-                            We explore computer vision, sensors,
-                            and intelligent systems that help robots
-                            understand and respond to their surroundings.
-                        </p>
-                    </div>
-                </article>
-
-            </div>
-
-        </div>
-
-
-        <!-- Bottom Feature -->
-        <article class="robotics-choice-bottom-card">
-            <div class="robotics-choice-icon">
-                <i class="fa-solid fa-chart-line"></i>
-            </div>
-
-            <div class="robotics-choice-card-content">
-                <h3>Industry-Ready Innovation</h3>
                 <p>
-                    From student learning to real-world deployment,
-                    we focus on building reliable, scalable, and
-                    future-ready robotics capabilities.
+                    We develop practical robotics and automation solutions
+                    while training students through hands-on robotics internships.
                 </p>
             </div>
-        </article>
 
-    </div>
-</section>
-<!-- =========================================================
-     END INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
-     ========================================================= -->
+
+            <!-- MAIN THREE-COLUMN LAYOUT -->
+            <div class="robotics-choice-layout">
+
+                <!-- LEFT FEATURE COLUMN: TWO CARDS -->
+                <div class="robotics-choice-column robotics-choice-left">
+
+                    <!-- Feature 1 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Autonomous Mobile Robots</h3>
+                            <p>
+                                We develop AMR solutions that support
+                                intelligent material movement, navigation,
+                                and operational efficiency.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Feature 2 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Robotics and Automation</h3>
+                            <p>
+                                We design practical robotic systems,
+                                automation workflows, and engineering
+                                solutions for real-world applications.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- END LEFT FEATURE COLUMN -->
+
+
+                <!-- CENTER SPIDER ROBOT -->
+                <div class="robotics-choice-center">
+
+                    <!-- Decorative Orbits -->
+                    <div class="robotics-choice-orbit robotics-choice-orbit-one"></div>
+                    <div class="robotics-choice-orbit robotics-choice-orbit-two"></div>
+
+                    <!-- Center Label -->
+                    <div class="robotics-choice-center-label">
+                        <span>INTELLIGENT</span>
+                        <span>AUTONOMOUS</span>
+                        <span>SCALABLE</span>
+                    </div>
+
+                    <!-- Spider Robot Image -->
+                    <div class="robotics-spider-visual">
+                        <img
+                            src="assets/image/robotics-spider-bot.png"
+                            alt="Intellekt Robotics spider robot waving hello"
+                            class="robotics-spider-image"
+                        >
+                    </div>
+
+                </div>
+                <!-- END CENTER SPIDER ROBOT -->
+
+
+                <!-- RIGHT FEATURE COLUMN: TWO CARDS -->
+                <div class="robotics-choice-column robotics-choice-right">
+
+                    <!-- Feature 3 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Student Internships</h3>
+                            <p>
+                                We welcome students as interns and provide
+                                practical training in robotics, AMRs,
+                                automation, AI, and embedded systems.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Feature 4 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Intelligent Perception</h3>
+                            <p>
+                                We explore computer vision, sensors,
+                                and intelligent systems that help robots
+                                understand and respond to their surroundings.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- END RIGHT FEATURE COLUMN -->
+
+            </div>
+            <!-- END MAIN THREE-COLUMN LAYOUT -->
+
+
+            <!-- BOTTOM CENTER FEATURE: ONE CARD -->
+            <div class="robotics-choice-bottom">
+
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Industry-Ready Innovation</h3>
+                        <p>
+                            From student learning to real-world deployment,
+                            we focus on building reliable, scalable, and
+                            future-ready robotics capabilities.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+            <!-- END BOTTOM CENTER FEATURE -->
+
+        </div>
+        <!-- END ROBOTICS CHOICE CONTAINER -->
+
+    </section>
+    <!-- END INTELLEKT ROBOTICS - WHY CHOOSE US SECTION -->
 
     <article class=" py-5 sigma-testimonial-area sigma-section-specing-has-bg  sigma-animation service bg-sigma-section-bg">
         <div class="container-fluid">

@@ -7961,3 +7961,96 @@ footer {
         display: none;
     }
 }
+/* =========================================================
+   ROBOTICS CHOICE - RIGHT COLUMN ALIGNMENT
+   ========================================================= */
+
+.robotics-choice-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.robotics-choice-right .robotics-choice-card {
+    position: relative;
+    width: 100%;
+}
+
+/* Keep the robotics section contents contained */
+.robotics-choice-section {
+    position: relative;
+    overflow: hidden;
+}
+/* =========================================================
+   CONTACT US PAGE - TEXT VISIBILITY FIX
+   ========================================================= */
+
+/* Contact section headings */
+.contact-section h1,
+.contact-section h2,
+.contact-section h3,
+.contact-section h4,
+.contact-section h5,
+.contact-section h6,
+.contact-area h1,
+.contact-area h2,
+.contact-area h3,
+.contact-area h4,
+.contact-area h5,
+.contact-area h6 {
+    color: #ffffff !important;
+}
+
+/* Contact information and descriptions */
+.contact-section p,
+.contact-section span,
+.contact-section li,
+.contact-area p,
+.contact-area span,
+.contact-area li {
+    color: #d9e2f2 !important;
+}
+
+/* Contact information links */
+.contact-section a,
+.contact-area a {
+    color: #d9e2f2 !important;
+}
+
+.contact-section a:hover,
+.contact-area a:hover {
+    color: #2f80ed !important;
+}
+
+/* Form labels */
+.contact-section label,
+.contact-area label,
+.contact-section .form-label,
+.contact-area .form-label {
+    color: #ffffff !important;
+}
+
+/* Input placeholders */
+.contact-section input::placeholder,
+.contact-section textarea::placeholder,
+.contact-area input::placeholder,
+.contact-area textarea::placeholder {
+    color: #7d8495 !important;
+    opacity: 1;
+}
+
+/* Input and textarea text */
+.contact-section input,
+.contact-section textarea,
+.contact-area input,
+.contact-area textarea {
+    color: #17213a !important;
+    background-color: #ffffff !important;
+}
+
+/* Contact icons */
+.contact-section i,
+.contact-area i {
+    color: #1677ff !important;
+}

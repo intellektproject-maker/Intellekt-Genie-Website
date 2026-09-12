@@ -3,6 +3,59 @@
 
 <head>
     <?php include 'header-link.php' ?>
+    <style>
+        /* Contact page readability overrides */
+        .sigma-contact-area {
+            background-color: #080b12;
+        }
+
+        .sigma-contact-area .sigma-contact-address-heading {
+            color: #ffffff !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap ul,
+        .sigma-contact-area .sigma-contact-wrap li,
+        .sigma-contact-area .sigma-contact-wrap a,
+        .sigma-contact-area .sigma-contact-wrap a.contact-links-2 {
+            color: #dbe5f5 !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap a:hover {
+            color: #2f80ed !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap .text-primary,
+        .sigma-contact-area .sigma-contact-wrap i {
+            color: #1677ff !important;
+        }
+
+        .sigma-contact-area .sigma-input-label {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-form-input,
+        .sigma-contact-area .sigma-form-textarea {
+            color: #17213a !important;
+            background-color: #ffffff !important;
+            border-color: #d9e2f2 !important;
+        }
+
+        .sigma-contact-area .sigma-form-input::placeholder,
+        .sigma-contact-area .sigma-form-textarea::placeholder {
+            color: #77839a !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-form-input:focus,
+        .sigma-contact-area .sigma-form-textarea:focus {
+            color: #17213a !important;
+            border-color: #1677ff !important;
+            outline: none;
+        }
+    </style>
+
 </head>
 
 <body>

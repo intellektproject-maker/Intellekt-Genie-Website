@@ -3,6 +3,51 @@
 
 <head>
     <?php include 'header-link.php' ?>
+
+    <style>
+        /* =========================================================
+           OUR TEAM PAGE - CO-FOUNDER TEXT VISIBILITY
+           Scoped only to the Co-Founder section.
+           ========================================================= */
+
+        .team-cofounder-section {
+            background-color: #f7f8fc !important;
+        }
+
+        .team-cofounder-section .sigma-about-details-wrap,
+        .team-cofounder-section .sigma-about-details-wrap h4,
+        .team-cofounder-section .sigma-about-details-wrap h6,
+        .team-cofounder-section .sigma-about-details-wrap p {
+            color: #17213a !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .team-cofounder-section .sigma-about-details-wrap h4 span {
+            color: #1769d5 !important;
+            opacity: 1 !important;
+        }
+
+        .team-cofounder-section .sigma-about-details-wrap h6 {
+            font-weight: 700;
+            color: #17213a !important;
+        }
+
+        .team-cofounder-section .sigma-about-details-wrap p {
+            color: #46536b !important;
+            line-height: 1.8;
+        }
+
+        /* Keep the Founder section readable on its darker background. */
+        .sigma-about-us:not(.team-cofounder-section) .sigma-about-details-wrap,
+        .sigma-about-us:not(.team-cofounder-section) .sigma-about-details-wrap h4,
+        .sigma-about-us:not(.team-cofounder-section) .sigma-about-details-wrap h6,
+        .sigma-about-us:not(.team-cofounder-section) .sigma-about-details-wrap p {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -46,7 +91,7 @@
         </div>
     </section>
 
-    <section class=" py-5 mt-3 sigma-about-us sigma-section-padding bg-brand bg-sigma-section-bg">
+    <section class="team-cofounder-section py-5 mt-3 sigma-about-us sigma-section-padding bg-brand bg-sigma-section-bg">
         <div class="container">
             <div class="grid grid-cols-12 gap-x-[40px] lg:gap-x-0 lg:gap-y-[30px]  ">
 
