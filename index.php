@@ -274,43 +274,157 @@
     </section>
     <!-- ================= END ROBOTICS WHY CHOOSE US SECTION ================= -->
 
-    <section class="container why-choose-us-cnt py-3">
-        <div class="row d-flex justify-content-center align-items-center py-4">
+    <!-- =========================================================
+     INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
+     ========================================================= -->
+<section class="robotics-choice-section" id="robotics-solutions">
+    <div class="robotics-choice-container">
 
-            <div class="col-12 title mb-5 d-flex justify-content-center align-items-center flex-column">
-                <h3 class="text-dark fw-bold"> Hereâ€™s why organizations choose us:</h3>
-                <img src="./assets/image/new-images/lamp-blue.png" alt="lamp-blue">
+        <!-- Section Heading -->
+        <div class="robotics-choice-heading">
+            <span class="robotics-choice-eyebrow">
+                BUILDING A SMARTER TOMORROW
+            </span>
+
+            <h2>
+                Why Choose
+                <span>Intellekt Robotics</span>
+            </h2>
+
+            <p>
+                We develop practical robotics and automation solutions
+                while training students through hands-on robotics internships.
+            </p>
+        </div>
+
+
+        <!-- Main Layout -->
+        <div class="robotics-choice-layout">
+
+            <!-- LEFT FEATURE COLUMN -->
+            <div class="robotics-choice-column robotics-choice-left">
+
+                <!-- Feature 1 -->
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Autonomous Mobile Robots</h3>
+                        <p>
+                            We develop AMR solutions that support
+                            intelligent material movement, navigation,
+                            and operational efficiency.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- Feature 2 -->
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Robotics and Automation</h3>
+                        <p>
+                            We design practical robotic systems,
+                            automation workflows, and engineering
+                            solutions for real-world applications.
+                        </p>
+                    </div>
+                </article>
+
             </div>
 
 
-            <div class="py-3 col-12 col-md-4 order-md-0 order-1 me-md-3 me-0 px-2">
-                <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Focused on SMEs</h5>
-                <p class=" text-justify">We exclusively work with small and mid-sized businesses, ensuring our solutions are relevant, practical, and growth-oriented.</p>
-            </div>
-            <div class="py-3  col-12 col-md-4   order-md-1 order-2">
-                <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Tailored Training Programs: </h5>
-                <p class=" text-justify">From leadership development to skill enhancement, we design programs that directly address your teamâ€™s needs and industry requirements.</p>
-            </div>
+            <!-- CENTER ROBOT VISUAL -->
+            <div class="robotics-choice-center">
 
-            <div class="py-3  col-12 col-md-4  order-md-2 order-3">
-                <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Organization Restructuring Expertise: </h5>
-                <p class=" text-justify">We streamline workflows, enhance productivity, and build stronger, collaborative teams through smart restructuring strategies.</p>
-            </div>
-            <div class=" col-12 col-md-4 d-flex justify-content-center align-items-center genie  order-md-3 order-0">
-                <img src="./assets/image/new-images/genie.png" alt="genie-anime">
-            </div>
-            <div class="py-3  col-12 col-md-4  order-md-4 order-4">
-                <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Measurable Results: </h5>
-                <p class=" text-justify">Our solutions are not just about trainingâ€”theyâ€™re about creating lasting change that shows up in performance and growth.</p>
-            </div>
-            <div class="py-3  col-12 col-md-3  order-md-5 order-5">
-                <h5 class="text-primary"> <i class="fas fa-graduation-cap"></i> Partner in Growth: </h5>
-                <p class=" text-justify">We donâ€™t just deliver sessions; we work alongside you as a growth partner to ensure long-term success.</p>
-            </div>
+                <div class="robotics-choice-orbit robotics-choice-orbit-one"></div>
+                <div class="robotics-choice-orbit robotics-choice-orbit-two"></div>
 
+                <div class="robotics-choice-center-label">
+                    <span>INTELLIGENT</span>
+                    <span>AUTONOMOUS</span>
+                    <span>SCALABLE</span>
+                </div>
+
+                <!-- Inline Spider Robot Illustration -->
+               <!-- Spider Robot Image -->
+<div class="robotics-spider-visual">
+    <img
+        src="assets/image/robotics-spider-bot.png"
+        alt="Intellekt Robotics spider robot waving hello"
+        class="robotics-spider-image"
+    >
+</div>
+
+
+            <!-- RIGHT FEATURE COLUMN -->
+            <div class="robotics-choice-column robotics-choice-right">
+
+                <!-- Feature 3 -->
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Student Internships</h3>
+                        <p>
+                            We welcome students as interns and provide
+                            practical training in robotics, AMRs,
+                            automation, AI, and embedded systems.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- Feature 4 -->
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Intelligent Perception</h3>
+                        <p>
+                            We explore computer vision, sensors,
+                            and intelligent systems that help robots
+                            understand and respond to their surroundings.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
 
         </div>
-    </section>
+
+
+        <!-- Bottom Feature -->
+        <article class="robotics-choice-bottom-card">
+            <div class="robotics-choice-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div class="robotics-choice-card-content">
+                <h3>Industry-Ready Innovation</h3>
+                <p>
+                    From student learning to real-world deployment,
+                    we focus on building reliable, scalable, and
+                    future-ready robotics capabilities.
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+<!-- =========================================================
+     END INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
+     ========================================================= -->
 
     <article class=" py-5 sigma-testimonial-area sigma-section-specing-has-bg  sigma-animation service bg-sigma-section-bg">
         <div class="container-fluid">

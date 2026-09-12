@@ -7080,3 +7080,884 @@ footer {
 #scrollToTopBtn:hover {
   background-color: #2d74f8;
 }
+/* ============================================================
+   INTELLEKT ROBOTICS
+   WHY CHOOSE US SECTION
+   ============================================================ */
+
+/* Main Section */
+.robotics-choice-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 24px 90px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(215, 232, 255, 0.72), transparent 34%),
+        linear-gradient(180deg, #f7fbff 0%, #edf5ff 100%);
+    color: #0b1b41;
+}
+
+/* Subtle technical background lines */
+.robotics-choice-section::before,
+.robotics-choice-section::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.45;
+}
+
+.robotics-choice-section::before {
+    width: 420px;
+    height: 420px;
+    left: -220px;
+    top: 220px;
+    border: 1px solid rgba(41, 117, 230, 0.12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(41, 117, 230, 0.025),
+        0 0 0 70px rgba(41, 117, 230, 0.025),
+        0 0 0 105px rgba(41, 117, 230, 0.025);
+}
+
+.robotics-choice-section::after {
+    width: 380px;
+    height: 380px;
+    right: -190px;
+    bottom: -180px;
+    border: 1px solid rgba(41, 117, 230, 0.12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 35px rgba(41, 117, 230, 0.025),
+        0 0 0 70px rgba(41, 117, 230, 0.025);
+}
+
+/* Container */
+.robotics-choice-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Heading */
+.robotics-choice-heading {
+    max-width: 850px;
+    margin: 0 auto 62px;
+    text-align: center;
+}
+
+.robotics-choice-eyebrow {
+    display: inline-block;
+    margin-bottom: 17px;
+    color: #5277ae;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 1.5;
+}
+
+.robotics-choice-heading h2 {
+    margin: 0;
+    color: #0a1b42;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.12;
+}
+
+.robotics-choice-heading h2 span {
+    display: block;
+    color: #1673e8;
+}
+
+.robotics-choice-heading p {
+    max-width: 680px;
+    margin: 20px auto 0;
+    color: #5c7091;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+/* Main Three-Column Layout */
+.robotics-choice-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(360px, 1.25fr) minmax(240px, 1fr);
+    align-items: center;
+    gap: 36px;
+}
+
+/* Feature Columns */
+.robotics-choice-column {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.robotics-choice-left {
+    align-items: flex-end;
+}
+
+.robotics-choice-right {
+    align-items: flex-start;
+}
+
+/* Feature Cards */
+.robotics-choice-card {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 360px;
+    min-height: 170px;
+    padding: 25px 24px;
+    gap: 17px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(196, 217, 244, 0.78);
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(40, 89, 148, 0.06);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.robotics-choice-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(22, 115, 232, 0.35);
+    box-shadow: 0 18px 40px rgba(40, 89, 148, 0.12);
+}
+
+/* Icons */
+.robotics-choice-icon {
+    display: flex;
+    flex: 0 0 52px;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #e5f0ff;
+    color: #124caa;
+    font-size: 21px;
+}
+
+.robotics-choice-card-content {
+    flex: 1;
+}
+
+.robotics-choice-card-content h3 {
+    margin: 2px 0 10px;
+    color: #10234c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.robotics-choice-card-content h3::after {
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-top: 12px;
+    background: #e2a51c;
+    content: "";
+}
+
+.robotics-choice-card-content p {
+    margin: 0;
+    color: #617594;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+/* Center Visual */
+.robotics-choice-center {
+    position: relative;
+    display: flex;
+    min-height: 480px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Orbit Rings */
+.robotics-choice-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(53, 132, 235, 0.13);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.robotics-choice-orbit-one {
+    width: 390px;
+    height: 390px;
+}
+
+.robotics-choice-orbit-two {
+    width: 300px;
+    height: 300px;
+    border-color: rgba(53, 132, 235, 0.10);
+}
+
+/* Center Label */
+.robotics-choice-center-label {
+    position: absolute;
+    top: 15px;
+    right: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #6b91c4;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.6;
+}
+
+.robotics-choice-center-label::after {
+    width: 38px;
+    height: 2px;
+    margin-top: 5px;
+    background: #e2a51c;
+    content: "";
+}
+
+/* Spider Robot */
+.robotics-spider-robot {
+    position: relative;
+    z-index: 2;
+    width: 330px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+/* Robot Body */
+.robotics-spider-body {
+    position: absolute;
+    left: 50%;
+    top: 84px;
+    width: 170px;
+    height: 150px;
+    transform: translateX(-50%);
+}
+
+/* Head */
+.robotics-spider-head {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 0;
+    width: 112px;
+    height: 72px;
+    transform: translateX(-50%);
+    border: 4px solid #b7c6d8;
+    border-radius: 22px 22px 18px 18px;
+    background: linear-gradient(145deg, #f9fcff, #b7c8d9);
+    box-shadow:
+        0 7px 0 #738ca7,
+        0 10px 20px rgba(22, 68, 122, 0.18);
+}
+
+/* Camera */
+.robotics-spider-camera {
+    position: absolute;
+    left: 50%;
+    top: -12px;
+    width: 25px;
+    height: 17px;
+    transform: translateX(-50%);
+    border: 3px solid #91a8bf;
+    border-radius: 8px 8px 4px 4px;
+    background: #203c61;
+}
+
+.robotics-spider-camera::after {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2e9dff;
+    box-shadow: 0 0 8px #2e9dff;
+    content: "";
+    transform: translateX(-50%);
+}
+
+/* Face Screen */
+.robotics-spider-face {
+    position: absolute;
+    left: 50%;
+    top: 19px;
+    display: flex;
+    width: 80px;
+    height: 33px;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    background: #122a4b;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.robot-eye {
+    display: block;
+    width: 12px;
+    height: 8px;
+    border-radius: 50%;
+    background: #48aaff;
+    box-shadow: 0 0 8px rgba(72, 170, 255, 0.9);
+}
+
+/* Chest */
+.robotics-spider-chest {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 154px;
+    height: 94px;
+    transform: translateX(-50%);
+    border: 4px solid #b6c7d8;
+    border-radius: 18px 18px 28px 28px;
+    background: linear-gradient(145deg, #f6faff, #c0d0df);
+    box-shadow:
+        0 7px 0 #738ca7,
+        0 12px 20px rgba(22, 68, 122, 0.16);
+}
+
+/* Brand Mark */
+.robotics-brand-mark {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #17365e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.05;
+    transform: translateX(-50%);
+}
+
+.robotics-brand-mark strong {
+    color: #1673e8;
+    font-size: 12px;
+}
+
+.robotics-brand-square {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #17365e;
+    border-radius: 3px;
+    background: #2b8cf0;
+    box-shadow: inset 5px 5px 0 #f5f9ff;
+}
+
+/* Chest Light */
+.robotics-chest-light {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    background: #268cff;
+    box-shadow: 0 0 10px rgba(38, 140, 255, 0.75);
+    transform: translateX(-50%);
+}
+
+/* Spider Legs */
+.robotics-spider-leg {
+    position: absolute;
+    z-index: 1;
+    width: 105px;
+    height: 28px;
+}
+
+.robotics-spider-leg span {
+    position: absolute;
+    display: block;
+    height: 13px;
+    border: 7px solid #5c7895;
+    border-radius: 20px;
+    background: #c8d6e3;
+    box-shadow: 0 3px 0 #3c5874;
+}
+
+.robotics-spider-leg span:first-child {
+    width: 65px;
+}
+
+.robotics-spider-leg span:last-child {
+    width: 48px;
+}
+
+/* Left legs */
+.robotics-leg-one {
+    left: 15px;
+    top: 125px;
+    transform: rotate(23deg);
+}
+
+.robotics-leg-one span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(-18deg);
+}
+
+.robotics-leg-one span:last-child {
+    left: -8px;
+    top: 20px;
+    transform: rotate(22deg);
+}
+
+.robotics-leg-two {
+    left: 8px;
+    top: 180px;
+    transform: rotate(5deg);
+}
+
+.robotics-leg-two span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(10deg);
+}
+
+.robotics-leg-two span:last-child {
+    left: -6px;
+    top: 21px;
+    transform: rotate(24deg);
+}
+
+.robotics-leg-three {
+    left: 28px;
+    top: 218px;
+    transform: rotate(-14deg);
+}
+
+.robotics-leg-three span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(15deg);
+}
+
+.robotics-leg-three span:last-child {
+    left: 4px;
+    top: 19px;
+    transform: rotate(35deg);
+}
+
+/* Right legs */
+.robotics-leg-four {
+    right: 15px;
+    top: 125px;
+    transform: scaleX(-1) rotate(23deg);
+}
+
+.robotics-leg-four span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(-18deg);
+}
+
+.robotics-leg-four span:last-child {
+    left: -8px;
+    top: 20px;
+    transform: rotate(22deg);
+}
+
+.robotics-leg-five {
+    right: 8px;
+    top: 180px;
+    transform: scaleX(-1) rotate(5deg);
+}
+
+.robotics-leg-five span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(10deg);
+}
+
+.robotics-leg-five span:last-child {
+    left: -6px;
+    top: 21px;
+    transform: rotate(24deg);
+}
+
+.robotics-leg-six {
+    right: 28px;
+    top: 218px;
+    transform: scaleX(-1) rotate(-14deg);
+}
+
+.robotics-leg-six span:first-child {
+    left: 0;
+    top: 0;
+    transform: rotate(15deg);
+}
+
+.robotics-leg-six span:last-child {
+    left: 4px;
+    top: 19px;
+    transform: rotate(35deg);
+}
+
+/* Raised Waving Arm */
+.robotics-wave-arm {
+    position: absolute;
+    z-index: 4;
+    left: 74px;
+    top: 60px;
+    width: 28px;
+    height: 90px;
+    border: 9px solid #5c7895;
+    border-radius: 18px;
+    background: #c8d6e3;
+    box-shadow: 0 3px 0 #3c5874;
+    transform: rotate(-38deg);
+    transform-origin: bottom center;
+}
+
+.robotics-wave-arm::before {
+    position: absolute;
+    left: -8px;
+    bottom: -12px;
+    width: 38px;
+    height: 28px;
+    border-radius: 50%;
+    background: #b6c7d8;
+    content: "";
+}
+
+/* Hand */
+.robotics-wave-hand {
+    position: absolute;
+    left: -17px;
+    top: -39px;
+    width: 42px;
+    height: 43px;
+    border: 6px solid #5c7895;
+    border-radius: 13px 13px 17px 17px;
+    background: #d8e4ee;
+    transform: rotate(-8deg);
+}
+
+.robotics-wave-hand span {
+    position: absolute;
+    bottom: 24px;
+    width: 9px;
+    height: 31px;
+    border: 4px solid #5c7895;
+    border-bottom: 0;
+    border-radius: 9px 9px 0 0;
+    background: #d8e4ee;
+}
+
+.robotics-wave-hand span:nth-child(1) {
+    left: -4px;
+    transform: rotate(-25deg);
+    transform-origin: bottom;
+}
+
+.robotics-wave-hand span:nth-child(2) {
+    left: 5px;
+    height: 38px;
+    transform: rotate(-12deg);
+    transform-origin: bottom;
+}
+
+.robotics-wave-hand span:nth-child(3) {
+    left: 14px;
+    height: 41px;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+}
+
+.robotics-wave-hand span:nth-child(4) {
+    left: 23px;
+    height: 35px;
+    transform: rotate(12deg);
+    transform-origin: bottom;
+}
+
+.robotics-wave-hand span:nth-child(5) {
+    left: 31px;
+    height: 25px;
+    transform: rotate(24deg);
+    transform-origin: bottom;
+}
+
+/* Wave Marks */
+.robotics-wave-arm::after {
+    position: absolute;
+    left: -38px;
+    top: -78px;
+    width: 38px;
+    height: 38px;
+    border-top: 4px solid #1673e8;
+    border-right: 4px solid #1673e8;
+    border-radius: 50%;
+    content: "";
+    transform: rotate(-25deg);
+}
+
+/* Center Caption */
+.robotics-choice-center-caption {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.robotics-choice-center-caption strong {
+    color: #173b70;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.robotics-choice-center-caption span {
+    margin-top: 5px;
+    color: #7891b1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+/* Bottom Card */
+.robotics-choice-bottom-card {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 420px;
+    min-height: 130px;
+    margin: 46px auto 0;
+    padding: 24px 28px;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(196, 217, 244, 0.78);
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(40, 89, 148, 0.06);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+/* Large Tablet */
+@media (max-width: 1199px) {
+    .robotics-choice-layout {
+        grid-template-columns: minmax(210px, 1fr) minmax(320px, 1.1fr) minmax(210px, 1fr);
+        gap: 22px;
+    }
+
+    .robotics-choice-card {
+        padding: 21px 18px;
+        gap: 13px;
+    }
+
+    .robotics-choice-icon {
+        flex-basis: 46px;
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+
+    .robotics-choice-card-content h3 {
+        font-size: 15px;
+    }
+
+    .robotics-choice-card-content p {
+        font-size: 12px;
+    }
+
+    .robotics-spider-robot {
+        transform: scale(0.9);
+    }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+    .robotics-choice-section {
+        padding: 75px 20px 70px;
+    }
+
+    .robotics-choice-heading {
+        margin-bottom: 40px;
+    }
+
+    .robotics-choice-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+    }
+
+    .robotics-choice-center {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        min-height: 430px;
+        order: 1;
+    }
+
+    .robotics-choice-left {
+        grid-column: 1;
+        grid-row: 2;
+        align-items: stretch;
+        order: 2;
+    }
+
+    .robotics-choice-right {
+        grid-column: 2;
+        grid-row: 2;
+        align-items: stretch;
+        order: 3;
+    }
+
+    .robotics-choice-card {
+        max-width: none;
+    }
+
+    .robotics-choice-center-label {
+        right: 15%;
+    }
+
+    .robotics-choice-orbit-one {
+        width: 350px;
+        height: 350px;
+    }
+
+    .robotics-choice-orbit-two {
+        width: 270px;
+        height: 270px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .robotics-choice-section {
+        padding: 60px 16px 55px;
+    }
+
+    .robotics-choice-eyebrow {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .robotics-choice-heading h2 {
+        font-size: 31px;
+        letter-spacing: -0.8px;
+    }
+
+    .robotics-choice-heading p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .robotics-choice-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .robotics-choice-center {
+        width: 100%;
+        min-height: 390px;
+        order: 1;
+    }
+
+    .robotics-choice-left,
+    .robotics-choice-right {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .robotics-choice-left {
+        order: 2;
+    }
+
+    .robotics-choice-right {
+        order: 3;
+    }
+
+    .robotics-choice-card {
+        min-height: auto;
+        padding: 22px 19px;
+    }
+
+    .robotics-choice-card-content h3 {
+        font-size: 16px;
+    }
+
+    .robotics-choice-card-content p {
+        font-size: 13px;
+    }
+
+    .robotics-choice-center-label {
+        top: 0;
+        right: 0;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .robotics-choice-orbit-one {
+        width: 300px;
+        height: 300px;
+    }
+
+    .robotics-choice-orbit-two {
+        width: 235px;
+        height: 235px;
+    }
+
+    .robotics-spider-robot {
+        transform: scale(0.78);
+    }
+
+    .robotics-choice-bottom-card {
+        margin-top: 25px;
+        padding: 22px 19px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 400px) {
+    .robotics-choice-heading h2 {
+        font-size: 27px;
+    }
+
+    .robotics-choice-center {
+        min-height: 350px;
+    }
+
+    .robotics-choice-orbit-one {
+        width: 270px;
+        height: 270px;
+    }
+
+    .robotics-choice-orbit-two {
+        width: 215px;
+        height: 215px;
+    }
+
+    .robotics-spider-robot {
+        transform: scale(0.68);
+    }
+
+    .robotics-choice-center-label {
+        display: none;
+    }
+}
