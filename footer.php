@@ -1,3 +1,4 @@
+<?php if (basename($_SERVER['SCRIPT_NAME']) === 'index.php'): ?>
   <button id="scrollToTopBtn" title="Go to top" class=" fs-5 "><i class="fas fa-arrow-up"></i></button>
 
   <footer class="container-fluid" id="footer">
@@ -69,7 +70,7 @@
           </div>
       </div>
   </footer>
-
+<?php endif; ?>
 
   <script src="assets/js/style.js"></script>
   <script src="assets/js/jquery.min.js"></script>
