@@ -9,7 +9,7 @@
  <link rel="icon" href="assets/image/new-images/fav-icon.png" type="image/png">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
 		rel="stylesheet">
@@ -26,4 +26,5 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/robotics-theme.css">
+	<link rel="stylesheet" href="assets/css/robotics-choice-layout.css">
 </head>
