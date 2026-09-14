@@ -13,95 +13,45 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav ms-auto align-items-lg-center">
-				<!-- 1. Home -->
 				<li class="nav-item robotics-nav-item">
-					<a class="nav-link robotics-nav-link <?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : ''; ?>" aria-current="page" href="index.php">
-						Home
-					</a>
+					<a class="nav-link robotics-nav-link <?php echo ($currentPage == 'index.php' || $currentPage == '') ? 'active' : ''; ?>" aria-current="page" href="index.php">Home</a>
 				</li>
 
-				<!-- 2. Our Work -->
 				<li class="nav-item dropdown robotics-nav-item">
-					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Our Work
-					</a>
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['amr.php', 'spiderbot.php', 'services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Work</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
 						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="#explore-amrs">
+							<a class="dropdown-item robotics-dropdown-item" href="amr.php">
 								<span><i class="fa-solid fa-robot me-2"></i> Autonomous Mobile Robots (AMRs)</span>
 								<i class="fa-solid fa-arrow-right"></i>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="#explore-arms">
-								<span><i class="fa-solid fa-microchip me-2"></i> Robotic Arms & Manipulation</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="#automation">
-								<span><i class="fa-solid fa-gears me-2"></i> Industrial Automation & Vision</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="services.php">
-								<span><i class="fa-solid fa-industry me-2"></i> Custom Deployment Solutions</span>
+							<a class="dropdown-item robotics-dropdown-item" href="spiderbot.php">
+								<span><i class="fa-solid fa-spider me-2"></i> Spiderbot</span>
 								<i class="fa-solid fa-arrow-right"></i>
 							</a>
 						</li>
 					</ul>
 				</li>
 
-				<!-- 3. Company -->
 				<li class="nav-item dropdown robotics-nav-item">
-					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['company-profile.php', 'our-team.php', 'leadership.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Company
-					</a>
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['company-profile.php', 'our-team.php', 'leadership.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="company-profile.php">
-								<span><i class="fa-solid fa-building me-2"></i> Company Profile</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="our-team.php">
-								<span><i class="fa-solid fa-users me-2"></i> Our Team & Leadership</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="company-profile.php"><span><i class="fa-solid fa-building me-2"></i> Company Profile</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="our-team.php"><span><i class="fa-solid fa-users me-2"></i> Our Team & Leadership</span><i class="fa-solid fa-arrow-right"></i></a></li>
 					</ul>
 				</li>
 
-				<!-- 4. Resources -->
 				<li class="nav-item dropdown robotics-nav-item">
-					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Resources
-					</a>
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="gallary.php">
-								<span><i class="fa-solid fa-photo-film me-2"></i> Showcase & Gallery</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
-						<li>
-							<a class="dropdown-item robotics-dropdown-item" href="programmes.php">
-								<span><i class="fa-solid fa-book-open me-2"></i> Technical Documentation</span>
-								<i class="fa-solid fa-arrow-right"></i>
-							</a>
-						</li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="gallary.php"><span><i class="fa-solid fa-photo-film me-2"></i> Showcase & Gallery</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="programmes.php"><span><i class="fa-solid fa-book-open me-2"></i> Technical Documentation</span><i class="fa-solid fa-arrow-right"></i></a></li>
 					</ul>
 				</li>
 
-				<!-- Navbar CTA Button -->
-				<li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-					<a href="contact-us.php" class="robotics-nav-btn">
-						<span>Contact Us</span>
-						<i class="fa-solid fa-arrow-right-long"></i>
-					</a>
-				</li>
+				<li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a href="contact-us.php" class="robotics-nav-btn"><span>Contact Us</span><i class="fa-solid fa-arrow-right-long"></i></a></li>
 			</ul>
 		</div>
 	</div>
