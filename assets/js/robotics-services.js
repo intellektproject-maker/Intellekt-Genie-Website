@@ -53,7 +53,6 @@
             const image = slide.querySelector('.service-image');
             const titleLink = slide.querySelector('.sigma-post-title a');
             const list = slide.querySelector('.sigma-post-excerpt');
-            const viewMore = slide.querySelector('.slide-btn a');
             const details = slide.querySelector('.sigma-post-details-wrap');
 
             if (!image || !titleLink || !list || !details) return;
@@ -65,9 +64,10 @@
 
             list.innerHTML = service.points.map(point => `<li>${point}</li>`).join('');
 
-            if (viewMore) {
-                viewMore.href = 'services.php';
-                viewMore.textContent = 'View More';
+            // Remove the original View More button and its wrapper.
+            const viewMoreWrapper = slide.querySelector('.slide-btn');
+            if (viewMoreWrapper) {
+                viewMoreWrapper.remove();
             }
 
             if (!details.querySelector('.robotics-service-icon')) {
