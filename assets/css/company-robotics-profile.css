@@ -1,0 +1,140 @@
+/* ========================================================================== 
+   COMPANY PROFILE - ROBOTICS THEME OVERRIDES
+   Scoped to the company profile structure without changing other pages.
+   ========================================================================== */
+
+body:has(.sigma-why-choose-us) {
+  background-color: #080b12 !important;
+  color: #e2e8f0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 12% 25%, rgba(37, 99, 235, 0.12), transparent 32%),
+    radial-gradient(circle at 88% 72%, rgba(0, 210, 255, 0.06), transparent 30%);
+  background-size: 42px 42px, 42px 42px, auto, auto;
+  background-attachment: fixed;
+}
+
+body:has(.sigma-why-choose-us) > section,
+body:has(.sigma-why-choose-us) > div,
+body:has(.sigma-why-choose-us) > article {
+  background-color: transparent !important;
+  color: #e2e8f0;
+}
+
+body:has(.sigma-why-choose-us) .breadcrumb-main {
+  background: linear-gradient(180deg, rgba(8, 11, 18, 0.98), rgba(8, 15, 30, 0.92)) !important;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.22);
+}
+
+body:has(.sigma-why-choose-us) .sigma-shop-details-area,
+body:has(.sigma-why-choose-us) .sigma-why-choose-us,
+body:has(.sigma-why-choose-us) .service {
+  position: relative;
+  background-color: transparent !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-shop-details-area::before,
+body:has(.sigma-why-choose-us) .sigma-why-choose-us::before,
+body:has(.sigma-why-choose-us) .service::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  z-index: 0;
+}
+
+body:has(.sigma-why-choose-us) .sigma-shop-details-area > *,
+body:has(.sigma-why-choose-us) .sigma-why-choose-us > *,
+body:has(.sigma-why-choose-us) .service > * {
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.sigma-why-choose-us) .sigma-shop-details-area .sigma-tab-items {
+  border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-tab-item {
+  color: #94a3b8 !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-tab-item.active,
+body:has(.sigma-why-choose-us) .sigma-tab-item:hover {
+  color: #60a5fa !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-product-desc,
+body:has(.sigma-why-choose-us) .sigma-section-title,
+body:has(.sigma-why-choose-us) .sigma-section-title-wrap p,
+body:has(.sigma-why-choose-us) .sigma-services-title,
+body:has(.sigma-why-choose-us) .sigma-services-text,
+body:has(.sigma-why-choose-us) .sigma-post-title,
+body:has(.sigma-why-choose-us) .sigma-post-title a,
+body:has(.sigma-why-choose-us) .sigma-post-excerpt,
+body:has(.sigma-why-choose-us) .sigma-post-excerpt li {
+  color: #e2e8f0 !important;
+}
+
+body:has(.sigma-why-choose-us) .text-primary,
+body:has(.sigma-why-choose-us) .text-sigma-secondary {
+  color: #3b82f6 !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-services-item {
+  background: rgba(13, 21, 37, 0.78) !important;
+  border: 1px solid rgba(59, 130, 246, 0.38);
+  border-radius: 12px;
+  min-height: 238px;
+  padding: 28px 20px !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body:has(.sigma-why-choose-us) .sigma-services-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96, 165, 250, 0.75);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.16);
+}
+
+body:has(.sigma-why-choose-us) .sigma-testimonial-wrap {
+  background: rgba(13, 21, 37, 0.9) !important;
+  border-color: rgba(59, 130, 246, 0.32) !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-testimonial-wrap .sigma-post-title a {
+  color: #f8fafc !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-testimonial-wrap .sigma-post-excerpt {
+  color: #cbd5e1 !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-testimonial-wrap .slide-btn .btn {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #2563eb !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-testimonial-wrap svg path {
+  stroke: #93c5fd !important;
+}
+
+body:has(.sigma-why-choose-us) .sigma-services-icon {
+  background: rgba(37, 99, 235, 0.14) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+body:has(.sigma-why-choose-us) .sigma-services-icon img {
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 767.98px) {
+  body:has(.sigma-why-choose-us) .sigma-services-item {
+    min-height: auto;
+  }
+}
