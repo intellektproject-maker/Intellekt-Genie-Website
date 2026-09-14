@@ -103,7 +103,7 @@
 }
 
 .robotics-services-section .sigma-post-excerpt {
-    margin: 15px 0 22px;
+    margin: 15px 0 0;
     padding-top: 0 !important;
     color: #dce8ff !important;
     font-size: 14px !important;
@@ -118,33 +118,9 @@
     color: #4b91ff;
 }
 
+/* View More buttons are intentionally removed from every service card. */
 .robotics-services-section .slide-btn {
-    margin-top: auto;
-}
-
-.robotics-services-section .slide-btn .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    border-radius: 6px;
-    background: #1268ed;
-    color: #fff !important;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background .25s ease, transform .25s ease;
-}
-
-.robotics-services-section .slide-btn .btn::after {
-    content: '→';
-    font-size: 17px;
-    line-height: 1;
-}
-
-.robotics-services-section .slide-btn .btn:hover {
-    background: #2b82ff;
-    transform: translateY(-2px);
+    display: none !important;
 }
 
 .robotics-services-section .robotics-service-icon {
