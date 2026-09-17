@@ -5,40 +5,56 @@
     <title>Autonomous Mobile Robots | Intellekt Genie</title>
     <style>
         :root {
-            --amr-navy: #050b18;
-            --amr-blue: #2563eb;
-            --amr-light-blue: #60a5fa;
-            --amr-text: #e8eef9;
-            --amr-muted: #a9b7cc;
-            --amr-panel: #0c1627;
+            --amr-ink: #05080d;
+            --amr-white: #f7f9fd;
+            --amr-blue: #63adff;
+            --amr-muted: #c2ccda;
+            --amr-line: rgba(184, 204, 230, .24);
         }
 
         .amr-page {
-            background: var(--amr-navy);
-            color: var(--amr-text);
+            background: var(--amr-ink);
+            color: var(--amr-white);
             overflow: hidden;
         }
 
         .amr-hero {
             position: relative;
-            min-height: 610px;
+            min-height: 650px;
             display: flex;
             align-items: center;
-            background:
-                radial-gradient(circle at 78% 40%, rgba(37, 99, 235, .22), transparent 34%),
-                linear-gradient(135deg, #050b18 0%, #081326 60%, #0b1b35 100%);
-            border-bottom: 1px solid rgba(148, 163, 184, .13);
+            isolation: isolate;
+            background-color: #05080d;
+            background-image:
+                linear-gradient(90deg, rgba(5, 8, 13, .98) 0%, rgba(5, 8, 13, .91) 36%, rgba(5, 8, 13, .46) 64%, rgba(5, 8, 13, .18) 100%),
+                linear-gradient(0deg, rgba(5, 8, 13, .28), rgba(5, 8, 13, .08)),
+                url('assets/image/new-images/amr.png');
+            background-repeat: no-repeat;
+            background-position: center, center, right 12% center;
+            background-size: cover, cover, auto 92%;
+            border-bottom: 1px solid rgba(148, 163, 184, .12);
         }
 
         .amr-hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            opacity: .18;
-            background-image: linear-gradient(rgba(96, 165, 250, .2) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(96, 165, 250, .2) 1px, transparent 1px);
-            background-size: 72px 72px;
-            mask-image: linear-gradient(to right, black, transparent 85%);
+            z-index: -1;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(96, 165, 250, .18) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(96, 165, 250, .18) 1px, transparent 1px);
+            background-size: 78px 78px;
+            mask-image: linear-gradient(to right, black 0%, transparent 78%);
+            pointer-events: none;
+        }
+
+        .amr-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(ellipse at 78% 58%, rgba(68, 137, 214, .13), transparent 42%);
             pointer-events: none;
         }
 
@@ -49,83 +65,96 @@
             z-index: 1;
         }
 
-        .amr-hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            gap: 65px;
-            align-items: center;
-            padding: 100px 0 85px;
+        .amr-hero-content {
+            max-width: 760px;
+            padding: 112px 0 96px;
         }
 
         .amr-eyebrow {
-            color: var(--amr-light-blue);
+            color: var(--amr-blue);
             font-size: 13px;
             font-weight: 700;
-            letter-spacing: 2.4px;
+            letter-spacing: 2.6px;
             text-transform: uppercase;
-            margin-bottom: 22px;
+            margin-bottom: 23px;
         }
 
         .amr-hero h1 {
-            font-size: clamp(40px, 5vw, 66px);
-            line-height: 1.08;
-            letter-spacing: -2px;
-            margin: 0 0 24px;
-            color: #fff;
-            font-weight: 750;
+            max-width: 680px;
+            font-size: clamp(43px, 5.4vw, 76px);
+            line-height: 1.03;
+            letter-spacing: -3px;
+            margin: 0 0 27px;
+            color: var(--amr-white);
+            font-weight: 800;
         }
 
         .amr-hero h1 span {
-            color: #75b7ff;
+            color: var(--amr-blue);
         }
 
         .amr-hero-copy {
-            max-width: 560px;
+            max-width: 650px;
             color: var(--amr-muted);
             font-size: 18px;
-            line-height: 1.85;
+            line-height: 1.75;
             margin: 0;
         }
 
-        .amr-hero-image {
+        .amr-capabilities {
             display: flex;
-            justify-content: center;
+            align-items: stretch;
+            margin-top: 48px;
+            max-width: 680px;
+        }
+
+        .amr-capability {
+            display: flex;
             align-items: center;
-            min-height: 430px;
+            gap: 15px;
+            min-height: 55px;
+            padding: 0 27px;
+            border-right: 1px solid var(--amr-line);
         }
 
-        .amr-hero-image::before {
-            content: "";
-            position: absolute;
-            width: 390px;
-            height: 390px;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, .18);
-            filter: blur(55px);
-            z-index: -1;
+        .amr-capability:first-child {
+            padding-left: 0;
         }
 
-        .amr-hero-image img {
-            width: min(100%, 410px);
-            max-height: 500px;
-            object-fit: contain;
-            filter: drop-shadow(0 28px 35px rgba(0, 0, 0, .5));
+        .amr-capability:last-child {
+            border-right: 0;
+        }
+
+        .amr-capability-icon {
+            width: 31px;
+            height: 31px;
+            flex: 0 0 31px;
+            color: var(--amr-blue);
+        }
+
+        .amr-capability strong {
+            display: block;
+            color: #f5f8ff;
+            font-size: 15px;
+            line-height: 1.35;
+            font-weight: 650;
         }
 
         .amr-section {
+            position: relative;
             padding: 92px 0;
             background: #f5f8fc;
             color: #0b1730;
         }
 
         .amr-section-heading {
-            text-align: center;
             max-width: 760px;
             margin: 0 auto 52px;
+            text-align: center;
         }
 
         .amr-section-heading .amr-eyebrow {
-            color: #2563eb;
+            color: #438fe8;
             margin-bottom: 14px;
         }
 
@@ -133,7 +162,7 @@
             font-size: clamp(30px, 4vw, 44px);
             line-height: 1.2;
             margin: 0 0 18px;
-            letter-spacing: -1px;
+            letter-spacing: -1.2px;
         }
 
         .amr-section-heading p {
@@ -172,7 +201,7 @@
             border-radius: 13px;
             background: #e8f1ff;
             color: #2563eb;
-            font-size: 23px;
+            font-size: 14px;
             font-weight: 700;
             margin-bottom: 20px;
         }
@@ -241,22 +270,36 @@
         }
 
         @media (max-width: 900px) {
-            .amr-hero-grid,
-            .amr-application-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
+            .amr-hero {
+                background-position: center, center, 75% center;
+                background-size: cover, cover, auto 72%;
             }
 
-            .amr-hero-grid {
-                padding: 75px 0 60px;
+            .amr-hero-content {
+                max-width: 650px;
+                padding: 78px 0 70px;
             }
 
-            .amr-hero-image {
-                min-height: auto;
+            .amr-capabilities {
+                flex-wrap: wrap;
+                gap: 18px 0;
+            }
+
+            .amr-capability {
+                padding: 0 18px;
+            }
+
+            .amr-capability:first-child {
+                padding-left: 0;
             }
 
             .amr-feature-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .amr-application-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
             }
         }
 
@@ -265,8 +308,34 @@
                 width: min(100% - 32px, 1180px);
             }
 
+            .amr-hero {
+                min-height: auto;
+                background-position: center, center, 70% 20%;
+                background-size: cover, cover, auto 42%;
+            }
+
+            .amr-hero-content {
+                padding: 70px 0 55px;
+            }
+
             .amr-hero h1 {
-                letter-spacing: -1px;
+                letter-spacing: -1.5px;
+            }
+
+            .amr-hero-copy {
+                font-size: 16px;
+            }
+
+            .amr-capabilities {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 17px;
+            }
+
+            .amr-capability,
+            .amr-capability:first-child {
+                padding: 0;
+                border-right: 0;
             }
 
             .amr-feature-grid,
@@ -286,17 +355,37 @@
 
     <main class="amr-page">
         <section class="amr-hero">
-            <div class="amr-container amr-hero-grid">
-                <div>
+            <div class="amr-container">
+                <div class="amr-hero-content">
                     <div class="amr-eyebrow">Intellekt Robotics</div>
                     <h1>Autonomous Mobile <span>Robots</span></h1>
                     <p class="amr-hero-copy">
                         Explore the technology behind intelligent mobile robots designed to move materials,
                         navigate dynamic environments, and support safer, more efficient operations.
                     </p>
-                </div>
-                <div class="amr-hero-image">
-                    <img src="assets/image/new-images/amr.png" alt="Autonomous mobile robot used for industrial automation">
+
+                    <div class="amr-capabilities" aria-label="AMR capabilities">
+                        <div class="amr-capability">
+                            <svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                <path d="M4 15.5 28 4 17 28l-2.5-10.5L4 15.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                            </svg>
+                            <strong>Autonomous<br>Navigation</strong>
+                        </div>
+                        <div class="amr-capability">
+                            <svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                <path d="m16 3 11 6.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                                <path d="m5 9.5 11 6.5 11-6.5M16 16v13" stroke="currentColor" stroke-width="2.2"/>
+                            </svg>
+                            <strong>Material<br>Movement</strong>
+                        </div>
+                        <div class="amr-capability">
+                            <svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                <path d="m19.2 3.8 1.2 3.1c.8.3 1.6.7 2.3 1.3l3.2-.7 2.1 3.6-2.2 2.5c.1.5.2 1.1.2 1.7s-.1 1.2-.2 1.7l2.2 2.5-2.1 3.6-3.2-.7c-.7.6-1.5 1-2.3 1.3l-1.2 3.1h-4.2l-1.2-3.1c-.8-.3-1.6-.7-2.3-1.3l-3.2.7-2.1-3.6 2.2-2.5c-.1-.5-.2-1.1-.2-1.7s.1-1.2.2-1.7L6.2 11l2.1-3.6 3.2.7c.7-.6 1.5-1 2.3-1.3L15 3.8h4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="17.1" cy="15.3" r="3.2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <strong>Flexible<br>Deployment</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
