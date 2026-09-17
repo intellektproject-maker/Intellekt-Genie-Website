@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include 'header-link.php'; ?>
-    <title>Spiderbot & Legged Robotics | Intellekt Genie</title>
+    <title>Spiderbot &amp; Legged Robotics | Intellekt Genie</title>
     <style>
         :root {
             --spider-white: #f7f9fd;
@@ -52,9 +52,13 @@
             z-index: 1;
         }
 
+        /* Keep the copy in its own column so the hero image can never cover it. */
         .spider-hero-content {
-            max-width: 610px;
+            width: 48%;
+            max-width: 520px;
             padding: 52px 0 56px;
+            position: relative;
+            z-index: 2;
         }
 
         .spider-eyebrow {
@@ -67,8 +71,8 @@
         }
 
         .spider-hero h1 {
-            max-width: 610px;
-            font-size: clamp(40px, 4.2vw, 58px);
+            max-width: 510px;
+            font-size: clamp(40px, 4vw, 58px);
             line-height: 1.02;
             letter-spacing: -2.5px;
             margin: 0 0 18px;
@@ -79,7 +83,7 @@
         .spider-hero h1 span { color: var(--spider-blue); }
 
         .spider-hero-copy {
-            max-width: 540px;
+            max-width: 500px;
             color: #d7e1ef;
             font-size: 15px;
             line-height: 1.62;
@@ -90,7 +94,7 @@
             display: flex;
             align-items: stretch;
             margin-top: 25px;
-            max-width: 570px;
+            max-width: 520px;
         }
 
         .spider-capability {
@@ -98,12 +102,12 @@
             align-items: center;
             gap: 10px;
             min-height: 44px;
-            padding: 0 20px;
+            padding: 0 17px;
             border-right: 1px solid var(--spider-line);
         }
 
         .spider-capability:first-child { padding-left: 0; }
-        .spider-capability:last-child { border-right: 0; }
+        .spider-capability:last-child { border-right: 0; padding-right: 0; }
 
         .spider-capability-icon {
             width: 26px;
@@ -122,23 +126,24 @@
 
         .spider-visual {
             position: absolute;
-            right: max(24px, calc((100vw - 1180px) / 2));
+            right: 0;
             top: 0;
-            width: min(48%, 610px);
+            width: 50%;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             pointer-events: none;
+            z-index: 1;
         }
 
         .spider-visual::after {
             content: "";
             position: absolute;
-            width: 75%;
+            width: 85%;
             height: 45%;
-            right: 4%;
-            bottom: 13%;
+            right: 0;
+            bottom: 12%;
             background: radial-gradient(ellipse, rgba(0, 0, 0, .48), transparent 70%);
             filter: blur(12px);
             z-index: -1;
@@ -150,7 +155,7 @@
             max-width: 590px;
             max-height: 350px;
             object-fit: contain;
-            object-position: center;
+            object-position: right center;
             filter: drop-shadow(0 24px 24px rgba(0, 0, 0, .24));
         }
 
@@ -189,7 +194,7 @@
 
         @media (max-width: 900px) {
             .spider-hero { min-height: 560px; }
-            .spider-hero-content { max-width: 570px; padding: 65px 0 70px; }
+            .spider-hero-content { width: 54%; max-width: 570px; padding: 65px 0 70px; }
             .spider-visual { width: 48%; right: 0; opacity: .72; }
             .spider-capabilities { flex-wrap: wrap; gap: 18px 0; }
             .spider-capability { padding: 0 18px; }
@@ -201,11 +206,11 @@
         @media (max-width: 560px) {
             .spider-container { width: min(100% - 32px, 1180px); }
             .spider-hero { min-height: auto; border-radius: 0 0 50% 50% / 0 0 4% 4%; }
-            .spider-hero-content { padding: 58px 0 30px; }
+            .spider-hero-content { width: 100%; padding: 58px 0 30px; }
             .spider-hero h1 { font-size: clamp(38px, 11vw, 52px); letter-spacing: -1.5px; }
             .spider-hero-copy { font-size: 15px; }
-            .spider-visual { position: relative; right: auto; top: auto; width: 100%; height: 230px; opacity: 1; }
-            .spider-visual img { max-height: 230px; }
+            .spider-visual { position: relative; right: auto; top: auto; width: 100%; height: 230px; opacity: 1; justify-content: center; }
+            .spider-visual img { max-height: 230px; object-position: center; }
             .spider-capabilities { display: grid; grid-template-columns: 1fr; gap: 17px; }
             .spider-capability, .spider-capability:first-child { padding: 0; border-right: 0; }
             .spider-feature-grid, .spider-list { grid-template-columns: 1fr; }
