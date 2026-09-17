@@ -12,27 +12,32 @@
             --amr-line: rgba(184, 204, 230, .24);
         }
 
+        * { box-sizing: border-box; }
+
         .amr-page {
-            background: var(--amr-ink);
+            background: #f4f7fb;
             color: var(--amr-white);
             overflow: hidden;
         }
 
+        /* Reference-style full-width hero with a soft, angled lower edge. */
         .amr-hero {
             position: relative;
-            min-height: 650px;
+            min-height: 620px;
             display: flex;
             align-items: center;
             isolation: isolate;
-            background-color: #05080d;
+            overflow: hidden;
+            background-color: #070b10;
             background-image:
-                linear-gradient(90deg, rgba(5, 8, 13, .98) 0%, rgba(5, 8, 13, .91) 36%, rgba(5, 8, 13, .46) 64%, rgba(5, 8, 13, .18) 100%),
-                linear-gradient(0deg, rgba(5, 8, 13, .28), rgba(5, 8, 13, .08)),
+                linear-gradient(90deg, rgba(4, 8, 13, .98) 0%, rgba(4, 8, 13, .94) 30%, rgba(4, 8, 13, .62) 57%, rgba(4, 8, 13, .22) 100%),
+                linear-gradient(180deg, rgba(4, 8, 13, .12) 0%, rgba(4, 8, 13, .18) 70%, rgba(4, 8, 13, .55) 100%),
                 url('assets/image/new-images/amr.png');
             background-repeat: no-repeat;
-            background-position: center, center, right 12% center;
-            background-size: cover, cover, auto 92%;
-            border-bottom: 1px solid rgba(148, 163, 184, .12);
+            background-position: center, center, right center;
+            background-size: cover, cover, auto 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 91%, 62% 94%, 40% 96%, 20% 94%, 0 88%);
+            padding-bottom: 55px;
         }
 
         .amr-hero::before {
@@ -40,12 +45,12 @@
             position: absolute;
             inset: 0;
             z-index: -1;
-            opacity: .16;
+            opacity: .13;
             background-image:
-                linear-gradient(rgba(96, 165, 250, .18) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(96, 165, 250, .18) 1px, transparent 1px);
+                linear-gradient(rgba(96, 165, 250, .2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(96, 165, 250, .2) 1px, transparent 1px);
             background-size: 78px 78px;
-            mask-image: linear-gradient(to right, black 0%, transparent 78%);
+            mask-image: linear-gradient(to right, black 0%, transparent 76%);
             pointer-events: none;
         }
 
@@ -54,7 +59,9 @@
             position: absolute;
             inset: 0;
             z-index: -1;
-            background: radial-gradient(ellipse at 78% 58%, rgba(68, 137, 214, .13), transparent 42%);
+            background:
+                radial-gradient(ellipse at 76% 52%, rgba(73, 139, 214, .14), transparent 38%),
+                linear-gradient(90deg, transparent 45%, rgba(0, 0, 0, .12) 100%);
             pointer-events: none;
         }
 
@@ -66,8 +73,8 @@
         }
 
         .amr-hero-content {
-            max-width: 760px;
-            padding: 112px 0 96px;
+            max-width: 690px;
+            padding: 108px 0 72px;
         }
 
         .amr-eyebrow {
@@ -76,54 +83,47 @@
             font-weight: 700;
             letter-spacing: 2.6px;
             text-transform: uppercase;
-            margin-bottom: 23px;
+            margin-bottom: 22px;
         }
 
         .amr-hero h1 {
             max-width: 680px;
-            font-size: clamp(43px, 5.4vw, 76px);
+            font-size: clamp(43px, 5.3vw, 76px);
             line-height: 1.03;
             letter-spacing: -3px;
-            margin: 0 0 27px;
-            color: var(--amr-white);
+            margin: 0 0 26px;
+            color: #ffffff;
             font-weight: 800;
         }
 
-        .amr-hero h1 span {
-            color: var(--amr-blue);
-        }
+        .amr-hero h1 span { color: var(--amr-blue); }
 
         .amr-hero-copy {
             max-width: 650px;
-            color: var(--amr-muted);
+            color: #d0d9e7;
             font-size: 18px;
-            line-height: 1.75;
+            line-height: 1.72;
             margin: 0;
         }
 
         .amr-capabilities {
             display: flex;
             align-items: stretch;
-            margin-top: 48px;
+            margin-top: 43px;
             max-width: 680px;
         }
 
         .amr-capability {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             min-height: 55px;
             padding: 0 27px;
             border-right: 1px solid var(--amr-line);
         }
 
-        .amr-capability:first-child {
-            padding-left: 0;
-        }
-
-        .amr-capability:last-child {
-            border-right: 0;
-        }
+        .amr-capability:first-child { padding-left: 0; }
+        .amr-capability:last-child { border-right: 0; }
 
         .amr-capability-icon {
             width: 31px;
@@ -142,7 +142,8 @@
 
         .amr-section {
             position: relative;
-            padding: 92px 0;
+            margin-top: -42px;
+            padding: 112px 0 92px;
             background: #f5f8fc;
             color: #0b1730;
         }
@@ -271,8 +272,9 @@
 
         @media (max-width: 900px) {
             .amr-hero {
-                background-position: center, center, 75% center;
-                background-size: cover, cover, auto 72%;
+                min-height: 650px;
+                background-position: center, center, 78% center;
+                background-size: cover, cover, auto 100%;
             }
 
             .amr-hero-content {
@@ -285,46 +287,26 @@
                 gap: 18px 0;
             }
 
-            .amr-capability {
-                padding: 0 18px;
-            }
-
-            .amr-capability:first-child {
-                padding-left: 0;
-            }
-
-            .amr-feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .amr-application-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
+            .amr-capability { padding: 0 18px; }
+            .amr-capability:first-child { padding-left: 0; }
+            .amr-feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .amr-application-grid { grid-template-columns: 1fr; gap: 35px; }
         }
 
         @media (max-width: 560px) {
-            .amr-container {
-                width: min(100% - 32px, 1180px);
-            }
+            .amr-container { width: min(100% - 32px, 1180px); }
 
             .amr-hero {
                 min-height: auto;
-                background-position: center, center, 70% 20%;
-                background-size: cover, cover, auto 42%;
+                clip-path: polygon(0 0, 100% 0, 100% 96%, 70% 98%, 35% 100%, 0 96%);
+                background-position: center, center, 72% 20%;
+                background-size: cover, cover, auto 48%;
+                padding-bottom: 35px;
             }
 
-            .amr-hero-content {
-                padding: 70px 0 55px;
-            }
-
-            .amr-hero h1 {
-                letter-spacing: -1.5px;
-            }
-
-            .amr-hero-copy {
-                font-size: 16px;
-            }
+            .amr-hero-content { padding: 70px 0 55px; }
+            .amr-hero h1 { letter-spacing: -1.5px; }
+            .amr-hero-copy { font-size: 16px; }
 
             .amr-capabilities {
                 display: grid;
@@ -339,14 +321,9 @@
             }
 
             .amr-feature-grid,
-            .amr-list {
-                grid-template-columns: 1fr;
-            }
-
-            .amr-section,
-            .amr-application {
-                padding: 65px 0;
-            }
+            .amr-list { grid-template-columns: 1fr; }
+            .amr-section, .amr-application { padding: 65px 0; }
+            .amr-section { margin-top: -20px; }
         }
     </style>
 </head>
