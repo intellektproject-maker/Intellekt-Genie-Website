@@ -61,7 +61,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="robotics-programme-card h-100">
-                        <img src="assets/image/new-images/spider.png" alt="Spiderbot robotics programme" class="programme-image">
+                        <img src="assets/image/new-images/spiderbot.png" alt="Spiderbot robotics programme" class="programme-image">
                         <div class="p-4">
                             <h4>Spiderbot &amp; Legged Robotics</h4>
                             <p>Explore multi-legged robot mechanisms, motion control and terrain-adaptive movement.</p>
@@ -83,7 +83,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="robotics-programme-card h-100">
-                        <img src="assets/image/new-images/generative.png" alt="Generative AI and machine vision programme" class="programme-image">
+                        <img src="assets/image/new-images/machine-vision.png" alt="Generative AI and machine vision programme" class="programme-image">
                         <div class="p-4">
                             <h4>Generative AI &amp; Machine Vision</h4>
                             <p>Explore generative AI, computer vision and intelligent perception for next-generation robotic systems.</p>
