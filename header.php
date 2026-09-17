@@ -56,3 +56,21 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 		</div>
 	</div>
 </nav>
+
+<style>
+/* Ensure navbar dropdowns remain usable on every internal page. */
+@media (min-width: 992px) {
+    .robotics-navbar .nav-item.dropdown:hover > .dropdown-menu,
+    .robotics-navbar .nav-item.dropdown:focus-within > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .robotics-navbar .dropdown-menu {
+        z-index: 2000;
+    }
+}
+</style>
