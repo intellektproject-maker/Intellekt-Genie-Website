@@ -18,7 +18,6 @@
             overflow: hidden;
         }
 
-        /* Compact reference-style hero: smaller robot, visible full body, angled transition. */
         .amr-hero {
             position: relative;
             min-height: 390px;
@@ -28,14 +27,14 @@
             overflow: hidden;
             background-color: #070b10;
             background-image:
-                linear-gradient(90deg, rgba(4, 8, 13, .96) 0%, rgba(4, 8, 13, .86) 35%, rgba(4, 8, 13, .35) 67%, rgba(4, 8, 13, .08) 100%),
-                linear-gradient(180deg, rgba(4, 8, 13, .08) 0%, rgba(4, 8, 13, .08) 65%, rgba(4, 8, 13, .48) 100%),
+                linear-gradient(90deg, rgba(4, 8, 13, .84) 0%, rgba(4, 8, 13, .63) 31%, rgba(4, 8, 13, .18) 65%, rgba(4, 8, 13, .04) 100%),
+                linear-gradient(180deg, rgba(4, 8, 13, .04) 0%, rgba(4, 8, 13, .08) 62%, rgba(4, 8, 13, .42) 100%),
                 url('assets/image/new-images/amr.png');
             background-repeat: no-repeat;
-            background-position: center, center, 78% center;
-            background-size: cover, cover, auto 94%;
-            clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 91%, 61% 94%, 39% 96%, 18% 93%, 0 88%);
-            padding-bottom: 24px;
+            background-position: center, center, center center;
+            background-size: cover, cover, cover;
+            border-radius: 0 0 50% 50% / 0 0 8% 8%;
+            padding-bottom: 18px;
         }
 
         .amr-hero::before {
@@ -43,12 +42,12 @@
             position: absolute;
             inset: 0;
             z-index: -1;
-            opacity: .11;
+            opacity: .10;
             background-image:
                 linear-gradient(rgba(96, 165, 250, .2) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(96, 165, 250, .2) 1px, transparent 1px);
             background-size: 78px 78px;
-            mask-image: linear-gradient(to right, black 0%, transparent 76%);
+            mask-image: linear-gradient(to right, black 0%, transparent 72%);
             pointer-events: none;
         }
 
@@ -57,7 +56,7 @@
             position: absolute;
             inset: 0;
             z-index: -1;
-            background: radial-gradient(ellipse at 76% 54%, rgba(73, 139, 214, .10), transparent 38%);
+            background: radial-gradient(ellipse at 72% 52%, rgba(73, 139, 214, .08), transparent 40%);
             pointer-events: none;
         }
 
@@ -70,7 +69,7 @@
 
         .amr-hero-content {
             max-width: 570px;
-            padding: 62px 0 62px;
+            padding: 52px 0 54px;
         }
 
         .amr-eyebrow {
@@ -79,33 +78,33 @@
             font-weight: 700;
             letter-spacing: 2.4px;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .amr-hero h1 {
-            max-width: 560px;
+            max-width: 590px;
             font-size: clamp(40px, 4.2vw, 58px);
             line-height: 1.02;
-            letter-spacing: -2.4px;
+            letter-spacing: -2.5px;
             margin: 0 0 17px;
-            color: #ffffff;
+            color: #fff;
             font-weight: 800;
         }
 
         .amr-hero h1 span { color: var(--amr-blue); }
 
         .amr-hero-copy {
-            max-width: 500px;
-            color: #d0d9e7;
+            max-width: 520px;
+            color: #d7e1ef;
             font-size: 14px;
-            line-height: 1.55;
+            line-height: 1.6;
             margin: 0;
         }
 
         .amr-capabilities {
             display: flex;
             align-items: stretch;
-            margin-top: 25px;
+            margin-top: 24px;
             max-width: 540px;
         }
 
@@ -138,8 +137,8 @@
 
         .amr-section {
             position: relative;
-            margin-top: -28px;
-            padding: 78px 0 92px;
+            margin-top: -2px;
+            padding: 84px 0 92px;
             background: #f5f8fc;
             color: #0b1730;
         }
@@ -170,7 +169,7 @@
         .amr-list-item strong { display: block; color: #fff; margin-bottom: 6px; font-size: 16px; }
 
         @media (max-width: 900px) {
-            .amr-hero { min-height: 470px; background-position: center, center, 82% center; background-size: cover, cover, auto 92%; }
+            .amr-hero { min-height: 470px; background-position: center, center, center center; }
             .amr-hero-content { max-width: 570px; padding: 65px 0 70px; }
             .amr-capabilities { flex-wrap: wrap; gap: 18px 0; }
             .amr-capability { padding: 0 18px; }
@@ -181,7 +180,7 @@
 
         @media (max-width: 560px) {
             .amr-container { width: min(100% - 32px, 1180px); }
-            .amr-hero { min-height: auto; clip-path: polygon(0 0, 100% 0, 100% 96%, 70% 98%, 35% 100%, 0 96%); background-position: center, center, 72% 12%; background-size: cover, cover, auto 43%; padding-bottom: 25px; }
+            .amr-hero { min-height: auto; border-radius: 0 0 50% 50% / 0 0 4% 4%; background-position: center, center, center center; padding-bottom: 25px; }
             .amr-hero-content { padding: 58px 0 48px; }
             .amr-hero h1 { font-size: clamp(38px, 11vw, 52px); letter-spacing: -1.5px; }
             .amr-hero-copy { font-size: 15px; }
@@ -189,7 +188,6 @@
             .amr-capability, .amr-capability:first-child { padding: 0; border-right: 0; }
             .amr-feature-grid, .amr-list { grid-template-columns: 1fr; }
             .amr-section, .amr-application { padding: 65px 0; }
-            .amr-section { margin-top: -20px; }
         }
     </style>
 </head>
@@ -206,7 +204,7 @@
                     <div class="amr-capabilities" aria-label="AMR capabilities">
                         <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 15.5 28 4 17 28l-2.5-10.5L4 15.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg><strong>Autonomous<br>Navigation</strong></div>
                         <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m16 3 11 6.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m5 9.5 11 6.5 11-6.5M16 16v13" stroke="currentColor" stroke-width="2.2"/></svg><strong>Material<br>Movement</strong></div>
-                        <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m19.2 3.8 1.2 3.1c.8.3 1.6.7 2.3 1.3l3.2-.7 2.1 3.6-2.2 2.5c.1.5.2 1.1.2 1.7s-.1 1.2-.2 1.7l2.2 2.5-2.1 3.6-3.2-.7c-.7.6-1.5 1-2.3 1.3l-1.2 3.1h-4.2l-1.2-3.1c-.8-.3-1.6-.7-2.3-1.3l-3.2.7-2.1-3.6 2.2-2.5c-.1-.5-.2-1.1-.2-1.7s.1-1.2.2-1.7L6.2 11l2.1-3.6 3.2.7c.7-.6 1.5-1 2.3-1.3L15 3.8h4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="17.1" cy="15.3" r="3.2" stroke="currentColor" stroke-width="2"/></svg><strong>Flexible<br>Deployment</strong></div>
+                        <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m19.2 3.8 1.2 3.1c.8.3 1.6.7 2.3 1.3l3.2-.7 2.1 3.6-2.2 2.5c.1.5.2 1.1.2 1.7s-.1 1.2-.2 1.7l2.2 2.5-2.1 3.6-3.2-.7c-.7.6-1.5 1-2.3-1.3l-1.2 3.1h-4.2l-1.2-3.1c-.8-.3-1.6-.7-2.3-1.3l-3.2.7-2.1-3.6 2.2-2.5c-.1-.5-.2-1.1-.2-1.7s.1-1.2.2-1.7L6.2 11l2.1-3.6 3.2.7c.7-.6 1.5-1 2.3-1.3L15 3.8h4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="17.1" cy="15.3" r="3.2" stroke="currentColor" stroke-width="2"/></svg><strong>Flexible<br>Deployment</strong></div>
                     </div>
                 </div>
             </div>
