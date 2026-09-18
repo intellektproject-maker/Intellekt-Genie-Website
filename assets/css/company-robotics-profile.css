@@ -1,4 +1,13 @@
-/* Company profile robotics theme, scoped to pages containing the company benefits section. */
+/* ==========================================================================
+   COMPANY PROFILE — ROBOTICS DARK THEME
+   Scope A: body:has(.sigma-why-choose-us)  → global dark background, cards
+   Scope B: .robotics-company-profile       → page hero, intro, closing CTA
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   SCOPE A — Global dark page background (unchanged from original)
+   -------------------------------------------------------------------------- */
+
 body:has(.sigma-why-choose-us) {
   background-color: #080b12 !important;
   color: #e2e8f0;
@@ -132,5 +141,724 @@ body:has(.sigma-why-choose-us) .sigma-services-icon img {
 @media (max-width: 767.98px) {
   body:has(.sigma-why-choose-us) .sigma-services-item {
     min-height: auto;
+  }
+}
+
+
+/* ==========================================================================
+   SCOPE B — Company Profile page hero & layout
+   All selectors prefixed with .robotics-company-profile
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HERO — full-bleed premium section
+   -------------------------------------------------------------------------- */
+
+.robotics-company-profile .cp-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #070a10;
+  overflow: hidden;
+  padding-top: 80px; /* clear fixed navbar */
+}
+
+/* Background grid overlay */
+.robotics-company-profile .cp-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Radial ambient glows */
+.robotics-company-profile .cp-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.robotics-company-profile .cp-hero-glow--1 {
+  width: 700px;
+  height: 700px;
+  top: -200px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.13) 0%, transparent 62%);
+}
+
+.robotics-company-profile .cp-hero-glow--2 {
+  width: 460px;
+  height: 460px;
+  bottom: -120px;
+  left: 2%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.07) 0%, transparent 62%);
+}
+
+/* Two-column hero layout */
+.robotics-company-profile .cp-hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  padding: 80px 0 60px;
+  position: relative;
+  z-index: 5;
+}
+
+/* ── Left text column ──────────────────────────────────────────────── */
+
+.robotics-company-profile .cp-hero-content {
+  max-width: 580px;
+}
+
+/* Kicker row: line + label + breadcrumb */
+.robotics-company-profile .cp-hero-kicker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.robotics-company-profile .cp-kicker-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+  flex-shrink: 0;
+}
+
+.robotics-company-profile .cp-kicker-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* Inline breadcrumb */
+.robotics-company-profile .cp-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #475569;
+  margin-left: auto;
+}
+
+.robotics-company-profile .cp-breadcrumb a {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.robotics-company-profile .cp-breadcrumb a:hover {
+  color: #60a5fa;
+}
+
+/* Main headline */
+.robotics-company-profile .cp-hero-headline {
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.robotics-company-profile .cp-hero-highlight {
+  color: #3b82f6;
+  text-shadow: 0 0 42px rgba(59, 130, 246, 0.4);
+}
+
+/* Supporting text */
+.robotics-company-profile .cp-hero-subtext {
+  font-size: 1rem;
+  line-height: 1.72;
+  color: #94a3b8;
+  max-width: 500px;
+  margin-bottom: 34px;
+}
+
+/* CTA button group */
+.robotics-company-profile .cp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 44px;
+}
+
+/* Capability badges row */
+.robotics-company-profile .cp-hero-badges {
+  display: flex;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.robotics-company-profile .cp-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 26px;
+}
+
+.robotics-company-profile .cp-badge-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 1px;
+}
+
+.robotics-company-profile .cp-badge-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+.robotics-company-profile .cp-badge-divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 26px;
+  flex-shrink: 0;
+}
+
+/* ── Right visual column ───────────────────────────────────────────── */
+
+.robotics-company-profile .cp-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.robotics-company-profile .cp-visual-frame {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corner bracket decorations */
+.robotics-company-profile .cp-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: rgba(59, 130, 246, 0.45);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.robotics-company-profile .cp-corner--tl {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.robotics-company-profile .cp-corner--br {
+  bottom: 0;
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Robot wrapper — floats as a unit */
+.robotics-company-profile .cp-robot-wrapper {
+  position: relative;
+  width: 88%;
+  height: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: cpFloat 5.5s ease-in-out infinite;
+  /* CSS custom props for JS parallax offset */
+  --cp-parallax-x: 0px;
+  --cp-parallax-y: 0px;
+  transform: translateX(var(--cp-parallax-x)) translateY(var(--cp-parallax-y));
+}
+
+/* Blue radial glow behind the arm */
+.robotics-company-profile .cp-robot-glow {
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(circle at 52% 58%, rgba(37, 99, 235, 0.22) 0%, transparent 62%);
+  animation: cpPulse 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* SVG arm */
+.robotics-company-profile .cp-robot-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* Orbiting rings */
+.robotics-company-profile .cp-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(59, 130, 246, 0.14);
+  pointer-events: none;
+}
+
+.robotics-company-profile .cp-orbit--1 {
+  width: 112%;
+  height: 112%;
+  animation: cpOrbit 14s linear infinite;
+}
+
+.robotics-company-profile .cp-orbit--2 {
+  width: 134%;
+  height: 134%;
+  border-color: rgba(0, 210, 255, 0.07);
+  animation: cpOrbit 20s linear infinite reverse;
+}
+
+.robotics-company-profile .cp-orbit-dot {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 10px #3b82f6;
+}
+
+/* Scroll hint line */
+.robotics-company-profile .cp-scroll-hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.robotics-company-profile .cp-scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.55), transparent);
+  animation: cpScrollPulse 2.2s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   SVG ANIMATION TARGETS
+   -------------------------------------------------------------------------- */
+
+/* Joint discs rotate gently back and forth */
+.robotics-company-profile .cp-joint-animated {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cpJointSpin 7s ease-in-out infinite;
+}
+
+.robotics-company-profile .cp-joint-animated--2 {
+  animation-delay: -2.5s;
+  animation-duration: 9s;
+}
+
+/* Scan beam travels vertically across the arm */
+.robotics-company-profile .cp-scan-beam {
+  animation: cpScanBeam 4.5s ease-in-out infinite;
+}
+
+/* Status dot blink */
+.robotics-company-profile .cp-dot-blink {
+  animation: cpBlinkDot 1.6s ease-in-out infinite;
+}
+
+.robotics-company-profile .cp-dot-blink--2 {
+  animation-delay: 0.54s;
+}
+
+.robotics-company-profile .cp-dot-blink--3 {
+  animation-delay: 1.08s;
+}
+
+/* --------------------------------------------------------------------------
+   KEYFRAME DEFINITIONS
+   -------------------------------------------------------------------------- */
+
+@keyframes cpFloat {
+  0%, 100% { transform: translateY(0) translateX(var(--cp-parallax-x, 0px)); }
+  50%       { transform: translateY(-14px) translateX(var(--cp-parallax-x, 0px)); }
+}
+
+@keyframes cpPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.07); }
+}
+
+@keyframes cpOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes cpScrollPulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.75; }
+}
+
+@keyframes cpJointSpin {
+  0%   { transform: rotate(-9deg); }
+  50%  { transform: rotate(9deg); }
+  100% { transform: rotate(-9deg); }
+}
+
+@keyframes cpScanBeam {
+  0%   { transform: translateY(-10px);  opacity: 0; }
+  10%  { opacity: 0.75; }
+  88%  { opacity: 0.75; }
+  100% { transform: translateY(490px); opacity: 0; }
+}
+
+@keyframes cpBlinkDot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
+}
+
+/* Tab content fade-in when activated */
+@keyframes cpFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   ABOUT INTRO SECTION
+   -------------------------------------------------------------------------- */
+
+.robotics-company-profile .cp-about-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 14px;
+}
+
+.robotics-company-profile .cp-about-tag::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.7);
+}
+
+.robotics-company-profile .cp-intro-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.robotics-company-profile .cp-intro-text {
+  color: #94a3b8;
+  line-height: 1.78;
+}
+
+/* Profile image with blue accent border */
+.robotics-company-profile .robotics-profile-visual {
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.1), 0 20px 60px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.robotics-company-profile .robotics-profile-visual:hover {
+  border-color: rgba(59, 130, 246, 0.42);
+  box-shadow: 0 0 60px rgba(37, 99, 235, 0.18), 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.robotics-company-profile .robotics-profile-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* --------------------------------------------------------------------------
+   VISION / MISSION / APPROACH TABS — enhanced appearance
+   -------------------------------------------------------------------------- */
+
+/* Animate content in when tab becomes active */
+.robotics-company-profile .sigma-tab-content.active {
+  animation: cpFadeIn 0.35s ease forwards;
+}
+
+/* Tab content area: subtle card */
+.robotics-company-profile .sigma-tabs-content {
+  background: rgba(10, 18, 34, 0.55) !important;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 14px;
+  margin-top: 6px !important;
+}
+
+/* Active underline: blue-to-cyan gradient glow */
+.robotics-company-profile .sigma-tab-items .sigma-tab-item.active::after {
+  background: linear-gradient(90deg, #2563eb, #00d2ff) !important;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.55) !important;
+}
+
+/* --------------------------------------------------------------------------
+   CLOSING CTA SECTION
+   -------------------------------------------------------------------------- */
+
+.robotics-company-profile .robotics-profile-closing {
+  position: relative;
+  background: rgba(10, 18, 34, 0.6) !important;
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 18px;
+  padding: 64px 40px !important;
+  margin-bottom: 56px;
+  overflow: hidden;
+}
+
+/* Radial glow at top of card */
+.robotics-company-profile .robotics-profile-closing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.robotics-company-profile .robotics-profile-closing::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 120px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.robotics-company-profile .cp-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION — disable all animations
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .robotics-company-profile .cp-robot-wrapper,
+  .robotics-company-profile .cp-robot-glow,
+  .robotics-company-profile .cp-orbit,
+  .robotics-company-profile .cp-orbit--1,
+  .robotics-company-profile .cp-orbit--2,
+  .robotics-company-profile .cp-scroll-line,
+  .robotics-company-profile .cp-joint-animated,
+  .robotics-company-profile .cp-joint-animated--2,
+  .robotics-company-profile .cp-scan-beam,
+  .robotics-company-profile .cp-dot-blink,
+  .robotics-company-profile .cp-dot-blink--2,
+  .robotics-company-profile .cp-dot-blink--3,
+  .robotics-company-profile .sigma-tab-content.active {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 1440px
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1440px) {
+  .robotics-company-profile .cp-hero-container {
+    gap: 44px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 1199px (large tablet landscape)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+  .robotics-company-profile .cp-hero-container {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 32px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 1024px (tablet landscape)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .robotics-company-profile .cp-hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .robotics-company-profile .cp-hero-headline {
+    font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 991px (tablet portrait / Bootstrap lg breakpoint)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+  .robotics-company-profile .cp-hero {
+    min-height: auto;
+    padding-top: 76px;
+  }
+
+  .robotics-company-profile .cp-hero-container {
+    grid-template-columns: 1fr;
+    padding: 56px 0 36px;
+    gap: 44px;
+  }
+
+  .robotics-company-profile .cp-hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .robotics-company-profile .cp-hero-kicker {
+    justify-content: center;
+  }
+
+  .robotics-company-profile .cp-breadcrumb {
+    margin-left: 0;
+  }
+
+  .robotics-company-profile .cp-hero-subtext {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .robotics-company-profile .cp-hero-actions {
+    justify-content: center;
+  }
+
+  .robotics-company-profile .cp-hero-badges {
+    justify-content: center;
+  }
+
+  .robotics-company-profile .cp-hero-visual {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .robotics-company-profile .cp-scroll-hint {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 768px
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .robotics-company-profile .cp-hero-container {
+    padding: 48px 0 28px;
+    gap: 36px;
+  }
+
+  .robotics-company-profile .cp-hero-headline {
+    font-size: 1.85rem;
+  }
+
+  .robotics-company-profile .cp-hero-visual {
+    max-width: 320px;
+  }
+
+  .robotics-company-profile .robotics-profile-closing {
+    padding: 48px 24px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — 575px / 390px / 375px (mobile)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 575px) {
+  .robotics-company-profile .cp-hero-container {
+    padding: 44px 0 24px;
+    gap: 32px;
+  }
+
+  .robotics-company-profile .cp-hero-headline {
+    font-size: 1.65rem;
+  }
+
+  /* Full-width buttons on mobile */
+  .robotics-company-profile .cp-hero-actions .btn-robotics-primary,
+  .robotics-company-profile .cp-hero-actions .btn-robotics-outline {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .robotics-company-profile .cp-hero-badges {
+    flex-wrap: wrap;
+    gap: 16px 0;
+    justify-content: flex-start;
+  }
+
+  .robotics-company-profile .cp-badge-divider {
+    display: none;
+  }
+
+  .robotics-company-profile .cp-badge {
+    padding-right: 24px;
+  }
+
+  /* Smaller robot visual on mobile */
+  .robotics-company-profile .cp-hero-visual {
+    max-width: 270px;
+  }
+
+  /* Closing CTA */
+  .robotics-company-profile .robotics-profile-closing {
+    padding: 36px 16px !important;
+    border-radius: 12px;
+    margin-bottom: 32px;
+  }
+
+  .robotics-company-profile .cp-closing-actions .btn-robotics-primary,
+  .robotics-company-profile .cp-closing-actions .btn-robotics-outline {
+    width: 100%;
+    justify-content: center;
   }
 }
