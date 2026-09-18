@@ -25,4 +25,5 @@
 	<link rel="stylesheet" href="assets/css/robotics-services.css">
 	<link rel="stylesheet" href="assets/css/company-robotics-profile.css">
 	<script src="assets/js/robotics-services.js" defer></script>
+	<script src="assets/js/company-tabs.js" defer></script>
 </head>
