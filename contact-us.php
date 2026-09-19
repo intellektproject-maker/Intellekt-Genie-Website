@@ -4,25 +4,44 @@
 <head>
     <?php include 'header-link.php' ?>
     <style>
-        /* Contact page readability overrides */
+        /* =========================================================
+           CONTACT PAGE - CLEAN LIGHT FORM PRESENTATION
+           ========================================================= */
+        .sigma-page-title-area.breadcrumb-main {
+            position: relative;
+            z-index: 1;
+            padding-top: 46px !important;
+            padding-bottom: 30px !important;
+        }
+
+        .sigma-page-title-area.breadcrumb-main .sigma-page-title {
+            color: #ffffff !important;
+            margin-top: 0 !important;
+        }
+
         .sigma-contact-area {
-            background-color: #080b12;
+            background: #f5f8fc !important;
+            padding-top: 0 !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap {
+            padding: 10px 0;
         }
 
         .sigma-contact-area .sigma-contact-address-heading {
-            color: #ffffff !important;
+            color: #0b1f43 !important;
         }
 
         .sigma-contact-area .sigma-contact-wrap ul,
         .sigma-contact-area .sigma-contact-wrap li,
         .sigma-contact-area .sigma-contact-wrap a,
         .sigma-contact-area .sigma-contact-wrap a.contact-links-2 {
-            color: #dbe5f5 !important;
+            color: #40536f !important;
             opacity: 1 !important;
         }
 
         .sigma-contact-area .sigma-contact-wrap a:hover {
-            color: #2f80ed !important;
+            color: #1677ff !important;
         }
 
         .sigma-contact-area .sigma-contact-wrap .text-primary,
@@ -30,8 +49,16 @@
             color: #1677ff !important;
         }
 
+        .sigma-contact-form-wrap {
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 34px 36px;
+            box-shadow: 0 14px 38px rgba(15, 35, 65, 0.08);
+        }
+
         .sigma-contact-area .sigma-input-label {
-            color: #ffffff !important;
+            color: #0b1f43 !important;
             opacity: 1 !important;
         }
 
@@ -39,7 +66,7 @@
         .sigma-contact-area .sigma-form-textarea {
             color: #17213a !important;
             background-color: #ffffff !important;
-            border-color: #d9e2f2 !important;
+            border: 1px solid #d7e0eb !important;
         }
 
         .sigma-contact-area .sigma-form-input::placeholder,
@@ -53,8 +80,21 @@
             color: #17213a !important;
             border-color: #1677ff !important;
             outline: none;
+            box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.10);
         }
-    </style>
+
+        @media (max-width: 767px) {
+            .sigma-page-title-area.breadcrumb-main {
+                padding-top: 32px !important;
+                padding-bottom: 24px !important;
+            }
+
+            .sigma-contact-form-wrap {
+                padding: 24px 20px;
+                border-radius: 12px;
+            }
+        }
+    </style>yle>
 
 </head>
 
