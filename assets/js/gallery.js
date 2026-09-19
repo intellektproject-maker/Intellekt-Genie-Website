@@ -7,7 +7,7 @@
 (function () {
     'use strict';
 
-    document.addEventListener('DOMContentLoaded', function () {
+    function initGallery() {
         var stage = document.querySelector('.cg-stage');
         if (!stage) return;
 
@@ -86,7 +86,11 @@
                     // Ensure active thumbnail is scrolled into view smoothly
                     if (thumbsScroll) {
                         var scrollLeft = thumb.offsetLeft - (thumbsScroll.clientWidth / 2) + (thumb.clientWidth / 2);
-                        thumbsScroll.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+                        try {
+                            thumbsScroll.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+                        } catch (err) {
+                            thumbsScroll.scrollLeft = scrollLeft;
+                        }
                     }
                 } else {
                     thumb.classList.remove('is-active');
@@ -256,5 +260,12 @@
 
         // ── Start presentation ─────────────────────────────────────
         updateSlides(0);
-    });
+    }
+
+    // Initialize reliably whether the script executes before or after DOMContentLoaded.
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGallery, { once: true });
+    } else {
+        initGallery();
+    }
 })();

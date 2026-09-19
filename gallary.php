@@ -156,7 +156,7 @@
     </div>
 
     <!-- Scoped Gallery Showcase JavaScript -->
-    <script src="assets/js/gallery.js" defer></script>
+    <script src="assets/js/gallery.js?v=2" defer></script>
 
     <?php include 'footer.php' ?>
 </body>
