@@ -115,6 +115,45 @@
 
         function goToSlide(i) {
             updateSlides(i);
+            restartAutoSlide();
+        }
+
+        // ── Automatic Slideshow ───────────────────────────────────
+        // Advances every 5 seconds. Pauses while the user is interacting
+        // with the gallery and resumes automatically afterward.
+        var autoSlideTimer = null;
+        var autoSlideDelay = 5000;
+        var isGalleryPaused = false;
+
+        function startAutoSlide() {
+            if (autoSlideTimer || total < 2 || isGalleryPaused) return;
+            autoSlideTimer = window.setInterval(function () {
+                if (!isGalleryPaused && !(lightbox && lightbox.classList.contains('is-open'))) {
+                    nextSlide();
+                }
+            }, autoSlideDelay);
+        }
+
+        function stopAutoSlide() {
+            if (autoSlideTimer) {
+                window.clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
+            }
+        }
+
+        function restartAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        function pauseAutoSlide() {
+            isGalleryPaused = true;
+            stopAutoSlide();
+        }
+
+        function resumeAutoSlide() {
+            isGalleryPaused = false;
+            startAutoSlide();
         }
 
         // ── Button Clicks ──────────────────────────────────────────
@@ -122,6 +161,7 @@
             prevBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 prevSlide();
+                restartAutoSlide();
             });
         }
 
@@ -129,6 +169,7 @@
             nextBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
                 nextSlide();
+                restartAutoSlide();
             });
         }
 
@@ -173,6 +214,20 @@
                 touchEndY = e.changedTouches[0].screenY;
                 handleSwipe();
             }, { passive: true });
+        }
+
+        // Pause autoplay while the user hovers/focuses the gallery.
+        if (stage) {
+            stage.addEventListener('mouseenter', pauseAutoSlide);
+            stage.addEventListener('mouseleave', resumeAutoSlide);
+            stage.addEventListener('focusin', pauseAutoSlide);
+            stage.addEventListener('focusout', function () {
+                window.setTimeout(function () {
+                    if (!stage.contains(document.activeElement)) {
+                        resumeAutoSlide();
+                    }
+                }, 0);
+            });
         }
 
         function handleSwipe() {
@@ -260,6 +315,7 @@
 
         // ── Start presentation ─────────────────────────────────────
         updateSlides(0);
+        startAutoSlide();
     }
 
     // Initialize reliably whether the script executes before or after DOMContentLoaded.
