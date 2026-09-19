@@ -20,8 +20,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				<li class="nav-item dropdown robotics-nav-item">
 					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['amr.php', 'spiderbot.php', 'services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Work</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
-						<li><a class="dropdown-item robotics-dropdown-item" href="amr.php"><span><i class="fa-solid fa-robot me-2"></i> Autonomous Mobile Robots (AMRs)</span><i class="fa-solid fa-arrow-right"></i></a></li>
-						<li><a class="dropdown-item robotics-dropdown-item" href="spiderbot.php"><span><i class="fa-solid fa-spider me-2"></i> Spiderbot</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="our-work.php"><span><i class="fa-solid fa-layer-group me-2"></i> Overview &amp; Showcase</span><i class="fa-solid fa-arrow-right"></i></a></li>
 					</ul>
 				</li>
 

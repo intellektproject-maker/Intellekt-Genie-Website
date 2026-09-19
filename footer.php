@@ -29,7 +29,7 @@
                   </div>
                   <ul class=" ps-1">
                       <li class="py-2"><a href="index.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Home</a></li>
-                      <li class="py-2"><a href="services.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Our Work</a></li>
+                      <li class="py-2"><a href="our-work.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Our Work</a></li>
                       <li class="py-2"><a href="company-profile.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Company</a></li>
                       <li class="py-2"><a href="programmes.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Resources</a></li>
                       <li class="py-2"><a href="contact-us.php" class="text-decoration-none  qiuck-links"> <i class="fas fa-chevron-right me-2 text-primary"></i>Contact</a></li>

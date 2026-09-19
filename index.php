@@ -3,13 +3,46 @@
 
 <head>
     <?php include 'header-link.php' ?>
+    <!-- Homepage Hero Cinematic Robotics Styles & Interaction Script -->
+    <link rel="stylesheet" href="assets/css/home-hero-cinematic.css">
+    <script src="assets/js/home-hero-cinematic.js" defer></script>
 </head>
 
 <body>
     <?php include 'header.php' ?>
 
     <!-- ================= ROBOTICS HERO SECTION ================= -->
-    <section class="robotics-hero-section">
+    <section class="robotics-hero-section home-hero-cinematic" id="homeHeroSection">
+        <!-- Living 3D Robotics Atmospheric Layers -->
+        <div class="hero-scene-stage"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-floor-glow"></div>
+        <div class="hero-laser-scanner"></div>
+
+        <!-- Robotics Environmental Light Accents -->
+        <div class="robot-lighting-layer">
+            <div class="ambient-lab-light"></div>
+            <div class="amr-active-glow"></div>
+            <div class="arm-active-glow"></div>
+            <div class="arm-beacon-pulse"></div>
+        </div>
+
+        <!-- Live Operational Telemetry HUD -->
+        <div class="hero-hud-telemetry" aria-label="System status telemetry">
+            <div class="hud-status-indicator">
+                <span class="hud-dot"></span>
+                <div class="hud-text-group">
+                    <span class="hud-title">SYSTEM // ONLINE</span>
+                    <span class="hud-subtitle">AMR &amp; MANIPULATION ACTIVE</span>
+                </div>
+            </div>
+            <div class="hud-metrics-divider"></div>
+            <div class="hud-metric">
+                <span class="hud-metric-val">SYNCED</span>
+                <span class="hud-metric-lbl">FLEET</span>
+            </div>
+        </div>
+
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-xl-6">
@@ -31,18 +64,6 @@
                         <p class="robotics-subtext">
                             INTELLEKT develops autonomous mobile robots and intelligent robotic arms for real-world industrial and automation applications.
                         </p>
-
-                        <!-- CTA Action Buttons -->
-                        <div class="robotics-btn-group">
-                            <a href="#explore-amrs" class="btn-robotics-primary">
-                                <span>Explore AMRs</span>
-                                <i class="fa-solid fa-arrow-right-long"></i>
-                            </a>
-                            <a href="#explore-arms" class="btn-robotics-outline">
-                                <span>Explore Robotic Arms</span>
-                                <i class="fa-solid fa-arrow-right-long"></i>
-                            </a>
-                        </div>
 
                         <!-- Capability Metric Badges -->
                         <div class="robotics-metrics-row">
