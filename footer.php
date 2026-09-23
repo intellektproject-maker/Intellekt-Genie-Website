@@ -64,7 +64,7 @@
               </div>
               <hr class="text-secondary py-1 py-md-0">
               <div class="sigma-footer-bottom flex flex-wrap justify-between  items-center md:flex-col">
-                  <p class="sigma-copyright-text text-secondary  ">&copy; 2025 Copyrights Reserved by INTELLEKT GENIE PVT LTD </p>
+                  <p class="sigma-copyright-text text-secondary  ">&copy; <?php echo date('Y'); ?> Copyrights Reserved by INTELLEKT GENIE PVT LTD </p>
                   <p class="text-capitalize text-secondary "> designed by <span class="text-primary">Intellekt</span></p>
               </div>
           </div>
