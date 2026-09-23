@@ -1,8 +1,18 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo "Invalid request.";
     exit;
 }
+
+// CSRF protection for the public contact form.
+$csrfToken = $_POST["csrf_token"] ?? '';
+if (empty($_SESSION['contact_csrf']) || !is_string($csrfToken) || !hash_equals($_SESSION['contact_csrf'], $csrfToken)) {
+    http_response_code(403);
+    exit("Invalid form submission.");
+}
+unset($_SESSION['contact_csrf']);
 
 // Honeypot field: real users should leave this empty.
 if (!empty($_POST["website"])) {
@@ -19,6 +29,12 @@ $address = clean_input($_POST["address"] ?? '');
 $phone = clean_input($_POST["phone"] ?? '');
 $email = filter_var($_POST["email"] ?? '', FILTER_SANITIZE_EMAIL);
 $message = clean_input($_POST["message"] ?? '');
+
+// Reject unexpectedly large input before processing or sending email.
+if (strlen($name) > 100 || strlen($address) > 250 || strlen($phone) > 20 || strlen($email) > 254 || strlen($message) > 5000) {
+    http_response_code(413);
+    exit("Error: One or more fields are too long.");
+}
 
 // Validate required fields.
 if (empty($name) || empty($address) || empty($phone) || empty($email) || empty($message)) {
