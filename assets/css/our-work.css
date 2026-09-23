@@ -320,13 +320,24 @@
 .robotics-our-work-page .ow-category-selector-section {
   padding: 40px 0;
   position: sticky;
-  top: 68px; /* just below navbar */
+  top: 68px; /* just below the visible shared navbar */
   z-index: 900;
   background: rgba(7, 10, 16, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* The shared navbar hides on downward scroll. Keep the sticky category bar
+   from occupying the navbar's old space when the navbar is off-screen. */
+.robotics-our-work-page #navbar.robotics-navbar-hidden + main .ow-category-selector-section {
+  top: 0;
+}
+
+.robotics-our-work-page #navbar.robotics-navbar-visible + main .ow-category-selector-section {
+  top: 68px;
 }
 
 .robotics-our-work-page .ow-category-nav {
