@@ -24,8 +24,9 @@
         .spider-capability-icon { width:28px; height:28px; flex:0 0 28px; color:var(--spider-blue); }
         .spider-capability strong { display:block; color:#f5f8ff; font-size:13px; line-height:1.3; font-weight:650; white-space:nowrap; }
         /* The generated asset is a wide landscape composition. Let the entire image span the hero so its right-positioned robot is not cropped or enlarged. */
-        .spider-visual { position:absolute; z-index:1; inset:0; width:100%; height:100%; display:block; pointer-events:none; }
+        .spider-visual { position:absolute; z-index:1; top:0; bottom:0; left:50%; width:100vw; height:100%; transform:translateX(-50%); display:block; pointer-events:none; }
         .spider-visual img { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; filter:brightness(.88) contrast(1.06) saturate(.96); }
+        /* Full-bleed hero art: keep the generated landscape image inside the same curved hero mask as the AMR page. */
         .spider-section { position:relative; margin-top:-1px; padding:92px 0 100px; background:#f5f8fc; color:#0b1730; }
         .spider-section-heading { max-width:780px; margin:0 auto 52px; text-align:center; }
         .spider-section-heading .spider-eyebrow { color:#438fe8; margin-bottom:15px; }
