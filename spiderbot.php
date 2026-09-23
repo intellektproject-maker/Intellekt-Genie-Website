@@ -64,7 +64,7 @@
                         <div class="spider-capability"><svg class="spider-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 24V8M6 8h20M26 8v16M6 24h20" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="m11 13 5 5 5-5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Flexible<br>Exploration</strong></div>
                     </div>
                 </div>
-                <div class="spider-visual" aria-hidden="true"><img src="assets/image/new-images/spider.png" alt="Spiderbot legged robot"></div>
+                <div class="spider-visual" aria-hidden="true"><img src="assets/image/new-images/spiderbot-hero-generated.png" alt="Spiderbot legged robot"></div>
             </div>
         </section>
         <section class="spider-section">
