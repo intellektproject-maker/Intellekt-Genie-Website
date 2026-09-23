@@ -87,4 +87,49 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
         }
     });
 })();
+
+(function () {
+    var navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    var lastScrollY = window.scrollY || 0;
+    var ticking = false;
+    var threshold = 8;
+
+    function updateNavbar() {
+        var currentScrollY = window.scrollY || window.pageYOffset || 0;
+
+        // Always show the navbar at the top when a page is freshly opened.
+        if (currentScrollY <= 12) {
+            navbar.classList.remove('robotics-navbar-hidden');
+            navbar.classList.add('robotics-navbar-visible');
+            lastScrollY = currentScrollY;
+            ticking = false;
+            return;
+        }
+
+        var delta = currentScrollY - lastScrollY;
+        if (Math.abs(delta) >= threshold) {
+            if (delta > 0) {
+                navbar.classList.add('robotics-navbar-hidden');
+                navbar.classList.remove('robotics-navbar-visible');
+            } else {
+                navbar.classList.remove('robotics-navbar-hidden');
+                navbar.classList.add('robotics-navbar-visible');
+            }
+            lastScrollY = currentScrollY;
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Initial state: visible.
+    navbar.classList.add('robotics-navbar-visible');
+})();
 </script>
