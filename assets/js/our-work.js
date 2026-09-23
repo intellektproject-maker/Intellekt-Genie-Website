@@ -14,59 +14,7 @@
   var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   var reducedMotion = mq && mq.matches;
 
-  /* ── 1. Category Switcher (Tabs / Smooth Scroll Jump) ───────── */
-  function initCategorySwitcher() {
-    var tabs = document.querySelectorAll('.ow-category-tab');
-    if (!tabs.length) return;
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function (e) {
-        e.preventDefault();
-        var targetId = this.getAttribute('data-target');
-        var targetElem = document.querySelector(targetId);
-
-        // Update active tab styling
-        tabs.forEach(function (t) { t.classList.remove('active'); });
-        this.classList.add('active');
-
-        if (targetElem) {
-          var navHeight = 90;
-          var elementPosition = targetElem.getBoundingClientRect().top;
-          var offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: reducedMotion ? 'auto' : 'smooth'
-          });
-        }
-      });
-    });
-
-    // Update active tab based on scroll position
-    var sections = [
-      { id: '#amr-showcase', tab: document.querySelector('.ow-category-tab[data-target="#amr-showcase"]') },
-      { id: '#spiderbot-showcase', tab: document.querySelector('.ow-category-tab[data-target="#spiderbot-showcase"]') }
-    ];
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset;
-      var threshold = scrollY + 250;
-
-      sections.forEach(function (item) {
-        var sec = document.querySelector(item.id);
-        if (sec && item.tab) {
-          var top = sec.offsetTop;
-          var height = sec.offsetHeight;
-          if (threshold >= top && threshold < top + height) {
-            tabs.forEach(function (t) { t.classList.remove('active'); });
-            item.tab.classList.add('active');
-          }
-        }
-      });
-    }, { passive: true });
-  }
-
-  /* ── 2. Visibility-based Animation Play State ──────────────── */
+  /* ── 1. Visibility-based Animation Play State ──────────────── */
   function initAnimationObserver() {
     if (!window.IntersectionObserver) return;
 
@@ -127,8 +75,6 @@
 
   /* ── 4. Boot Handler ───────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
-    initCategorySwitcher();
-
     if (!reducedMotion) {
       initAnimationObserver();
       setTimeout(initHeroParallax, 300);
