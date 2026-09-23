@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (empty($_SESSION['contact_csrf'])) {
+    $_SESSION['contact_csrf'] = bin2hex(random_bytes(32));
+}
+$contactCsrf = $_SESSION['contact_csrf'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +102,7 @@
                 border-radius: 12px;
             }
         }
-    </style>yle>
+    </style>
 
 </head>
 
@@ -130,29 +138,34 @@
                 <div class=" col-12 col-md-8">
                     <div class="sigma-contact-form-wrap">
                         <form class="sigma-contact-form" method="post" action="submit_form.php" id="contact-form">
+                            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($contactCsrf, ENT_QUOTES, 'UTF-8'); ?>">
+                            <div class="d-none" aria-hidden="true">
+                                <label for="website">Website</label>
+                                <input type="text" name="website" id="website" value="" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="row   gap-y-[30px]">
                                 <div class="sigma-input-name col-12 col-md-6">
                                     <label for="name" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Name</label>
-                                    <input type="text" name="name" pattern="[A-Za-z\s]+" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Full Name" required>
+                                    <input type="text" id="name" name="name" autocomplete="name" maxlength="100" pattern="[A-Za-z\s]+" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Full Name" required>
                                 </div>
                                 <div class="sigma-input-company col-12 col-md-6">
                                     <label for="address" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Address</label>
-                                    <input type="text" name="address" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your address" required>
+                                    <input type="text" id="address" name="address" autocomplete="street-address" maxlength="250" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your address" required>
                                 </div>
                                 <div class="sigma-input-phone col-12 col-md-6">
                                     <label for="phone" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Phone</label>
-                                    <input type="tel" name="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^\+?[0-9]{10,13}$" minlength="10" maxlength="13" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Phone Number">
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^\+?[0-9]{10,13}$" minlength="10" maxlength="13" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Phone Number">
                                 </div>
                                 <div class="sigma-input-email col-12 col-md-6">
                                     <label for="email" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Email</label>
-                                    <input type="email" name="email" style="text-transform: lowercase;" oninput="this.value = this.value.toLowerCase();" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Email Address" required>
+                                    <input type="email" id="email" name="email" autocomplete="email" maxlength="254" style="text-transform: lowercase;" oninput="this.value = this.value.toLowerCase();" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Email Address" required>
                                 </div>
 
                             </div>
 
                             <div class="sigma-text-area mt-[30px]">
                                 <label for="message" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Message</label>
-                                <textarea name="message" class="sigma-form-textarea text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full h-[174px] resize-none border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Message" required></textarea>
+                                <textarea id="message" name="message" maxlength="5000" class="sigma-form-textarea text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full h-[174px] resize-none border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Message" required></textarea>
                             </div>
                             <div class=" pt-4">
                                 <button type="submit" name="Submits" class="btn btn-primary  py-1 pb-2 py-md-2 px-md-5 px-3   fs-5 "> Submit</button>
