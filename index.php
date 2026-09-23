@@ -375,7 +375,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-2.webp"
                                                 alt="Post One">
                                         </a>
@@ -385,8 +385,7 @@
                                         <div class="sigma-post-title-wrap ">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Corporate Training
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -407,7 +406,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -418,7 +417,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-3.webp"
                                                 alt="Post One">
                                         </a>
@@ -428,8 +427,7 @@
                                         <div class="sigma-post-title-wrap">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Organization Restructure solutions
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -450,7 +448,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -461,7 +459,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-5.webp"
                                                 alt="Post One">
                                         </a>
@@ -471,8 +469,7 @@
                                         <div class="sigma-post-title-wrap ">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Value-Added Programmes for Colleges
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -493,7 +490,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -504,7 +501,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-2.webp"
                                                 alt="Post One">
                                         </a>
@@ -514,8 +511,7 @@
                                         <div class="sigma-post-title-wrap ">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Corporate Training
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -536,7 +532,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -547,7 +543,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-3.webp"
                                                 alt="Post One">
                                         </a>
@@ -557,8 +553,7 @@
                                         <div class="sigma-post-title-wrap">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Organization Restructure solutions
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -579,7 +574,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -590,7 +585,7 @@
                             <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
                                 <div class="sigma-blog-itme-wrap sigma-animation">
                                     <div class="sigma-post-thum mb-[20px]">
-                                        <a class="sigma-post-img block w-full overflow-hidden" href="services.php">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
                                             <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-5.webp"
                                                 alt="Post One">
                                         </a>
@@ -600,8 +595,7 @@
                                         <div class="sigma-post-title-wrap ">
                                             <h2
                                                 class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
-                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none"
-                                                    href="services.php">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
                                                     Value-Added Programmes for Colleges
                                                     <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -622,7 +616,7 @@
                                         </ul>
 
                                         <div class="slide-btn">
-                                            <a href="services.php" class="btn "> View More</a>
+                                            <a class="btn "> View More</a>
                                         </div>
                                     </div>
                                 </div>
