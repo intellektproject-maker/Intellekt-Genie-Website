@@ -98,29 +98,7 @@
             </div>
         </section>
 
-        <!-- =================================================================
-             2. CATEGORY SELECTOR / SEGMENTED NAVIGATION
-             ================================================================= -->
-        <div class="ow-category-selector-section">
-            <div class="container">
-                <nav class="ow-category-nav" aria-label="Robot Categories">
-                    <button type="button" class="ow-category-tab active" data-target="#amr-showcase">
-                        <i class="fa-solid fa-robot"></i>
-                        <span>Autonomous Mobile Robots (AMRs)</span>
-                    </button>
-                    <button type="button" class="ow-category-tab" data-target="#spiderbot-showcase">
-                        <i class="fa-solid fa-spider"></i>
-                        <span>Spiderbot &amp; Legged Robotics</span>
-                    </button>
-                    <button type="button" class="ow-category-tab" data-target="#platform-comparison">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                        <span>Platform Comparison</span>
-                    </button>
-                </nav>
-            </div>
-        </div>
-
-        <section class="container py-5">
+                <section class="container py-5">
             <!-- Two Product Quick-Cards -->
             <div class="ow-overview-grid">
                 <article class="ow-overview-card">
