@@ -39,7 +39,7 @@
                     </h1>
 
                     <p class="ow-hero-subtext">
-                        Discover Intellekt Robotics' purpose-built platforms—combining autonomous mobile robots for efficient facility logistics with agile legged robotics engineered for challenging environments.
+                        Discover Intellekt Robotics' purpose-built platforms—from autonomous mobile robots and industrial robotic arms to educational spiderbots designed for practical learning, experimentation, and real-world applications.
                     </p>
 
                     <div class="ow-hero-actions">
@@ -62,12 +62,12 @@
                         <div class="ow-metric-divider"></div>
                         <div class="ow-metric-item">
                             <span class="ow-metric-num">02</span>
-                            <span class="ow-metric-title">SPIDERBOTS</span>
+                            <span class="ow-metric-title">ROBOTIC ARMS</span>
                         </div>
                         <div class="ow-metric-divider"></div>
                         <div class="ow-metric-item">
                             <span class="ow-metric-num">03</span>
-                            <span class="ow-metric-title">FIELD-TESTED</span>
+                            <span class="ow-metric-title">EDUCATIONAL BOTS</span>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
         </section>
 
                 <section class="container py-5">
-            <!-- Two Product Quick-Cards -->
+            <!-- Three Product Quick-Cards -->
             <div class="ow-overview-grid">
                 <article class="ow-overview-card">
                     <div class="ow-card-header">
@@ -114,6 +114,23 @@
                     </p>
                     <a href="#amr-showcase" class="ow-card-link">
                         <span>View AMR Specifications</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <article class="ow-overview-card">
+                    <div class="ow-card-header">
+                        <div class="ow-card-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <span class="ow-card-tag">INDUSTRIAL AUTOMATION</span>
+                    </div>
+                    <h3>Robotic Arms</h3>
+                    <p>
+                        Precision robotic arm systems for repetitive handling, assembly, pick-and-place, and automation workflows across practical industrial applications.
+                    </p>
+                    <a href="#arm-showcase" class="ow-card-link">
+                        <span>View Robotic Arm Specifications</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </article>
@@ -210,6 +227,52 @@
         </section>
 
         <!-- =================================================================
+             4. ROBOTIC ARM SHOWCASE SECTION
+             ================================================================= -->
+        <section id="arm-showcase" class="ow-product-showcase ow-product-showcase--arm ow-animate-viewport">
+            <div class="container">
+                <div class="ow-product-grid ow-product-grid--reversed">
+                    <div class="ow-product-media">
+                        <img src="assets/image/new-images/card-arm.jpg"
+                             alt="Intellekt Industrial Robotic Arm"
+                             width="800"
+                             height="450"
+                             loading="lazy">
+                        <div class="ow-media-badge">
+                            <span class="ow-media-badge-dot"></span>
+                            <span>PRECISION AUTOMATION READY</span>
+                        </div>
+                    </div>
+                    <div class="ow-product-info">
+                        <div class="ow-product-tag">PRODUCT CATEGORY // 02</div>
+                        <h2 class="ow-product-title">Robotic Arms</h2>
+                        <p class="ow-product-desc">
+                            Intellekt robotic arm platforms are designed for precise, repeatable automation tasks including material handling, assembly, pick-and-place operations, and practical industrial experimentation.
+                        </p>
+                        <div class="ow-feature-pills">
+                            <div class="ow-feature-pill">
+                                <i class="fa-solid fa-crosshairs"></i>
+                                <div><strong>Precision Movement</strong><span>Controlled multi-axis motion for repeatable industrial and laboratory workflows.</span></div>
+                            </div>
+                            <div class="ow-feature-pill">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                                <div><strong>Pick &amp; Place</strong><span>Automate repetitive handling, sorting, transfer, and component placement tasks.</span></div>
+                            </div>
+                            <div class="ow-feature-pill">
+                                <i class="fa-solid fa-gears"></i>
+                                <div><strong>Flexible Automation</strong><span>Adaptable robotic workflows for prototyping, training, and production-oriented applications.</span></div>
+                            </div>
+                            <div class="ow-feature-pill">
+                                <i class="fa-solid fa-microchip"></i>
+                                <div><strong>Control &amp; Integration</strong><span>Integrate sensors, controllers, end-effectors, and automation logic into complete systems.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
              4. SPIDERBOT SHOWCASE SECTION
              ================================================================= -->
         <section id="spiderbot-showcase" class="ow-product-showcase ow-product-showcase--spider ow-animate-viewport">
@@ -228,12 +291,12 @@
 
                     <!-- Right Column: Content & Capabilities -->
                     <div class="ow-product-info">
-                        <div class="ow-product-tag">PRODUCT CATEGORY // 02</div>
+                        <div class="ow-product-tag">PRODUCT CATEGORY // 03</div>
                         <h2 class="ow-product-title">
-                            Spiderbot &amp; Legged Robotics
+                            Educational Robotics Bot (Spiderbot)
                         </h2>
                         <p class="ow-product-desc">
-                            Compact multi-legged robotic platforms engineered to demonstrate how mechanical articulation, embedded microcontrollers, and intelligent sensing work cohesively. Designed for experimentation with balance, gait patterns, and movement across varied surfaces.
+                            A hands-on educational spiderbot platform designed to help students explore robotics, embedded control, sensing, gait patterns, and practical programming through experimentation and prototyping.
                         </p>
 
                         <!-- Key Supported Capabilities from spiderbot.php -->
@@ -270,7 +333,7 @@
 
                         <div>
                             <a href="spiderbot.php" class="btn-robotics-primary">
-                                <span>Explore Detailed Spiderbot Specifications</span>
+                                <span>Explore Educational Spiderbot</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -288,7 +351,7 @@
                     <span class="ow-section-kicker">TECHNICAL EVALUATION</span>
                     <h2 class="ow-section-title">Choose the Right Robotic Architecture</h2>
                     <p class="ow-section-desc">
-                        Both platforms serve distinct operational goals. Compare their complementary strengths to determine which platform aligns best with your application requirements.
+                        Each platform addresses a different robotics application—from autonomous movement and precision automation to hands-on educational robotics.
                     </p>
                 </div>
 
@@ -298,39 +361,46 @@
                             <tr>
                                 <th>Characteristic</th>
                                 <th>Autonomous Mobile Robots (AMRs)</th>
-                                <th>Spiderbot &amp; Legged Platforms</th>
+                                <th>Robotic Arms</th>
+                                <th>Educational Spiderbot</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Primary Locomotion</td>
                                 <td>Wheeled drive system with precision odometry</td>
+                                <td>Multi-axis articulated arm mechanism</td>
                                 <td>Multi-legged articulated gait mechanism</td>
                             </tr>
                             <tr>
                                 <td>Operational Environment</td>
                                 <td>Smooth indoor floors, warehouses, and factories</td>
-                                <td>Uneven surfaces, textured ground, and obstacles</td>
+                                <td>Industrial workcells, labs, and automation stations</td>
+                                <td>Uneven surfaces, learning spaces, and prototype environments</td>
                             </tr>
                             <tr>
                                 <td>Core Mission</td>
                                 <td>Material handling, fleet logistics, and transport</td>
-                                <td>Terrain mobility study, inspection, and prototyping</td>
+                                <td>Assembly, pick-and-place, handling, and automation</td>
+                                <td>Robotics education, gait study, sensing, and prototyping</td>
                             </tr>
                             <tr>
                                 <td>Payload &amp; Capacity</td>
                                 <td>Designed for component, box, and cart payload transfer</td>
-                                <td>Lightweight sensor packages and embedded compute</td>
+                                <td>End-effector and component handling</td>
+                                <td>Lightweight educational sensors and embedded compute</td>
                             </tr>
                             <tr>
                                 <td>Navigation Architecture</td>
                                 <td>Lidar / 2D SLAM mapping and point-to-point routing</td>
-                                <td>Proximity sensing and gait kinematics algorithms</td>
+                                <td>Joint control, trajectory planning, and end-effector logic</td>
+                                <td>Proximity sensing, gait control, and kinematics algorithms</td>
                             </tr>
                             <tr>
                                 <td>Deployment Context</td>
                                 <td><span class="ow-matrix-highlight">Logistics &amp; Manufacturing Operations</span></td>
-                                <td><span class="ow-matrix-highlight">R&amp;D, Prototyping &amp; Compact Inspection</span></td>
+                                <td><span class="ow-matrix-highlight">Industrial Automation &amp; Training</span></td>
+                                <td><span class="ow-matrix-highlight">Education, R&amp;D &amp; Prototyping</span></td>
                             </tr>
                         </tbody>
                     </table>
