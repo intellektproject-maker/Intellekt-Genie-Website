@@ -1,8 +1,15 @@
 /**
- * gallery.js - Cinematic Gallery Showcase Controller
+ * gallery.js - Reliable Cinematic Gallery Controller
  * Intellekt Genie / Intellekt Robotics
- * Lightweight native JavaScript, touch-enabled, keyboard navigation,
- * manual carousel only, accessible lightbox.
+ *
+ * Native JavaScript carousel with:
+ * - deterministic autoplay
+ * - preloading of adjacent images
+ * - previous/next controls
+ * - thumbnail navigation
+ * - keyboard navigation
+ * - touch/swipe navigation
+ * - lightbox support
  */
 (function () {
     'use strict';
@@ -20,7 +27,6 @@
         var progressBar = stage.querySelector('.cg-progress-bar');
         var thumbsScroll = stage.querySelector('.cg-thumbs-scroll');
 
-        // Lightbox Elements
         var lightbox = document.getElementById('cg-lightbox');
         var lightboxImg = document.getElementById('cg-lightbox-img');
         var lightboxClose = document.getElementById('cg-lightbox-close');
@@ -33,78 +39,95 @@
         if (!total) return;
 
         var currentIndex = 0;
+        var autoSlideTimer = null;
+        var autoSlideDelay = 5000;
+        var transitionLock = false;
+        var isPageVisible = !document.hidden;
+        var isLightboxOpen = false;
 
-        // Formatter for two-digit numbers (01, 02, etc.)
         function pad(num) {
-            return num < 10 ? '0' + num : '' + num;
+            return num < 10 ? '0' + num : String(num);
         }
 
-        // Initialize counters
-        if (counterTotal) counterTotal.textContent = pad(total);
-        if (lightboxTotal) lightboxTotal.textContent = pad(total);
+        function preloadImage(index) {
+            if (index < 0 || index >= total) return;
+            var img = slides[index].querySelector('img');
+            if (!img) return;
 
-        // Update progress bar to reflect current position in collection (e.g. slide 1 of 29 = ~3.4%)
+            var preload = new Image();
+            preload.decoding = 'async';
+            preload.src = img.currentSrc || img.src;
+        }
+
+        function preloadAdjacent(index) {
+            preloadImage((index + 1) % total);
+            preloadImage((index - 1 + total) % total);
+        }
+
         function updateProgress(index) {
-            if (progressBar && total > 0) {
-                var pct = ((index + 1) / total) * 100;
-                progressBar.style.width = pct + '%';
-            }
+            if (!progressBar || total < 1) return;
+            progressBar.style.width = (((index + 1) / total) * 100) + '%';
         }
 
-        // Update active slide classes and side previews
+        function scrollActiveThumbIntoView(index) {
+            if (!thumbsScroll || !thumbs[index]) return;
+
+            var thumb = thumbs[index];
+            var target = thumb.offsetLeft - (thumbsScroll.clientWidth / 2) + (thumb.offsetWidth / 2);
+
+            if (typeof thumbsScroll.scrollTo === 'function') {
+                try {
+                    thumbsScroll.scrollTo({ left: target, behavior: 'smooth' });
+                    return;
+                } catch (e) {
+                    // Fall back below.
+                }
+            }
+            thumbsScroll.scrollLeft = target;
+        }
+
         function updateSlides(index) {
-            currentIndex = (index + total) % total;
+            if (transitionLock && index !== currentIndex) return;
+
+            currentIndex = ((index % total) + total) % total;
 
             var prevIndex = (currentIndex - 1 + total) % total;
             var nextIndex = (currentIndex + 1) % total;
 
             slides.forEach(function (slide, i) {
                 slide.classList.remove('is-active', 'is-prev', 'is-next');
-                slide.setAttribute('aria-hidden', 'true');
 
                 if (i === currentIndex) {
                     slide.classList.add('is-active');
                     slide.setAttribute('aria-hidden', 'false');
                 } else if (i === prevIndex) {
                     slide.classList.add('is-prev');
+                    slide.setAttribute('aria-hidden', 'true');
                 } else if (i === nextIndex) {
                     slide.classList.add('is-next');
+                    slide.setAttribute('aria-hidden', 'true');
+                } else {
+                    slide.setAttribute('aria-hidden', 'true');
                 }
             });
 
-            // Update Counter
             if (counterCurrent) counterCurrent.textContent = pad(currentIndex + 1);
-
-            // Update Position Progress Bar
             updateProgress(currentIndex);
 
-            // Update Thumbnails
             thumbs.forEach(function (thumb, i) {
-                if (i === currentIndex) {
-                    thumb.classList.add('is-active');
-                    thumb.setAttribute('aria-selected', 'true');
-                    // Ensure active thumbnail is scrolled into view smoothly
-                    if (thumbsScroll) {
-                        var scrollLeft = thumb.offsetLeft - (thumbsScroll.clientWidth / 2) + (thumb.clientWidth / 2);
-                        try {
-                            thumbsScroll.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-                        } catch (err) {
-                            thumbsScroll.scrollLeft = scrollLeft;
-                        }
-                    }
-                } else {
-                    thumb.classList.remove('is-active');
-                    thumb.setAttribute('aria-selected', 'false');
-                }
+                var active = i === currentIndex;
+                thumb.classList.toggle('is-active', active);
+                thumb.setAttribute('aria-selected', active ? 'true' : 'false');
             });
 
-            // Update Lightbox if currently open
-            if (lightbox && lightbox.classList.contains('is-open')) {
+            scrollActiveThumbIntoView(currentIndex);
+            preloadAdjacent(currentIndex);
+
+            if (isLightboxOpen) {
                 updateLightboxImage();
             }
         }
 
-        // ── Navigation Actions ─────────────────────────────────────
         function nextSlide() {
             updateSlides(currentIndex + 1);
         }
@@ -113,181 +136,176 @@
             updateSlides(currentIndex - 1);
         }
 
-        function goToSlide(i) {
-            updateSlides(i);
-            restartAutoSlide();
-        }
-
-        // ── Automatic Slideshow ───────────────────────────────────
-        // Advances every 5 seconds. Pauses while the user is interacting
-        // with the gallery and resumes automatically afterward.
-        var autoSlideTimer = null;
-        var autoSlideDelay = 5000;
-        var isGalleryPaused = false;
-
-        function startAutoSlide() {
-            if (autoSlideTimer || total < 2 || isGalleryPaused) return;
-            autoSlideTimer = window.setInterval(function () {
-                if (!isGalleryPaused && !(lightbox && lightbox.classList.contains('is-open'))) {
-                    nextSlide();
-                }
-            }, autoSlideDelay);
-        }
-
         function stopAutoSlide() {
-            if (autoSlideTimer) {
+            if (autoSlideTimer !== null) {
                 window.clearInterval(autoSlideTimer);
                 autoSlideTimer = null;
             }
         }
 
+        function startAutoSlide() {
+            stopAutoSlide();
+
+            if (total < 2 || !isPageVisible || isLightboxOpen ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+            autoSlideTimer = window.setInterval(function () {
+                if (!isPageVisible || isLightboxOpen || transitionLock) return;
+                nextSlide();
+            }, autoSlideDelay);
+        }
+
         function restartAutoSlide() {
-            stopAutoSlide();
             startAutoSlide();
         }
 
-        function pauseAutoSlide() {
-            isGalleryPaused = true;
+        function openLightbox() {
+            if (!lightbox) return;
+
             stopAutoSlide();
+            updateLightboxImage();
+
+            isLightboxOpen = true;
+            lightbox.classList.add('is-open');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
 
-        function resumeAutoSlide() {
-            isGalleryPaused = false;
+        function closeLightbox() {
+            if (!lightbox) return;
+
+            isLightboxOpen = false;
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
             startAutoSlide();
         }
 
-        // ── Button Clicks ──────────────────────────────────────────
+        function updateLightboxImage() {
+            if (!lightboxImg) return;
+
+            var activeImg = slides[currentIndex] && slides[currentIndex].querySelector('img');
+            if (!activeImg) return;
+
+            lightboxImg.src = activeImg.currentSrc || activeImg.src;
+            lightboxImg.alt = activeImg.alt || ('Gallery Image ' + (currentIndex + 1));
+            if (lightboxCurrent) lightboxCurrent.textContent = pad(currentIndex + 1);
+        }
+
+        function manualNavigate(action) {
+            if (transitionLock) return;
+
+            transitionLock = true;
+            action();
+
+            // Keep rapid clicks from fighting CSS transitions.
+            window.setTimeout(function () {
+                transitionLock = false;
+            }, 700);
+
+            restartAutoSlide();
+        }
+
         if (prevBtn) {
             prevBtn.addEventListener('click', function (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                prevSlide();
-                restartAutoSlide();
+                manualNavigate(prevSlide);
             });
         }
 
         if (nextBtn) {
             nextBtn.addEventListener('click', function (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                nextSlide();
-                restartAutoSlide();
+                manualNavigate(nextSlide);
             });
         }
 
-        // Side previews clickable
         slides.forEach(function (slide) {
             slide.addEventListener('click', function (e) {
                 if (slide.classList.contains('is-prev')) {
                     e.preventDefault();
-                    prevSlide();
+                    manualNavigate(prevSlide);
                 } else if (slide.classList.contains('is-next')) {
                     e.preventDefault();
-                    nextSlide();
+                    manualNavigate(nextSlide);
                 } else if (slide.classList.contains('is-active')) {
-                    // Clicking main active image opens lightbox
                     openLightbox();
                 }
             });
         });
 
-        // Thumbnails Clicks
         thumbs.forEach(function (thumb, idx) {
-            thumb.addEventListener('click', function () {
-                goToSlide(idx);
+            thumb.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (transitionLock) return;
+
+                transitionLock = true;
+                updateSlides(idx);
+                window.setTimeout(function () {
+                    transitionLock = false;
+                }, 700);
+                restartAutoSlide();
             });
         });
 
-        // ── Touch & Swipe Support for Mobile ───────────────────────
         var touchStartX = 0;
-        var touchEndX = 0;
         var touchStartY = 0;
-        var touchEndY = 0;
         var showcaseEl = stage.querySelector('.cg-showcase');
 
         if (showcaseEl) {
             showcaseEl.addEventListener('touchstart', function (e) {
-                touchStartX = e.changedTouches[0].screenX;
-                touchStartY = e.changedTouches[0].screenY;
+                if (!e.changedTouches.length) return;
+                touchStartX = e.changedTouches[0].clientX;
+                touchStartY = e.changedTouches[0].clientY;
             }, { passive: true });
 
             showcaseEl.addEventListener('touchend', function (e) {
-                touchEndX = e.changedTouches[0].screenX;
-                touchEndY = e.changedTouches[0].screenY;
-                handleSwipe();
+                if (!e.changedTouches.length) return;
+
+                var diffX = e.changedTouches[0].clientX - touchStartX;
+                var diffY = e.changedTouches[0].clientY - touchStartY;
+
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+                    manualNavigate(diffX < 0 ? nextSlide : prevSlide);
+                }
             }, { passive: true });
         }
 
-        // Pause autoplay while the user hovers/focuses the gallery.
-        if (stage) {
-            stage.addEventListener('mouseenter', pauseAutoSlide);
-            stage.addEventListener('mouseleave', resumeAutoSlide);
-            stage.addEventListener('focusin', pauseAutoSlide);
-            stage.addEventListener('focusout', function () {
-                window.setTimeout(function () {
-                    if (!stage.contains(document.activeElement)) {
-                        resumeAutoSlide();
-                    }
-                }, 0);
-            });
-        }
-
-        function handleSwipe() {
-            var diffX = touchEndX - touchStartX;
-            var diffY = touchEndY - touchStartY;
-            // Ensure horizontal swipe is dominant and above threshold (40px)
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-                if (diffX < 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-            }
-        }
-
-        // ── Lightbox Implementation ────────────────────────────────
-        function updateLightboxImage() {
-            if (!lightboxImg) return;
-            var activeImg = slides[currentIndex].querySelector('img');
-            if (!activeImg) return;
-
-            lightboxImg.src = activeImg.src;
-            lightboxImg.alt = activeImg.alt || ('Gallery Image ' + (currentIndex + 1));
-            if (lightboxCurrent) lightboxCurrent.textContent = pad(currentIndex + 1);
-        }
-
-        function openLightbox() {
-            if (!lightbox) return;
-            updateLightboxImage();
-            lightbox.classList.add('is-open');
-            lightbox.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // prevent background scrolling
-        }
-
-        function closeLightbox() {
-            if (!lightbox) return;
-            lightbox.classList.remove('is-open');
-            lightbox.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
         if (lightboxClose) {
-            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxClose.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeLightbox();
+            });
         }
 
         if (lightboxPrev) {
             lightboxPrev.addEventListener('click', function (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                prevSlide();
+                if (!transitionLock) {
+                    transitionLock = true;
+                    prevSlide();
+                    window.setTimeout(function () { transitionLock = false; }, 700);
+                }
             });
         }
 
         if (lightboxNext) {
             lightboxNext.addEventListener('click', function (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                nextSlide();
+                if (!transitionLock) {
+                    transitionLock = true;
+                    nextSlide();
+                    window.setTimeout(function () { transitionLock = false; }, 700);
+                }
             });
         }
 
-        // Close lightbox by clicking backdrop (outside image and buttons)
         if (lightbox) {
             lightbox.addEventListener('click', function (e) {
                 if (e.target === lightbox || e.target.classList.contains('cg-lightbox-content')) {
@@ -296,29 +314,46 @@
             });
         }
 
-        // ── Keyboard Navigation ────────────────────────────────────
         document.addEventListener('keydown', function (e) {
-            var isLightboxOpen = lightbox && lightbox.classList.contains('is-open');
+            var lightboxOpen = isLightboxOpen;
 
-            if (e.key === 'Escape' && isLightboxOpen) {
+            if (e.key === 'Escape' && lightboxOpen) {
+                e.preventDefault();
                 closeLightbox();
                 return;
             }
 
-            // Arrow keys work for both lightbox and main showcase
             if (e.key === 'ArrowRight' || e.key === 'Right') {
-                nextSlide();
+                e.preventDefault();
+                if (lightboxOpen) {
+                    manualNavigate(nextSlide);
+                } else {
+                    manualNavigate(nextSlide);
+                }
             } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
-                prevSlide();
+                e.preventDefault();
+                if (lightboxOpen) {
+                    manualNavigate(prevSlide);
+                } else {
+                    manualNavigate(prevSlide);
+                }
             }
         });
 
-        // ── Start presentation ─────────────────────────────────────
+        document.addEventListener('visibilitychange', function () {
+            isPageVisible = !document.hidden;
+
+            if (isPageVisible) {
+                startAutoSlide();
+            } else {
+                stopAutoSlide();
+            }
+        });
+
         updateSlides(0);
         startAutoSlide();
     }
 
-    // Initialize reliably whether the script executes before or after DOMContentLoaded.
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initGallery, { once: true });
     } else {
