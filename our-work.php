@@ -195,7 +195,7 @@
 
                     <!-- Right Column: High-Res AMR Image -->
                     <div class="ow-product-media">
-                        <img src="assets/image/new-images/amr.png" 
+                        <img src="assets/image/new-images/card-amr.jpg" 
                              alt="Intellekt Autonomous Mobile Robot in Industrial Facility" 
                              width="800" 
                              height="450"
