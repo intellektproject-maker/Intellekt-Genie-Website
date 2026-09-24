@@ -210,7 +210,7 @@
             <div class="arm-container">
                 <div class="arm-hero-content">
                     <div class="arm-eyebrow">Intellekt Robotics</div>
-                    <h1>Autonomous robotic <span>Robots</span></h1>
+                    <h1>Robotic <span>Arms</span></h1>
                     <p class="arm-hero-copy">Explore precision robotic arm systems designed for repeatable handling, assembly, pick-and-place operations, and practical industrial automation.</p>
                     <div class="arm-capabilities" aria-label="Robotic arm capabilities">
                         <div class="arm-capability"><svg class="arm-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 25h18M10 25V14l7-5 7 5v11M14 25v-6h4v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Precision<br>Movement</strong></div>
@@ -238,8 +238,8 @@
 
         <section class="arm-application">
             <div class="arm-container arm-application-grid">
-                <div><div class="arm-eyebrow">Where Robotic Arms Create Value</div><h2>Built for precise automation challenges</h2><p>ROBOTIC ARM systems can be integrated into a variety of environments where reliable movement, improved visibility, and reduced repetitive handling are important. Their value comes from combining robotics hardware with software-driven decision-making.</p></div>
-                <div class="arm-list"><div class="arm-list-item"><strong>Manufacturing</strong>Assembly, machine tending, and component handling.</div><div class="arm-list-item"><strong>Manufacturing</strong>Pick-and-place, machine tending, and component handling.</div><div class="arm-list-item"><strong>Prototyping</strong>Rapid testing of motion, controls, sensors, and end-effectors.</div><div class="arm-list-item"><strong>Training &amp; Education</strong>Hands-on robotics programming, control, and automation learning.</div></div>
+                <div><div class="arm-eyebrow">Where Robotic Arms Create Value</div><h2>Built for precise automation challenges</h2><p>Robotic arm systems can be integrated into environments where reliable movement, precise positioning, and repeatable handling are important. Their value comes from combining robotics hardware with controllers, sensors, end-effectors, and automation software.</p></div>
+                <div class="arm-list"><div class="arm-list-item"><strong>Manufacturing</strong>Assembly, machine tending, and component handling.</div><div class="arm-list-item"><strong>Industrial Automation</strong>Pick-and-place, machine tending, and component handling.</div><div class="arm-list-item"><strong>Prototyping</strong>Rapid testing of motion, controls, sensors, and end-effectors.</div><div class="arm-list-item"><strong>Training &amp; Education</strong>Hands-on robotics programming, control, and automation learning.</div></div>
             </div>
         </section>
     </main>
