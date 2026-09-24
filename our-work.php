@@ -267,6 +267,12 @@
                                 <div><strong>Control &amp; Integration</strong><span>Integrate sensors, controllers, end-effectors, and automation logic into complete systems.</span></div>
                             </div>
                         </div>
+                        <div>
+                            <a href="roboticarm.php" class="btn-robotics-primary">
+                                <span>Explore Robotic Arm</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
