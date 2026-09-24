@@ -18,23 +18,31 @@ $contactCsrf = $_SESSION['contact_csrf'];
     <?php include 'header-link.php' ?>
     <style>
         /* =========================================================
-           CONTACT PAGE - CLEAN LIGHT FORM PRESENTATION
+           CONTACT PAGE - ROBOTICS BLUE THEME
            ========================================================= */
         .sigma-page-title-area.breadcrumb-main {
             position: relative;
             z-index: 1;
             padding-top: 46px !important;
             padding-bottom: 30px !important;
+            background: #2563eb !important;
         }
 
-        .sigma-page-title-area.breadcrumb-main .sigma-page-title {
+        .sigma-page-title-area.breadcrumb-main .sigma-page-title,
+        .sigma-page-title-area.breadcrumb-main .breadcrumb-item,
+        .sigma-page-title-area.breadcrumb-main .breadcrumb-item a {
             color: #ffffff !important;
-            margin-top: 0 !important;
         }
 
         .sigma-contact-area {
-            background: #f5f8fc !important;
+            background:
+                radial-gradient(circle at 12% 35%, rgba(37, 99, 235, 0.14), transparent 30%),
+                radial-gradient(circle at 88% 65%, rgba(59, 130, 246, 0.09), transparent 30%),
+                #080b12 !important;
+            color: #e2e8f0;
             padding-top: 0 !important;
+            border-top: 1px solid rgba(59, 130, 246, 0.16);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.16);
         }
 
         .sigma-contact-area .sigma-contact-wrap {
@@ -42,58 +50,77 @@ $contactCsrf = $_SESSION['contact_csrf'];
         }
 
         .sigma-contact-area .sigma-contact-address-heading {
-            color: #0b1f43 !important;
+            color: #ffffff !important;
+            text-shadow: 0 0 22px rgba(59, 130, 246, 0.18);
         }
 
         .sigma-contact-area .sigma-contact-wrap ul,
         .sigma-contact-area .sigma-contact-wrap li,
         .sigma-contact-area .sigma-contact-wrap a,
         .sigma-contact-area .sigma-contact-wrap a.contact-links-2 {
-            color: #40536f !important;
+            color: #cbd5e1 !important;
             opacity: 1 !important;
         }
 
         .sigma-contact-area .sigma-contact-wrap a:hover {
-            color: #1677ff !important;
+            color: #60a5fa !important;
         }
 
         .sigma-contact-area .sigma-contact-wrap .text-primary,
         .sigma-contact-area .sigma-contact-wrap i {
-            color: #1677ff !important;
+            color: #3b82f6 !important;
+            filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.25));
         }
 
         .sigma-contact-form-wrap {
-            background: #ffffff !important;
-            border: 1px solid #e2e8f0;
+            background: rgba(13, 21, 37, 0.88) !important;
+            border: 1px solid rgba(59, 130, 246, 0.22);
             border-radius: 14px;
             padding: 34px 36px;
-            box-shadow: 0 14px 38px rgba(15, 35, 65, 0.08);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.38), 0 0 30px rgba(37, 99, 235, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
         .sigma-contact-area .sigma-input-label {
-            color: #0b1f43 !important;
+            color: #f8fafc !important;
             opacity: 1 !important;
         }
 
         .sigma-contact-area .sigma-form-input,
         .sigma-contact-area .sigma-form-textarea {
-            color: #17213a !important;
-            background-color: #ffffff !important;
-            border: 1px solid #d7e0eb !important;
+            color: #f8fafc !important;
+            background-color: rgba(8, 11, 18, 0.78) !important;
+            border: 1px solid rgba(148, 163, 184, 0.22) !important;
+            caret-color: #60a5fa;
         }
 
         .sigma-contact-area .sigma-form-input::placeholder,
         .sigma-contact-area .sigma-form-textarea::placeholder {
-            color: #77839a !important;
+            color: #94a3b8 !important;
             opacity: 1 !important;
         }
 
         .sigma-contact-area .sigma-form-input:focus,
         .sigma-contact-area .sigma-form-textarea:focus {
-            color: #17213a !important;
-            border-color: #1677ff !important;
+            color: #ffffff !important;
+            border-color: #3b82f6 !important;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.10);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14), 0 0 18px rgba(37, 99, 235, 0.10);
+        }
+
+        .sigma-contact-area .btn-primary {
+            background: #2563eb !important;
+            border-color: #2563eb !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+        }
+
+        .sigma-contact-area .btn-primary:hover {
+            background: #1d4ed8 !important;
+            border-color: #1d4ed8 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 24px rgba(37, 99, 235, 0.42);
         }
 
         @media (max-width: 767px) {
@@ -107,6 +134,7 @@ $contactCsrf = $_SESSION['contact_csrf'];
                 border-radius: 12px;
             }
         }
+
     </style>
 
 </head>
