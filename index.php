@@ -218,8 +218,8 @@
                 </h2>
 
                 <p>
-                    We develop practical robotics and automation solutions
-                    while training students through hands-on robotics internships.
+                    We involve students in practical robotics and automation projects
+                    while providing hands-on experience through robotics internships.
                 </p>
             </div>
 
