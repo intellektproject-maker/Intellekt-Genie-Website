@@ -29,7 +29,7 @@
             background-image:
                 linear-gradient(90deg, rgba(4, 8, 13, .98) 0%, rgba(4, 8, 13, .94) 28%, rgba(4, 8, 13, .45) 53%, rgba(4, 8, 13, .08) 100%),
                 linear-gradient(180deg, rgba(4, 8, 13, .06) 0%, rgba(4, 8, 13, .10) 55%, rgba(4, 8, 13, .42) 100%),
-                url('assets/image/new-images/amr.png');
+                url('assets/image/new-images/card-amr.jpg');
             background-repeat: no-repeat;
             background-position: center, center, right center;
             /* Keep the entire landscape image visible instead of zooming/cropping it. */
