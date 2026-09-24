@@ -87,8 +87,6 @@
         }
 
         function updateSlides(index) {
-            if (transitionLock && index !== currentIndex) return;
-
             currentIndex = ((index % total) + total) % total;
 
             var prevIndex = (currentIndex - 1 + total) % total;
