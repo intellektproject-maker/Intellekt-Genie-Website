@@ -136,7 +136,7 @@ $contactCsrf = $_SESSION['contact_csrf'];
                             <li class="py-3"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links-2" target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726 </a></li>
                             <li class="py-2"><a href="tel:+919500072201" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 95000 72201 </a></li>
                             <li class="py-2"><a href="tel:+919677020049" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 96770 20049 </a></li>
-                            <li class="py-2"><a href="mailto:info@intellektgenie.com" class="text-decoration-none  contact-links-2"> <i class="fas fa-envelope me-2 text-primary"></i> Info@intellektgenie.com</a></li>
+                            <li class="py-2"><a href="mailto:intellektgenie@gmail.com" class="text-decoration-none  contact-links-2"> <i class="fas fa-envelope me-2 text-primary"></i> intellektgenie@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
