@@ -316,8 +316,8 @@
 /* Category Quick Overview Cards (Side by Side intro) */
 .robotics-our-work-page .ow-overview-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   margin-top: 50px;
 }
 
@@ -583,6 +583,13 @@
    4. SPIDERBOT SHOWCASE SECTION
    -------------------------------------------------------------------------- */
 
+.robotics-our-work-page .ow-product-showcase--arm {
+  background: linear-gradient(180deg, rgba(10, 16, 30, 0.55) 0%, rgba(8, 13, 24, 0.9) 50%, rgba(10, 16, 30, 0.55) 100%);
+  border-top: 1px solid rgba(59, 130, 246, 0.12);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.12);
+  padding: 100px 0;
+}
+
 .robotics-our-work-page .ow-product-showcase--spider {
   background: transparent;
   padding: 100px 0;
@@ -698,12 +705,13 @@
 }
 
 .robotics-our-work-page .ow-matrix-table th:first-child {
-  width: 28%;
+  width: 22%;
 }
 
 .robotics-our-work-page .ow-matrix-table th:nth-child(2),
-.robotics-our-work-page .ow-matrix-table th:nth-child(3) {
-  width: 36%;
+.robotics-our-work-page .ow-matrix-table th:nth-child(3),
+.robotics-our-work-page .ow-matrix-table th:nth-child(4) {
+  width: 26%;
 }
 
 .robotics-our-work-page .ow-matrix-table td {
