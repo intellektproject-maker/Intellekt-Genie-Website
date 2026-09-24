@@ -56,7 +56,7 @@ $clean_email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
 $clean_name = str_replace(["\r", "\n", "%0a", "%0d"], '', $name);
 
 // Keep the existing recipient and email workflow.
-$to = "info@intellektgenie.com";
+$to = "intellektgenie@gmail.com";
 $subject = "Website Enquiry Details from $clean_name";
 
 $message_body = <<<EMAIL
