@@ -234,7 +234,7 @@
                             <circle cx="300" cy="200" r="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
 
                             <!-- Articulated Arm Group (Rotates around base pivot 300, 200) -->
-                            <g id="simArmArmature" style="transform-origin: 300px 200px; transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);">
+                            <g id="simArmArmature" transform="rotate(0 300 200)">
                                 <!-- Arm Link 1 (Shoulder to Elbow) -->
                                 <line x1="300" y1="200" x2="260" y2="100" stroke="#38bdf8" stroke-width="10" stroke-linecap="round" />
                                 <circle cx="260" cy="100" r="9" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
@@ -247,7 +247,7 @@
                             </g>
 
                             <!-- Workpiece Cube (Moves smoothly between stations) -->
-                            <g id="simWorkpiece" style="transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1); transform: translate(130px, 240px);">
+                            <g id="simWorkpiece" transform="translate(130 240)">
                                 <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
                                 <text x="-6" y="4" fill="#0f172a" font-family="monospace" font-size="9" font-weight="bold">W1</text>
                             </g>
