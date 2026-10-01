@@ -113,13 +113,32 @@
   // Automation Sequence Simulation (Pick -> Move -> Place -> Reset)
   let isSimulating = false;
   let simTimer = null;
+  let workpieceAttached = false;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const btnRunSim = document.getElementById('armRunSimBtn');
   const stepCards = document.querySelectorAll('.arm-seq-step-card');
   const simArmGroup = document.getElementById('simArmArmature');
+  const simShoulder = document.getElementById('simShoulder');
+  const simElbow = document.getElementById('simElbow');
+  const simWrist = document.getElementById('simWrist');
   const simWorkpiece = document.getElementById('simWorkpiece');
   const simStatusText = document.getElementById('simLiveStatusText');
+
+  // The simulator uses a simple planar 2-link inverse-kinematics model.
+  // The base stays fixed while shoulder, elbow and wrist transforms move as
+  // a connected kinematic chain. The workpiece follows the tool only while
+  // the gripper is carrying it.
+  const SIM = {
+    base: { x: 300, y: 200 },
+    upperArm: 100,
+    forearm: 80,
+    feeder: { x: 130, y: 240 },
+    feederLift: { x: 130, y: 175 },
+    fixtureLift: { x: 450, y: 175 },
+    fixture: { x: 450, y: 240 },
+    home: { x: 210, y: 80 }
+  };
 
   function setSimStepUI(stepIndex) {
     stepCards.forEach((card, idx) => {
@@ -149,10 +168,41 @@
     }
   }
 
-  function setArmPose(rotation) {
-    if (simArmGroup) {
-      simArmGroup.setAttribute('transform', 'rotate(' + rotation + ' 300 200)');
-    }
+  function solvePlanarIK(targetX, targetY) {
+    const dx = targetX - SIM.base.x;
+    const dy = targetY - SIM.base.y;
+    const distance = Math.hypot(dx, dy);
+    const maxReach = SIM.upperArm + SIM.forearm;
+    const minReach = Math.abs(SIM.upperArm - SIM.forearm);
+
+    const safeDistance = Math.max(minReach + 0.001, Math.min(maxReach - 0.001, distance));
+    const cosElbow = (
+      safeDistance * safeDistance -
+      SIM.upperArm * SIM.upperArm -
+      SIM.forearm * SIM.forearm
+    ) / (2 * SIM.upperArm * SIM.forearm);
+
+    const elbow = Math.acos(Math.max(-1, Math.min(1, cosElbow)));
+    const shoulder = Math.atan2(dy, dx) -
+      Math.atan2(
+        SIM.forearm * Math.sin(elbow),
+        SIM.upperArm + SIM.forearm * Math.cos(elbow)
+      );
+
+    return {
+      shoulder: shoulder * 180 / Math.PI,
+      elbow: elbow * 180 / Math.PI,
+      wrist: 90 - ((shoulder + elbow) * 180 / Math.PI)
+    };
+  }
+
+  function setArmTarget(x, y) {
+    if (!simShoulder || !simElbow || !simWrist) return;
+
+    const pose = solvePlanarIK(x, y);
+    simShoulder.setAttribute('transform', 'translate(' + SIM.base.x + ' ' + SIM.base.y + ') rotate(' + pose.shoulder + ')');
+    simElbow.setAttribute('transform', 'translate(' + SIM.upperArm + ' 0) rotate(' + pose.elbow + ')');
+    simWrist.setAttribute('transform', 'translate(' + SIM.forearm + ' 0) rotate(' + pose.wrist + ')');
   }
 
   function setWorkpiece(x, y, opacity) {
@@ -161,40 +211,47 @@
     simWorkpiece.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
   }
 
-  function animatePose(rotation, x, y, duration) {
+  function setSimulationPose(x, y, opacity) {
+    setArmTarget(x, y);
+    if (workpieceAttached) {
+      setWorkpiece(x, y, 1);
+    } else if (opacity != null) {
+      setWorkpiece(x, y, opacity);
+    }
+  }
+
+  function animatePose(targetX, targetY, duration, carryWorkpiece) {
     return new Promise(resolve => {
+      const startTarget = animatePose.currentTarget || SIM.home;
+      const startX = startTarget.x;
+      const startY = startTarget.y;
+      const shouldCarry = carryWorkpiece === true;
+
       if (prefersReducedMotion || duration <= 0) {
-        setArmPose(rotation);
-        setWorkpiece(x, y, 1);
+        setSimulationPose(targetX, targetY, 1);
+        animatePose.currentTarget = { x: targetX, y: targetY };
         resolve();
         return;
       }
 
       const startTime = performance.now();
-      const startTransform = simArmGroup
-        ? (simArmGroup.getAttribute('transform') || 'rotate(0 300 200)')
-        : 'rotate(0 300 200)';
-      const match = startTransform.match(/rotate\(([-.\d]+)\s+300\s+200\)/);
-      const startRotation = match ? Number(match[1]) : 0;
-      const startWorkpiece = simWorkpiece
-        ? (simWorkpiece.getAttribute('transform') || 'translate(130 240)').match(/translate\(([-.\d]+)\s+([-.\d]+)\)/)
-        : null;
-      const startX = startWorkpiece ? Number(startWorkpiece[1]) : 130;
-      const startY = startWorkpiece ? Number(startWorkpiece[2]) : 240;
 
       function frame(now) {
         const progress = Math.min(1, (now - startTime) / duration);
         const eased = 1 - Math.pow(1 - progress, 3);
-        setArmPose(startRotation + (rotation - startRotation) * eased);
-        setWorkpiece(
-          startX + (x - startX) * eased,
-          startY + (y - startY) * eased,
-          1
-        );
+        const x = startX + (targetX - startX) * eased;
+        const y = startY + (targetY - startY) * eased;
+
+        if (shouldCarry) {
+          workpieceAttached = true;
+        }
+
+        setSimulationPose(x, y, 1);
 
         if (progress < 1) {
           window.requestAnimationFrame(frame);
         } else {
+          animatePose.currentTarget = { x: targetX, y: targetY };
           resolve();
         }
       }
@@ -202,6 +259,7 @@
       window.requestAnimationFrame(frame);
     });
   }
+  animatePose.currentTarget = { ...SIM.home };
 
   function clearSimulationTimers() {
     if (simTimer) {
@@ -210,12 +268,19 @@
     }
   }
 
+  function wait(ms) {
+    return new Promise(resolve => {
+      simTimer = window.setTimeout(resolve, ms);
+    });
+  }
+
   function finishSimulation() {
     isSimulating = false;
+    workpieceAttached = false;
     setSimStatus('AUTOMATION CYCLE COMPLETE // READY');
     stepCards.forEach(card => card.classList.remove('active', 'completed'));
-    setArmPose(0);
-    setWorkpiece(130, 240, 1);
+    setArmTarget(SIM.home.x, SIM.home.y);
+    animatePose.currentTarget = { ...SIM.home };
     setSimButton('RUN SIMULATION', 'fa-play', false);
   }
 
@@ -224,61 +289,67 @@
 
     clearSimulationTimers();
     isSimulating = true;
+    workpieceAttached = false;
     setSimButton('RUNNING...', 'fa-spinner fa-spin', true);
 
-    // The SVG robot is animated with real SVG transforms rather than CSS transforms.
-    // This keeps the joints connected and makes the workpiece follow the tool path.
+    // Start from the home position with the component at Feeder A.
+    setWorkpiece(SIM.feeder.x, SIM.feeder.y, 1);
+    setArmTarget(SIM.home.x, SIM.home.y);
+    animatePose.currentTarget = { ...SIM.home };
+
     if (prefersReducedMotion) {
       setSimStepUI(0);
       setSimStatus('STEP 01: PICKING FROM FEEDER A // REDUCED MOTION');
-      setArmPose(-63.1);
-      setWorkpiece(134, 239, 1);
+      setSimulationPose(SIM.feeder.x, SIM.feeder.y, 1);
+      workpieceAttached = true;
 
       setSimStepUI(1);
       setSimStatus('STEP 02: TRANSFERRING TO FIXTURE B // REDUCED MOTION');
-      setArmPose(145.2);
-      setWorkpiece(465, 244, 1);
+      setSimulationPose(SIM.fixtureLift.x, SIM.fixtureLift.y, 1);
+      setSimulationPose(SIM.fixture.x, SIM.fixture.y, 1);
 
       setSimStepUI(2);
       setSimStatus('STEP 03: PLACING INTO FIXTURE B // REDUCED MOTION');
-      setWorkpiece(450, 240, 1);
+      workpieceAttached = false;
+      setWorkpiece(SIM.fixture.x, SIM.fixture.y, 1);
 
       setSimStepUI(3);
-      setSimStatus('STEP 04: RETURNING HOME // REDUCED MOTION');
-      setArmPose(0);
-      setWorkpiece(450, 240, 0.45);
-
-      simTimer = window.setTimeout(finishSimulation, 900);
+      setSimStatus('STEP 04: RELEASING WORKPIECE // RETURNING HOME');
+      setSimulationPose(SIM.home.x, SIM.home.y, 1);
+      finishSimulation();
       return;
     }
 
     // STEP 01 — PICK
     setSimStepUI(0);
     setSimStatus('STEP 01: ALIGNING TOOL WITH FEEDER A');
-    await animatePose(-63.1, 134, 239, 1200);
+    await animatePose(SIM.feeder.x, SIM.feeder.y, 1100, false);
     setSimStatus('STEP 01: WORKPIECE ENGAGED // PICK COMPLETE');
-    await new Promise(resolve => {
-      simTimer = window.setTimeout(resolve, 500);
-    });
+    workpieceAttached = true;
+    setWorkpiece(SIM.feeder.x, SIM.feeder.y, 1);
+    await wait(500);
 
     // STEP 02 — MOVE
     setSimStepUI(1);
+    setSimStatus('STEP 02: LIFTING WORKPIECE FROM FEEDER A');
+    await animatePose(SIM.feederLift.x, SIM.feederLift.y, 650, true);
     setSimStatus('STEP 02: TRANSFERRING ALONG INTERPOLATED PATH');
-    await animatePose(145.2, 465, 244, 1700);
+    await animatePose(SIM.fixtureLift.x, SIM.fixtureLift.y, 1600, true);
 
     // STEP 03 — PLACE
     setSimStepUI(2);
     setSimStatus('STEP 03: LOWERING TOOL INTO FIXTURE B');
-    await animatePose(145.2, 450, 240, 700);
-    await new Promise(resolve => {
-      simTimer = window.setTimeout(resolve, 650);
-    });
+    await animatePose(SIM.fixture.x, SIM.fixture.y, 700, true);
+    await wait(500);
+    setSimStatus('STEP 03: WORKPIECE RELEASED // PLACE COMPLETE');
+    workpieceAttached = false;
+    setWorkpiece(SIM.fixture.x, SIM.fixture.y, 1);
+    await wait(350);
 
     // STEP 04 — RESET
     setSimStepUI(3);
-    setSimStatus('STEP 04: RELEASING WORKPIECE // RETURNING HOME');
-    setWorkpiece(450, 240, 0.45);
-    await animatePose(0, 190, 70, 1300);
+    setSimStatus('STEP 04: RETURNING EMPTY TOOL TO HOME');
+    await animatePose(SIM.home.x, SIM.home.y, 1200, false);
 
     finishSimulation();
   }
