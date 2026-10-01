@@ -165,12 +165,12 @@
 }
 
 /* Specific Positions for J1 - J6 on arm visual */
-.arm-joint-pin[data-joint="J1"] { top: 88%; left: 36%; }
-.arm-joint-pin[data-joint="J2"] { top: 66%; left: 48%; }
-.arm-joint-pin[data-joint="J3"] { top: 55%; left: 76%; }
-.arm-joint-pin[data-joint="J4"] { top: 49%; left: 82%; }
-.arm-joint-pin[data-joint="J5"] { top: 43%; left: 88%; }
-.arm-joint-pin[data-joint="J6"] { top: 67%; left: 82%; }
+.arm-joint-pin[data-joint="J1"] { top: 78%; left: 36%; } /* base */
+.arm-joint-pin[data-joint="J2"] { top: 19%; left: 41%; } /* shoulder */
+.arm-joint-pin[data-joint="J3"] { top: 40%; left: 60%; } /* elbow */
+.arm-joint-pin[data-joint="J4"] { top: 52%; left: 64%; } /* wrist pitch */
+.arm-joint-pin[data-joint="J5"] { top: 58%; left: 64%; } /* wrist roll */
+.arm-joint-pin[data-joint="J6"] { top: 64%; left: 64%; } /* tool flange */
 
 /* Joint Info Panel (Right side) */
 .arm-joint-inspector {
@@ -397,18 +397,17 @@
 
 .arm-sim-svg #simArmArmature,
 .arm-sim-svg #simWorkpiece {
-  transform-box: fill-box;
-  transform-origin: center;
   will-change: transform;
 }
 
-.arm-sim-svg #simArmArmature {
-  transform-origin: 300px 200px;
+.arm-sim-svg #simWorkpiece {
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.35));
 }
 
-.arm-sim-svg #simWorkpiece {
-  transform-origin: center;
-  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.35));
+.arm-sim-svg #simArmArmature line,
+.arm-sim-svg #simArmArmature circle,
+.arm-sim-svg #simArmArmature polygon {
+  vector-effect: non-scaling-stroke;
 }
 
 .arm-sim-canvas-wrap::after {
