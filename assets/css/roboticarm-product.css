@@ -165,12 +165,12 @@
 }
 
 /* Specific Positions for J1 - J6 on arm visual */
-.arm-joint-pin[data-joint="J1"] { top: 81%; left: 32%; }
-.arm-joint-pin[data-joint="J2"] { top: 65%; left: 36%; }
-.arm-joint-pin[data-joint="J3"] { top: 43%; left: 45%; }
-.arm-joint-pin[data-joint="J4"] { top: 29%; left: 60%; }
-.arm-joint-pin[data-joint="J5"] { top: 24%; left: 74%; }
-.arm-joint-pin[data-joint="J6"] { top: 31%; left: 86%; }
+.arm-joint-pin[data-joint="J1"] { top: 88%; left: 36%; }
+.arm-joint-pin[data-joint="J2"] { top: 66%; left: 48%; }
+.arm-joint-pin[data-joint="J3"] { top: 55%; left: 76%; }
+.arm-joint-pin[data-joint="J4"] { top: 49%; left: 82%; }
+.arm-joint-pin[data-joint="J5"] { top: 43%; left: 88%; }
+.arm-joint-pin[data-joint="J6"] { top: 67%; left: 82%; }
 
 /* Joint Info Panel (Right side) */
 .arm-joint-inspector {
