@@ -92,19 +92,22 @@
   border: 1px solid var(--rp-border-accent);
   background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.9) 0%, rgba(6, 9, 17, 0.98) 100%);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 10 / 7;
+  width: 100%;
+  display: block;
 }
 
 .arm-visual-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 480px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   opacity: 0.85;
   filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
   user-select: none;
+  display: block;
 }
 
 /* Interactive Joint Hotspots */
@@ -162,12 +165,12 @@
 }
 
 /* Specific Positions for J1 - J6 on arm visual */
-.arm-joint-pin[data-joint="J1"] { top: 82%; left: 32%; }
-.arm-joint-pin[data-joint="J2"] { top: 66%; left: 36%; }
-.arm-joint-pin[data-joint="J3"] { top: 44%; left: 45%; }
-.arm-joint-pin[data-joint="J4"] { top: 30%; left: 60%; }
-.arm-joint-pin[data-joint="J5"] { top: 25%; left: 74%; }
-.arm-joint-pin[data-joint="J6"] { top: 32%; left: 86%; }
+.arm-joint-pin[data-joint="J1"] { top: 81%; left: 32%; }
+.arm-joint-pin[data-joint="J2"] { top: 65%; left: 36%; }
+.arm-joint-pin[data-joint="J3"] { top: 43%; left: 45%; }
+.arm-joint-pin[data-joint="J4"] { top: 29%; left: 60%; }
+.arm-joint-pin[data-joint="J5"] { top: 24%; left: 74%; }
+.arm-joint-pin[data-joint="J6"] { top: 31%; left: 86%; }
 
 /* Joint Info Panel (Right side) */
 .arm-joint-inspector {
@@ -301,17 +304,18 @@
 
 /* Automation Stage Simulation Canvas */
 .arm-simulation-stage {
-  background: #04070f;
+  background: linear-gradient(180deg, #050a14 0%, #03060d 100%);
   border: 1px solid var(--rp-border-accent);
   border-radius: 20px;
   padding: 30px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
 }
 
 .arm-sim-canvas-wrap {
   width: 100%;
-  height: 320px;
+  height: clamp(300px, 32vw, 380px);
   background:
     radial-gradient(circle at 50% 60%, rgba(37, 99, 235, 0.08) 0%, transparent 75%),
     linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
@@ -383,5 +387,81 @@
   .arm-sim-controls {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+/* Polished simulation states */
+.arm-sim-svg {
+  overflow: visible;
+}
+
+.arm-sim-svg #simArmArmature,
+.arm-sim-svg #simWorkpiece {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.arm-sim-svg #simArmArmature {
+  transform-origin: 300px 200px;
+}
+
+.arm-sim-svg #simWorkpiece {
+  transform-origin: center;
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.35));
+}
+
+.arm-sim-canvas-wrap::after {
+  content: "SIMULATED WORKCELL // VISUAL DEMONSTRATION";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  padding: 5px 9px;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 5px;
+  background: rgba(4, 7, 15, 0.78);
+  color: rgba(148, 163, 184, 0.8);
+  font: 700 9px/1 var(--rp-font-mono);
+  letter-spacing: 1.2px;
+  pointer-events: none;
+}
+
+.arm-sim-controls {
+  border-top: 1px solid var(--rp-border);
+  padding-top: 18px;
+}
+
+#armRunSimBtn:disabled {
+  opacity: 0.72;
+  cursor: wait;
+  transform: none;
+}
+
+@media (max-width: 576px) {
+  .arm-visual-canvas {
+    aspect-ratio: 10 / 7;
+    min-height: 0;
+  }
+
+  .arm-visual-img {
+    height: 100%;
+  }
+
+  .arm-joint-pin {
+    width: 34px;
+    height: 34px;
+    font-size: 10px;
+  }
+
+  .arm-simulation-stage {
+    padding: 16px;
+  }
+
+  .arm-sim-canvas-wrap {
+    height: 260px;
+  }
+
+  .arm-sim-canvas-wrap::after {
+    display: none;
   }
 }
