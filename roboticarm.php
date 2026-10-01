@@ -232,21 +232,31 @@
                             <!-- Central Robot Pedestal -->
                             <polygon points="270,260 330,260 315,200 285,200" fill="#1e293b" stroke="#475467" stroke-width="1.5" />
                             <circle cx="300" cy="200" r="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+                            <!-- Articulated planar arm with independent shoulder, elbow and wrist joints -->
+                            <g id="simArmArmature">
+                                <g id="simShoulder" transform="translate(300 200) rotate(-40)">
+                                    <!-- Upper arm -->
+                                    <line x1="0" y1="0" x2="100" y2="0" stroke="#38bdf8" stroke-width="10" stroke-linecap="round" />
+                                    <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+                                    <circle cx="100" cy="0" r="9" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
 
-                            <!-- Articulated Arm Group (Rotates around base pivot 300, 200) -->
-                            <g id="simArmArmature" transform="rotate(0 300 200)">
-                                <!-- Arm Link 1 (Shoulder to Elbow) -->
-                                <line x1="300" y1="200" x2="260" y2="100" stroke="#38bdf8" stroke-width="10" stroke-linecap="round" />
-                                <circle cx="260" cy="100" r="9" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
-                                <!-- Arm Link 2 (Elbow to Wrist) -->
-                                <line x1="260" y1="100" x2="210" y2="60" stroke="#94a3b8" stroke-width="7" stroke-linecap="round" />
-                                <circle cx="210" cy="60" r="7" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
-                                <!-- Gripper Tool Flange -->
-                                <line x1="210" y1="60" x2="190" y2="70" stroke="#00d2ff" stroke-width="4" stroke-linecap="round" />
-                                <polygon points="190,66 180,60 180,80 190,74" fill="#00d2ff" />
+                                    <!-- Elbow joint and forearm -->
+                                    <g id="simElbow" transform="translate(100 0) rotate(55)">
+                                        <line x1="0" y1="0" x2="80" y2="0" stroke="#94a3b8" stroke-width="7" stroke-linecap="round" />
+                                        <circle cx="0" cy="0" r="8" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
+                                        <circle cx="80" cy="0" r="7" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+
+                                        <!-- Wrist and tool flange -->
+                                        <g id="simWrist" transform="translate(80 0) rotate(-5)">
+                                            <line x1="-2" y1="0" x2="20" y2="0" stroke="#00d2ff" stroke-width="4" stroke-linecap="round" />
+                                            <polygon points="20,-7 30,-11 30,11 20,7" fill="#00d2ff" />
+                                            <line x1="25" y1="-11" x2="25" y2="11" stroke="#e0f2fe" stroke-width="2" />
+                                        </g>
+                                    </g>
+                                </g>
                             </g>
 
-                            <!-- Workpiece Cube (Moves smoothly between stations) -->
+                            <!-- Workpiece Cube (Follows the end-effector while carried) -->
                             <g id="simWorkpiece" transform="translate(130 240)">
                                 <rect x="-10" y="-10" width="20" height="20" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
                                 <text x="-6" y="4" fill="#0f172a" font-family="monospace" font-size="9" font-weight="bold">W1</text>
