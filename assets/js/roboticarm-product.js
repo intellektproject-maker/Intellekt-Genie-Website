@@ -174,10 +174,10 @@
       const startTransform = simArmGroup
         ? (simArmGroup.getAttribute('transform') || 'rotate(0 300 200)')
         : 'rotate(0 300 200)';
-      const match = startTransform.match(/rotate\\(([-.\\d]+)\\s+300\\s+200\\)/);
+      const match = startTransform.match(/rotate\(([-.\d]+)\s+300\s+200\)/);
       const startRotation = match ? Number(match[1]) : 0;
       const startWorkpiece = simWorkpiece
-        ? (simWorkpiece.getAttribute('transform') || 'translate(130 240)').match(/translate\\(([-.\\d]+)\\s+([-.\\d]+)\\)/)
+        ? (simWorkpiece.getAttribute('transform') || 'translate(130 240)').match(/translate\(([-.\d]+)\s+([-.\d]+)\)/)
         : null;
       const startX = startWorkpiece ? Number(startWorkpiece[1]) : 130;
       const startY = startWorkpiece ? Number(startWorkpiece[2]) : 240;
