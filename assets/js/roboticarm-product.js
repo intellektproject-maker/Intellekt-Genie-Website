@@ -211,12 +211,10 @@
     simWorkpiece.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
   }
 
-  function setSimulationPose(x, y, opacity) {
+  function setSimulationPose(x, y) {
     setArmTarget(x, y);
     if (workpieceAttached) {
       setWorkpiece(x, y, 1);
-    } else if (opacity != null) {
-      setWorkpiece(x, y, opacity);
     }
   }
 
@@ -228,7 +226,7 @@
       const shouldCarry = carryWorkpiece === true;
 
       if (prefersReducedMotion || duration <= 0) {
-        setSimulationPose(targetX, targetY, 1);
+        setSimulationPose(targetX, targetY);
         animatePose.currentTarget = { x: targetX, y: targetY };
         resolve();
         return;
@@ -300,13 +298,13 @@
     if (prefersReducedMotion) {
       setSimStepUI(0);
       setSimStatus('STEP 01: PICKING FROM FEEDER A // REDUCED MOTION');
-      setSimulationPose(SIM.feeder.x, SIM.feeder.y, 1);
+      setSimulationPose(SIM.feeder.x, SIM.feeder.y);
       workpieceAttached = true;
 
       setSimStepUI(1);
       setSimStatus('STEP 02: TRANSFERRING TO FIXTURE B // REDUCED MOTION');
-      setSimulationPose(SIM.fixtureLift.x, SIM.fixtureLift.y, 1);
-      setSimulationPose(SIM.fixture.x, SIM.fixture.y, 1);
+      setSimulationPose(SIM.fixtureLift.x, SIM.fixtureLift.y);
+      setSimulationPose(SIM.fixture.x, SIM.fixture.y);
 
       setSimStepUI(2);
       setSimStatus('STEP 03: PLACING INTO FIXTURE B // REDUCED MOTION');
@@ -315,7 +313,7 @@
 
       setSimStepUI(3);
       setSimStatus('STEP 04: RELEASING WORKPIECE // RETURNING HOME');
-      setSimulationPose(SIM.home.x, SIM.home.y, 1);
+      setSimulationPose(SIM.home.x, SIM.home.y);
       finishSimulation();
       return;
     }
