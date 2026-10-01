@@ -1,0 +1,307 @@
+/* ==========================================================================
+   HOMEPAGE COMMERCIAL ROBOTICS REDESIGN
+   ========================================================================== */
+
+/* Technical Section (Why Choose Us Replacement) */
+.home-technical-section {
+    background-color: var(--robotics-bg-dark, #060910);
+    padding: 100px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.technical-section-header {
+    margin-bottom: 60px;
+    max-width: 700px;
+}
+
+.technical-kicker {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #00d2ff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    border-left: 2px solid #00d2ff;
+    padding-left: 12px;
+}
+
+.technical-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.technical-title .text-cyan {
+    color: #3b82f6;
+}
+
+.technical-desc {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.technical-layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Visual Pane */
+.technical-visual-pane {
+    position: relative;
+    background: rgba(13, 21, 37, 0.4);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.technical-backdrop-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+.technical-hero-img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: contrast(1.1) drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.technical-hud-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.hud-label {
+    font-family: monospace;
+    font-size: 10px;
+    color: #00d2ff;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Specs Pane */
+.technical-specs-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.spec-panel {
+    display: flex;
+    gap: 20px;
+    background: rgba(13, 21, 37, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.spec-panel:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(13, 21, 37, 0.9);
+}
+
+.spec-icon {
+    color: #3b82f6;
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 4px;
+}
+
+.spec-content h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.spec-content p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* Services Section Redesign */
+.home-services-section {
+    background-color: #04060a;
+    padding: 100px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cr-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cr-service-card {
+    background: rgba(13, 21, 37, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cr-service-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+}
+
+.cr-service-img-wrapper {
+    position: relative;
+    padding-top: 60%;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px 4px 0 0;
+}
+
+.cr-service-img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.85) contrast(1.1);
+}
+
+.cr-service-card:hover .cr-service-img-wrapper img {
+    transform: scale(1.05);
+    filter: brightness(1) contrast(1.1);
+}
+
+.cr-service-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cr-service-title {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.cr-service-title svg {
+    stroke: #3b82f6;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-top: 2px;
+}
+
+.cr-service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    flex-grow: 1;
+}
+
+.cr-service-list li {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.cr-service-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 2px;
+    background: #00d2ff;
+}
+
+.cr-service-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    color: #00d2ff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cr-service-btn:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+    .cr-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .technical-layout-split {
+        grid-template-columns: 1fr;
+    }
+    .cr-services-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cr-services-grid {
+        grid-template-columns: 1fr;
+    }
+    .technical-title {
+        font-size: 2rem;
+    }
+}
