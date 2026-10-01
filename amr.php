@@ -2,248 +2,557 @@
 <html lang="en">
 <head>
     <?php include 'header-link.php'; ?>
-    <title>Autonomous Mobile Robots | Intellekt Genie</title>
-    <style>
-        :root {
-            --amr-white: #f7f9fd;
-            --amr-blue: #63adff;
-            --amr-line: rgba(184, 204, 230, .24);
-        }
-
-        * { box-sizing: border-box; }
-
-        .amr-page {
-            background: #f4f7fb;
-            color: var(--amr-white);
-            overflow: hidden;
-        }
-
-        .amr-hero {
-            position: relative;
-            min-height: 390px;
-            display: flex;
-            align-items: center;
-            isolation: isolate;
-            overflow: hidden;
-            background-color: #070b10;
-            background-image:
-                linear-gradient(90deg, rgba(4, 8, 13, .98) 0%, rgba(4, 8, 13, .94) 28%, rgba(4, 8, 13, .45) 53%, rgba(4, 8, 13, .08) 100%),
-                linear-gradient(180deg, rgba(4, 8, 13, .06) 0%, rgba(4, 8, 13, .10) 55%, rgba(4, 8, 13, .42) 100%),
-                url('assets/image/new-images/card-amr.jpg');
-            background-repeat: no-repeat;
-            background-position: center, center, right center;
-            /* Keep the entire landscape image visible instead of zooming/cropping it. */
-            background-size: cover, cover, auto 100%;
-            border-radius: 0 0 50% 50% / 0 0 9% 9%;
-        }
-
-        .amr-hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            opacity: .09;
-            background-image:
-                linear-gradient(rgba(96, 165, 250, .2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(96, 165, 250, .2) 1px, transparent 1px);
-            background-size: 78px 78px;
-            mask-image: linear-gradient(to right, black 0%, transparent 72%);
-            pointer-events: none;
-        }
-
-        .amr-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            background: linear-gradient(90deg, transparent 45%, rgba(7, 11, 16, .12) 70%, rgba(7, 11, 16, .22) 100%);
-            pointer-events: none;
-        }
-
-        .amr-container {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .amr-hero-content {
-            max-width: 610px;
-            padding: 52px 0 56px;
-        }
-
-        .amr-eyebrow {
-            color: var(--amr-blue);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2.4px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .amr-hero h1 {
-            max-width: 610px;
-            font-size: clamp(40px, 4.2vw, 58px);
-            line-height: 1.02;
-            letter-spacing: -2.5px;
-            margin: 0 0 18px;
-            color: #fff;
-            font-weight: 800;
-        }
-
-        .amr-hero h1 span { color: var(--amr-blue); }
-
-        .amr-hero-copy {
-            max-width: 540px;
-            color: #d7e1ef;
-            font-size: 15px;
-            line-height: 1.62;
-            margin: 0;
-        }
-
-        .amr-capabilities {
-            display: flex;
-            align-items: stretch;
-            margin-top: 25px;
-            max-width: 560px;
-        }
-
-        .amr-capability {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-height: 44px;
-            padding: 0 20px;
-            border-right: 1px solid var(--amr-line);
-        }
-
-        .amr-capability:first-child { padding-left: 0; }
-        .amr-capability:last-child { border-right: 0; }
-
-        .amr-capability-icon {
-            width: 26px;
-            height: 26px;
-            flex: 0 0 26px;
-            color: var(--amr-blue);
-        }
-
-        .amr-capability strong {
-            display: block;
-            color: #f5f8ff;
-            font-size: 12px;
-            line-height: 1.3;
-            font-weight: 650;
-        }
-
-        .amr-section {
-            position: relative;
-            margin-top: -1px;
-            padding: 84px 0 92px;
-            background: #f5f8fc;
-            color: #0b1730;
-        }
-
-        .amr-section-heading {
-            max-width: 760px;
-            margin: 0 auto 52px;
-            text-align: center;
-        }
-
-        .amr-section-heading .amr-eyebrow { color: #438fe8; margin-bottom: 14px; }
-        .amr-section-heading h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.2; margin: 0 0 18px; letter-spacing: -1.2px; }
-        .amr-section-heading p { color: #64748b; font-size: 17px; line-height: 1.8; margin: 0; }
-
-        .amr-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-        .amr-feature-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 30px 26px; box-shadow: 0 12px 30px rgba(15, 23, 42, .05); transition: transform .25s ease, box-shadow .25s ease; }
-        .amr-feature-card:hover { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(15, 23, 42, .1); }
-        .amr-icon { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 13px; background: #e8f1ff; color: #2563eb; font-size: 14px; font-weight: 700; margin-bottom: 20px; }
-        .amr-feature-card h3 { font-size: 21px; margin: 0 0 12px; color: #0b1730; }
-        .amr-feature-card p { margin: 0; color: #64748b; line-height: 1.75; font-size: 15px; }
-
-        .amr-application { padding: 86px 0; background: #081326; color: #fff; }
-        .amr-application-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
-        .amr-application h2 { font-size: clamp(30px, 4vw, 43px); line-height: 1.2; margin: 0 0 20px; letter-spacing: -1px; }
-        .amr-application p { color: #afbdd0; font-size: 16px; line-height: 1.85; margin: 0; }
-        .amr-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .amr-list-item { padding: 22px; border: 1px solid rgba(148, 163, 184, .18); border-radius: 14px; background: rgba(255, 255, 255, .035); color: #dbeafe; font-size: 15px; line-height: 1.5; }
-        .amr-list-item strong { display: block; color: #fff; margin-bottom: 6px; font-size: 16px; }
-
-        @media (max-width: 900px) {
-            .amr-hero {
-                min-height: 470px;
-                background-position: center, center, right center;
-                background-size: cover, cover, auto 100%;
-            }
-            .amr-hero-content { max-width: 570px; padding: 65px 0 70px; }
-            .amr-capabilities { flex-wrap: wrap; gap: 18px 0; }
-            .amr-capability { padding: 0 18px; }
-            .amr-capability:first-child { padding-left: 0; }
-            .amr-feature-grid { grid-template-columns: repeat(2, 1fr); }
-            .amr-application-grid { grid-template-columns: 1fr; gap: 35px; }
-        }
-
-        @media (max-width: 560px) {
-            .amr-container { width: min(100% - 32px, 1180px); }
-            .amr-hero {
-                min-height: auto;
-                border-radius: 0 0 50% 50% / 0 0 4% 4%;
-                background-position: center, center, right center;
-                background-size: cover, cover, auto 55%;
-                background-position-y: center, center, top;
-                padding-bottom: 25px;
-            }
-            .amr-hero-content { padding: 58px 0 48px; }
-            .amr-hero h1 { font-size: clamp(38px, 11vw, 52px); letter-spacing: -1.5px; }
-            .amr-hero-copy { font-size: 15px; }
-            .amr-capabilities { display: grid; grid-template-columns: 1fr; gap: 17px; }
-            .amr-capability, .amr-capability:first-child { padding: 0; border-right: 0; }
-            .amr-feature-grid, .amr-list { grid-template-columns: 1fr; }
-            .amr-section, .amr-application { padding: 65px 0; }
-        }
-    </style>
+    <title>Autonomous Mobile Robots | Intellekt Genie Robotics</title>
+    <link rel="stylesheet" href="assets/css/robotics-product-shared.css">
+    <link rel="stylesheet" href="assets/css/amr-product.css">
 </head>
 <body>
     <?php include 'header.php'; ?>
 
-    <main class="amr-page">
-        <section class="amr-hero">
-            <div class="amr-container">
-                <div class="amr-hero-content">
-                    <div class="amr-eyebrow">Intellekt Robotics</div>
-                    <h1>Autonomous Mobile <span>Robots</span></h1>
-                    <p class="amr-hero-copy">Explore the technology behind intelligent mobile robots designed to move materials, navigate dynamic environments, and support safer, more efficient operations.</p>
-                    <div class="amr-capabilities" aria-label="AMR capabilities">
-                        <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 15.5 28 4 17 28l-2.5-10.5L4 15.5Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg><strong>Autonomous<br>Navigation</strong></div>
-                        <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m16 3 11 6.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="m5 9.5 11 6.5 11-6.5M16 16v13" stroke="currentColor" stroke-width="2.2"/></svg><strong>Material<br>Movement</strong></div>
-                        <div class="amr-capability"><svg class="amr-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m19.2 3.8 1.2 3.1c.8.3 1.6.7 2.3 1.3l3.2-.7 2.1 3.6-2.2 2.5c.1.5.2 1.1.2 1.7s-.1 1.2-.2 1.7l2.2 2.5-2.1 3.6-3.2-.7c-.7.6-1.5 1-2.3 1.3l-1.2 3.1h-4.2l-1.2-3.1c-.8-.3-1.6-.7-2.3-1.3l-3.2.7-2.1-3.6 2.2-2.5c-.1-.5-.2-1.1-.2-1.7s.1-1.2.2-1.7L6.2 11l2.1-3.6 3.2.7c.7-.6 1.5-1 2.3-1.3L15 3.8h4.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="17.1" cy="15.3" r="3.2" stroke="currentColor" stroke-width="2"/></svg><strong>Flexible<br>Deployment</strong></div>
+    <main class="rp-page">
+        <!-- 01 HERO SECTION -->
+        <section class="amr-hero rp-grid-bg">
+            <div class="rp-container">
+                <div class="amr-hero-grid">
+                    <div class="amr-hero-content">
+                        <div class="rp-badge mb-3">
+                            <span class="rp-badge-dot"></span>
+                            <span>INTELLEKT ROBOTICS // AUTONOMOUS MOBILITY</span>
+                        </div>
+                        <h1 class="amr-hero-title">
+                            Autonomous Mobile<br>
+                            <span class="text-gradient-cyan">Robots</span>
+                        </h1>
+                        <p class="amr-hero-copy">
+                            Intellekt Autonomous Mobile Robots (AMRs) are engineered for intelligent movement, spatial navigation, and reliable material transport across dynamic modern facilities and industrial workspaces.
+                        </p>
+                        <div class="amr-hero-actions">
+                            <a href="#mission-control" class="rp-btn-primary">
+                                <span>Launch Mission Control</span>
+                                <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                            </a>
+                            <a href="contact-us.php" class="rp-control-btn">
+                                <span>Request Deployment Consultation</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- HERO VISUAL WITH HUD OVERLAY -->
+                    <div class="amr-hero-visual rp-corner-bracket">
+                        <div class="amr-hero-frame">
+                            <img src="assets/image/new-images/card-amr.jpg" alt="Intellekt Autonomous Mobile Robot platform in an industrial facility" width="600" height="420">
+                            <!-- Technical HUD Overlay -->
+                            <div class="amr-hud-overlay" aria-label="Simulated robot telemetry view">
+                                <div class="amr-hud-top">
+                                    <div class="rp-hud-chip">
+                                        <span class="rp-hud-label">// SYSTEM VIEW</span>
+                                        <span class="rp-hud-value text-warning">SIMULATED SYSTEM VIEW</span>
+                                    </div>
+                                    <div class="amr-radar-circle" title="Simulated spatial scan active" aria-hidden="true"></div>
+                                </div>
+                                <div class="amr-hud-bottom">
+                                    <div class="rp-hud-chip">
+                                        <span class="rp-hud-label">SYSTEM STATUS</span>
+                                        <span class="rp-hud-value"><span class="rp-badge-dot"></span> ONLINE</span>
+                                    </div>
+                                    <div class="rp-hud-chip">
+                                        <span class="rp-hud-label">NAVIGATION</span>
+                                        <span class="rp-hud-value">AUTONOMOUS</span>
+                                    </div>
+                                    <div class="rp-hud-chip">
+                                        <span class="rp-hud-label">PAYLOAD</span>
+                                        <span class="rp-hud-value">READY</span>
+                                    </div>
+                                    <div class="rp-hud-chip">
+                                        <span class="rp-hud-label">MAPPING</span>
+                                        <span class="rp-hud-value">ACTIVE</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="amr-section">
-            <div class="amr-container">
-                <div class="amr-section-heading">
-                    <div class="amr-eyebrow">Technology in Motion</div>
-                    <h2>Intelligent mobility for practical automation</h2>
-                    <p>Autonomous Mobile Robots, or AMRs, use sensors, onboard computing, and navigation software to travel through workspaces with minimal manual intervention. They can help organizations streamline internal movement while adapting to changing routes and operating conditions.</p>
+        <!-- 02 INTERACTIVE MISSION CONTROL SECTION -->
+        <section class="rp-section amr-mission-control" id="mission-control">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 02 — MISSION CONTROL SIMULATION</div>
+                    <h2 class="rp-section-title">Autonomous Fleet Navigation &amp; Routing</h2>
+                    <p class="rp-section-subtitle">
+                        Experience how the AMR platform continuously calculates spatial trajectories, evaluates path clearance, and avoids simulated dynamic obstacles across a facility floorplan.
+                    </p>
                 </div>
-                <div class="amr-feature-grid">
-                    <article class="amr-feature-card"><div class="amr-icon">01</div><h3>Autonomous Navigation</h3><p>Understand how mapping, localization, sensors, and path planning help mobile robots navigate their surroundings.</p></article>
-                    <article class="amr-feature-card"><div class="amr-icon">02</div><h3>Material Movement</h3><p>Support the movement of components, tools, and goods across facilities with repeatable and organized workflows.</p></article>
-                    <article class="amr-feature-card"><div class="amr-icon">03</div><h3>Flexible Deployment</h3><p>Adapt robotic workflows to changing layouts, operational requirements, and different industrial environments.</p></article>
+
+                <div class="amr-mission-layout rp-reveal">
+                    <!-- Left: Stylized Top-Down Facility Map -->
+                    <div class="amr-map-container rp-corner-bracket">
+                        <div class="amr-map-header">
+                            <div>
+                                <span class="rp-badge rp-badge-demo">
+                                    <span class="rp-badge-dot rp-badge-dot-amber"></span>
+                                    VISUAL SIMULATION ONLY
+                                </span>
+                            </div>
+                            <div class="text-end font-monospace" style="font-size: 11px; color: var(--rp-text-dim);">
+                                FACILITY GRID // ZONE-B4 // TOP-DOWN
+                            </div>
+                        </div>
+
+                        <div class="amr-map-canvas" role="region" aria-label="Interactive Top-Down Facility Map Simulation">
+                            <svg class="amr-map-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                                <defs>
+                                    <!-- Gradients & Markers -->
+                                    <linearGradient id="amrRouteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#38bdf8" />
+                                        <stop offset="100%" stop-color="#00d2ff" />
+                                    </linearGradient>
+                                    <filter id="amrGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="3" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+
+                                <!-- Facility Zones & Storage Racks -->
+                                <g class="facility-infrastructure">
+                                    <!-- Aisle Racks Upper Left -->
+                                    <rect x="50" y="40" width="130" height="40" rx="4" class="amr-zone-rack" />
+                                    <text x="60" y="64" class="amr-zone-label">RACK STORAGE A-1</text>
+
+                                    <rect x="50" y="100" width="130" height="40" rx="4" class="amr-zone-rack" />
+                                    <text x="60" y="124" class="amr-zone-label">RACK STORAGE A-2</text>
+
+                                    <!-- Central Obstacle Zone (Simulated machinery / pallet stack) -->
+                                    <rect x="230" y="120" width="110" height="80" rx="6" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.45)" stroke-width="1.5" stroke-dasharray="4 4" />
+                                    <text x="242" y="156" fill="#fbbf24" font-family="monospace" font-size="9" letter-spacing="1">OBSTACLE BUFFER</text>
+                                    <text x="245" y="172" fill="#94a3b8" font-family="monospace" font-size="8">DYNAMIC ZONE</text>
+
+                                    <!-- Lower Facility Racks -->
+                                    <rect x="230" y="270" width="140" height="45" rx="4" class="amr-zone-rack" />
+                                    <text x="240" y="297" class="amr-zone-label">INSPECTION BAY C-1</text>
+
+                                    <rect x="420" y="180" width="130" height="150" rx="6" class="amr-zone-rack" />
+                                    <text x="435" y="210" class="amr-zone-label">ASSEMBLY CELL</text>
+                                    <text x="435" y="230" fill="#64748b" font-family="monospace" font-size="9">STATION B-04</text>
+                                </g>
+
+                                <!-- Start & Destination Waypoints -->
+                                <g class="waypoints">
+                                    <!-- Start Point A (Dock 01) -->
+                                    <circle cx="80" cy="320" r="14" fill="rgba(37, 99, 235, 0.25)" stroke="#38bdf8" stroke-width="2" class="amr-waypoint-start" />
+                                    <circle cx="80" cy="320" r="4" fill="#38bdf8" />
+                                    <text x="45" y="356" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold">START: BAY 01</text>
+
+                                    <!-- Destination Point B (Assembly cell) -->
+                                    <circle cx="520" cy="90" r="14" fill="rgba(0, 210, 255, 0.25)" stroke="#00d2ff" stroke-width="2" class="amr-waypoint-end" />
+                                    <circle cx="520" cy="90" r="4" fill="#00d2ff" />
+                                    <text x="460" y="60" fill="#00d2ff" font-family="monospace" font-size="10" font-weight="bold">DEST: CELL 04</text>
+                                </g>
+
+                                <!-- Active Simulated Route Line -->
+                                <path id="amrActiveRoutePath" class="amr-route-path" d="M 80,320 C 140,320 160,260 220,240 C 280,220 320,250 380,200 C 440,150 460,90 520,90" />
+
+                                <!-- Simulated AMR Bot Marker -->
+                                <g id="amrBotMarker" class="amr-bot-marker" transform="translate(80, 320)">
+                                    <!-- Forward LiDAR Sensor Scan Cone -->
+                                    <path d="M 0,0 L 40,-16 L 40,16 Z" fill="rgba(0, 210, 255, 0.18)" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1" />
+                                    <!-- Robot Chassis (Top-down) -->
+                                    <rect x="-14" y="-10" width="28" height="20" rx="5" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
+                                    <!-- Wheels -->
+                                    <rect x="-12" y="-13" width="8" height="3" rx="1" fill="#38bdf8" />
+                                    <rect x="-12" y="10" width="8" height="3" rx="1" fill="#38bdf8" />
+                                    <rect x="4" y="-13" width="8" height="3" rx="1" fill="#38bdf8" />
+                                    <rect x="4" y="10" width="8" height="3" rx="1" fill="#38bdf8" />
+                                    <!-- Center Indicator -->
+                                    <circle cx="0" cy="0" r="3.5" fill="#38bdf8" />
+                                    <!-- Direction Nose Arrow -->
+                                    <polygon points="10,0 6,-3 6,3" fill="#00d2ff" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right: Mission Controls & Simulated Telemetry -->
+                    <div class="amr-dashboard">
+                        <!-- Route Selection Controls -->
+                        <div class="amr-route-controls">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="rp-card-num">// NAVIGATION ALGORITHM</span>
+                                <span class="badge bg-secondary font-monospace" style="font-size: 10px;">SELECT TRAJECTORY</span>
+                            </div>
+                            <h3 class="rp-card-title mb-2">Trajectory Strategy</h3>
+                            <p class="rp-card-desc mb-3">
+                                Select an autonomous pathing strategy to observe dynamic route recalculation across the simulated workspace.
+                            </p>
+
+                            <div class="amr-route-btn-group" role="group" aria-label="Select AMR pathing mode">
+                                <button type="button" class="rp-control-btn amr-route-btn" data-route="fastest" aria-pressed="false">
+                                    FASTEST
+                                </button>
+                                <button type="button" class="rp-control-btn amr-route-btn" data-route="safe" aria-pressed="false">
+                                    SAFE
+                                </button>
+                                <button type="button" class="rp-control-btn amr-route-btn active" data-route="optimized" aria-pressed="true">
+                                    OPTIMIZED
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Simulated Telemetry Panels -->
+                        <div class="amr-telemetry-grid">
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">SIMULATED VELOCITY</span>
+                                <div class="amr-telemetry-val" id="telemetrySpeed">1.2 m/s</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">BATTERY STATE</span>
+                                <div class="amr-telemetry-val" id="telemetryBattery">84%</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">CURRENT PAYLOAD</span>
+                                <div class="amr-telemetry-val" id="telemetryPayload">120 kg</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">REMAINING DISTANCE</span>
+                                <div class="amr-telemetry-val" id="telemetryDistance">42 m</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">CLEARANCE MARGIN</span>
+                                <div class="amr-telemetry-val" id="telemetryClearance" style="font-size: 16px;">1.8 m (BALANCED)</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+
+                            <div class="amr-telemetry-card">
+                                <span class="rp-hud-label">DISPATCH MODE</span>
+                                <div class="amr-telemetry-val" id="telemetryStatus" style="font-size: 16px;">DYNAMIC SLAM</div>
+                                <span class="amr-telemetry-sub">[ DEMO VALUE ]</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded border font-monospace" style="background: rgba(15, 23, 42, 0.6); border-color: var(--rp-border) !important; font-size: 11px; color: var(--rp-text-dim);">
+                            <span class="text-warning">NOTICE:</span> All values shown in this Mission Control view are UI demonstrations illustrating path planning and kinematics concepts.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="amr-application">
-            <div class="amr-container amr-application-grid">
-                <div><div class="amr-eyebrow">Where AMRs Create Value</div><h2>Built for real operational challenges</h2><p>AMR systems can be integrated into a variety of environments where reliable movement, improved visibility, and reduced repetitive handling are important. Their value comes from combining robotics hardware with software-driven decision-making.</p></div>
-                <div class="amr-list"><div class="amr-list-item"><strong>Warehousing</strong>Internal transport and order-support workflows.</div><div class="amr-list-item"><strong>Manufacturing</strong>Line-side delivery and component movement.</div><div class="amr-list-item"><strong>Healthcare</strong>Controlled transport of supplies and materials.</div><div class="amr-list-item"><strong>Research & Education</strong>Practical learning, prototyping, and experimentation.</div></div>
+        <!-- 03 AMR CAPABILITIES (5-STAGE SEQUENCE) -->
+        <section class="rp-section amr-capabilities-section">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 03 — CAPABILITY PIPELINE</div>
+                    <h2 class="rp-section-title">The Autonomous Navigation Sequence</h2>
+                    <p class="rp-section-subtitle">
+                        From perception to physical execution, the Intellekt AMR mobility framework executes a closed-loop spatial intelligence cycle.
+                    </p>
+                </div>
+
+                <div class="amr-capability-sequence">
+                    <div class="amr-cap-card rp-reveal">
+                        <div class="amr-cap-num">01 // PERCEPTION</div>
+                        <h3 class="amr-cap-title">SENSE</h3>
+                        <p class="amr-cap-desc">
+                            Sensors capture real-time spatial depth and obstacle points across surrounding workspaces.
+                        </p>
+                    </div>
+
+                    <div class="amr-cap-card rp-reveal">
+                        <div class="amr-cap-num">02 // LOCALIZATION</div>
+                        <h3 class="amr-cap-title">MAP</h3>
+                        <p class="amr-cap-desc">
+                            The system builds and updates an accurate continuous understanding of operating facility boundaries.
+                        </p>
+                    </div>
+
+                    <div class="amr-cap-card rp-reveal">
+                        <div class="amr-cap-num">03 // KINEMATICS</div>
+                        <h3 class="amr-cap-title">PLAN</h3>
+                        <p class="amr-cap-desc">
+                            Onboard compute evaluates candidate trajectories to determine an optimal, collision-free movement path.
+                        </p>
+                    </div>
+
+                    <div class="amr-cap-card rp-reveal">
+                        <div class="amr-cap-num">04 // PROPULSION</div>
+                        <h3 class="amr-cap-title">MOVE</h3>
+                        <p class="amr-cap-desc">
+                            Differential or omnidirectional drives execute smooth acceleration curves along the designated route.
+                        </p>
+                    </div>
+
+                    <div class="amr-cap-card rp-reveal">
+                        <div class="amr-cap-num">05 // RECOVERY</div>
+                        <h3 class="amr-cap-title">ADAPT</h3>
+                        <p class="amr-cap-desc">
+                            When unforeseen physical obstacles appear, routes automatically recalculate without operational stoppage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 TECHNICAL INTELLIGENCE & ARCHITECTURE -->
+        <section class="rp-section rp-grid-bg">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 04 — TECHNICAL INTELLIGENCE</div>
+                    <h2 class="rp-section-title">Perception Architecture &amp; Safety Control</h2>
+                    <p class="rp-section-subtitle">
+                        Industrial autonomy requires tight integration of multi-layer safety fields, environmental perception, and deterministic motion controllers.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[SYS.NAV.01]</span>
+                                <i class="fa-solid fa-radar text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">LiDAR &amp; Spatial Perception</h3>
+                            <p class="rp-card-desc">
+                                Continuous planar laser scanning provides robust contour detection, feature extraction, and centimeter-level localization reference.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[SYS.NAV.02]</span>
+                                <i class="fa-solid fa-shield-halved text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Dynamic Safety Zones</h3>
+                            <p class="rp-card-desc">
+                                Speed-dependent protective fields reduce robot velocity automatically upon approaching workers or transient facility traffic.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[SYS.NAV.03]</span>
+                                <i class="fa-solid fa-network-wired text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Fleet Coordination</h3>
+                            <p class="rp-card-desc">
+                                Centralized dispatch protocols coordinate traffic rights, intersection management, and job distribution across multiple AMR units.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[SYS.NAV.04]</span>
+                                <i class="fa-solid fa-battery-half text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Autonomous Docking</h3>
+                            <p class="rp-card-desc">
+                                Optical and magnetic docking guides ensure precision alignment with automatic charging terminals and transfer stations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 AMR APPLICATIONS (LARGE VISUAL PANELS) -->
+        <section class="rp-section">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 05 — APPLICATION DOMAINS</div>
+                    <h2 class="rp-section-title">Engineered for High-Density Operations</h2>
+                    <p class="rp-section-subtitle">
+                        AMR solutions adapt to varied material handling topologies, from warehouse aisles to clean research rooms and manufacturing lines.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Warehouse -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-automation.jpg" alt="Autonomous mobile robot transporting bins in automated warehouse">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">LOGISTICS // WAREHOUSE</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Warehouse Material Movement</h3>
+                                <p class="rp-card-desc">
+                                    Automates point-to-point bin transport, tote replenishment, and finished goods transfer between racking zones and dispatch docks, eliminating manual hauling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manufacturing -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-amr.jpg" alt="AMR delivering parts along a manufacturing line">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">INDUSTRY // PRODUCTION</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Manufacturing Line-Side Logistics</h3>
+                                <p class="rp-card-desc">
+                                    Delivers subassemblies and raw kits directly to workstations on demand, synchronizing with production line cadence and reducing staging floor congestion.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Laboratory -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-vision.jpg" alt="Controlled internal transport in laboratory environment">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">CLEANROOM // LABORATORY</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Controlled Internal Transport</h3>
+                                <p class="rp-card-desc">
+                                    Transfers samples, reagents, and sensitive test carriers through controlled access corridors with steady acceleration and secure containment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education & R&D -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-embedded.jpg" alt="Robotics research and development testbed">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">ACADEMIA // R&amp;D</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Education &amp; Robotics Research</h3>
+                                <p class="rp-card-desc">
+                                    Provides academic programs and robotics engineering labs an open, accessible testbed for studying SLAM algorithms, pathing logic, and autonomous behaviors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 ENGINEERING ARCHITECTURE & PRINCIPLES -->
+        <section class="rp-section rp-grid-bg">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 06 — PLATFORM ARCHITECTURE</div>
+                    <h2 class="rp-section-title">Core Mechanical &amp; Electrical Architecture</h2>
+                    <p class="rp-section-subtitle">
+                        An overview of the structural design principles and integration layers foundational to Intellekt mobile platforms.
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="rp-spec-table rp-reveal">
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-cube text-primary" aria-hidden="true"></i>
+                                    <span>Chassis &amp; Mechanical Frame</span>
+                                </div>
+                                <div class="rp-spec-val">Rigid Steel Subframe // Low Center-of-Gravity</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-gear text-primary" aria-hidden="true"></i>
+                                    <span>Drive Subsystem</span>
+                                </div>
+                                <div class="rp-spec-val">Dual Differential Drive // High-Traction Suspension</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-microchip text-primary" aria-hidden="true"></i>
+                                    <span>Navigation Compute</span>
+                                </div>
+                                <div class="rp-spec-val">Embedded Real-Time Linux // SLAM Perception Engine</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-eye text-primary" aria-hidden="true"></i>
+                                    <span>Primary Sensing</span>
+                                </div>
+                                <div class="rp-spec-val">2D Safety Laser Scanners // 3D Depth Avoidance Optical</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-triangle-exclamation text-primary" aria-hidden="true"></i>
+                                    <span>Safety Architecture</span>
+                                </div>
+                                <div class="rp-spec-val">Category 3 / PLd Safety Relays // Dual E-Stops</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-wifi text-primary" aria-hidden="true"></i>
+                                    <span>Communication Bus</span>
+                                </div>
+                                <div class="rp-spec-val">Industrial Dual-Band Wi-Fi // Modbus &amp; REST API</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center font-monospace" style="font-size: 11px; color: var(--rp-text-dim);">
+                            * SYSTEM ARCHITECTURE PRINCIPLES // SPECIFIC CAPACITIES AND SENSOR PACKAGES CONFIGURED PER FACILITY REQUIREMENTS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 FINAL CTA SECTION -->
+        <section class="rp-section border-bottom-0">
+            <div class="rp-container">
+                <div class="rp-cta-box rp-reveal">
+                    <div class="rp-badge mb-3">
+                        <span class="rp-badge-dot"></span>
+                        <span>FACILITY LOGISTICS CONSULTATION</span>
+                    </div>
+                    <h2 class="rp-section-title mb-3">
+                        Accelerate Internal Transport with<br>
+                        <span class="text-gradient-cyan">Intelligent Mobile Automation</span>
+                    </h2>
+                    <p class="rp-section-subtitle mx-auto mb-4" style="max-width: 600px;">
+                        Connect with our engineering team to review facility pathing, simulate fleet integration, or schedule a hands-on robotics demonstration.
+                    </p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <a href="contact-us.php" class="rp-btn-primary">
+                            <span>Contact Our Engineers</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a href="our-work.php" class="rp-control-btn">
+                            <span>Explore Showcase Portfolio</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <?php include 'footer.php'; ?>
+
+    <script src="assets/js/robotics-product-shared.js" defer></script>
+    <script src="assets/js/amr-product.js" defer></script>
 </body>
 </html>

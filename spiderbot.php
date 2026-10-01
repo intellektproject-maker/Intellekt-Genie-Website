@@ -2,80 +2,565 @@
 <html lang="en">
 <head>
     <?php include 'header-link.php'; ?>
-    <title>Spiderbot &amp; Legged Robotics | Intellekt Genie</title>
-    <style>
-        :root { --spider-blue:#62adff; --spider-white:#f8fafc; }
-        * { box-sizing:border-box; }
-        body { margin:0; }
-        .spider-page { background:#f4f7fb; color:var(--spider-white); overflow:hidden; }
-        .spider-hero { position:relative; min-height:565px; display:flex; align-items:stretch; isolation:isolate; overflow:hidden; background:#050a11; border-radius:0 0 50% 50% / 0 0 7% 7%; }
-        .spider-hero::before { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(90deg,#050a11 0%,rgba(5,10,17,.98) 22%,rgba(5,10,17,.88) 38%,rgba(5,10,17,.38) 57%,rgba(5,10,17,.04) 78%,rgba(5,10,17,.02) 100%),linear-gradient(0deg,rgba(5,10,17,.62),transparent 38%,rgba(5,10,17,.14)); }
-        .spider-hero::after { content:""; position:absolute; inset:0; z-index:3; pointer-events:none; opacity:.11; background-image:linear-gradient(rgba(96,165,250,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(96,165,250,.22) 1px,transparent 1px); background-size:84px 84px; mask-image:linear-gradient(to right,black,transparent 72%); }
-        .spider-container { width:min(1240px,calc(100% - 48px)); margin:0 auto; position:relative; z-index:5; }
-        .spider-hero-content { position:relative; z-index:6; width:53%; max-width:700px; padding:82px 0 90px; display:flex; flex-direction:column; justify-content:center; }
-        .spider-eyebrow { color:var(--spider-blue); font-size:11px; font-weight:700; letter-spacing:2.6px; text-transform:uppercase; margin-bottom:18px; }
-        .spider-hero h1 { max-width:700px; font-size:clamp(44px,5vw,72px); line-height:.99; letter-spacing:-3.5px; margin:0 0 24px; color:#fff; font-weight:800; }
-        .spider-hero h1 span { color:var(--spider-blue); }
-        .spider-hero-copy { max-width:570px; color:#d8e2ef; font-size:16px; line-height:1.7; margin:0; }
-        .spider-capabilities { display:flex; align-items:stretch; margin-top:34px; max-width:610px; }
-        .spider-capability { display:flex; align-items:center; gap:12px; min-height:52px; padding:0 25px; border-right:1px solid rgba(184,204,230,.25); }
-        .spider-capability:first-child { padding-left:0; }
-        .spider-capability:last-child { border-right:0; }
-        .spider-capability-icon { width:28px; height:28px; flex:0 0 28px; color:var(--spider-blue); }
-        .spider-capability strong { display:block; color:#f5f8ff; font-size:13px; line-height:1.3; font-weight:650; white-space:nowrap; }
-        /* The generated asset is a wide landscape composition. Let the entire image span the hero so its right-positioned robot is not cropped or enlarged. */
-        .spider-visual { position:absolute; z-index:1; top:0; bottom:0; left:50%; width:100vw; height:100%; transform:translateX(-50%); display:block; pointer-events:none; }
-        .spider-visual img { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; filter:brightness(.88) contrast(1.06) saturate(.96); }
-        /* Full-bleed hero art: keep the generated landscape image inside the same curved hero mask as the AMR page. */
-        .spider-section { position:relative; margin-top:-1px; padding:92px 0 100px; background:#f5f8fc; color:#0b1730; }
-        .spider-section-heading { max-width:780px; margin:0 auto 52px; text-align:center; }
-        .spider-section-heading .spider-eyebrow { color:#438fe8; margin-bottom:15px; }
-        .spider-section-heading h2 { font-size:clamp(32px,4vw,48px); line-height:1.18; margin:0 0 20px; letter-spacing:-1.5px; }
-        .spider-section-heading p { color:#64748b; font-size:17px; line-height:1.8; margin:0; }
-        .spider-feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-        .spider-feature-card { background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:30px 26px; box-shadow:0 12px 30px rgba(15,23,42,.05); transition:transform .25s ease,box-shadow .25s ease; }
-        .spider-feature-card:hover { transform:translateY(-5px); box-shadow:0 18px 38px rgba(15,23,42,.1); }
-        .spider-icon { width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center; border-radius:13px; background:#e8f1ff; color:#2563eb; font-size:14px; font-weight:700; margin-bottom:20px; }
-        .spider-feature-card h3 { font-size:21px; margin:0 0 12px; color:#0b1730; }
-        .spider-feature-card p { margin:0; color:#64748b; line-height:1.75; font-size:15px; }
-        .spider-application { padding:86px 0; background:#081326; color:#fff; }
-        .spider-application-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:65px; align-items:center; }
-        .spider-application h2 { font-size:clamp(30px,4vw,43px); line-height:1.2; margin:0 0 20px; letter-spacing:-1px; }
-        .spider-application p { color:#afbdd0; font-size:16px; line-height:1.85; margin:0; }
-        .spider-list { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-        .spider-list-item { padding:22px; border:1px solid rgba(148,163,184,.18); border-radius:14px; background:rgba(255,255,255,.035); color:#dbeafe; font-size:15px; line-height:1.5; }
-        .spider-list-item strong { display:block; color:#fff; margin-bottom:6px; font-size:16px; }
-        @media (max-width:1000px) { .spider-hero{min-height:570px;} .spider-hero-content{width:64%;} }
-        @media (max-width:760px) { .spider-hero{min-height:auto;border-radius:0 0 50% 50% / 0 0 4% 4%;} .spider-hero::before{background:linear-gradient(180deg,rgba(5,10,17,.94),rgba(5,10,17,.75) 52%,rgba(5,10,17,.6));} .spider-hero-content{width:100%;max-width:650px;padding:62px 0 30px;} .spider-hero h1{font-size:clamp(42px,10vw,62px);letter-spacing:-2px;} .spider-hero-copy{max-width:600px;} .spider-visual{position:absolute;inset:0;width:100%;height:100%;} .spider-visual img{object-position:center;} .spider-capabilities{flex-wrap:wrap;gap:18px 0;margin-top:28px;} .spider-capability{padding:0 18px;} .spider-capability:first-child{padding-left:0;} .spider-feature-grid{grid-template-columns:repeat(2,1fr);} .spider-application-grid{grid-template-columns:1fr;gap:35px;} }
-        @media (max-width:520px) { .spider-container{width:min(100% - 32px,1180px);} .spider-hero-content{padding-top:52px;} .spider-capabilities{display:grid;grid-template-columns:1fr;gap:17px;} .spider-capability,.spider-capability:first-child{padding:0;border-right:0;} .spider-visual{inset:0;width:100%;height:100%;} .spider-feature-grid,.spider-list{grid-template-columns:1fr;} .spider-section,.spider-application{padding:65px 0;} }
-    </style>
+    <title>Spiderbot &amp; Legged Robotics | Intellekt Genie Robotics</title>
+    <link rel="stylesheet" href="assets/css/robotics-product-shared.css">
+    <link rel="stylesheet" href="assets/css/spiderbot-product.css">
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <main class="spider-page">
+
+    <main class="rp-page">
+        <!-- 01 HERO SECTION WITH FULL LANDSCAPE VISUAL -->
         <section class="spider-hero">
-            <div class="spider-container">
+            <div class="spider-hero-bg" aria-hidden="true">
+                <img src="assets/image/new-images/spiderbot-hero-generated.png" alt="Spiderbot legged robotics platform">
+            </div>
+
+            <div class="rp-container">
                 <div class="spider-hero-content">
-                    <div class="spider-eyebrow">Intellekt Robotics</div>
-                    <h1>Spiderbot &amp; <span>Legged Robotics</span></h1>
-                    <p class="spider-hero-copy">Explore compact legged robots designed to move across uneven terrain, operate in challenging spaces, and demonstrate the practical potential of agile robotic systems.</p>
-                    <div class="spider-capabilities" aria-label="Spiderbot capabilities">
-                        <div class="spider-capability"><svg class="spider-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4v24M4 16h24M8 8l16 16M24 8 8 24" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="16" cy="16" r="4.5" stroke="currentColor" stroke-width="2.1"/></svg><strong>Agile<br>Movement</strong></div>
-                        <div class="spider-capability"><svg class="spider-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 5 27 11.5v9L16 27 5 20.5v-9L16 5Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><path d="m5 11.5 11 6.5 11-6.5M16 18v9" stroke="currentColor" stroke-width="2.1"/></svg><strong>Stable<br>Locomotion</strong></div>
-                        <div class="spider-capability"><svg class="spider-capability-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 24V8M6 8h20M26 8v16M6 24h20" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><path d="m11 13 5 5 5-5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Flexible<br>Exploration</strong></div>
+                    <div class="rp-badge mb-3">
+                        <span class="rp-badge-dot"></span>
+                        <span>INTELLEKT ROBOTICS // LEGGED SYSTEMS</span>
+                    </div>
+                    <h1 class="spider-hero-title">
+                        Spiderbot &amp;<br>
+                        <span class="text-gradient-cyan">Legged Robotics</span>
+                    </h1>
+                    <p class="spider-hero-copy">
+                        Compact robotic platforms for exploring locomotion, embedded intelligence, sensing and adaptive movement across non-standard terrain and constrained environments.
+                    </p>
+                    <div class="spider-hero-actions">
+                        <a href="#terrain-lab" class="rp-btn-primary">
+                            <span>Explore Terrain Lab</span>
+                            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                        <a href="#gait-lab" class="rp-control-btn">
+                            <span>Analyze Gait Kinematics</span>
+                        </a>
+                    </div>
+
+                    <!-- Technical HUD Overlay -->
+                    <div class="spider-hero-hud-wrap">
+                        <div class="spider-hero-hud-grid">
+                            <div class="rp-hud-chip">
+                                <span class="rp-hud-label">// SYSTEM VIEW</span>
+                                <span class="rp-hud-value text-warning">SIMULATED VIEW</span>
+                            </div>
+                            <div class="rp-hud-chip">
+                                <span class="rp-hud-label">LOCOMOTION</span>
+                                <span class="rp-hud-value"><span class="rp-badge-dot"></span> MULTI-LEGGED</span>
+                            </div>
+                            <div class="rp-hud-chip">
+                                <span class="rp-hud-label">IMU BALANCE</span>
+                                <span class="rp-hud-value">ACTIVE VECTORS</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="spider-visual" aria-hidden="true"><img src="assets/image/new-images/spiderbot-hero-generated.png" alt="Spiderbot legged robot"></div>
             </div>
         </section>
-        <section class="spider-section">
-            <div class="spider-container">
-                <div class="spider-section-heading"><div class="spider-eyebrow">Robotics in Motion</div><h2>Agile machines for adaptable environments</h2><p>Spiderbots are compact legged robotic platforms that explore how mechanical design, embedded control, and intelligent sensing can work together. Their multi-legged structure supports experimentation with balance, movement, and navigation across varied surfaces.</p></div>
-                <div class="spider-feature-grid"><article class="spider-feature-card"><div class="spider-icon">01</div><h3>Legged Locomotion</h3><p>Study coordinated leg movement, balance, and gait patterns that allow robots to move with agility and control.</p></article><article class="spider-feature-card"><div class="spider-icon">02</div><h3>Embedded Intelligence</h3><p>Combine microcontrollers, sensors, actuators, and software to create responsive robotic movement systems.</p></article><article class="spider-feature-card"><div class="spider-icon">03</div><h3>Practical Exploration</h3><p>Use compact robotic platforms for prototyping, education, research, and testing concepts in mobile robotics.</p></article></div>
+
+        <!-- 02 INTERACTIVE TERRAIN LAB -->
+        <section class="rp-section spider-terrain-lab" id="terrain-lab">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 02 — TERRAIN SIMULATION</div>
+                    <h2 class="rp-section-title">Interactive Terrain Adaptation Lab</h2>
+                    <p class="rp-section-subtitle">
+                        Observe how multi-legged kinematics adapt to surface variations, adjusting stance elevation, leg extension, and body pitch to maintain continuous balance.
+                    </p>
+                </div>
+
+                <div class="spider-terrain-layout rp-reveal">
+                    <!-- Left: Interactive Terrain Stage -->
+                    <div class="spider-terrain-canvas-wrap rp-corner-bracket">
+                        <div class="spider-terrain-header">
+                            <div>
+                                <span class="rp-badge rp-badge-demo">
+                                    <span class="rp-badge-dot rp-badge-dot-amber"></span>
+                                    VISUAL SIMULATION ONLY
+                                </span>
+                            </div>
+                            <div class="text-end font-monospace" style="font-size: 11px; color: var(--rp-text-dim);">
+                                SURFACE PROFILE DYNAMICS // SIDE ELEVATION
+                            </div>
+                        </div>
+
+                        <div class="spider-terrain-stage" role="region" aria-label="Interactive Terrain Simulation Stage">
+                            <svg class="spider-terrain-svg" viewBox="0 0 600 350" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="spiderBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1e293b" />
+                                        <stop offset="100%" stop-color="#0f172a" />
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Grid reference horizontal guides -->
+                                <line x1="0" y1="200" x2="600" y2="200" stroke="rgba(148, 163, 184, 0.08)" stroke-width="1" stroke-dasharray="4 4" />
+                                <line x1="0" y1="270" x2="600" y2="270" stroke="rgba(148, 163, 184, 0.15)" stroke-width="1" />
+
+                                <!-- Dynamic SVG Terrain Profile Line -->
+                                <path id="spiderTerrainProfilePath" class="spider-terrain-profile" d="M 0,270 L 600,270" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+
+                                <!-- Simulated Legged Robot Schematic (Elevated and pitched dynamically) -->
+                                <g id="spiderTerrainBot" transform="translate(250, 210)">
+                                    <!-- Central Body Core -->
+                                    <rect x="-35" y="-18" width="70" height="36" rx="8" fill="url(#spiderBodyGrad)" stroke="#00d2ff" stroke-width="2" />
+                                    <!-- Sensor Eye / Camera -->
+                                    <circle cx="28" cy="0" r="5" fill="#38bdf8" />
+                                    <circle cx="28" cy="0" r="2" fill="#ffffff" />
+                                    <!-- Internal Electronics Indicator -->
+                                    <rect x="-20" y="-8" width="30" height="16" rx="3" fill="#090e1a" stroke="#475467" stroke-width="1" />
+                                    <circle cx="-12" cy="0" r="2.5" fill="#00d2ff" />
+                                    <circle cx="-3" cy="0" r="2.5" fill="#38bdf8" />
+
+                                    <!-- Left Legs (Rear & Front Coordinated) -->
+                                    <!-- Leg 1 Front -->
+                                    <path d="M 20,8 Q 45,25 50,60" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+                                    <circle cx="50" cy="60" r="3.5" fill="#00d2ff" />
+                                    <!-- Leg 2 Mid -->
+                                    <path d="M 0,14 Q 5,38 10,60" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+                                    <circle cx="10" cy="60" r="3.5" fill="#00d2ff" />
+                                    <!-- Leg 3 Rear -->
+                                    <path d="M -20,8 Q -40,30 -45,60" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+                                    <circle cx="-45" cy="60" r="3.5" fill="#00d2ff" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right: Terrain Controls & Telemetry -->
+                    <div class="spider-terrain-controls">
+                        <div class="spider-terrain-status-panel">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="rp-card-num">// SURFACE SELECTION</span>
+                                <span class="badge bg-secondary font-monospace" style="font-size: 10px;">TEST MODES</span>
+                            </div>
+                            <h3 class="rp-card-title mb-2">Select Terrain Profile</h3>
+                            <p class="rp-card-desc mb-3">
+                                Switch ground topography to test adaptive locomotion gait and posture stabilization.
+                            </p>
+
+                            <div class="spider-terrain-btn-grid" role="group" aria-label="Select terrain profile">
+                                <button type="button" class="rp-control-btn spider-terrain-btn active" data-terrain="flat" aria-pressed="true">
+                                    FLAT
+                                </button>
+                                <button type="button" class="rp-control-btn spider-terrain-btn" data-terrain="rough" aria-pressed="false">
+                                    ROUGH
+                                </button>
+                                <button type="button" class="rp-control-btn spider-terrain-btn" data-terrain="obstacle" aria-pressed="false">
+                                    OBSTACLE
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Live Status Display -->
+                        <div class="spider-terrain-status-panel">
+                            <div class="rp-card-num mb-2">// ADAPTIVE TELEMETRY</div>
+                            <div class="d-flex flex-column gap-3">
+                                <div>
+                                    <span class="rp-hud-label">LOCOMOTION MODE</span>
+                                    <div class="font-monospace text-white fw-bold fs-5" id="terrainStatusMode">TRIPOD GAIT</div>
+                                    <span class="font-monospace text-warning" style="font-size: 10px;">[ SIMULATED DEMO VALUE ]</span>
+                                </div>
+                                <div class="border-top pt-2" style="border-color: var(--rp-border) !important;">
+                                    <span class="rp-hud-label">BALANCE POSTURE</span>
+                                    <div class="font-monospace text-cyan fw-bold fs-6" id="terrainStatusBalance">STABLE // LEVEL</div>
+                                    <span class="font-monospace text-warning" style="font-size: 10px;">[ SIMULATED DEMO VALUE ]</span>
+                                </div>
+                                <div class="border-top pt-2" style="border-color: var(--rp-border) !important;">
+                                    <span class="rp-hud-label">SURFACE CONTOUR</span>
+                                    <div class="font-monospace text-white fw-bold fs-6" id="terrainStatusType">FLAT SURFACE</div>
+                                    <span class="font-monospace text-warning" style="font-size: 10px;">[ SIMULATED DEMO VALUE ]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="spider-application"><div class="spider-container spider-application-grid"><div><div class="spider-eyebrow">Applications &amp; Learning</div><h2>Designed to explore movement beyond the ordinary</h2><p>Legged robotic platforms provide a practical way to understand locomotion, embedded systems, and autonomous behavior. They are useful for hands-on experimentation where mobility and adaptability are central to the challenge.</p></div><div class="spider-list"><div class="spider-list-item"><strong>Research &amp; Prototyping</strong>Experiment with gait control, sensing, and robotic mobility.</div><div class="spider-list-item"><strong>Education &amp; Training</strong>Build practical skills in electronics, mechanics, and programming.</div><div class="spider-list-item"><strong>Inspection Concepts</strong>Explore robotic movement for compact or difficult-to-access spaces.</div><div class="spider-list-item"><strong>Innovation Projects</strong>Develop new ideas around agile machines and intelligent systems.</div></div></div></section>
+
+        <!-- 03 GAIT DEMONSTRATION SECTION -->
+        <section class="rp-section spider-gait-section" id="gait-lab">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 03 — GAIT LAB</div>
+                    <h2 class="rp-section-title">Biomimetic Gait Demonstration</h2>
+                    <p class="rp-section-subtitle">
+                        Explore coordinated leg sequencing patterns that enable multi-legged robots to crawl, orient, and surmount steep angles.
+                    </p>
+                </div>
+
+                <div class="spider-gait-layout rp-reveal">
+                    <!-- Gait Mode Buttons -->
+                    <div class="spider-gait-selector-box" role="tablist" aria-label="Select gait pattern">
+                        <button type="button" class="spider-gait-mode-btn active" data-gait="walk" role="tab" aria-selected="true">
+                            <div>
+                                <div class="gait-btn-title">WALK MODE</div>
+                                <p class="gait-btn-desc">Alternating tripod gait for continuous forward translation.</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-primary" aria-hidden="true"></i>
+                        </button>
+
+                        <button type="button" class="spider-gait-mode-btn" data-gait="turn" role="tab" aria-selected="false">
+                            <div>
+                                <div class="gait-btn-title">TURN MODE</div>
+                                <p class="gait-btn-desc">Differential radial steps rotating the robot around its center.</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-primary" aria-hidden="true"></i>
+                        </button>
+
+                        <button type="button" class="spider-gait-mode-btn" data-gait="climb" role="tab" aria-selected="false">
+                            <div>
+                                <div class="gait-btn-title">CLIMB MODE</div>
+                                <p class="gait-btn-desc">Pitch-biased high step gait maximizing vertical footholds.</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-primary" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <!-- 2.5D Gait Stage Schematic -->
+                    <div class="spider-gait-visual-canvas rp-corner-bracket" id="spiderGaitSvgStage" data-active-gait="walk">
+                        <div class="d-flex justify-content-between align-items-center w-100 mb-3 pb-2 border-bottom border-secondary" style="border-color: var(--rp-border) !important;">
+                            <span class="rp-badge rp-badge-demo" style="font-size: 10px;">
+                                <span class="rp-badge-dot rp-badge-dot-amber"></span>
+                                SIMULATED GAIT KINEMATICS
+                            </span>
+                            <div class="font-monospace text-light" style="font-size: 11px;">HEXAPOD TOPOLOGY // 2D TOP VIEW</div>
+                        </div>
+
+                        <svg class="spider-gait-svg" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                            <!-- Hexapod Central Body Core -->
+                            <polygon points="170,90 230,90 245,120 230,150 170,150 155,120" fill="#0f172a" stroke="#00d2ff" stroke-width="2" />
+                            <circle cx="200" cy="120" r="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+                            <!-- Center Heading Arrow -->
+                            <polygon points="215,120 205,114 205,126" fill="#00d2ff" />
+
+                            <!-- 6 Symmetrical Legs -->
+                            <!-- Leg 1: Front Right -->
+                            <g class="spider-leg-group leg-fr">
+                                <path class="spider-leg-path" d="M 230,90 Q 280,60 300,40" />
+                                <circle class="spider-foot-contact" cx="300" cy="40" r="5" />
+                            </g>
+                            <!-- Leg 2: Mid Right -->
+                            <g class="spider-leg-group leg-mr">
+                                <path class="spider-leg-path" d="M 245,120 Q 300,120 330,120" />
+                                <circle class="spider-foot-contact" cx="330" cy="120" r="5" />
+                            </g>
+                            <!-- Leg 3: Rear Right -->
+                            <g class="spider-leg-group leg-rr">
+                                <path class="spider-leg-path" d="M 230,150 Q 280,180 300,200" />
+                                <circle class="spider-foot-contact" cx="300" cy="200" r="5" />
+                            </g>
+
+                            <!-- Leg 4: Front Left -->
+                            <g class="spider-leg-group leg-fl">
+                                <path class="spider-leg-path" d="M 170,90 Q 120,60 100,40" />
+                                <circle class="spider-foot-contact" cx="100" cy="40" r="5" />
+                            </g>
+                            <!-- Leg 5: Mid Left -->
+                            <g class="spider-leg-group leg-ml">
+                                <path class="spider-leg-path" d="M 155,120 Q 100,120 70,120" />
+                                <circle class="spider-foot-contact" cx="70" cy="120" r="5" />
+                            </g>
+                            <!-- Leg 6: Rear Left -->
+                            <g class="spider-leg-group leg-rl">
+                                <path class="spider-leg-path" d="M 170,150 Q 120,180 100,200" />
+                                <circle class="spider-foot-contact" cx="100" cy="200" r="5" />
+                            </g>
+                        </svg>
+
+                        <!-- Dynamic Gait Info Footnote -->
+                        <div class="w-100 mt-3 pt-3 border-top d-flex justify-content-between flex-wrap gap-2" style="border-color: var(--rp-border) !important;">
+                            <div>
+                                <div class="rp-card-title mb-1 fs-6" id="gaitDisplayTitle">Tripod Forward Walk</div>
+                                <div class="text-secondary" style="font-size: 13px;" id="gaitDisplayDesc">
+                                    Alternating triads of legs form stable support tripods while the remaining three swing forward.
+                                </div>
+                            </div>
+                            <div class="text-end font-monospace" style="font-size: 11px;">
+                                <div class="text-primary fw-bold" id="gaitDisplayCadence">1.2 Hz (Simulated)</div>
+                                <div class="text-muted" id="gaitDisplayDuty">60% Stance Phase</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 INSIDE THE LEARNING LOOP -->
+        <section class="rp-section spider-loop-section rp-grid-bg">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 04 — INTELLIGENCE PIPELINE</div>
+                    <h2 class="rp-section-title">Inside the Learning Loop</h2>
+                    <p class="rp-section-subtitle">
+                        Legged robotics combines tight closed-loop sensory feedback with kinematic gait adaptation, forming an ideal platform for robotics education and embedded experimentation.
+                    </p>
+                </div>
+
+                <!-- 5 Stage Cybernetic Chain -->
+                <div class="spider-loop-chain rp-reveal">
+                    <div class="spider-loop-node">
+                        <div class="spider-loop-node-num">01 // FEEDBACK</div>
+                        <h3 class="spider-loop-node-title">SENSE</h3>
+                        <p class="spider-loop-node-sub">IMU balance, current draw, and ground touch sensors collect state data.</p>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right spider-loop-arrow" aria-hidden="true"></i>
+
+                    <div class="spider-loop-node">
+                        <div class="spider-loop-node-num">02 // EMBEDDED</div>
+                        <h3 class="spider-loop-node-title">PROCESS</h3>
+                        <p class="spider-loop-node-sub">Onboard microcontroller computes orientation tilt and body elevation.</p>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right spider-loop-arrow" aria-hidden="true"></i>
+
+                    <div class="spider-loop-node">
+                        <div class="spider-loop-node-num">03 // KINEMATICS</div>
+                        <h3 class="spider-loop-node-title">PLAN</h3>
+                        <p class="spider-loop-node-sub">Inverse kinematic solver generates next foot coordinates and trajectory.</p>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right spider-loop-arrow" aria-hidden="true"></i>
+
+                    <div class="spider-loop-node">
+                        <div class="spider-loop-node-num">04 // ACTUATION</div>
+                        <h3 class="spider-loop-node-title">ACT</h3>
+                        <p class="spider-loop-node-sub">Servo bus executes coordinated PWM angle changes across all joints.</p>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right spider-loop-arrow" aria-hidden="true"></i>
+
+                    <div class="spider-loop-node">
+                        <div class="spider-loop-node-num">05 // REFINEMENT</div>
+                        <h3 class="spider-loop-node-title">LEARN</h3>
+                        <p class="spider-loop-node-sub">Gait parameters adapt based on stability results and surface traction.</p>
+                    </div>
+                </div>
+
+                <!-- Exploration Domains Grid -->
+                <div class="row g-4 mt-2">
+                    <div class="col-12 col-md-4">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[DOMAIN 01]</span>
+                                <i class="fa-solid fa-microchip text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Embedded Systems</h3>
+                            <p class="rp-card-desc">
+                                Hands-on exploration of real-time microcontrollers, serial communication protocols, and multi-channel PWM servo timing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[DOMAIN 02]</span>
+                                <i class="fa-solid fa-person-walking text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Gait Control &amp; Kinematics</h3>
+                            <p class="rp-card-desc">
+                                Study trigonometry-based inverse kinematics, wave gaits, and dynamic center-of-mass stability margins.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="rp-card h-100 rp-reveal">
+                            <div class="rp-card-header">
+                                <span class="rp-card-num">[DOMAIN 03]</span>
+                                <i class="fa-solid fa-code text-primary fs-5" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="rp-card-title">Programming &amp; Research</h3>
+                            <p class="rp-card-desc">
+                                Script behavioral logic, test reinforcement learning algorithms, and explore autonomous navigation with open-source toolchains.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 SPIDERBOT APPLICATIONS -->
+        <section class="rp-section">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 05 — APPLICATION DOMAINS</div>
+                    <h2 class="rp-section-title">Educational &amp; Research Exploration</h2>
+                    <p class="rp-section-subtitle">
+                        Compact multi-legged platforms deliver hands-on robotics understanding across educational classrooms and advanced laboratory testbeds.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Education -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/embedded-robotics.png" alt="Students learning robotics programming with legged platforms">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">ACADEMIA</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">STEM &amp; Higher Education</h3>
+                                <p class="rp-card-desc">
+                                    Enables students to transition from theoretical mechanics to physical hardware debugging, covering motor drivers, sensor acquisition, and C++/Python robot control.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Research -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-vision.jpg" alt="Locomotion research testbed with legged robotics">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">RESEARCH</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Locomotion Research</h3>
+                                <p class="rp-card-desc">
+                                    Offers university and corporate labs an accessible framework for evaluating adaptive foothold selection, neuromorphic control, and bio-inspired walking behaviors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prototyping -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-embedded.jpg" alt="Robotics rapid prototyping">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">PROTOTYPING</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Rapid Concept Prototyping</h3>
+                                <p class="rp-card-desc">
+                                    Allows engineers to validate custom end-effector grippers, optical sensors, and payload delivery modules in compact physical test chambers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exploration -->
+                    <div class="col-12 col-md-6">
+                        <div class="rp-app-card rp-reveal">
+                            <div class="rp-app-img-wrap">
+                                <img src="assets/image/new-images/card-automation.jpg" alt="Robotic exploration in constrained spaces">
+                                <div class="rp-app-badge-overlay">
+                                    <span class="rp-badge">INSPECTION</span>
+                                </div>
+                            </div>
+                            <div class="rp-app-body">
+                                <h3 class="rp-card-title">Confined Space Exploration Concepts</h3>
+                                <p class="rp-card-desc">
+                                    Explores how low-profile legged chassis can negotiate pipes, rubble piles, and ducts where wheeled vehicles face mechanical entrapment.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 ENGINEERING ARCHITECTURE & SPECIFICATIONS -->
+        <section class="rp-section rp-grid-bg">
+            <div class="rp-container">
+                <div class="rp-section-heading">
+                    <div class="rp-section-tag">// SEC 06 — PLATFORM ARCHITECTURE</div>
+                    <h2 class="rp-section-title">Platform Mechanics &amp; Electronics Stack</h2>
+                    <p class="rp-section-subtitle">
+                        An overview of the biomimetic leg linkages, servo interconnects, and embedded compute framework.
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="rp-spec-table rp-reveal">
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-diagram-project text-primary" aria-hidden="true"></i>
+                                    <span>Leg Kinematics</span>
+                                </div>
+                                <div class="rp-spec-val">Multi-Segment Articulated Linkages // Biomimetic Coxa-Femur-Tibia</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-bolt text-primary" aria-hidden="true"></i>
+                                    <span>Actuation Bus</span>
+                                </div>
+                                <div class="rp-spec-val">Dedicated Multi-Channel PWM Controller // High-Torque Servos</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-compass-drafting text-primary" aria-hidden="true"></i>
+                                    <span>Inertial Sensing</span>
+                                </div>
+                                <div class="rp-spec-val">6-DOF Onboard IMU // Dynamic Roll-Pitch Stabilization</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-code text-primary" aria-hidden="true"></i>
+                                    <span>Software Stack</span>
+                                </div>
+                                <div class="rp-spec-val">Open Architecture // Python &amp; Arduino Compatible API</div>
+                            </div>
+                            <div class="rp-spec-row">
+                                <div class="rp-spec-key">
+                                    <i class="fa-solid fa-plug text-primary" aria-hidden="true"></i>
+                                    <span>Extension Ports</span>
+                                </div>
+                                <div class="rp-spec-val">I2C, SPI, UART &amp; GPIO Sensor Expansion Headers</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center font-monospace" style="font-size: 11px; color: var(--rp-text-dim);">
+                            * SYSTEM ARCHITECTURE PRINCIPLES // SPECIFIC ACTUATOR RATINGS AND SENSOR SUITES CONFIGURED PER LAB KIT REQUIREMENTS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 FINAL CTA SECTION -->
+        <section class="rp-section border-bottom-0">
+            <div class="rp-container">
+                <div class="rp-cta-box rp-reveal">
+                    <div class="rp-badge mb-3">
+                        <span class="rp-badge-dot"></span>
+                        <span>ROBOTICS RESEARCH &amp; EDUCATION</span>
+                    </div>
+                    <h2 class="rp-section-title mb-3">
+                        Explore Legged Locomotion for Your<br>
+                        <span class="text-gradient-cyan">Academic Lab or Prototyping Program</span>
+                    </h2>
+                    <p class="rp-section-subtitle mx-auto mb-4" style="max-width: 600px;">
+                        Connect with our engineering and educational robotics team to discuss curriculum integration, research platforms, or custom development.
+                    </p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <a href="contact-us.php" class="rp-btn-primary">
+                            <span>Inquire About Platforms</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a href="our-work.php" class="rp-control-btn">
+                            <span>Explore Our Work</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <?php include 'footer.php'; ?>
+
+    <script src="assets/js/robotics-product-shared.js" defer></script>
+    <script src="assets/js/spiderbot-product.js" defer></script>
 </body>
 </html>

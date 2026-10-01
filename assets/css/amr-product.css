@@ -1,0 +1,357 @@
+/* ==========================================================================
+   AMR PRODUCT PAGE - "MISSION CONTROL" STYLES
+   ========================================================================== */
+
+/* AMR Hero */
+.amr-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 60px 0 80px;
+  background: radial-gradient(circle at 75% 45%, rgba(37, 99, 235, 0.15) 0%, rgba(6, 9, 17, 0.98) 70%);
+  border-bottom: 1px solid var(--rp-border);
+  overflow: hidden;
+}
+
+.amr-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.amr-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.amr-hero-title {
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 16px 0 20px;
+}
+
+.amr-hero-copy {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--rp-text-muted);
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+
+.amr-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* AMR Hero Visual & HUD Overlay */
+.amr-hero-visual {
+  position: relative;
+}
+
+.amr-hero-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border-accent);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
+  background: #080d1a;
+}
+
+.amr-hero-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+/* HUD Overlay Elements */
+.amr-hud-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.amr-hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.amr-hud-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.amr-radar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--rp-cyan);
+  position: relative;
+  background: rgba(0, 210, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amr-radar-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(0, 210, 255, 0.4) 0deg, transparent 90deg);
+  animation: amrRadarSweep 3s linear infinite;
+}
+
+@keyframes amrRadarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mission Control Interactive Map Section */
+.amr-mission-control {
+  background: #070b14;
+}
+
+.amr-mission-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.amr-map-container {
+  background: #050810;
+  border: 1px solid var(--rp-border-accent);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.amr-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rp-border);
+}
+
+.amr-map-canvas {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.08) 0%, transparent 80%),
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.amr-map-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Map Facility Elements */
+.amr-zone-rack {
+  fill: rgba(30, 41, 59, 0.7);
+  stroke: rgba(148, 163, 184, 0.25);
+  stroke-width: 1.5;
+}
+
+.amr-zone-label {
+  fill: #64748b;
+  font-family: var(--rp-font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.amr-route-path {
+  fill: none;
+  stroke: var(--rp-blue-light);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 6 6;
+  animation: amrRouteFlow 1.2s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.5));
+}
+
+@keyframes amrRouteFlow {
+  to { stroke-dashoffset: -12; }
+}
+
+.amr-waypoint-start,
+.amr-waypoint-end {
+  filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+}
+
+.amr-bot-marker {
+  transition: transform 0.1s linear;
+  filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.8));
+}
+
+/* Mission Control Dashboard Panel */
+.amr-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.amr-route-controls {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.amr-route-btn-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.amr-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.amr-telemetry-card {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.amr-telemetry-val {
+  font-family: var(--rp-font-mono);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--rp-text-white);
+  margin: 6px 0 2px;
+}
+
+.amr-telemetry-sub {
+  font-family: var(--rp-font-mono);
+  font-size: 10px;
+  color: #fbbf24;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Capability Timeline (01 to 05) */
+.amr-capability-sequence {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.amr-cap-card {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.amr-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--rp-border-accent);
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.1);
+}
+
+.amr-cap-num {
+  font-family: var(--rp-font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--rp-cyan);
+  margin-bottom: 12px;
+}
+
+.amr-cap-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rp-text-white);
+  margin-bottom: 10px;
+}
+
+.amr-cap-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--rp-text-muted);
+  margin: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .amr-radar-circle::before,
+  .amr-route-path {
+    animation: none !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .amr-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .amr-mission-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .amr-capability-sequence {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .amr-capability-sequence {
+    grid-template-columns: 1fr;
+  }
+  .amr-map-canvas {
+    height: 320px;
+  }
+  .amr-route-btn-group {
+    grid-template-columns: 1fr;
+  }
+  .amr-telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+  .amr-hud-bottom {
+    grid-template-columns: 1fr;
+  }
+}
