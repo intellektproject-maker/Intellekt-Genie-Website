@@ -205,7 +205,7 @@
 
                 <!-- Visual Simulation Stage -->
                 <div class="arm-simulation-stage rp-corner-bracket rp-reveal">
-                    <div class="arm-sim-canvas-wrap" role="region" aria-label="Visual animation of pick and place sequence">
+                    <div class="arm-sim-canvas-wrap" role="region" aria-label="Visual simulation of a robotic pick and place sequence">
                         <svg class="arm-sim-svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
                             <defs>
                                 <linearGradient id="armMetalGrad" x1="0" y1="0" x2="1" y2="1">
@@ -260,7 +260,7 @@
                                 <span class="rp-badge-dot rp-badge-dot-amber"></span>
                                 VISUAL SIMULATION ONLY
                             </span>
-                            <span class="font-monospace text-light" style="font-size: 12px;" id="simLiveStatusText">
+                            <span class="font-monospace text-light" style="font-size: 12px;" id="simLiveStatusText" aria-live="polite">
                                 READY TO RUN SEQUENCE
                             </span>
                         </div>
