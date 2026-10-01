@@ -4,7 +4,6 @@
 <head>
     <?php include 'header-link.php' ?>
     <!-- Homepage Hero Cinematic Robotics Styles & Interaction Script -->
-    <link rel="stylesheet" href="assets/css/home-commercial.css">
     <link rel="stylesheet" href="assets/css/home-hero-cinematic.css">
     <script src="assets/js/home-hero-cinematic.js" defer></script>
 </head>
@@ -201,177 +200,448 @@
 
 
     <!-- =========================================================
-         INTELLEKT ROBOTICS - WHY CHOOSE US SECTION (COMMERCIAL REDESIGN)
+         INTELLEKT ROBOTICS - WHY CHOOSE US SECTION
          ========================================================= -->
-    <section class="home-technical-section" id="robotics-solutions">
-        <div class="container">
-            <div class="technical-section-header">
-                <span class="technical-kicker">BUILDING A SMARTER TOMORROW</span>
-                <h2 class="technical-title">Why Choose <span class="text-cyan">Intellekt Robotics</span></h2>
-                <p class="technical-desc">
+    <section class="robotics-choice-section" id="robotics-solutions">
+
+        <div class="robotics-choice-container">
+
+            <!-- SECTION HEADING -->
+            <div class="robotics-choice-heading">
+                <span class="robotics-choice-eyebrow">
+                    BUILDING A SMARTER TOMORROW
+                </span>
+
+                <h2>
+                    Why Choose
+                    <span>Intellekt Robotics</span>
+                </h2>
+
+                <p>
                     We involve students in practical robotics and automation projects
                     while providing hands-on experience through robotics internships.
                 </p>
             </div>
 
-            <div class="technical-layout-split">
-                
-                <!-- Center Visual Pane -->
-                <div class="technical-visual-pane">
-                    <div class="technical-backdrop-grid"></div>
-                    <img src="assets/image/robotics-spider-bot.png" alt="Intellekt Robotics spider bot" class="technical-hero-img">
-                    <div class="technical-hud-overlay">
-                        <span class="hud-label">INTELLIGENT</span>
-                        <span class="hud-label">AUTONOMOUS</span>
-                        <span class="hud-label">SCALABLE</span>
-                    </div>
-                </div>
 
-                <!-- Features Pane -->
-                <div class="technical-specs-pane">
-                    
-                    <div class="spec-panel">
-                        <div class="spec-icon">
+            <!-- MAIN THREE-COLUMN LAYOUT -->
+            <div class="robotics-choice-layout">
+
+                <!-- LEFT FEATURE COLUMN: TWO CARDS -->
+                <div class="robotics-choice-column robotics-choice-left">
+
+                    <!-- Feature 1 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
                             <i class="fa-solid fa-robot"></i>
                         </div>
-                        <div class="spec-content">
+
+                        <div class="robotics-choice-card-content">
                             <h3>Autonomous Mobile Robots</h3>
-                            <p>We develop AMR solutions that support intelligent material movement, navigation, and operational efficiency.</p>
+                            <p>
+                                We develop AMR solutions that support
+                                intelligent material movement, navigation,
+                                and operational efficiency.
+                            </p>
                         </div>
-                    </div>
-                    
-                    <div class="spec-panel">
-                        <div class="spec-icon">
+                    </article>
+
+                    <!-- Feature 2 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
                             <i class="fa-solid fa-gears"></i>
                         </div>
-                        <div class="spec-content">
+
+                        <div class="robotics-choice-card-content">
                             <h3>Robotics and Automation</h3>
-                            <p>We design practical robotic systems, automation workflows, and engineering solutions for real-world applications.</p>
+                            <p>
+                                We design practical robotic systems,
+                                automation workflows, and engineering
+                                solutions for real-world applications.
+                            </p>
                         </div>
+                    </article>
+
+                </div>
+                <!-- END LEFT FEATURE COLUMN -->
+
+
+                <!-- CENTER SPIDER ROBOT -->
+                <div class="robotics-choice-center">
+
+                    <!-- Decorative Orbits -->
+                    <div class="robotics-choice-orbit robotics-choice-orbit-one"></div>
+                    <div class="robotics-choice-orbit robotics-choice-orbit-two"></div>
+
+                    <!-- Center Label -->
+                    <div class="robotics-choice-center-label">
+                        <span>INTELLIGENT</span>
+                        <span>AUTONOMOUS</span>
+                        <span>SCALABLE</span>
                     </div>
-                    
-                    <div class="spec-panel">
-                        <div class="spec-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="spec-content">
-                            <h3>Student Internships</h3>
-                            <p>We welcome students as interns and provide practical training in robotics, AMRs, automation, AI, and embedded systems.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-panel">
-                        <div class="spec-icon">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <div class="spec-content">
-                            <h3>Intelligent Perception</h3>
-                            <p>We explore computer vision, sensors, and intelligent systems that help robots understand and respond to their surroundings.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="spec-panel">
-                        <div class="spec-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                        <div class="spec-content">
-                            <h3>Industry-Ready Innovation</h3>
-                            <p>From student learning to real-world deployment, we focus on building reliable, scalable, and future-ready robotics capabilities.</p>
-                        </div>
+
+                    <!-- Spider Robot Image -->
+                    <div class="robotics-spider-visual">
+                        <img
+                            src="assets/image/robotics-spider-bot.png"
+                            alt="Intellekt Robotics spider robot waving hello"
+                            class="robotics-spider-image"
+                        >
                     </div>
 
                 </div>
+                <!-- END CENTER SPIDER ROBOT -->
 
+
+                <!-- RIGHT FEATURE COLUMN: TWO CARDS -->
+                <div class="robotics-choice-column robotics-choice-right">
+
+                    <!-- Feature 3 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Student Internships</h3>
+                            <p>
+                                We welcome students as interns and provide
+                                practical training in robotics, AMRs,
+                                automation, AI, and embedded systems.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Feature 4 -->
+                    <article class="robotics-choice-card">
+                        <div class="robotics-choice-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <div class="robotics-choice-card-content">
+                            <h3>Intelligent Perception</h3>
+                            <p>
+                                We explore computer vision, sensors,
+                                and intelligent systems that help robots
+                                understand and respond to their surroundings.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- END RIGHT FEATURE COLUMN -->
+
+            </div>
+            <!-- END MAIN THREE-COLUMN LAYOUT -->
+
+
+            <!-- BOTTOM CENTER FEATURE: ONE CARD -->
+            <div class="robotics-choice-bottom">
+
+                <article class="robotics-choice-card">
+                    <div class="robotics-choice-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div class="robotics-choice-card-content">
+                        <h3>Industry-Ready Innovation</h3>
+                        <p>
+                            From student learning to real-world deployment,
+                            we focus on building reliable, scalable, and
+                            future-ready robotics capabilities.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+            <!-- END BOTTOM CENTER FEATURE -->
+
+        </div>
+        <!-- END ROBOTICS CHOICE CONTAINER -->
+
+    </section>
+    <!-- END INTELLEKT ROBOTICS - WHY CHOOSE US SECTION -->
+
+    <article class=" py-5 sigma-testimonial-area sigma-section-specing-has-bg  sigma-animation service bg-sigma-section-bg">
+        <div class="container-fluid">
+            <div class="sigma-section-title-wrap text-center">
+                <h2 class="sigma-section-title mb-0 text-sigma-title -tracking-[.94px] py-3 pb-5">Services</h2>
+
+            </div>
+            <div class="sigma-testimonial-items ">
+                <div class="swiper testimonialSlider ">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-2.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap ">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Corporate Training
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Management Skills </li>
+                                            <li>Behavioural Skills </li>
+                                            <li>Leadership Skills </li>
+                                            <li>Compliance Training </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-3.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Organization Restructure solutions
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Evaluation & Gap Analysis </li>
+                                            <li>Customized Proposal </li>
+                                            <li>KPI Development & SOP Creation </li>
+                                            <li>Implementation & Monitoring </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-5.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap ">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Value-Added Programmes for Colleges
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Technical Training </li>
+                                            <li>AI & Robotics </li>
+                                            <li>Management & Soft Skills </li>
+                                            <li>Industry Exposure & Career Readiness </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-2.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap ">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Corporate Training
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Management Skills </li>
+                                            <li>Behavioural Skills </li>
+                                            <li>Leadership Skills </li>
+                                            <li>Compliance Training </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-3.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Organization Restructure solutions
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Evaluation & Gap Analysis </li>
+                                            <li>Customized Proposal </li>
+                                            <li>KPI Development & SOP Creation </li>
+                                            <li>Implementation & Monitoring </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="sigma-testimonial-wrap bg-white p-[30px] border-[1px] border-solid border-[rgba(0, 0, 0, 0.11)] rounded-[4px]">
+                                <div class="sigma-blog-itme-wrap sigma-animation">
+                                    <div class="sigma-post-thum mb-[20px]">
+                                        <a class="sigma-post-img block w-full overflow-hidden">
+                                            <img class="rounded w-100 h-100 duration-500 service-image h-\[250px\]   hover:scale-[1.2]" src="assets/image/new-images/service-5.webp"
+                                                alt="Post One">
+                                        </a>
+                                    </div>
+                                    <div class="sigma-post-details-wrap">
+
+                                        <div class="sigma-post-title-wrap ">
+                                            <h2
+                                                class="sigma-post-title font-secondary text-2xl text-[24px] font-semibold leading-[32px] mb-0">
+                                                <a class="flex gap-[30px] justify-between text-heading font-secondary text-decoration-none">
+                                                    Value-Added Programmes for Colleges
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                            viewBox="0 0 24 24" fill="none">
+                                                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#1B1818" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                        <ul
+                                            class="sigma-post-excerpt pt-[15px] custom-bullets text-sigma-gray-600 font-secondary text-[16px] leading-[24px] ">
+                                            <li>Technical Training </li>
+                                            <li>AI & Robotics </li>
+                                            <li>Management & Soft Skills </li>
+                                            <li>Industry Exposure & Career Readiness </li>
+                                        </ul>
+
+                                        <div class="slide-btn">
+                                            <a class="btn "> View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="swiper-button-next sigma-testimonial-slider-nav right-0  after:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12L19 12" stroke="#03071E" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12 5L19 12L12 19" stroke="#03071E" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="swiper-button-prev sigma-testimonial-slider-nav left-0 after:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 12H5" stroke="#03071E" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12 19L5 12L12 5" stroke="#03071E" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- =========================================================
-         SERVICES SECTION (COMMERCIAL REDESIGN)
-         ========================================================= -->
-    <section class="home-services-section">
-        <div class="container">
-            <div class="technical-section-header text-center mx-auto" style="text-align: center; max-width: 800px;">
-                <h2 class="technical-title">Services</h2>
-            </div>
-            
-            <div class="cr-services-grid">
-                
-                <!-- Service 1 -->
-                <article class="cr-service-card">
-                    <div class="cr-service-img-wrapper">
-                        <img src="assets/image/new-images/service-2.webp" alt="Corporate Training">
-                    </div>
-                    <div class="cr-service-content">
-                        <h3 class="cr-service-title">
-                            Corporate Training
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </h3>
-                        <ul class="cr-service-list">
-                            <li>Management Skills</li>
-                            <li>Behavioural Skills</li>
-                            <li>Leadership Skills</li>
-                            <li>Compliance Training</li>
-                        </ul>
-                        <div class="mt-auto pt-3">
-                            <a class="cr-service-btn">View More</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Service 2 -->
-                <article class="cr-service-card">
-                    <div class="cr-service-img-wrapper">
-                        <img src="assets/image/new-images/service-3.webp" alt="Organization Restructure solutions">
-                    </div>
-                    <div class="cr-service-content">
-                        <h3 class="cr-service-title">
-                            Organization Restructure
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </h3>
-                        <ul class="cr-service-list">
-                            <li>Evaluation & Gap Analysis</li>
-                            <li>Customized Proposal</li>
-                            <li>KPI Development & SOP Creation</li>
-                            <li>Implementation & Monitoring</li>
-                        </ul>
-                        <div class="mt-auto pt-3">
-                            <a class="cr-service-btn">View More</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Service 3 -->
-                <article class="cr-service-card">
-                    <div class="cr-service-img-wrapper">
-                        <img src="assets/image/new-images/service-5.webp" alt="Value-Added Programmes for Colleges">
-                    </div>
-                    <div class="cr-service-content">
-                        <h3 class="cr-service-title">
-                            Value-Added Programmes
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </h3>
-                        <ul class="cr-service-list">
-                            <li>Technical Training</li>
-                            <li>AI & Robotics</li>
-                            <li>Management & Soft Skills</li>
-                            <li>Industry Exposure & Career Readiness</li>
-                        </ul>
-                        <div class="mt-auto pt-3">
-                            <a class="cr-service-btn">View More</a>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
+    </article>
 
     <!-- <article class=" py-5  sigma-course-area sigma-course-area-two sigma-section-padding  sigma-animation">
         <div class="container">
