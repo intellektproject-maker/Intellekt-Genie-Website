@@ -136,75 +136,106 @@
     });
   }
 
+  function setSimButton(label, icon, disabled) {
+    if (!btnRunSim) return;
+    btnRunSim.disabled = disabled;
+    btnRunSim.innerHTML = '<i class="fa-solid ' + icon + ' me-2" aria-hidden="true"></i><span>' + label + '</span>';
+  }
+
+  function setSimStatus(message) {
+    if (simStatusText) {
+      simStatusText.textContent = message;
+      simStatusText.setAttribute('aria-live', 'polite');
+    }
+  }
+
+  function setArmPose(rotation) {
+    if (simArmGroup) {
+      simArmGroup.style.transform = 'rotate(' + rotation + 'deg)';
+    }
+  }
+
+  function setWorkpiece(x, y, opacity) {
+    if (!simWorkpiece) return;
+    simWorkpiece.style.opacity = opacity == null ? '1' : String(opacity);
+    simWorkpiece.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+  }
+
+  function clearSimulationTimers() {
+    if (simTimer) {
+      window.clearTimeout(simTimer);
+      simTimer = null;
+    }
+  }
+
+  function finishSimulation() {
+    isSimulating = false;
+    setSimStatus('AUTOMATION CYCLE COMPLETE // READY');
+    stepCards.forEach(card => card.classList.remove('active', 'completed'));
+    setArmPose(0);
+    setWorkpiece(130, 240, 1);
+    setSimButton('RUN SIMULATION', 'fa-play', false);
+  }
+
   function runAutomationSimulation() {
     if (isSimulating) return;
-    isSimulating = true;
 
-    if (btnRunSim) {
-      btnRunSim.disabled = true;
-      btnRunSim.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2" aria-hidden="true"></i><span>RUNNING...</span>';
-    }
+    clearSimulationTimers();
+    isSimulating = true;
+    setSimButton('RUNNING...', 'fa-spinner fa-spin', true);
 
     if (prefersReducedMotion) {
-      // Reduced motion fallback: show final completed step instantly
       setSimStepUI(2);
-      if (simStatusText) simStatusText.textContent = 'SIMULATION COMPLETE (REDUCED MOTION)';
-      setTimeout(() => {
-        isSimulating = false;
-        if (btnRunSim) {
-          btnRunSim.disabled = false;
-          btnRunSim.innerHTML = '<i class="fa-solid fa-rotate-right me-2" aria-hidden="true"></i><span>COMPLETE // RUN AGAIN</span>';
-        }
-      }, 800);
+      setSimStatus('SIMULATION COMPLETE // REDUCED MOTION');
+      setArmPose(24);
+      setWorkpiece(450, 240, 1);
+      window.setTimeout(finishSimulation, 900);
       return;
     }
 
-    // Step 0: PICK (Gripper descends at Tray A)
+    // STEP 01 — PICK
     setSimStepUI(0);
-    if (simStatusText) simStatusText.textContent = 'STEP 01: PICKING WORKPIECE AT FEEDER TRAY';
-    if (simArmGroup) simArmGroup.style.transform = 'rotate(-28deg)';
-    if (simWorkpiece) {
-      simWorkpiece.style.opacity = '1';
-      simWorkpiece.style.transform = 'translate(130px, 240px)';
-    }
+    setSimStatus('STEP 01: ALIGNING TOOL WITH FEEDER A');
+    setArmPose(-28);
+    setWorkpiece(130, 240, 1);
 
-    // Step 1: MOVE (Arm lifts and arcs to Station B)
-    simTimer = setTimeout(() => {
-      setSimStepUI(1);
-      if (simStatusText) simStatusText.textContent = 'STEP 02: EXECUTING KINEMATIC PATH TRAJECTORY';
-      if (simArmGroup) simArmGroup.style.transform = 'rotate(15deg)';
-      if (simWorkpiece) {
-        simWorkpiece.style.transform = 'translate(450px, 240px)';
-      }
+    simTimer = window.setTimeout(() => {
+      setSimStatus('STEP 01: ENGAGING WORKPIECE // PICK COMPLETE');
+      // Bring the workpiece to the simulated tool position before transit.
+      setWorkpiece(190, 70, 1);
 
-      // Step 2: PLACE (Workpiece seated in fixture B)
-      simTimer = setTimeout(() => {
-        setSimStepUI(2);
-        if (simStatusText) simStatusText.textContent = 'STEP 03: PLACING WORKPIECE IN ASSEMBLY NEST';
-        if (simArmGroup) simArmGroup.style.transform = 'rotate(24deg)';
+      // STEP 02 — MOVE
+      simTimer = window.setTimeout(() => {
+        setSimStepUI(1);
+        setSimStatus('STEP 02: TRANSFERRING ALONG INTERPOLATED PATH');
+        setArmPose(15);
+        setWorkpiece(320, 70, 1);
 
-        // Step 3: RESET (Arm returns to home origin)
-        simTimer = setTimeout(() => {
-          setSimStepUI(3);
-          if (simStatusText) simStatusText.textContent = 'STEP 04: RESETTING ARM TO HOME READY POSTURE';
-          if (simArmGroup) simArmGroup.style.transform = 'rotate(0deg)';
+        simTimer = window.setTimeout(() => {
+          setWorkpiece(450, 70, 1);
 
-          // Finish
-          simTimer = setTimeout(() => {
-            isSimulating = false;
-            if (simStatusText) simStatusText.textContent = 'AUTOMATION CYCLE COMPLETE // READY';
-            stepCards.forEach(card => card.classList.remove('active', 'completed'));
-            if (simWorkpiece) {
-              simWorkpiece.style.transform = 'translate(130px, 240px)';
-            }
-            if (btnRunSim) {
-              btnRunSim.disabled = false;
-              btnRunSim.innerHTML = '<i class="fa-solid fa-rotate-right me-2" aria-hidden="true"></i><span>COMPLETE // RUN AGAIN</span>';
-            }
+          // STEP 03 — PLACE
+          simTimer = window.setTimeout(() => {
+            setSimStepUI(2);
+            setSimStatus('STEP 03: LOWERING TOOL INTO FIXTURE B');
+            setArmPose(24);
+            setWorkpiece(450, 240, 1);
+
+            // STEP 04 — RESET
+            simTimer = window.setTimeout(() => {
+              setSimStepUI(3);
+              setSimStatus('STEP 04: RELEASING WORKPIECE // RETURNING HOME');
+              setWorkpiece(450, 240, 0.45);
+              setArmPose(0);
+
+              simTimer = window.setTimeout(() => {
+                finishSimulation();
+              }, 1300);
+            }, 1400);
           }, 1200);
-        }, 1400);
-      }, 1400);
-    }, 1400);
+        }, 900);
+      }, 1200);
+    }, 1300);
   }
 
   function initAutomationSimulation() {
