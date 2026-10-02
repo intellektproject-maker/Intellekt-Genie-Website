@@ -203,10 +203,32 @@
     simWorkpiece.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
   }
 
+  function getToolTipPosition(targetX, targetY) {
+    const pose = solvePlanarIK(targetX, targetY);
+    const shoulder = pose.shoulder * Math.PI / 180;
+    const elbow = pose.elbow * Math.PI / 180;
+    const wrist = pose.wrist * Math.PI / 180;
+    const elbowAngle = shoulder + elbow;
+    const wristAngle = elbowAngle + wrist;
+
+    return {
+      x: SIM.base.x +
+        SIM.upperArm * Math.cos(shoulder) +
+        SIM.forearm * Math.cos(elbowAngle) +
+        30 * Math.cos(wristAngle),
+      y: SIM.base.y +
+        SIM.upperArm * Math.sin(shoulder) +
+        SIM.forearm * Math.sin(elbowAngle) +
+        30 * Math.sin(wristAngle)
+    };
+  }
+
   function setSimulationPose(x, y) {
     setArmTarget(x, y);
     if (workpieceAttached) {
-      setWorkpiece(x, y, 1);
+      const toolTip = getToolTipPosition(x, y);
+      // Keep W1 visually attached just below the tool holder.
+      setWorkpiece(toolTip.x, toolTip.y + 22, 1);
     }
   }
 
