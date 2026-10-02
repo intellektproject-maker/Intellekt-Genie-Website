@@ -1,16 +1,3 @@
-<?php
-session_set_cookie_params([
-    'httponly' => true,
-    'secure' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
-    'samesite' => 'Lax',
-]);
-session_start();
-
-if (empty($_SESSION['contact_csrf'])) {
-    $_SESSION['contact_csrf'] = bin2hex(random_bytes(32));
-}
-$contactCsrf = $_SESSION['contact_csrf'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,11 +157,14 @@ $contactCsrf = $_SESSION['contact_csrf'];
                 </div>
                 <div class=" col-12 col-md-8">
                     <div class="sigma-contact-form-wrap">
-                        <form class="sigma-contact-form" method="post" action="submit_form.php" id="contact-form">
-                            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($contactCsrf, ENT_QUOTES, 'UTF-8'); ?>">
+                        <form class="sigma-contact-form" method="post" action="https://api.web3forms.com/submit" id="contact-form">
+                            <input type="hidden" name="access_key" value="33bef98b-c0aa-4e21-80b8-32aa96322e42">
+                            <input type="hidden" name="subject" value="New Inquiry from Intellekt Genie Website">
+                            <input type="hidden" name="from_name" value="Intellekt Genie Website">
+                            <input type="hidden" name="redirect" value="https://intellektgenie.com/thank_you.php">
                             <div class="d-none" aria-hidden="true">
                                 <label for="website">Website</label>
-                                <input type="text" name="website" id="website" value="" tabindex="-1" autocomplete="off">
+                                <input type="checkbox" name="botcheck" id="website" value="true" tabindex="-1" autocomplete="off">
                             </div>
                             <div class="row   gap-y-[30px]">
                                 <div class="sigma-input-name col-12 col-md-6">
