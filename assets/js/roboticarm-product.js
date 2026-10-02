@@ -65,21 +65,18 @@
     const data = JOINTS_DATA[jointKey];
     if (!data) return;
 
-    // Update pins
     jointPins.forEach(pin => {
       const match = pin.getAttribute('data-joint') === jointKey;
       pin.classList.toggle('active', match);
       pin.setAttribute('aria-pressed', match ? 'true' : 'false');
     });
 
-    // Update tabs
     jointTabs.forEach(tab => {
       const match = tab.getAttribute('data-joint') === jointKey;
       tab.classList.toggle('active', match);
       tab.setAttribute('aria-selected', match ? 'true' : 'false');
     });
 
-    // Update content
     if (elJointNum) elJointNum.textContent = data.num;
     if (elJointTitle) elJointTitle.textContent = data.title;
     if (elJointAxis) elJointAxis.textContent = data.axis;
@@ -106,7 +103,6 @@
       });
     });
 
-    // Default select J1
     selectJoint('J1');
   }
 
@@ -114,10 +110,12 @@
   let isSimulating = false;
   let simTimer = null;
   let workpieceAttached = false;
+  let autoRunTriggered = false;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const btnRunSim = document.getElementById('armRunSimBtn');
   const stepCards = document.querySelectorAll('.arm-seq-step-card');
+  const sequenceSection = document.getElementById('automation-sequence');
   const simArmGroup = document.getElementById('simArmArmature');
   const simShoulder = document.getElementById('simShoulder');
   const simElbow = document.getElementById('simElbow');
@@ -125,10 +123,9 @@
   const simWorkpiece = document.getElementById('simWorkpiece');
   const simStatusText = document.getElementById('simLiveStatusText');
 
-  // The simulator uses a simple planar 2-link inverse-kinematics model.
-  // The base stays fixed while shoulder, elbow and wrist transforms move as
-  // a connected kinematic chain. The workpiece follows the tool only while
-  // the gripper is carrying it.
+  // Keep the armature reference available for existing styling/hooks.
+  void simArmGroup;
+
   const SIM = {
     base: { x: 300, y: 200 },
     upperArm: 100,
@@ -142,16 +139,10 @@
 
   function setSimStepUI(stepIndex) {
     stepCards.forEach((card, idx) => {
-      if (idx === stepIndex) {
-        card.classList.add('active');
-        card.classList.remove('completed');
-      } else if (idx < stepIndex) {
-        card.classList.remove('active');
-        card.classList.add('completed');
-      } else {
-        card.classList.remove('active');
-        card.classList.remove('completed');
-      }
+      const active = idx === stepIndex;
+      card.classList.toggle('active', active);
+      card.classList.toggle('completed', idx < stepIndex && !active);
+      card.setAttribute('aria-current', active ? 'step' : 'false');
     });
   }
 
@@ -244,7 +235,7 @@
           workpieceAttached = true;
         }
 
-        setSimulationPose(x, y, 1);
+        setSimulationPose(x, y);
 
         if (progress < 1) {
           window.requestAnimationFrame(frame);
@@ -351,9 +342,89 @@
 
     finishSimulation();
   }
+
+  // Clicking a movement card directly previews that movement.
+  async function previewStep(stepIndex) {
+    if (isSimulating || stepIndex < 0 || stepIndex > 3) return;
+
+    clearSimulationTimers();
+    setSimStepUI(stepIndex);
+
+    if (stepIndex === 0) {
+      workpieceAttached = false;
+      setWorkpiece(SIM.feeder.x, SIM.feeder.y, 1);
+      setSimStatus('STEP 01: PICK // ALIGNING WITH FEEDER A');
+      await animatePose(SIM.feeder.x, SIM.feeder.y, 700, false);
+      setSimStatus('STEP 01: PICK // WORKPIECE READY');
+      workpieceAttached = true;
+      setWorkpiece(SIM.feeder.x, SIM.feeder.y, 1);
+    } else if (stepIndex === 1) {
+      workpieceAttached = true;
+      setWorkpiece(SIM.feeder.x, SIM.feeder.y, 1);
+      setSimStatus('STEP 02: MOVE // TRANSFERRING TO FIXTURE B');
+      await animatePose(SIM.fixtureLift.x, SIM.fixtureLift.y, 1000, true);
+      setSimStatus('STEP 02: MOVE // WORKPIECE IN TRANSIT');
+    } else if (stepIndex === 2) {
+      workpieceAttached = true;
+      setWorkpiece(SIM.fixtureLift.x, SIM.fixtureLift.y, 1);
+      setSimStatus('STEP 03: PLACE // LOWERING INTO FIXTURE B');
+      await animatePose(SIM.fixture.x, SIM.fixture.y, 800, true);
+      workpieceAttached = false;
+      setWorkpiece(SIM.fixture.x, SIM.fixture.y, 1);
+      setSimStatus('STEP 03: PLACE // WORKPIECE RELEASED');
+    } else {
+      workpieceAttached = false;
+      setWorkpiece(SIM.fixture.x, SIM.fixture.y, 1);
+      setSimStatus('STEP 04: RESET // RETURNING TO HOME');
+      await animatePose(SIM.home.x, SIM.home.y, 900, false);
+      setSimStatus('STEP 04: RESET // HOME POSITION READY');
+    }
+
+    animatePose.currentTarget = stepIndex === 0
+      ? { ...SIM.feeder }
+      : stepIndex === 1
+        ? { ...SIM.fixtureLift }
+        : stepIndex === 2
+          ? { ...SIM.fixture }
+          : { ...SIM.home };
+  }
+
+  function initStepCardInteractions() {
+    stepCards.forEach((card, index) => {
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Run ' + ['Pick', 'Move', 'Place', 'Reset'][index] + ' movement');
+
+      card.addEventListener('click', () => previewStep(index));
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          previewStep(index);
+        }
+      });
+    });
+  }
+
   function initAutomationSimulation() {
     if (btnRunSim) {
       btnRunSim.addEventListener('click', runAutomationSimulation);
+    }
+
+    initStepCardInteractions();
+
+    // Automatically run once when the simulation section enters the viewport.
+    if (sequenceSection && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !autoRunTriggered) {
+            autoRunTriggered = true;
+            runAutomationSimulation();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(sequenceSection);
     }
   }
 
@@ -378,7 +449,6 @@
     }
   }
 
-  // Document Ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initJointInspector();
