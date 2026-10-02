@@ -369,9 +369,13 @@
     await wait(350);
 
     // STEP 04 — RESET
+    // Lift clear of Fixture B first, then return home so the tool never
+    // sweeps underneath the fixture during the reset leg.
     setSimStepUI(3);
+    setSimStatus('STEP 04: LIFTING CLEAR OF FIXTURE B');
+    await animatePose(SIM.fixtureLift.x, SIM.fixtureLift.y, 500, false);
     setSimStatus('STEP 04: RETURNING EMPTY TOOL TO HOME');
-    await animatePose(SIM.home.x, SIM.home.y, 1200, false);
+    await animatePose(SIM.home.x, SIM.home.y, 1000, false);
 
     finishSimulation();
   }
@@ -408,8 +412,10 @@
     } else {
       workpieceAttached = false;
       setWorkpiece(SIM.fixture.x, SIM.fixture.y, 1);
+      setSimStatus('STEP 04: RESET // LIFTING CLEAR OF FIXTURE B');
+      await animatePose(SIM.fixtureLift.x, SIM.fixtureLift.y, 400, false);
       setSimStatus('STEP 04: RESET // RETURNING TO HOME');
-      await animatePose(SIM.home.x, SIM.home.y, 900, false);
+      await animatePose(SIM.home.x, SIM.home.y, 800, false);
       setSimStatus('STEP 04: RESET // HOME POSITION READY');
     }
 
