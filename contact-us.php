@@ -158,7 +158,7 @@
                 <div class=" col-12 col-md-8">
                     <div class="sigma-contact-form-wrap">
                         <form class="sigma-contact-form" method="post" action="https://api.web3forms.com/submit" id="contact-form">
-                            <input type="hidden" name="access_key" value="33bef98b-c0aa-4e21-80b8-32aa96322e42">
+                            <input type="hidden" name="access_key" value="fbf7a3c3-a4e9-4bff-bb80-774314731235">
                             <input type="hidden" name="subject" value="New Inquiry from Intellekt Genie Website">
                             <input type="hidden" name="from_name" value="Intellekt Genie Website">
                             <input type="hidden" name="redirect" value="https://intellektgenie.com/thank_you.php">
