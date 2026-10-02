@@ -35,7 +35,7 @@ $phone = clean_input($_POST["phone"] ?? '');
 $email = filter_var($_POST["email"] ?? '', FILTER_SANITIZE_EMAIL);
 $message = clean_input($_POST["message"] ?? '');
 
-// Reject unexpectedly large input before processing or sending email.
+// Reject unexpectedly large input before processing or sending.
 if (strlen($name) > 100 || strlen($address) > 250 || strlen($phone) > 20 || strlen($email) > 254 || strlen($message) > 5000) {
     http_response_code(413);
     exit("Error: One or more fields are too long.");
@@ -51,39 +51,61 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die("Error: Invalid email format.");
 }
 
-// Prevent header injection in the Reply-To header and subject.
+// Prevent header injection in the email value sent as Reply-To.
 $clean_email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
 $clean_name = str_replace(["\r", "\n", "%0a", "%0d"], '', $name);
 
-// Keep the existing recipient and email workflow.
-$to = "intellektgenie@gmail.com";
+// Web3Forms configuration.
+// The access key is a public form key and is safe to use in website code.
+$web3formsAccessKey = "33bef98b-c0aa-4e21-80b8-32aa96322e42";
+
 $subject = "Website Enquiry Details from $clean_name";
 
-$message_body = <<<EMAIL
-You have received a new Intellekt Robotics enquiry:<br/>
+$payload = [
+    'access_key' => $web3formsAccessKey,
+    'subject' => $subject,
+    'name' => $name,
+    'address' => $address,
+    'phone' => $phone,
+    'email' => $clean_email,
+    'message' => $message,
+];
 
-Name: $name<br/>
-Address: $address<br/>
-Phone: $phone<br/>
-Email: $clean_email<br/>
-Message: $message
-EMAIL;
+// Submit the enquiry through Web3Forms HTTPS API.
+// This avoids PHP mail(), local SMTP, and Railway SMTP restrictions.
+$ch = curl_init('https://api.web3forms.com/submit');
+curl_setopt_array($ch, [
+    CURLOPT_POST => true,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        'Content-Type: application/json',
+        'Accept: application/json',
+    ],
+    CURLOPT_POSTFIELDS => json_encode($payload),
+    CURLOPT_CONNECTTIMEOUT => 10,
+    CURLOPT_TIMEOUT => 20,
+]);
 
-// Email headers.
-// A valid From header is required by PHP mail() and prevents the
-// "sendmail_from not set / From header missing" warning on local PHP.
-$fromEmail = "noreply@intellektgenie.com";
-$headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8\r\n";
-$headers .= "From: Intellekt Genie Website <$fromEmail>\r\n";
-$headers .= "Reply-To: $clean_email\r\n";
-$headers .= "X-Mailer: PHP/" . PHP_VERSION . "\r\n";
+$response = curl_exec($ch);
+$curlError = curl_error($ch);
+$httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
 
-// Send the enquiry email and preserve the existing success/failure flow.
-if (mail($to, $subject, $message_body, $headers)) {
-    header("Location: thank_you.php");
-    exit;
+if ($response !== false && $httpCode >= 200 && $httpCode < 300) {
+    $result = json_decode($response, true);
+
+    if (is_array($result) && !empty($result['success'])) {
+        header("Location: thank_you.php");
+        exit;
+    }
 }
+
+// Log technical details server-side without exposing them to the visitor.
+error_log(
+    "Web3Forms contact submission failed. HTTP {$httpCode}" .
+    ($curlError !== '' ? " - cURL: {$curlError}" : "") .
+    ($response !== false ? " - Response: {$response}" : "")
+);
 
 header("Location: contact-us.php");
 exit;
