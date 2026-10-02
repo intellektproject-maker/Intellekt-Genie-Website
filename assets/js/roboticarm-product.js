@@ -227,8 +227,9 @@
     setArmTarget(x, y);
     if (workpieceAttached) {
       const toolTip = getToolTipPosition(x, y);
-      // Keep W1 visually attached just below the tool holder.
-      setWorkpiece(toolTip.x, toolTip.y + 22, 1);
+      // Keep W1 tucked directly under the tool holder without dropping
+      // below the Fixture B level.
+      setWorkpiece(toolTip.x, toolTip.y + 10, 1);
     }
   }
 
