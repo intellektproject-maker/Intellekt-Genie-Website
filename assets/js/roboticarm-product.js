@@ -111,6 +111,7 @@
   let simTimer = null;
   let workpieceAttached = false;
   let autoRunTriggered = false;
+  const simulationLoop = true;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const btnRunSim = document.getElementById('armRunSimBtn');
@@ -266,11 +267,21 @@
   function finishSimulation() {
     isSimulating = false;
     workpieceAttached = false;
-    setSimStatus('AUTOMATION CYCLE COMPLETE // READY');
+    setSimStatus(simulationLoop ? 'AUTOMATION CYCLE COMPLETE // RESTARTING' : 'AUTOMATION CYCLE COMPLETE // READY');
     stepCards.forEach(card => card.classList.remove('active', 'completed'));
     setArmTarget(SIM.home.x, SIM.home.y);
     animatePose.currentTarget = { ...SIM.home };
-    setSimButton('RUN SIMULATION', 'fa-play', false);
+
+    if (simulationLoop) {
+      setSimButton('LOOPING...', 'fa-spinner fa-spin', true);
+      clearSimulationTimers();
+      simTimer = window.setTimeout(() => {
+        simTimer = null;
+        runAutomationSimulation();
+      }, 1200);
+    } else {
+      setSimButton('RUN SIMULATION', 'fa-play', false);
+    }
   }
 
   async function runAutomationSimulation() {
