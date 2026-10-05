@@ -165,12 +165,12 @@
 }
 
 /* Specific Positions for J1 - J6 on arm visual */
-.arm-joint-pin[data-joint="J1"] { top: 78%; left: 36%; } /* base */
-.arm-joint-pin[data-joint="J2"] { top: 19%; left: 41%; } /* shoulder */
-.arm-joint-pin[data-joint="J3"] { top: 40%; left: 60%; } /* elbow */
-.arm-joint-pin[data-joint="J4"] { top: 52%; left: 64%; } /* wrist pitch */
-.arm-joint-pin[data-joint="J5"] { top: 58%; left: 64%; } /* wrist roll */
-.arm-joint-pin[data-joint="J6"] { top: 64%; left: 64%; } /* tool flange */
+.arm-joint-pin[data-joint="J1"] { top: 75%; left: 21%; } /* base */
+.arm-joint-pin[data-joint="J2"] { top: 58.5%; left: 20.8%; } /* shoulder */
+.arm-joint-pin[data-joint="J3"] { top: 23%; left: 41.5%; } /* elbow */
+.arm-joint-pin[data-joint="J4"] { top: 38.5%; left: 71.2%; } /* wrist pitch */
+.arm-joint-pin[data-joint="J5"] { top: 36%; left: 80.5%; } /* wrist roll */
+.arm-joint-pin[data-joint="J6"] { top: 53%; left: 80.5%; } /* tool flange */
 
 /* Joint Info Panel (Right side) */
 .arm-joint-inspector {

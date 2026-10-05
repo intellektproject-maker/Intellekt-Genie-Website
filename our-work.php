@@ -233,7 +233,7 @@
             <div class="container">
                 <div class="ow-product-grid ow-product-grid--reversed">
                     <div class="ow-product-media">
-                        <img src="assets/image/new-images/card-arm.jpg"
+                        <img src="assets/image/new-images/robotic-arm-main.png"
                              alt="Intellekt Industrial Robotic Arm"
                              width="800"
                              height="450"

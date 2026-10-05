@@ -40,7 +40,7 @@
                     <!-- HERO VISUAL WITH HUD OVERLAY -->
                     <div class="arm-hero-visual rp-corner-bracket">
                         <div class="arm-hero-frame">
-                            <img src="assets/image/new-images/card-arm.jpg" alt="Industrial articulated robotic arm executing precision manipulation" width="600" height="420">
+                            <img src="assets/image/new-images/robotic-arm-main.png" alt="Industrial articulated robotic arm executing precision manipulation" width="600" height="420">
                             <!-- Technical HUD Overlay -->
                             <div class="amr-hud-overlay" aria-label="Simulated arm kinematics view">
                                 <div class="amr-hud-top">
@@ -92,7 +92,7 @@
                 <div class="arm-lab-layout rp-reveal">
                     <!-- Left: Arm Visual Canvas with Overlaid Joint Pins -->
                     <div class="arm-visual-canvas rp-corner-bracket" role="region" aria-label="Interactive 6-Axis Joint Map">
-                        <img src="assets/image/new-images/card-arm.jpg" alt="6-Axis robotic arm joint map" class="arm-visual-img">
+                        <img src="assets/image/new-images/robotic-arm-main.png" alt="6-Axis robotic arm joint map" class="arm-visual-img">
 
                         <!-- Interactive Joint Markers J1 to J6 -->
                         <button type="button" class="arm-joint-pin active" data-joint="J1" aria-label="Joint 1 Base Rotation" aria-pressed="true">
@@ -366,7 +366,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="rp-app-card rp-reveal">
                             <div class="rp-app-img-wrap">
-                                <img src="assets/image/new-images/card-arm.jpg" alt="Robotic arm performing mechanical assembly">
+                                <img src="assets/image/new-images/robotic-arm-assembly.png" alt="Robotic arm performing mechanical assembly">
                                 <div class="rp-app-badge-overlay">
                                     <span class="rp-badge">MANUFACTURING</span>
                                 </div>

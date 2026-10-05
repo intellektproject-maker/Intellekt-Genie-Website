@@ -4,7 +4,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 <nav class="navbar navbar-expand-lg robotics-navbar" id="navbar">
 	<div class="container">
 		<a class="navbar-brand robotics-navbar-brand d-flex align-items-center" href="index.php">
-			<img src="assets/image/new-images/logo-white.png" alt="Intellekt Genie Robotics" class="img-fluid" style="max-height: 42px;">
+			<img src="assets/image/new-images/logo-white.png" alt="Intellekt Genie Robotics" class="img-fluid" style="max-height: 50px;">
 		</a>
 		<button class="navbar-toggler robotics-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
 			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" onclick="changeIcon()">

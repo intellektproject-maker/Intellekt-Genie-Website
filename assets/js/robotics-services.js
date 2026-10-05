@@ -17,7 +17,7 @@
         },
         {
             title: 'AI & Machine Vision Systems',
-            image: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=900&q=85',
+            image: 'assets/image/new-images/humanoid-ai-vision.png',
             icon: 'fa-solid fa-eye',
             points: ['Visual inspection & quality control', 'Object detection and tracking', 'AI-powered defect analysis', 'Custom vision solutions']
         },
