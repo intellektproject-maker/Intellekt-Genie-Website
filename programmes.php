@@ -141,7 +141,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="prog-card">
                         <img
-                            src="assets/image/new-images/card-arm.jpg"
+                            src="assets/image/new-images/programmes-robotic-arm.png"
                             alt="Industrial robotic arm performing precision assembly"
                             class="prog-card__img"
                             loading="lazy"
