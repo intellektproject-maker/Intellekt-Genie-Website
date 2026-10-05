@@ -33,9 +33,9 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				</li>
 
 				<li class="nav-item dropdown robotics-nav-item">
-					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['programmes.php', 'gallery.php', 'gallary.php', 'resources.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
-						<li><a class="dropdown-item robotics-dropdown-item" href="gallary.php"><span><i class="fa-solid fa-photo-film me-2"></i> Showcase &amp; Gallery</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="gallery.php"><span><i class="fa-solid fa-photo-film me-2"></i> Showcase &amp; Gallery</span><i class="fa-solid fa-arrow-right"></i></a></li>
 						<li><a class="dropdown-item robotics-dropdown-item" href="programmes.php"><span><i class="fa-solid fa-book-open me-2"></i> Technical Documentation</span><i class="fa-solid fa-arrow-right"></i></a></li>
 					</ul>
 				</li>
