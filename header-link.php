@@ -6,17 +6,12 @@
 	<title>INTELLEKT GENIE PVT LTD</title>
 
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
- <link rel="icon" href="assets/image/new-images/fav-icon.png" type="image/png">
+	<link rel="icon" href="assets/image/new-images/fav-icon.png" type="image/png">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
-		rel="stylesheet">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
-		rel="stylesheet">
-
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
 	<link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css">
@@ -25,4 +20,10 @@
 	<link rel="stylesheet" href="assets/css/root.css">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/robotics-theme.css">
+	<link rel="stylesheet" href="assets/css/robotics-choice-layout.css">
+	<link rel="stylesheet" href="assets/css/robotics-services.css">
+	<link rel="stylesheet" href="assets/css/company-robotics-profile.css">
+	<script src="assets/js/robotics-services.js" defer></script>
+	<script src="assets/js/company-tabs.js" defer></script>
 </head>

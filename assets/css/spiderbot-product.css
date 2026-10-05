@@ -1,0 +1,367 @@
+/* ==========================================================================
+   SPIDERBOT PRODUCT PAGE - "TERRAIN LAB" STYLES
+   ========================================================================== */
+
+/* Spiderbot Hero with Full-Bleed Background Image */
+.spider-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  isolation: isolate;
+  overflow: hidden;
+  background: #050a11;
+  border-bottom: 1px solid var(--rp-border);
+}
+
+.spider-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #050a11 0%, rgba(5, 10, 17, 0.98) 35%, rgba(5, 10, 17, 0.8) 52%, rgba(5, 10, 17, 0.3) 75%, rgba(5, 10, 17, 0.1) 100%),
+    linear-gradient(0deg, rgba(5, 10, 17, 0.85) 0%, transparent 40%, rgba(5, 10, 17, 0.3) 100%);
+}
+
+.spider-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.spider-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.spider-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 640px;
+}
+
+.spider-hero-title {
+  font-size: clamp(38px, 4.8vw, 64px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 16px 0 20px;
+}
+
+.spider-hero-copy {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--rp-text-muted);
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.spider-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Hero Floating HUD Box */
+.spider-hero-hud-wrap {
+  position: relative;
+  z-index: 5;
+  margin-top: 36px;
+  max-width: 600px;
+}
+
+.spider-hero-hud-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Terrain Lab Interactive Section */
+.spider-terrain-lab {
+  background: #060911;
+}
+
+.spider-terrain-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.spider-terrain-canvas-wrap {
+  background: #04070f;
+  border: 1px solid var(--rp-border-accent);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.spider-terrain-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rp-border);
+}
+
+.spider-terrain-stage {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(37, 99, 235, 0.09) 0%, transparent 70%),
+    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.spider-terrain-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Robot Schematic in Terrain Stage */
+#spiderTerrainBot {
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* Terrain Profiles */
+.spider-terrain-profile {
+  transition: d 0.5s ease-in-out, stroke 0.5s ease;
+}
+
+/* Terrain Lab Control Cards */
+.spider-terrain-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spider-terrain-btn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.spider-terrain-status-panel {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* Gait Lab Section */
+.spider-gait-section {
+  background: #070b14;
+}
+
+.spider-gait-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.spider-gait-selector-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.spider-gait-mode-btn {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spider-gait-mode-btn:hover {
+  border-color: var(--rp-blue-light);
+  transform: translateX(4px);
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.spider-gait-mode-btn.active {
+  border-color: var(--rp-cyan);
+  background: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+}
+
+.spider-gait-mode-btn .gait-btn-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.spider-gait-mode-btn .gait-btn-desc {
+  font-size: 13px;
+  color: var(--rp-text-muted);
+  margin: 0;
+}
+
+.spider-gait-visual-canvas {
+  background: #04070f;
+  border: 1px solid var(--rp-border-accent);
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spider-gait-svg {
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+}
+
+/* Leg animation styling */
+.spider-leg-path {
+  fill: none;
+  stroke: var(--rp-blue-light);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.4s ease;
+}
+
+.spider-foot-contact {
+  fill: var(--rp-cyan);
+  filter: drop-shadow(0 0 6px var(--rp-cyan));
+  transition: r 0.2s ease, fill 0.2s ease;
+}
+
+/* Inside the Learning Loop Section */
+.spider-loop-section {
+  background: #050811;
+}
+
+.spider-loop-chain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 40px 0 60px;
+}
+
+.spider-loop-node {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  width: 18%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.spider-loop-node:hover {
+  transform: translateY(-4px);
+  border-color: var(--rp-cyan);
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2);
+}
+
+.spider-loop-node-num {
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rp-cyan);
+  margin-bottom: 8px;
+}
+
+.spider-loop-node-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.spider-loop-node-sub {
+  font-size: 12px;
+  color: var(--rp-text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.spider-loop-arrow {
+  color: var(--rp-blue-light);
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  #spiderTerrainBot,
+  .spider-leg-path,
+  .spider-terrain-profile {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .spider-terrain-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .spider-gait-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .spider-loop-chain {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .spider-loop-node {
+    width: 100%;
+  }
+  .spider-loop-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 576px) {
+  .spider-hero-hud-grid {
+    grid-template-columns: 1fr;
+  }
+  .spider-terrain-btn-grid {
+    grid-template-columns: 1fr;
+  }
+  .spider-terrain-stage {
+    height: 300px;
+  }
+}

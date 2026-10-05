@@ -3,6 +3,127 @@
 
 <head>
     <?php include 'header-link.php' ?>
+    <style>
+        /* =========================================================
+           CONTACT PAGE - ROBOTICS BLUE THEME
+           ========================================================= */
+        .sigma-page-title-area.breadcrumb-main {
+            position: relative;
+            z-index: 1;
+            padding-top: 46px !important;
+            padding-bottom: 30px !important;
+            background: #2563eb !important;
+        }
+
+        .sigma-page-title-area.breadcrumb-main .sigma-page-title,
+        .sigma-page-title-area.breadcrumb-main .breadcrumb-item,
+        .sigma-page-title-area.breadcrumb-main .breadcrumb-item a {
+            color: #ffffff !important;
+        }
+
+        .sigma-contact-area {
+            background:
+                radial-gradient(circle at 12% 35%, rgba(37, 99, 235, 0.14), transparent 30%),
+                radial-gradient(circle at 88% 65%, rgba(59, 130, 246, 0.09), transparent 30%),
+                #080b12 !important;
+            color: #e2e8f0;
+            padding-top: 0 !important;
+            border-top: 1px solid rgba(59, 130, 246, 0.16);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.16);
+        }
+
+        .sigma-contact-area .sigma-contact-wrap {
+            padding: 10px 0;
+        }
+
+        .sigma-contact-area .sigma-contact-address-heading {
+            color: #ffffff !important;
+            text-shadow: 0 0 22px rgba(59, 130, 246, 0.18);
+        }
+
+        .sigma-contact-area .sigma-contact-wrap ul,
+        .sigma-contact-area .sigma-contact-wrap li,
+        .sigma-contact-area .sigma-contact-wrap a,
+        .sigma-contact-area .sigma-contact-wrap a.contact-links-2 {
+            color: #cbd5e1 !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap a:hover {
+            color: #60a5fa !important;
+        }
+
+        .sigma-contact-area .sigma-contact-wrap .text-primary,
+        .sigma-contact-area .sigma-contact-wrap i {
+            color: #3b82f6 !important;
+            filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.25));
+        }
+
+        .sigma-contact-form-wrap {
+            background: rgba(13, 21, 37, 0.88) !important;
+            border: 1px solid rgba(59, 130, 246, 0.22);
+            border-radius: 14px;
+            padding: 34px 36px;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.38), 0 0 30px rgba(37, 99, 235, 0.06);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .sigma-contact-area .sigma-input-label {
+            color: #f8fafc !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-form-input,
+        .sigma-contact-area .sigma-form-textarea {
+            color: #f8fafc !important;
+            background-color: rgba(8, 11, 18, 0.78) !important;
+            border: 1px solid rgba(148, 163, 184, 0.22) !important;
+            caret-color: #60a5fa;
+        }
+
+        .sigma-contact-area .sigma-form-input::placeholder,
+        .sigma-contact-area .sigma-form-textarea::placeholder {
+            color: #94a3b8 !important;
+            opacity: 1 !important;
+        }
+
+        .sigma-contact-area .sigma-form-input:focus,
+        .sigma-contact-area .sigma-form-textarea:focus {
+            color: #ffffff !important;
+            border-color: #3b82f6 !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14), 0 0 18px rgba(37, 99, 235, 0.10);
+        }
+
+        .sigma-contact-area .btn-primary {
+            background: #2563eb !important;
+            border-color: #2563eb !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.28);
+        }
+
+        .sigma-contact-area .btn-primary:hover {
+            background: #1d4ed8 !important;
+            border-color: #1d4ed8 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 24px rgba(37, 99, 235, 0.42);
+        }
+
+        @media (max-width: 767px) {
+            .sigma-page-title-area.breadcrumb-main {
+                padding-top: 32px !important;
+                padding-bottom: 24px !important;
+            }
+
+            .sigma-contact-form-wrap {
+                padding: 24px 20px;
+                border-radius: 12px;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -30,36 +151,44 @@
                             <li class="py-3"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links-2" target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726 </a></li>
                             <li class="py-2"><a href="tel:+919500072201" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 95000 72201 </a></li>
                             <li class="py-2"><a href="tel:+919677020049" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 96770 20049 </a></li>
-                            <li class="py-2"><a href="mailto:info@intellektgenie.com" class="text-decoration-none  contact-links-2"> <i class="fas fa-envelope me-2 text-primary"></i> Info@intellektgenie.com</a></li>
+                            <li class="py-2"><a href="mailto:intellektgenie@gmail.com" class="text-decoration-none  contact-links-2"> <i class="fas fa-envelope me-2 text-primary"></i> intellektgenie@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class=" col-12 col-md-8">
                     <div class="sigma-contact-form-wrap">
-                        <form class="sigma-contact-form" method="post" action="submit_form.php" id="contact-form">
+                        <form class="sigma-contact-form" method="post" action="https://api.web3forms.com/submit" id="contact-form">
+                            <input type="hidden" name="access_key" value="fbf7a3c3-a4e9-4bff-bb80-774314731235">
+                            <input type="hidden" name="subject" value="New Inquiry from Intellekt Genie Website">
+                            <input type="hidden" name="from_name" value="Intellekt Genie Website">
+                            <input type="hidden" name="redirect" value="https://intellektgenie.com/thank_you.php">
+                            <div class="d-none" aria-hidden="true">
+                                <label for="website">Website</label>
+                                <input type="checkbox" name="botcheck" id="website" value="true" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="row   gap-y-[30px]">
                                 <div class="sigma-input-name col-12 col-md-6">
                                     <label for="name" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Name</label>
-                                    <input type="text" name="name" pattern="[A-Za-z\s]+" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Full Name" required>
+                                    <input type="text" id="name" name="name" autocomplete="name" maxlength="100" pattern="[A-Za-z\s]+" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Full Name" required>
                                 </div>
                                 <div class="sigma-input-company col-12 col-md-6">
                                     <label for="address" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Address</label>
-                                    <input type="text" name="address" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your address" required>
+                                    <input type="text" id="address" name="address" autocomplete="street-address" maxlength="250" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your address" required>
                                 </div>
                                 <div class="sigma-input-phone col-12 col-md-6">
                                     <label for="phone" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Phone</label>
-                                    <input type="tel" name="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^\+?[0-9]{10,13}$" minlength="10" maxlength="13" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Phone Number">
+                                    <input type="tel" id="phone" name="phone" autocomplete="tel" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" pattern="^\+?[0-9]{10,13}$" minlength="10" maxlength="13" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Phone Number">
                                 </div>
                                 <div class="sigma-input-email col-12 col-md-6">
                                     <label for="email" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Email</label>
-                                    <input type="email" name="email" style="text-transform: lowercase;" oninput="this.value = this.value.toLowerCase();" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Email Address" required>
+                                    <input type="email" id="email" name="email" autocomplete="email" maxlength="254" style="text-transform: lowercase;" oninput="this.value = this.value.toLowerCase();" class="sigma-form-input text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Email Address" required>
                                 </div>
 
                             </div>
 
                             <div class="sigma-text-area mt-[30px]">
                                 <label for="message" class="sigma-input-label text-sigma-title-90 text-[18px]  -tracking-[.18px] leading-[28px]">Message</label>
-                                <textarea name="message" class="sigma-form-textarea text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full h-[174px] resize-none border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Message" required></textarea>
+                                <textarea id="message" name="message" maxlength="5000" class="sigma-form-textarea text-heading bg-sigma-section-bg rounded-[4px] p-[16px] w-full h-[174px] resize-none border border-solid border-transparent placeholder:text-[15px] placeholder:text-sigma-title-50 placeholder:leading-[26px] mt-[10px] focus:border-sigma-secondary" placeholder="Your Message" required></textarea>
                             </div>
                             <div class=" pt-4">
                                 <button type="submit" name="Submits" class="btn btn-primary  py-1 pb-2 py-md-2 px-md-5 px-3   fs-5 "> Submit</button>

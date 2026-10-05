@@ -1,0 +1,445 @@
+/* =============================================================
+   gallery.css - Editorial / Asymmetric Masonry Gallery
+   Intellekt Genie / Intellekt Robotics
+   Every selector is prefixed .eg- (editorial gallery) or scoped
+   under .gallery-page, so nothing leaks into other pages.
+   ============================================================= */
+
+/* ── Section shell ─────────────────────────────────────────── */
+.gallery-page .eg-section {
+    --eg-bg: #080c14;
+    --eg-blue: #2563eb;
+    --eg-cyan: #38bdf8;
+    --eg-text: #ffffff;
+    --eg-muted: #94a3b8;
+    --eg-line: rgba(56, 189, 248, 0.16);
+    --eg-col-gap: clamp(12px, 2vw, 28px);
+    --eg-row-gap: clamp(28px, 5.5vw, 84px);
+
+    position: relative;
+    background: var(--eg-bg);
+    color: #e2e8f0;
+    padding: clamp(56px, 7vw, 96px) 0 clamp(72px, 9vw, 128px);
+    overflow-x: clip;
+}
+
+/* ── Intro ─────────────────────────────────────────────────── */
+.gallery-page .eg-header {
+    max-width: 760px;
+    margin: 0 0 clamp(36px, 5vw, 72px);
+    padding-bottom: clamp(24px, 3vw, 36px);
+    border-bottom: 1px solid var(--eg-line);
+}
+
+.gallery-page .eg-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--eg-cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    max-width: 100%;
+}
+
+.gallery-page .eg-kicker-line {
+    flex-shrink: 0;
+    width: 28px;
+    height: 2px;
+    background: var(--eg-cyan);
+}
+
+.gallery-page .eg-title {
+    color: var(--eg-text);
+    font-size: clamp(1.9rem, 3.8vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    overflow-wrap: break-word;
+}
+
+.gallery-page .eg-subtitle {
+    color: var(--eg-muted);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 620px;
+}
+
+/* ── Asymmetric composition (desktop: 12 columns per row) ──── */
+.gallery-page .eg-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--eg-row-gap);
+}
+
+.gallery-page .eg-row {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--eg-col-gap);
+    align-items: start;
+}
+
+.gallery-page .eg-item {
+    position: relative;
+    margin: 0;
+    min-width: 0;
+}
+
+/* Row 1 — large landscape + tall portrait sitting lower */
+.gallery-page .eg-row--r1 .eg-cell--1 { grid-column: 1 / span 8; }
+.gallery-page .eg-row--r1 .eg-cell--2 { grid-column: 9 / span 4; align-self: end; }
+
+/* Row 2 — small indented left + large right, dropped down */
+.gallery-page .eg-row--r2 .eg-cell--1 { grid-column: 2 / span 4; }
+.gallery-page .eg-row--r2 .eg-cell--2 { grid-column: 7 / span 6; align-self: end; }
+
+/* Row 3 — editorial aside left, image right */
+.gallery-page .eg-row--r3 .eg-cell--1 { grid-column: 1 / span 4; align-self: center; }
+.gallery-page .eg-row--r3 .eg-cell--2 { grid-column: 6 / span 7; }
+
+/* Row 4 — statement interlude, offset right */
+.gallery-page .eg-row--r4 .eg-cell--1 { grid-column: 5 / span 8; }
+
+/* Row 5 — wide left + small right, nudged down */
+.gallery-page .eg-row--r5 .eg-cell--1 { grid-column: 1 / span 8; }
+.gallery-page .eg-row--r5 .eg-cell--2 { grid-column: 9 / span 4; margin-top: clamp(24px, 6vw, 96px); }
+
+/* ── Editorial text blocks (same type + accent colours) ────── */
+.gallery-page .eg-note-line {
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-bottom: 18px;
+    background: var(--eg-cyan);
+}
+
+.gallery-page .eg-note-title {
+    color: var(--eg-text);
+    font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+}
+
+.gallery-page .eg-note-text {
+    color: var(--eg-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 380px;
+}
+
+.gallery-page .eg-note--statement .eg-note-title {
+    font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.gallery-page .eg-note--statement .eg-note-text {
+    max-width: 460px;
+}
+
+/* ── Image frame ───────────────────────────────────────────── */
+.gallery-page .eg-open {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--eg-line);
+    border-radius: 0;
+    background: #0d1422;
+    overflow: hidden;
+    cursor: zoom-in;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.4s ease;
+}
+
+.gallery-page .eg-open img {
+    display: block;
+    width: 100%;
+    height: auto;          /* natural proportions - never force-cropped */
+    filter: brightness(0.92);
+    transform: scale(1);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+    will-change: transform;
+}
+
+/* Thin blue accent that draws in on hover / focus */
+.gallery-page .eg-open::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--eg-blue);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+}
+
+.gallery-page .eg-open:focus-visible {
+    outline: 2px solid var(--eg-cyan);
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .gallery-page .eg-open:hover {
+        border-color: rgba(56, 189, 248, 0.38);
+    }
+
+    .gallery-page .eg-open:hover img {
+        transform: scale(1.03);
+        filter: brightness(1.04);
+    }
+
+    .gallery-page .eg-open:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+.gallery-page .eg-open:focus-visible img {
+    transform: scale(1.02);
+    filter: brightness(1.04);
+}
+
+/* ── Scroll reveal (only active when JS is available) ──────── */
+.eg-js .gallery-page .eg-item {
+    opacity: 0;
+    transition: opacity 0.7s ease var(--eg-delay, 0ms),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--eg-delay, 0ms);
+}
+
+/* Different, restrained entrances per block type */
+.eg-js .gallery-page .eg-rv-lg    { transform: translateY(30px) scale(0.97); }
+.eg-js .gallery-page .eg-rv-sm    { transform: translateY(20px); }
+.eg-js .gallery-page .eg-rv-left  { transform: translateX(-15px); }
+.eg-js .gallery-page .eg-rv-right { transform: translate(18px, 14px); }
+
+.eg-js .gallery-page .eg-item.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Editorial accent line draws in once its block is revealed */
+.eg-js .gallery-page .eg-note .eg-note-line {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+
+.eg-js .gallery-page .eg-note.is-visible .eg-note-line {
+    transform: scaleX(1);
+}
+
+/* Very small scroll parallax: JS only sets --eg-py (px, clamped).
+   Uses the independent `translate` property so it never fights the reveal. */
+.gallery-page .eg-item[data-parallax] {
+    translate: 0 var(--eg-py, 0px);
+    will-change: translate;
+}
+
+/* ── Tablet: 6 columns, same rhythm ────────────────────────── */
+@media (max-width: 991.98px) {
+    /* Parallax only on desktop - tighter gaps stay clean */
+    .gallery-page .eg-item[data-parallax] {
+        translate: none;
+        will-change: auto;
+    }
+
+    .gallery-page .eg-section {
+        --eg-row-gap: clamp(24px, 5vw, 48px);
+    }
+
+    .gallery-page .eg-row {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        row-gap: clamp(20px, 4vw, 36px);
+        align-items: start;
+    }
+
+    .gallery-page .eg-row--r1 .eg-cell--1 { grid-column: 1 / span 6; grid-row: 1; align-self: start; }
+    .gallery-page .eg-row--r1 .eg-cell--2 { grid-column: 3 / span 4; grid-row: 2; align-self: start; }
+
+    .gallery-page .eg-row--r2 .eg-cell--1 { grid-column: 1 / span 4; grid-row: 1; }
+    .gallery-page .eg-row--r2 .eg-cell--2 { grid-column: 2 / span 5; grid-row: 2; align-self: start; }
+
+    .gallery-page .eg-row--r3 .eg-cell--1 { grid-column: 1 / span 5; grid-row: 1; align-self: start; }
+    .gallery-page .eg-row--r3 .eg-cell--2 { grid-column: 2 / span 5; grid-row: 2; }
+
+    .gallery-page .eg-row--r4 .eg-cell--1 { grid-column: 1 / span 6; align-self: start; }
+
+    .gallery-page .eg-row--r5 .eg-cell--1 { grid-column: 1 / span 6; grid-row: 1; }
+    .gallery-page .eg-row--r5 .eg-cell--2 { grid-column: 1 / span 4; grid-row: 2; margin-top: 0; }
+}
+
+/* ── Mobile: clean single-column editorial stack ───────────── */
+@media (max-width: 575.98px) {
+    .gallery-page .eg-section {
+        --eg-row-gap: 28px;
+    }
+
+    .gallery-page .eg-row {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 28px;
+    }
+
+    .gallery-page .eg-row .eg-cell--1,
+    .gallery-page .eg-row .eg-cell--2 {
+        grid-column: 1;
+        grid-row: auto;
+        align-self: start;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /* Gentle stagger so the stack still reads as intentional */
+    .gallery-page .eg-row figure.eg-cell--2 {
+        width: 88%;
+        justify-self: end;
+    }
+
+    .gallery-page .eg-row--r2 figure.eg-cell--1 {
+        width: 92%;
+    }
+
+    .gallery-page .eg-note {
+        padding: 4px 0;
+    }
+
+    .gallery-page .eg-header {
+        margin-bottom: 32px;
+    }
+}
+
+/* ── Fullscreen viewer ─────────────────────────────────────── */
+.gallery-page .eg-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 8, 14, 0.98);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    touch-action: pan-y pinch-zoom;
+}
+
+.gallery-page .eg-viewer.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-page .eg-viewer-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 56px clamp(12px, 8vw, 120px);
+}
+
+.gallery-page .eg-viewer-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    opacity: 0;
+    transform: scale(0.985);
+    transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-page .eg-viewer-img.is-ready {
+    opacity: 1;
+    transform: none;
+}
+
+.gallery-page .eg-viewer-btn {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: 1.05rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.gallery-page .eg-viewer-btn:hover,
+.gallery-page .eg-viewer-btn:focus-visible {
+    background: var(--eg-blue, #2563eb);
+    border-color: var(--eg-blue, #2563eb);
+    outline: none;
+}
+
+.gallery-page .eg-viewer-close {
+    top: 16px;
+    right: 16px;
+}
+
+.gallery-page .eg-viewer-nav {
+    top: 50%;
+    margin-top: -23px;
+}
+
+.gallery-page .eg-viewer-prev { left: 16px; }
+.gallery-page .eg-viewer-next { right: 16px; }
+
+body.eg-viewer-lock {
+    overflow: hidden;
+}
+
+@media (max-width: 575.98px) {
+    .gallery-page .eg-viewer-stage {
+        padding: 64px 8px 72px;
+    }
+
+    .gallery-page .eg-viewer-nav {
+        top: auto;
+        bottom: 16px;
+        margin-top: 0;
+    }
+
+    .gallery-page .eg-viewer-prev { left: calc(50% - 56px); }
+    .gallery-page .eg-viewer-next { right: calc(50% - 56px); }
+}
+
+/* ── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .eg-js .gallery-page .eg-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .gallery-page .eg-open img,
+    .gallery-page .eg-open::after,
+    .gallery-page .eg-viewer,
+    .gallery-page .eg-viewer-img {
+        transition: none;
+    }
+
+    .gallery-page .eg-open:hover img {
+        transform: none;
+    }
+}

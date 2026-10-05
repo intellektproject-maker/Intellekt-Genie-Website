@@ -1,0 +1,537 @@
+/* =============================================================
+   programmes-hero.css
+   Scoped styles for programmes.php hero + cards
+   Theme: Intellekt Robotics — dark navy / white / electric blue
+   ============================================================= */
+
+/* ──────────────────────────────────────────
+   1. HERO SECTION
+────────────────────────────────────────── */
+.prog-hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #06101e;
+}
+
+/* Background image layer (JS controls transform for parallax) */
+.prog-hero__bg {
+    position: absolute;
+    inset: -8% 0;          /* extra height allows parallax shift */
+    background-image: url('../image/new-images/hero-robotics-programmes.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 0;
+    transition: transform 0.1s linear;
+}
+
+/* Dark gradient overlay – left heavier, right lighter so image shows through */
+.prog-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        100deg,
+        rgba(4, 10, 24, 0.88) 0%,
+        rgba(4, 10, 24, 0.78) 45%,
+        rgba(4, 10, 24, 0.38) 72%,
+        rgba(4, 10, 24, 0.18) 100%
+    );
+    z-index: 1;
+}
+
+/* Subtle ambient blue light pulse – very slow, restrained */
+.prog-hero__ambient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 60% 50% at 68% 55%,
+        rgba(29, 98, 230, 0.10) 0%,
+        transparent 70%
+    );
+    z-index: 2;
+    animation: ph-ambient-pulse 8s ease-in-out infinite;
+}
+
+@keyframes ph-ambient-pulse {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 1; }
+}
+
+/* Thin horizontal technical rule at bottom of hero */
+.prog-hero__rule {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(37, 99, 235, 0.5) 30%,
+        rgba(37, 99, 235, 0.8) 50%,
+        rgba(37, 99, 235, 0.5) 70%,
+        transparent 100%
+    );
+    z-index: 3;
+}
+
+/* Content wrapper */
+.prog-hero__inner {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+}
+
+/* ──────────────────────────────────────────
+   2. HERO TEXT
+────────────────────────────────────────── */
+.prog-hero__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #60a5fa;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+}
+
+.prog-hero__label-line {
+    display: block;
+    width: 28px;
+    height: 1.5px;
+    background: #60a5fa;
+    flex-shrink: 0;
+}
+
+.prog-hero__heading {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.1rem;
+}
+
+/* Breadcrumb */
+.prog-hero__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.4rem;
+    flex-wrap: wrap;
+}
+
+.prog-hero__breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.prog-hero__breadcrumb a:hover {
+    color: #60a5fa;
+}
+
+.prog-hero__breadcrumb-sep {
+    font-size: 0.65rem;
+    opacity: 0.5;
+}
+
+/* Thin divider */
+.prog-hero__divider {
+    width: 48px;
+    height: 1.5px;
+    background: rgba(37, 99, 235, 0.5);
+    margin-bottom: 1.4rem;
+}
+
+.prog-hero__desc {
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+    margin-bottom: 2.6rem;
+}
+
+/* ──────────────────────────────────────────
+   3. LEARNING INDICATORS
+────────────────────────────────────────── */
+.prog-hero__indicators {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 1.4rem;
+}
+
+.prog-hero__indicator {
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 0.4rem 1.5rem 0.4rem 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: default;
+    transition: border-color 0.25s;
+}
+
+.prog-hero__indicator:last-child {
+    border-right: none;
+    padding-right: 0;
+    padding-left: 1.5rem;
+}
+
+/* Middle indicator has both paddings */
+.prog-hero__indicator:not(:first-child):not(:last-child) {
+    padding-left: 1.5rem;
+}
+
+.prog-hero__indicator:hover {
+    border-color: rgba(37, 99, 235, 0.5);
+}
+
+.prog-hero__ind-num {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #3b82f6;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.prog-hero__ind-title {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #ffffff;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.prog-hero__ind-sub {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin-top: 1px;
+}
+
+/* ──────────────────────────────────────────
+   4. PROGRAMMES SECTION
+────────────────────────────────────────── */
+.prog-section {
+    background: #f6f9ff;
+    padding: 5rem 0 4rem;
+}
+
+.prog-section__kicker {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #2563eb;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+}
+
+.prog-section__heading {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: #06101e;
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.02em;
+}
+
+.prog-section__desc {
+    color: #526174;
+    font-size: 1rem;
+    line-height: 1.85;
+    max-width: 660px;
+    margin: 0 auto 3rem;
+}
+
+/* ──────────────────────────────────────────
+   5. PROGRAMME CARDS
+────────────────────────────────────────── */
+.prog-card {
+    background: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(6, 16, 30, 0.07);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.prog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(6, 16, 30, 0.13);
+}
+
+.prog-card__img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+.prog-card__body {
+    padding: 1.5rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.prog-card__title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #06101e;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.prog-card__desc {
+    font-size: 0.88rem;
+    color: #526174;
+    line-height: 1.75;
+    margin-bottom: 0.9rem;
+}
+
+.prog-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prog-card__list li {
+    font-size: 0.82rem;
+    color: #526174;
+    line-height: 1.65;
+    padding-left: 1.1rem;
+    position: relative;
+}
+
+.prog-card__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #3b82f6;
+}
+
+.prog-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-decoration: none;
+    margin-top: auto;
+    transition: gap 0.2s, color 0.2s;
+}
+
+.prog-card__link:hover {
+    color: #1d4ed8;
+    gap: 10px;
+}
+
+.prog-card__link svg {
+    transition: transform 0.2s;
+}
+
+.prog-card__link:hover svg {
+    transform: translateX(3px);
+}
+
+/* ──────────────────────────────────────────
+   6. FEATURE STRIP
+────────────────────────────────────────── */
+.prog-features {
+    background: #ffffff;
+    border-top: 1px solid #e8eef8;
+    padding: 3rem 0;
+}
+
+.prog-feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+}
+
+.prog-feature-item + .prog-feature-item {
+    border-left: 1px solid #e8eef8;
+}
+
+.prog-feature-icon {
+    width: 44px;
+    height: 44px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.prog-feature-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #06101e;
+    margin-bottom: 0.2rem;
+}
+
+.prog-feature-desc {
+    font-size: 0.8rem;
+    color: #526174;
+    line-height: 1.6;
+}
+
+/* ──────────────────────────────────────────
+   7. RESPONSIVE
+────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .prog-hero {
+        min-height: 70vh;
+    }
+
+    .prog-hero__overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(4, 10, 24, 0.82) 0%,
+            rgba(4, 10, 24, 0.70) 100%
+        );
+    }
+
+    .prog-hero__indicator:last-child {
+        padding-left: 0;
+    }
+
+    .prog-feature-item + .prog-feature-item {
+        border-left: none;
+        border-top: 1px solid #e8eef8;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .prog-hero {
+        min-height: auto;
+        padding: 6rem 0 4rem;
+    }
+
+    .prog-hero__bg {
+        background-position: 70% center;
+    }
+
+    .prog-hero__overlay {
+        background: rgba(4, 10, 24, 0.82);
+    }
+
+    .prog-hero__desc {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .prog-hero__indicators {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .prog-hero__indicator {
+        flex: 0 1 calc(33.333% - 0.7rem);
+        min-width: 90px;
+        border-right: none;
+        padding: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 0.9rem;
+    }
+
+    .prog-hero__indicator:not(:first-child):not(:last-child) {
+        padding-left: 0;
+    }
+
+    .prog-hero__indicator:last-child {
+        padding-left: 0;
+    }
+
+    .prog-section {
+        padding: 3.5rem 0 3rem;
+    }
+
+    .prog-features {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .prog-hero__heading {
+        font-size: 2rem;
+    }
+
+    .prog-hero__indicators {
+        gap: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 1rem;
+    }
+
+    .prog-hero__indicator {
+        flex: 1 1 calc(33.333%);
+        min-width: 80px;
+        border-right: 1px solid rgba(255,255,255,0.12);
+        border-top: none;
+        padding: 0 0.5rem;
+    }
+
+    .prog-hero__indicator:last-child {
+        border-right: none;
+    }
+
+    .prog-hero__indicator:first-child {
+        padding-left: 0;
+    }
+
+    .prog-hero__ind-num {
+        font-size: 1.15rem;
+    }
+
+    .prog-hero__ind-title {
+        font-size: 0.6rem;
+    }
+
+    .prog-hero__ind-sub {
+        font-size: 0.55rem;
+    }
+}
+
+/* ──────────────────────────────────────────
+   8. REDUCED MOTION
+────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .prog-hero__ambient {
+        animation: none;
+    }
+
+    .prog-hero__bg {
+        transition: none;
+    }
+
+    .prog-card,
+    .prog-card__link svg,
+    .prog-card__link {
+        transition: none;
+    }
+}

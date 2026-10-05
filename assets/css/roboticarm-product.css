@@ -1,0 +1,466 @@
+/* ==========================================================================
+   ROBOTIC ARM PRODUCT PAGE - "MOTION LAB" STYLES
+   ========================================================================== */
+
+/* Arm Hero */
+.arm-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 60px 0 80px;
+  background: radial-gradient(circle at 70% 40%, rgba(37, 99, 235, 0.16) 0%, rgba(6, 9, 17, 0.98) 72%);
+  border-bottom: 1px solid var(--rp-border);
+  overflow: hidden;
+}
+
+.arm-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.arm-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.arm-hero-title {
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #ffffff;
+  margin: 16px 0 20px;
+}
+
+.arm-hero-copy {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--rp-text-muted);
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+
+.arm-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.arm-hero-visual {
+  position: relative;
+}
+
+.arm-hero-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border-accent);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15);
+  background: #080d1a;
+}
+
+.arm-hero-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+/* Motion Lab Joint Inspector Section */
+.arm-motion-lab {
+  background: #070b14;
+}
+
+.arm-lab-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Visual Arm Joint Canvas */
+.arm-visual-canvas {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--rp-border-accent);
+  background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.9) 0%, rgba(6, 9, 17, 0.98) 100%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 10 / 7;
+  width: 100%;
+  display: block;
+}
+
+.arm-visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.85;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+  user-select: none;
+  display: block;
+}
+
+/* Interactive Joint Hotspots */
+.arm-joint-pin {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(8, 14, 26, 0.9);
+  border: 2px solid var(--rp-blue-light);
+  color: #ffffff;
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  z-index: 10;
+  outline: none;
+}
+
+.arm-joint-pin::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 210, 255, 0.4);
+  animation: armPinSpin 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes armPinSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.arm-joint-pin:hover,
+.arm-joint-pin:focus-visible {
+  border-color: var(--rp-cyan);
+  background: #0284c7;
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
+}
+
+.arm-joint-pin.active {
+  background: var(--rp-cyan);
+  color: #060911;
+  border-color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 24px rgba(0, 210, 255, 0.9);
+}
+
+/* Specific Positions for J1 - J6 on arm visual */
+.arm-joint-pin[data-joint="J1"] { top: 78%; left: 36%; } /* base */
+.arm-joint-pin[data-joint="J2"] { top: 19%; left: 41%; } /* shoulder */
+.arm-joint-pin[data-joint="J3"] { top: 40%; left: 60%; } /* elbow */
+.arm-joint-pin[data-joint="J4"] { top: 52%; left: 64%; } /* wrist pitch */
+.arm-joint-pin[data-joint="J5"] { top: 58%; left: 64%; } /* wrist roll */
+.arm-joint-pin[data-joint="J6"] { top: 64%; left: 64%; } /* tool flange */
+
+/* Joint Info Panel (Right side) */
+.arm-joint-inspector {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arm-joint-selector-nav {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.arm-joint-tab-btn {
+  padding: 8px 4px;
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--rp-border);
+  color: var(--rp-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.arm-joint-tab-btn:hover {
+  color: #ffffff;
+  border-color: var(--rp-blue-light);
+}
+
+.arm-joint-tab-btn.active {
+  background: rgba(37, 99, 235, 0.25);
+  border-color: var(--rp-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.arm-joint-detail-card {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border-accent);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  box-shadow: var(--rp-glow-card);
+}
+
+.arm-joint-detail-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--rp-text-white);
+  margin: 12px 0 6px;
+}
+
+.arm-joint-axis-badge {
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  color: var(--rp-cyan);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.arm-joint-detail-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--rp-text-muted);
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+
+/* 4-Step Automation Sequence Section */
+.arm-sequence-section {
+  background: #060911;
+}
+
+.arm-step-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.arm-seq-step-card {
+  background: var(--rp-bg-card);
+  border: 1px solid var(--rp-border);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.arm-seq-step-card.active {
+  border-color: var(--rp-cyan);
+  background: rgba(37, 99, 235, 0.18);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.arm-seq-step-card.completed {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(14, 25, 48, 0.6);
+}
+
+.arm-seq-num {
+  font-family: var(--rp-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--rp-blue-light);
+  margin-bottom: 6px;
+}
+
+.arm-seq-step-card.active .arm-seq-num {
+  color: var(--rp-cyan);
+}
+
+.arm-seq-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.arm-seq-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--rp-text-muted);
+  margin: 0;
+}
+
+/* Automation Stage Simulation Canvas */
+.arm-simulation-stage {
+  background: linear-gradient(180deg, #050a14 0%, #03060d 100%);
+  border: 1px solid var(--rp-border-accent);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+}
+
+.arm-sim-canvas-wrap {
+  width: 100%;
+  height: clamp(300px, 32vw, 380px);
+  background:
+    radial-gradient(circle at 50% 60%, rgba(37, 99, 235, 0.08) 0%, transparent 75%),
+    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.arm-sim-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arm-sim-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .arm-joint-pin::after {
+    animation: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .arm-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .arm-lab-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .arm-visual-canvas {
+    min-height: 400px;
+  }
+  .arm-visual-img {
+    height: 400px;
+  }
+  .arm-step-progress-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .arm-visual-canvas {
+    min-height: 320px;
+  }
+  .arm-visual-img {
+    height: 320px;
+  }
+  .arm-step-progress-grid {
+    grid-template-columns: 1fr;
+  }
+  .arm-joint-selector-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .arm-sim-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Polished simulation states */
+.arm-sim-svg {
+  overflow: visible;
+}
+
+.arm-sim-svg #simArmArmature,
+.arm-sim-svg #simWorkpiece {
+  will-change: transform;
+}
+
+.arm-sim-svg #simWorkpiece {
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.35));
+}
+
+.arm-sim-svg #simArmArmature line,
+.arm-sim-svg #simArmArmature circle,
+.arm-sim-svg #simArmArmature polygon {
+  vector-effect: non-scaling-stroke;
+}
+
+.arm-sim-canvas-wrap::after {
+  content: "SIMULATED WORKCELL // VISUAL DEMONSTRATION";
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  padding: 5px 9px;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 5px;
+  background: rgba(4, 7, 15, 0.78);
+  color: rgba(148, 163, 184, 0.8);
+  font: 700 9px/1 var(--rp-font-mono);
+  letter-spacing: 1.2px;
+  pointer-events: none;
+}
+
+.arm-sim-controls {
+  border-top: 1px solid var(--rp-border);
+  padding-top: 18px;
+}
+
+#armRunSimBtn:disabled {
+  opacity: 0.72;
+  cursor: wait;
+  transform: none;
+}
+
+@media (max-width: 576px) {
+  .arm-visual-canvas {
+    aspect-ratio: 10 / 7;
+    min-height: 0;
+  }
+
+  .arm-visual-img {
+    height: 100%;
+  }
+
+  .arm-joint-pin {
+    width: 34px;
+    height: 34px;
+    font-size: 10px;
+  }
+
+  .arm-simulation-stage {
+    padding: 16px;
+  }
+
+  .arm-sim-canvas-wrap {
+    height: 260px;
+  }
+
+  .arm-sim-canvas-wrap::after {
+    display: none;
+  }
+}
