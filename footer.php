@@ -45,8 +45,8 @@
                       </h4>
                   </div>
                   <ul class=" ps-1 ">
-                      <li class="py-2"><a href="https://maps.app.goo.gl/tHiDUdit6seCydzY7" class="text-decoration-none  contact-links" target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇮🇳 Registered Address</strong><br>62/1A, Marutha Kutty St, near KK Pudhur EB office,, Saibaba Colony, Kuppakonam Pudur, Coimbatore, Tamil Nadu 641038</a></li>
-                      <li class="py-2"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links"  target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇺🇸 Branch</strong><br>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726</a></li>
+                      <li class="py-2"><a href="https://maps.app.goo.gl/tHiDUdit6seCydzY7" class="text-decoration-none  contact-links" target="_blank" rel="noopener noreferrer"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇮🇳 Registered Address</strong><br>62/1A, Marutha Kutty St, near KK Pudhur EB office,, Saibaba Colony, Kuppakonam Pudur, Coimbatore, Tamil Nadu 641038</a></li>
+                      <li class="py-2"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links"  target="_blank" rel="noopener noreferrer"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇺🇸 Branch</strong><br>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726</a></li>
                       <li class="py-2"><a href="tel:+919500072201" class="text-decoration-none  contact-links"><i class="fas fa-phone me-2 text-primary"></i>+91 95000 72201 </a></li>
                       <li class="py-2"><a href="tel:+919677020049" class="text-decoration-none  contact-links"><i class="fas fa-phone me-2 text-primary"></i>+91 96770 20049 </a></li>
                       <li class="py-2"><a href="mailto:intellektgenie@gmail.com" class="text-decoration-none  contact-links"> <i class="fas fa-envelope me-2 text-primary"></i>intellektgenie@gmail.com</a></li>
