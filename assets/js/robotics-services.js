@@ -60,7 +60,6 @@
             image.src = service.image;
             image.alt = service.title;
             titleLink.childNodes[0].textContent = service.title;
-            titleLink.href = 'services.php';
 
             list.innerHTML = service.points.map(point => `<li>${point}</li>`).join('');
 
