@@ -808,7 +808,187 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. FINAL CALL TO ACTION (Matching Company Profile)
+   7. AGENTIC AI SOLUTIONS INTRODUCTION SECTION
+   -------------------------------------------------------------------------- */
+
+.robotics-our-work-page .ow-agentic-section {
+  padding: 88px 0;
+  background-color: #080d18;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+}
+
+.robotics-our-work-page .ow-agentic-shell {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-left: 4px solid #2563eb;
+  border-radius: 4px;
+  padding: 48px 44px;
+}
+
+.robotics-our-work-page .ow-agentic-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.robotics-our-work-page .ow-agentic-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 14px;
+}
+
+.robotics-our-work-page .ow-agentic-kicker-bar {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background-color: #2563eb;
+}
+
+.robotics-our-work-page .ow-agentic-title {
+  font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+}
+
+.robotics-our-work-page .ow-agentic-desc {
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 28px 0;
+}
+
+.robotics-our-work-page .ow-agentic-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.robotics-our-work-page .ow-agentic-pillar {
+  background-color: #090e1a;
+  border: 1px solid #1e293b;
+  border-radius: 4px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.robotics-our-work-page .ow-agentic-pillar-num {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 3px;
+  padding: 3px 7px;
+  flex-shrink: 0;
+}
+
+.robotics-our-work-page .ow-agentic-pillar strong {
+  display: block;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.robotics-our-work-page .ow-agentic-pillar span {
+  display: block;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.robotics-our-work-page .ow-agentic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.robotics-our-work-page .ow-agentic-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background-color: #2563eb;
+  border: 1px solid #2563eb;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.robotics-our-work-page .ow-agentic-btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.robotics-our-work-page .ow-agentic-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background-color: #090e1a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.robotics-our-work-page .ow-agentic-btn-secondary:hover {
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+.robotics-our-work-page .ow-agentic-media-frame {
+  background-color: #090e1a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.robotics-our-work-page .ow-agentic-media-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid #1e293b;
+  border-radius: 2px;
+}
+
+.robotics-our-work-page .ow-agentic-media-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px 2px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   8. FINAL CALL TO ACTION (Matching Company Profile)
    -------------------------------------------------------------------------- */
 
 .robotics-our-work-page .ow-closing-cta {
@@ -976,9 +1156,14 @@
   }
 
   .robotics-our-work-page .ow-product-grid,
-  .robotics-our-work-page .ow-product-grid--reversed {
+  .robotics-our-work-page .ow-product-grid--reversed,
+  .robotics-our-work-page .ow-agentic-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .robotics-our-work-page .ow-agentic-shell {
+    padding: 36px 28px;
   }
 
   .robotics-our-work-page .ow-product-info {
@@ -992,7 +1177,8 @@
 }
 
 @media (max-width: 768px) {
-  .robotics-our-work-page .ow-feature-pills {
+  .robotics-our-work-page .ow-feature-pills,
+  .robotics-our-work-page .ow-agentic-pillars {
     grid-template-columns: 1fr;
   }
 
@@ -1008,8 +1194,9 @@
     grid-template-columns: 1fr;
   }
 
-  .robotics-our-work-page .ow-closing-card {
-    padding: 44px 20px;
+  .robotics-our-work-page .ow-closing-card,
+  .robotics-our-work-page .ow-agentic-shell {
+    padding: 32px 20px;
   }
 }
 
@@ -1021,7 +1208,9 @@
   .robotics-our-work-page .ow-hero-actions .btn-robotics-primary,
   .robotics-our-work-page .ow-hero-actions .btn-robotics-outline,
   .robotics-our-work-page .ow-closing-actions .btn-robotics-primary,
-  .robotics-our-work-page .ow-closing-actions .btn-robotics-outline {
+  .robotics-our-work-page .ow-closing-actions .btn-robotics-outline,
+  .robotics-our-work-page .ow-agentic-actions .ow-agentic-btn-primary,
+  .robotics-our-work-page .ow-agentic-actions .ow-agentic-btn-secondary {
     width: 100%;
     justify-content: center;
   }

@@ -476,7 +476,93 @@
         </section>
 
         <!-- =================================================================
-             7. FINAL CALL TO ACTION
+             7. AGENTIC AI SOLUTIONS INTRODUCTION SECTION
+             ================================================================= -->
+        <section id="agentic-ai-solutions" class="ow-agentic-section" aria-labelledby="ow-agentic-heading">
+            <div class="container">
+                <div class="ow-agentic-shell">
+                    <div class="ow-agentic-grid">
+                        <!-- Left Column: Commercial Consulting Proposition -->
+                        <div class="ow-agentic-content">
+                            <div class="ow-agentic-kicker">
+                                <span class="ow-agentic-kicker-bar"></span>
+                                <span>COMMERCIAL SERVICE // AGENTIC AI SOLUTIONS</span>
+                            </div>
+
+                            <h2 class="ow-agentic-title" id="ow-agentic-heading">
+                                Intelligent AI Consulting and Implementation for Business Operations
+                            </h2>
+
+                            <p class="ow-agentic-desc">
+                                Alongside our hardware robotics platforms, Intellekt Genie offers Agentic AI Solutions for startups, SMEs, and large enterprises. We help organisations identify high-value automation opportunities, architect tailored AI workflows, and integrate them safely into everyday business operations.
+                            </p>
+
+                            <div class="ow-agentic-pillars">
+                                <div class="ow-agentic-pillar">
+                                    <span class="ow-agentic-pillar-num">01</span>
+                                    <div>
+                                        <strong>AI Opportunity Assessment</strong>
+                                        <span>Evaluate operational bottlenecks and prioritise practical AI use cases.</span>
+                                    </div>
+                                </div>
+
+                                <div class="ow-agentic-pillar">
+                                    <span class="ow-agentic-pillar-num">02</span>
+                                    <div>
+                                        <strong>Custom AI Solution Architecture</strong>
+                                        <span>Design structured workflows with clear human oversight and governance.</span>
+                                    </div>
+                                </div>
+
+                                <div class="ow-agentic-pillar">
+                                    <span class="ow-agentic-pillar-num">03</span>
+                                    <div>
+                                        <strong>AI Development and Integration</strong>
+                                        <span>Build and connect AI workflows with your existing business software.</span>
+                                    </div>
+                                </div>
+
+                                <div class="ow-agentic-pillar">
+                                    <span class="ow-agentic-pillar-num">04</span>
+                                    <div>
+                                        <strong>Implementation and Optimisation</strong>
+                                        <span>Support team rollout, performance monitoring, and ongoing refinement.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ow-agentic-actions">
+                                <a href="agentic-ai.php" class="ow-agentic-btn-primary">
+                                    <span>Explore Agentic AI Solutions</span>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                                <a href="contact-us.php?service=agentic-ai" class="ow-agentic-btn-secondary">
+                                    <span>Book a Consultation</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Architectural Visual & Service Summary -->
+                        <div class="ow-agentic-visual">
+                            <div class="ow-agentic-media-frame">
+                                <img src="assets/image/agentic-ai/agentic-ai-showcase.png"
+                                     alt="Intellekt Genie Agentic AI Solutions enterprise workflow integration diagram"
+                                     width="800"
+                                     height="447"
+                                     loading="lazy">
+                                <div class="ow-agentic-media-caption">
+                                    <span>AGENTIC WORKFLOW ARCHITECTURE</span>
+                                    <span>STARTUPS / SMES / ENTERPRISES</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+             8. FINAL CALL TO ACTION
              ================================================================= -->
         <section class="ow-closing-cta">
             <div class="container">

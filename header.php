@@ -18,9 +18,10 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
 				</li>
 
 				<li class="nav-item dropdown robotics-nav-item">
-					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['amr.php', 'spiderbot.php', 'services.php', 'our-work.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Work</a>
+					<a class="nav-link robotics-nav-link dropdown-toggle d-flex align-items-center gap-1 <?php echo in_array($currentPage, ['amr.php', 'spiderbot.php', 'services.php', 'our-work.php', 'agentic-ai.php']) ? 'active' : ''; ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Work</a>
 					<ul class="dropdown-menu robotics-dropdown-menu">
-						<li><a class="dropdown-item robotics-dropdown-item" href="our-work.php"><span><i class="fa-solid fa-layer-group me-2"></i> Overview &amp; Showcase</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="our-work.php"><span><i class="fa-solid fa-layer-group me-2"></i> Robotics Overview &amp; Showcase</span><i class="fa-solid fa-arrow-right"></i></a></li>
+						<li><a class="dropdown-item robotics-dropdown-item" href="agentic-ai.php"><span><i class="fa-solid fa-diagram-project me-2"></i> Agentic AI Solutions</span><i class="fa-solid fa-arrow-right"></i></a></li>
 					</ul>
 				</li>
 
@@ -133,3 +134,5 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
     navbar.classList.add('robotics-navbar-visible');
 })();
 </script>
+
+<?php include_once __DIR__ . '/welcome-modal.php'; ?>

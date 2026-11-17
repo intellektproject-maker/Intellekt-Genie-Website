@@ -1,0 +1,1056 @@
+/* ==========================================================================
+   INTELLEKT GENIE - AGENTIC AI SOLUTIONS STYLES
+   Scope: .agentic-ai-page
+   Design Rules:
+   - Dark navy and professional blue primary palette with restrained cyan accents
+   - Plus Jakarta Sans typography (no Inter)
+   - Sharp or minimally rounded corners (4px)
+   - Solid surfaces (no liquid glass, no drop shadows, no radial orbs, no dot-grids)
+   - No hover transform animations or animated arrows
+   - No three-column feature-card grids
+   ========================================================================== */
+
+.agentic-ai-page {
+  --aai-bg-base: #070b12;
+  --aai-bg-section: #0a101d;
+  --aai-bg-panel: #0f172a;
+  --aai-bg-panel-alt: #131d33;
+  --aai-bg-input: #080d18;
+  --aai-blue-primary: #2563eb;
+  --aai-blue-hover: #1d4ed8;
+  --aai-blue-accent: #3b82f6;
+  --aai-cyan-muted: #38bdf8;
+  --aai-border: #1e293b;
+  --aai-border-strong: #334155;
+  --aai-border-blue: #2563eb;
+  --aai-text-white: #ffffff;
+  --aai-text-primary: #f1f5f9;
+  --aai-text-secondary: #cbd5e1;
+  --aai-text-muted: #94a3b8;
+  --aai-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --aai-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  background-color: var(--aai-bg-base);
+  color: var(--aai-text-primary);
+  font-family: var(--aai-font-sans);
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 76px;
+}
+
+.agentic-ai-page *,
+.agentic-ai-page *::before,
+.agentic-ai-page *::after {
+  box-shadow: none;
+}
+
+.agentic-ai-page .aai-container {
+  width: min(1220px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED TYPOGRAPHY & SECTION HEADERS
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--aai-border);
+  background-color: var(--aai-bg-base);
+}
+
+.agentic-ai-page .aai-section--alt {
+  background-color: var(--aai-bg-section);
+}
+
+.agentic-ai-page .aai-section-header {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+
+.agentic-ai-page .aai-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--aai-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--aai-cyan-muted);
+  margin-bottom: 14px;
+}
+
+.agentic-ai-page .aai-kicker-bar {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--aai-blue-primary);
+}
+
+.agentic-ai-page .aai-section-title {
+  font-family: var(--aai-font-sans);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--aai-text-white);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+}
+
+.agentic-ai-page .aai-section-lead {
+  font-size: 1.05rem;
+  color: var(--aai-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTONS (SHARP, NO DROP SHADOWS, NO ANIMATED ARROWS)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background-color: var(--aai-blue-primary);
+  border: 1px solid var(--aai-blue-primary);
+  border-radius: 4px;
+  color: var(--aai-text-white);
+  font-family: var(--aai-font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.agentic-ai-page .aai-btn-primary:hover,
+.agentic-ai-page .aai-btn-primary:focus-visible {
+  background-color: var(--aai-blue-hover);
+  border-color: var(--aai-blue-hover);
+  color: var(--aai-text-white);
+}
+
+.agentic-ai-page .aai-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  color: var(--aai-text-primary);
+  font-family: var(--aai-font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.agentic-ai-page .aai-btn-secondary:hover,
+.agentic-ai-page .aai-btn-secondary:focus-visible {
+  background-color: var(--aai-bg-panel-alt);
+  border-color: var(--aai-cyan-muted);
+  color: var(--aai-text-white);
+}
+
+.agentic-ai-page .aai-btn-primary:focus-visible,
+.agentic-ai-page .aai-btn-secondary:focus-visible {
+  outline: 2px solid var(--aai-cyan-muted);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-hero {
+  padding: 72px 0 84px;
+  background-color: var(--aai-bg-section);
+  border-bottom: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.agentic-ai-page .aai-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--aai-text-muted);
+  margin-bottom: 18px;
+}
+
+.agentic-ai-page .aai-breadcrumb a {
+  color: var(--aai-text-secondary);
+  text-decoration: none;
+}
+
+.agentic-ai-page .aai-breadcrumb a:hover {
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-hero-title {
+  font-family: var(--aai-font-sans);
+  font-size: clamp(2.25rem, 4vw, 3.35rem);
+  font-weight: 800;
+  color: var(--aai-text-white);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px 0;
+}
+
+.agentic-ai-page .aai-hero-accent {
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-hero-copy {
+  font-size: 1.08rem;
+  color: var(--aai-text-secondary);
+  line-height: 1.72;
+  margin: 0 0 32px 0;
+  max-width: 600px;
+}
+
+.agentic-ai-page .aai-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.agentic-ai-page .aai-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.agentic-ai-page .aai-meta-label {
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--aai-text-primary);
+}
+
+.agentic-ai-page .aai-hero-visual {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.agentic-ai-page .aai-hero-img-wrap {
+  border: 1px solid var(--aai-border);
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: var(--aai-bg-base);
+}
+
+.agentic-ai-page .aai-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.agentic-ai-page .aai-hero-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px 2px;
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  color: var(--aai-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   2. BUSINESS CHALLENGES (2-COLUMN STRUCTURED LEDGER, NOT 3-COLUMN)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.agentic-ai-page .aai-challenge-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border);
+  border-left: 3px solid var(--aai-blue-primary);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.agentic-ai-page .aai-challenge-num {
+  font-family: var(--aai-font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--aai-cyan-muted);
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+}
+
+.agentic-ai-page .aai-challenge-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--aai-text-white);
+  margin: 0 0 8px 0;
+}
+
+.agentic-ai-page .aai-challenge-body p {
+  font-size: 0.95rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   3. OUR AI SERVICES (2x2 GRID FOR 4 CONSULTING SERVICES)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.agentic-ai-page .aai-service-card {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.agentic-ai-page .aai-service-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-service-step {
+  font-family: var(--aai-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-service-icon {
+  color: var(--aai-blue-accent);
+  font-size: 18px;
+}
+
+.agentic-ai-page .aai-service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--aai-text-white);
+  margin: 0 0 12px 0;
+}
+
+.agentic-ai-page .aai-service-card p {
+  font-size: 0.98rem;
+  color: var(--aai-text-secondary);
+  margin: 0 0 18px 0;
+  line-height: 1.68;
+}
+
+.agentic-ai-page .aai-service-deliverable {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--aai-border);
+  font-size: 0.88rem;
+  color: var(--aai-text-muted);
+}
+
+.agentic-ai-page .aai-service-deliverable strong {
+  color: var(--aai-text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. BUSINESS APPLICATIONS (STRUCTURED SPECIFICATION ROWS)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.agentic-ai-page .aai-application-row {
+  display: grid;
+  grid-template-columns: 280px 1fr 260px;
+  gap: 24px;
+  align-items: center;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  padding: 24px 28px;
+}
+
+.agentic-ai-page .aai-app-domain {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.agentic-ai-page .aai-app-domain i {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  color: var(--aai-cyan-muted);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.agentic-ai-page .aai-app-domain h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--aai-text-white);
+  margin: 0;
+}
+
+.agentic-ai-page .aai-app-desc {
+  font-size: 0.95rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.agentic-ai-page .aai-app-examples {
+  font-family: var(--aai-font-mono);
+  font-size: 12px;
+  color: var(--aai-cyan-muted);
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.agentic-ai-page .aai-disclaimer-note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border);
+  border-left: 3px solid var(--aai-cyan-muted);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--aai-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. IMPLEMENTATION APPROACH (5-STAGE PROCESS)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-process-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.agentic-ai-page .aai-process-step {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-top: 3px solid var(--aai-blue-primary);
+  border-radius: 4px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.agentic-ai-page .aai-process-num {
+  font-family: var(--aai-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--aai-cyan-muted);
+  margin-bottom: 10px;
+}
+
+.agentic-ai-page .aai-process-step h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--aai-text-white);
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+}
+
+.agentic-ai-page .aai-process-step p {
+  font-size: 0.9rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+  line-height: 1.58;
+}
+
+/* --------------------------------------------------------------------------
+   6. THREE INTERACTIVE DEMONSTRATIONS
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-demo-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 20px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-left: 3px solid var(--aai-cyan-muted);
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.agentic-ai-page .aai-demo-notice-badge {
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-demo-notice-text {
+  font-size: 0.9rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+}
+
+.agentic-ai-page .aai-demo-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--aai-border);
+  padding-bottom: 16px;
+}
+
+.agentic-ai-page .aai-demo-tab-btn {
+  padding: 11px 20px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  color: var(--aai-text-secondary);
+  font-family: var(--aai-font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.agentic-ai-page .aai-demo-tab-btn:hover {
+  border-color: var(--aai-cyan-muted);
+  color: var(--aai-text-white);
+}
+
+.agentic-ai-page .aai-demo-tab-btn.is-active {
+  background-color: var(--aai-blue-primary);
+  border-color: var(--aai-blue-primary);
+  color: var(--aai-text-white);
+}
+
+.agentic-ai-page .aai-demo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.agentic-ai-page .aai-demo-panel {
+  display: block;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 32px;
+}
+
+.agentic-ai-page .aai-demo-panel.is-active {
+  border-color: var(--aai-blue-accent);
+}
+
+.agentic-ai-page .aai-demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-demo-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--aai-text-white);
+  margin: 0 0 6px 0;
+}
+
+.agentic-ai-page .aai-demo-header p {
+  font-size: 0.95rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+}
+
+.agentic-ai-page .aai-demo-tag {
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--aai-cyan-muted);
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.agentic-ai-page .aai-demo-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.agentic-ai-page .aai-demo-form-box,
+.agentic-ai-page .aai-demo-output-box {
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.agentic-ai-page .aai-field-group {
+  margin-bottom: 18px;
+}
+
+.agentic-ai-page .aai-field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--aai-text-primary);
+  margin-bottom: 8px;
+}
+
+.agentic-ai-page .aai-input,
+.agentic-ai-page .aai-select,
+.agentic-ai-page .aai-textarea {
+  width: 100%;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 11px 14px;
+  color: var(--aai-text-white);
+  font-family: var(--aai-font-sans);
+  font-size: 14px;
+}
+
+.agentic-ai-page .aai-textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.agentic-ai-page .aai-input:focus,
+.agentic-ai-page .aai-select:focus,
+.agentic-ai-page .aai-textarea:focus {
+  outline: none;
+  border-color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.agentic-ai-page .aai-preset-label {
+  font-size: 12px;
+  color: var(--aai-text-muted);
+  margin-right: 4px;
+}
+
+.agentic-ai-page .aai-preset-btn {
+  padding: 5px 11px;
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  color: var(--aai-text-secondary);
+  font-family: var(--aai-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.agentic-ai-page .aai-preset-btn:hover {
+  border-color: var(--aai-cyan-muted);
+  color: var(--aai-text-white);
+}
+
+.agentic-ai-page .aai-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.agentic-ai-page .aai-output-heading {
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--aai-cyan-muted);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-output-block {
+  margin-bottom: 18px;
+}
+
+.agentic-ai-page .aai-output-block:last-child {
+  margin-bottom: 0;
+}
+
+.agentic-ai-page .aai-output-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--aai-text-muted);
+  margin-bottom: 6px;
+}
+
+.agentic-ai-page .aai-status-pill {
+  display: inline-block;
+  font-family: var(--aai-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background-color: var(--aai-bg-panel-alt);
+  border: 1px solid var(--aai-blue-accent);
+  color: var(--aai-cyan-muted);
+}
+
+.agentic-ai-page .aai-output-box-text {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-size: 0.94rem;
+  color: var(--aai-text-primary);
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+/* Sample Data Table for Demo 3 */
+.agentic-ai-page .aai-data-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 18px;
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+}
+
+.agentic-ai-page .aai-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.agentic-ai-page .aai-data-table th,
+.agentic-ai-page .aai-data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--aai-border);
+}
+
+.agentic-ai-page .aai-data-table th {
+  background-color: var(--aai-bg-panel);
+  color: var(--aai-text-white);
+  font-family: var(--aai-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.agentic-ai-page .aai-data-table td {
+  color: var(--aai-text-secondary);
+}
+
+.agentic-ai-page .aai-data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.agentic-ai-page .aai-insights-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--aai-text-primary);
+  font-size: 0.94rem;
+}
+
+.agentic-ai-page .aai-insights-list li {
+  margin-bottom: 8px;
+  line-height: 1.55;
+}
+
+.agentic-ai-page .aai-insights-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. TECHNOLOGY AND INTEGRATIONS
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-integration-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.agentic-ai-page .aai-integration-panel {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  padding: 32px 28px;
+}
+
+.agentic-ai-page .aai-integration-panel h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--aai-text-white);
+  margin: 0 0 14px 0;
+}
+
+.agentic-ai-page .aai-integration-panel p {
+  font-size: 0.96rem;
+  color: var(--aai-text-secondary);
+  line-height: 1.68;
+  margin: 0 0 16px 0;
+}
+
+.agentic-ai-page .aai-integration-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.agentic-ai-page .aai-integration-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  font-size: 0.94rem;
+  color: var(--aai-text-primary);
+}
+
+.agentic-ai-page .aai-integration-list li i {
+  color: var(--aai-cyan-muted);
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. WHY INTELLEKT GENIE (2-COLUMN GRID, 6 POINTS)
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.agentic-ai-page .aai-why-card {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border);
+  border-radius: 4px;
+  padding: 26px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.agentic-ai-page .aai-why-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--aai-bg-input);
+  border: 1px solid var(--aai-border-strong);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--aai-blue-accent);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.agentic-ai-page .aai-why-card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--aai-text-white);
+  margin: 0 0 8px 0;
+}
+
+.agentic-ai-page .aai-why-card p {
+  font-size: 0.94rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   9. CONSULTATION AND ENQUIRY CTA
+   -------------------------------------------------------------------------- */
+
+.agentic-ai-page .aai-cta-section {
+  padding: 88px 0 104px;
+  background-color: var(--aai-bg-section);
+}
+
+.agentic-ai-page .aai-cta-box {
+  background-color: var(--aai-bg-panel);
+  border: 1px solid var(--aai-border-strong);
+  border-top: 3px solid var(--aai-blue-primary);
+  border-radius: 4px;
+  padding: 52px 48px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.agentic-ai-page .aai-cta-box h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 800;
+  color: var(--aai-text-white);
+  margin: 0 0 14px 0;
+  line-height: 1.2;
+}
+
+.agentic-ai-page .aai-cta-box p {
+  font-size: 1rem;
+  color: var(--aai-text-secondary);
+  margin: 0;
+  line-height: 1.68;
+}
+
+.agentic-ai-page .aai-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.agentic-ai-page .aai-cta-note {
+  font-size: 12px;
+  color: var(--aai-text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .agentic-ai-page .aai-process-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .agentic-ai-page .aai-application-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .agentic-ai-page .aai-section {
+    padding: 68px 0;
+  }
+  .agentic-ai-page .aai-hero-grid,
+  .agentic-ai-page .aai-demo-workspace,
+  .agentic-ai-page .aai-integration-layout,
+  .agentic-ai-page .aai-cta-box {
+    grid-template-columns: 1fr;
+  }
+  .agentic-ai-page .aai-challenges-grid,
+  .agentic-ai-page .aai-services-grid,
+  .agentic-ai-page .aai-why-grid {
+    grid-template-columns: 1fr;
+  }
+  .agentic-ai-page .aai-cta-box {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .agentic-ai-page .aai-container {
+    width: calc(100% - 32px);
+  }
+  .agentic-ai-page .aai-hero {
+    padding: 48px 0 60px;
+  }
+  .agentic-ai-page .aai-hero-meta,
+  .agentic-ai-page .aai-process-track {
+    grid-template-columns: 1fr;
+  }
+  .agentic-ai-page .aai-hero-actions .aai-btn-primary,
+  .agentic-ai-page .aai-hero-actions .aai-btn-secondary {
+    width: 100%;
+  }
+  .agentic-ai-page .aai-demo-panel {
+    padding: 20px 16px;
+  }
+  .agentic-ai-page .aai-demo-form-box,
+  .agentic-ai-page .aai-demo-output-box {
+    padding: 18px 14px;
+  }
+  .agentic-ai-page .aai-demo-tab-btn {
+    width: 100%;
+    text-align: left;
+  }
+}
