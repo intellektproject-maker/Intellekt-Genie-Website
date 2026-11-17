@@ -20,7 +20,7 @@
 .prog-hero__bg {
     position: absolute;
     inset: -8% 0;          /* extra height allows parallax shift */
-    background-image: url('../image/new-images/hero-robotics-programmes.jpg');
+    background-image: url('../image/new-images/programmes-robotic-arm.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
