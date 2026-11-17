@@ -147,8 +147,8 @@
                     <div class="sigma-contact-wrap">
                         <h3 class="sigma-contact-address-heading text-[37px] text-heading leading-[47px] -tracking-[.74px] mb-[5px] xl:text-[30px] xl:leading-[40px] sm:text-[22px] sm:leading-[32px]">Inquiries</h3>
                         <ul class=" ps-1 pt-1 ">
-                            <li class="py-3"><a href="https://maps.app.goo.gl/tHiDUdit6seCydzY7" class="text-decoration-none  contact-links-2"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇮🇳 Registered Address</strong><br>62/1A, Marutha Kutty St, near KK Pudhur EB office,, Saibaba Colony, Kuppakonam Pudur, Coimbatore, Tamil Nadu 641038</a></li>
-                            <li class="py-3"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links-2" target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold">🇺🇸 Branch</strong><br>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726</a></li>
+                            <li class="py-3"><a href="https://maps.app.goo.gl/tHiDUdit6seCydzY7" class="text-decoration-none  contact-links-2"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" width="22" height="15" aria-hidden="true" focusable="false" style="display:inline-block;vertical-align:-2px;margin-right:6px;border:1px solid #334155"><rect width="30" height="20" fill="#ffffff"/><rect width="30" height="6.67" fill="#ff9933"/><rect y="13.33" width="30" height="6.67" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width="0.7"/></svg>India, Registered Address</strong><br>62/1A, Marutha Kutty St, near KK Pudhur EB office,, Saibaba Colony, Kuppakonam Pudur, Coimbatore, Tamil Nadu 641038</a></li>
+                            <li class="py-3"><a href="https://maps.app.goo.gl/oh8Y4uJosD6XUU1TA" class="text-decoration-none  contact-links-2" target="_blank"> <i class="fas fa-map-marker-alt me-2 text-primary"></i><strong class="fw-semibold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" width="22" height="15" aria-hidden="true" focusable="false" style="display:inline-block;vertical-align:-2px;margin-right:6px;border:1px solid #334155"><rect width="30" height="20" fill="#ffffff"/><g fill="#b22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12" height="10.77" fill="#3c3b6e"/></svg>USA, Branch</strong><br>9501 N FM 620 RD APT 4101 AUSTIN, TEXAS 78726</a></li>
                             <li class="py-2"><a href="tel:+919500072201" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 95000 72201 </a></li>
                             <li class="py-2"><a href="tel:+919677020049" class="text-decoration-none  contact-links-2"><i class="fas fa-phone me-2 text-primary"></i>+91 96770 20049 </a></li>
                             <li class="py-2"><a href="mailto:intellektgenie@gmail.com" class="text-decoration-none  contact-links-2"> <i class="fas fa-envelope me-2 text-primary"></i> intellektgenie@gmail.com</a></li>
@@ -157,9 +157,21 @@
                 </div>
                 <div class=" col-12 col-md-8">
                     <div class="sigma-contact-form-wrap">
+                        <?php
+                        $requestedService = (isset($_GET['service']) && is_string($_GET['service']))
+                            ? strtolower(trim($_GET['service']))
+                            : '';
+                        $isAgenticAiService = ($requestedService === 'agentic-ai');
+                        $formSubject = $isAgenticAiService
+                            ? 'Agentic AI Solutions Consultation Inquiry - Intellekt Genie Website'
+                            : 'New Inquiry from Intellekt Genie Website';
+                        ?>
                         <form class="sigma-contact-form" method="post" action="https://api.web3forms.com/submit" id="contact-form">
                             <input type="hidden" name="access_key" value="fbf7a3c3-a4e9-4bff-bb80-774314731235">
-                            <input type="hidden" name="subject" value="New Inquiry from Intellekt Genie Website">
+                            <input type="hidden" name="subject" value="<?php echo htmlspecialchars($formSubject, ENT_QUOTES, 'UTF-8'); ?>">
+                            <?php if ($isAgenticAiService): ?>
+                            <input type="hidden" name="service" value="Agentic AI Solutions">
+                            <?php endif; ?>
                             <input type="hidden" name="from_name" value="Intellekt Genie Website">
                             <input type="hidden" name="redirect" value="https://intellektgenie.com/thank_you.php">
                             <div class="d-none" aria-hidden="true">

@@ -1,0 +1,656 @@
+/* ==========================================================================
+   INTELLEKT GENIE - WELCOME SLIDESHOW POPUP STYLES
+   Brand Colors: Dark Navy (#070b12, #0a101d, #0f172a), Blue (#2563eb), Cyan (#38bdf8)
+   Typography: Plus Jakarta Sans (Strictly No Inter)
+   Design: Sharp/Minimal (4-6px radius), Zero Drop Shadows, No Liquid Glass
+   ========================================================================== */
+
+.ig-welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #f8fafc;
+}
+
+.ig-welcome-modal.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Backdrop */
+.ig-welcome-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 11, 18, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+/* Modal Dialog Box */
+.ig-welcome-dialog {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1040px;
+    max-height: 92vh;
+    background-color: #0a101d;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.98);
+    transition: transform 0.3s ease;
+}
+
+.ig-welcome-modal.is-active .ig-welcome-dialog {
+    transform: scale(1);
+}
+
+/* Top Bar */
+.ig-welcome-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    background-color: #070b12;
+    border-bottom: 1px solid #1e293b;
+    flex-shrink: 0;
+}
+
+.ig-welcome-brand {
+    display: flex;
+    align-items: center;
+}
+
+.ig-welcome-logo {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+
+.ig-welcome-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ig-welcome-skip-btn {
+    background: transparent;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: all 0.2s ease;
+}
+
+.ig-welcome-skip-btn:hover,
+.ig-welcome-skip-btn:focus-visible {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.08);
+    outline: none;
+}
+
+.ig-welcome-close-btn {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.ig-welcome-close-btn:hover,
+.ig-welcome-close-btn:focus-visible {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #ffffff;
+    outline: none;
+}
+
+/* Modal Body / Slides */
+.ig-welcome-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #0a101d;
+    max-height: calc(92vh - 130px);
+}
+
+.ig-welcome-slides-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+.ig-welcome-slide {
+    display: none;
+    padding: 2rem 2.25rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.ig-welcome-slide.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Grid */
+.ig-slide-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.ig-slide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.ig-slide-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+.ig-kicker-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #38bdf8;
+    border-radius: 1px;
+}
+
+.ig-slide-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.28;
+    color: #ffffff;
+    margin: 0;
+}
+
+.ig-slide-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* Visual Column */
+.ig-slide-visual {
+    position: relative;
+}
+
+.ig-visual-frame {
+    background-color: #070b12;
+    border: 1px solid #1e293b;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ig-visual-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-bottom: 1px solid #1e293b;
+}
+
+.ig-visual-caption {
+    padding: 0.75rem 1rem;
+    background-color: #0c1322;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.ig-caption-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.ig-caption-desc {
+    font-size: 0.74rem;
+    color: #94a3b8;
+    line-height: 1.35;
+}
+
+/* Slide 1 Components */
+.ig-slide-callout {
+    background-color: rgba(37, 99, 235, 0.08);
+    border-left: 3px solid #2563eb;
+    padding: 0.75rem 1rem;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ig-callout-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+.ig-callout-text {
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.ig-slide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.ig-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    padding: 0.3rem 0.65rem;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ig-tag i {
+    color: #38bdf8;
+}
+
+/* Slide 2 Components: Approach */
+.ig-approach-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ig-approach-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.6rem 0.85rem;
+    background-color: #070b12;
+    border: 1px solid #1e293b;
+    border-radius: 4px;
+}
+
+.ig-step-num {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.2rem 0.45rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.ig-step-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ig-step-detail strong {
+    font-size: 0.86rem;
+    color: #f1f5f9;
+}
+
+.ig-step-detail p {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Slide 3 Components: Solutions */
+.ig-solutions-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ig-solution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.65rem 0.85rem;
+    background-color: #070b12;
+    border: 1px solid #1e293b;
+    border-radius: 4px;
+}
+
+.ig-solution-icon {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.ig-solution-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ig-solution-heading {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.ig-solution-body p {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Slide 4 Components: Mission */
+.ig-mission-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ig-pillar {
+    padding: 0.65rem 0.85rem;
+    background-color: #070b12;
+    border: 1px solid #1e293b;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.ig-pillar-title {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.ig-pillar p {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.ig-slide-final-action {
+    margin-top: 0.5rem;
+}
+
+.ig-welcome-explore-btn {
+    background-color: #2563eb;
+    border: 1px solid #3b82f6;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.65rem 1.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.ig-welcome-explore-btn:hover,
+.ig-welcome-explore-btn:focus-visible {
+    background-color: #1d4ed8;
+    border-color: #60a5fa;
+    outline: none;
+}
+
+/* Modal Footer / Navigation Controls */
+.ig-welcome-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    background-color: #070b12;
+    border-top: 1px solid #1e293b;
+    flex-shrink: 0;
+    gap: 1rem;
+}
+
+.ig-welcome-status {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.ig-welcome-counter {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+    font-variant-numeric: tabular-nums;
+}
+
+.ig-welcome-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ig-welcome-dot {
+    width: 22px;
+    height: 4px;
+    background-color: #1e293b;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+}
+
+.ig-welcome-dot.active {
+    background-color: #38bdf8;
+    width: 32px;
+}
+
+.ig-welcome-dot:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+}
+
+/* Progress bar under dots */
+.ig-welcome-timer-bar {
+    width: 60px;
+    height: 3px;
+    background-color: #1e293b;
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.ig-welcome-timer-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #2563eb;
+    transition: width 0.1s linear;
+}
+
+.ig-welcome-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.ig-welcome-nav-btn {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.45rem 0.95rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: all 0.2s ease;
+}
+
+.ig-welcome-nav-btn:hover,
+.ig-welcome-nav-btn:focus-visible {
+    background-color: #1e293b;
+    color: #ffffff;
+    border-color: #38bdf8;
+    outline: none;
+}
+
+.ig-welcome-nav-btn.ig-nav-next {
+    background-color: #2563eb;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+.ig-welcome-nav-btn.ig-nav-next:hover,
+.ig-welcome-nav-btn.ig-nav-next:focus-visible {
+    background-color: #1d4ed8;
+    border-color: #60a5fa;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .ig-slide-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .ig-slide-visual {
+        order: -1;
+    }
+
+    .ig-visual-img {
+        height: 180px;
+    }
+
+    .ig-welcome-slide {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .ig-slide-title {
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .ig-welcome-modal {
+        padding: 0.5rem;
+    }
+
+    .ig-welcome-dialog {
+        max-height: 96vh;
+    }
+
+    .ig-welcome-topbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .ig-welcome-logo {
+        height: 26px;
+    }
+
+    .ig-welcome-slide {
+        padding: 1.25rem 0.85rem;
+    }
+
+    .ig-slide-title {
+        font-size: 1.15rem;
+    }
+
+    .ig-slide-text {
+        font-size: 0.84rem;
+    }
+
+    .ig-visual-img {
+        height: 150px;
+    }
+
+    .ig-welcome-footer {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+    }
+
+    .ig-welcome-timer-bar {
+        display: none;
+    }
+
+    .ig-welcome-status {
+        gap: 0.75rem;
+    }
+
+    .ig-welcome-dot {
+        width: 14px;
+    }
+
+    .ig-welcome-dot.active {
+        width: 22px;
+    }
+
+    .ig-welcome-nav-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}

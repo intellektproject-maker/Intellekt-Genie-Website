@@ -24,6 +24,8 @@
 	<link rel="stylesheet" href="assets/css/robotics-choice-layout.css">
 	<link rel="stylesheet" href="assets/css/robotics-services.css">
 	<link rel="stylesheet" href="assets/css/company-robotics-profile.css">
+	<link rel="stylesheet" href="assets/css/welcome-modal.css">
 	<script src="assets/js/robotics-services.js" defer></script>
 	<script src="assets/js/company-tabs.js" defer></script>
+	<script src="assets/js/welcome-modal.js" defer></script>
 </head>
