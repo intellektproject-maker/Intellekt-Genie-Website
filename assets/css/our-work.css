@@ -811,8 +811,18 @@
    7. AGENTIC AI SOLUTIONS INTRODUCTION SECTION
    -------------------------------------------------------------------------- */
 
+html:has(.robotics-our-work-page) {
+  scroll-padding-top: 96px;
+}
+
+.robotics-our-work-page .ow-product-showcase,
+.robotics-our-work-page .ow-comparison-section,
 .robotics-our-work-page .ow-agentic-section {
-  padding: 88px 0;
+  scroll-margin-top: 96px;
+}
+
+.robotics-our-work-page .ow-agentic-section {
+  padding: 100px 0 88px;
   background-color: #080d18;
   border-top: 1px solid #1e293b;
   border-bottom: 1px solid #1e293b;
@@ -824,6 +834,7 @@
   border-left: 4px solid #2563eb;
   border-radius: 4px;
   padding: 48px 44px;
+  scroll-margin-top: 96px;
 }
 
 .robotics-our-work-page .ow-agentic-grid {
@@ -860,6 +871,7 @@
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0 0 16px 0;
+  scroll-margin-top: 110px;
 }
 
 .robotics-our-work-page .ow-agentic-desc {
@@ -1147,8 +1159,9 @@
   }
 
   .robotics-our-work-page .ow-hero-visual {
+    width: 100%;
     max-width: 380px;
-    margin: 0 auto;
+    margin: 8px auto 0;
   }
 
   .robotics-our-work-page .ow-overview-grid {
@@ -1159,7 +1172,11 @@
   .robotics-our-work-page .ow-product-grid--reversed,
   .robotics-our-work-page .ow-agentic-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+  }
+
+  .robotics-our-work-page .ow-agentic-section {
+    padding: 92px 0 76px;
   }
 
   .robotics-our-work-page .ow-agentic-shell {
@@ -1196,13 +1213,31 @@
 
   .robotics-our-work-page .ow-closing-card,
   .robotics-our-work-page .ow-agentic-shell {
-    padding: 32px 20px;
+    padding: 28px 20px;
   }
 }
 
 @media (max-width: 575px) {
   .robotics-our-work-page .ow-hero-headline {
     font-size: 1.95rem;
+  }
+
+  .robotics-our-work-page .ow-hero-visual {
+    max-width: 300px;
+  }
+
+  .robotics-our-work-page .ow-agentic-section {
+    padding: 88px 0 68px;
+    scroll-margin-top: 84px;
+  }
+
+  .robotics-our-work-page .ow-agentic-shell {
+    scroll-margin-top: 84px;
+  }
+
+  .robotics-our-work-page .ow-agentic-title {
+    font-size: 1.5rem;
+    scroll-margin-top: 96px;
   }
 
   .robotics-our-work-page .ow-hero-actions .btn-robotics-primary,
@@ -1221,12 +1256,12 @@
 
   .robotics-our-work-page .ow-hero-metrics {
     flex-wrap: wrap;
-    gap: 16px 0;
-    justify-content: flex-start;
+    gap: 16px 24px;
+    justify-content: center;
   }
 
   .robotics-our-work-page .ow-metric-item {
-    padding-right: 20px;
+    padding-right: 0;
   }
 
   .robotics-our-work-page .ow-category-nav {
