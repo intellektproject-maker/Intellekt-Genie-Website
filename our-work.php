@@ -5,9 +5,9 @@
     <?php include 'header-link.php' ?>
     <title>Our Work — Robotics Product Showcase | Intellekt Genie</title>
     <!-- Page-specific Robotics Showcase CSS -->
-    <link rel="stylesheet" href="assets/css/our-work.css">
+    <link rel="stylesheet" href="assets/css/our-work.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/our-work.css') ?: '1'; ?>">
     <!-- Page-specific Robotics Showcase Interaction JS -->
-    <script src="assets/js/our-work.js" defer></script>
+    <script src="assets/js/our-work.js?v=<?php echo @filemtime(__DIR__ . '/assets/js/our-work.js') ?: '1'; ?>" defer></script>
 </head>
 
 <body class="robotics-our-work-page">

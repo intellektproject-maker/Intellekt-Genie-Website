@@ -154,8 +154,7 @@
     overflow-y: auto;
     position: relative;
     background-color: #080d1a;
-    max-height: calc(92vh - 128px);
-    scrollbar-gutter: stable;
+    max-height: calc(92vh - 124px);
     scrollbar-width: thin;
     scrollbar-color: #1e293b #080d1a;
 }
@@ -196,7 +195,7 @@
     flex: 0 0 25%;
     width: 25%;
     box-sizing: border-box;
-    padding: 1.75rem 2.1rem;
+    padding: clamp(1rem, 2.2vh, 1.45rem) 2rem;
     opacity: 0.35;
     transition: opacity 0.4s ease;
     display: block;
@@ -212,13 +211,13 @@
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     gap: 1.85rem;
     align-items: center;
-    min-height: 415px;
+    min-height: auto;
 }
 
 .ig-slide-content {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: clamp(0.45rem, 1vh, 0.65rem);
     justify-content: center;
     min-width: 0;
 }
@@ -609,7 +608,7 @@
 /* Image Presentation — Consistent 16:9 / 1.78:1 Framing Across All 4 Slides */
 .ig-visual-img {
     width: 100%;
-    height: 350px;
+    height: clamp(235px, 42vh, 335px);
     object-fit: cover;
     object-position: center 22%;
     display: block;
