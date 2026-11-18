@@ -17,15 +17,15 @@
 	<link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css">
 	<link rel="stylesheet" href="assets/vendors/magnifi-popup/magnific-popup.css">
 	<link rel="stylesheet" href="assets/vendors/animate-css/animate.min.css">
-	<link rel="stylesheet" href="assets/css/root.css">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/root.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/root.css') ?: '1'; ?>">
+	<link rel="stylesheet" href="assets/css/main.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/main.css') ?: '1'; ?>">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/robotics-theme.css">
-	<link rel="stylesheet" href="assets/css/robotics-choice-layout.css">
-	<link rel="stylesheet" href="assets/css/robotics-services.css">
-	<link rel="stylesheet" href="assets/css/company-robotics-profile.css">
-	<link rel="stylesheet" href="assets/css/welcome-modal.css">
-	<script src="assets/js/robotics-services.js" defer></script>
-	<script src="assets/js/company-tabs.js" defer></script>
-	<script src="assets/js/welcome-modal.js" defer></script>
+	<link rel="stylesheet" href="assets/css/robotics-theme.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/robotics-theme.css') ?: '1'; ?>">
+	<link rel="stylesheet" href="assets/css/robotics-choice-layout.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/robotics-choice-layout.css') ?: '1'; ?>">
+	<link rel="stylesheet" href="assets/css/robotics-services.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/robotics-services.css') ?: '1'; ?>">
+	<link rel="stylesheet" href="assets/css/company-robotics-profile.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/company-robotics-profile.css') ?: '1'; ?>">
+	<link rel="stylesheet" href="assets/css/welcome-modal.css?v=<?php echo @filemtime(__DIR__ . '/assets/css/welcome-modal.css') ?: '1'; ?>">
+	<script src="assets/js/robotics-services.js?v=<?php echo @filemtime(__DIR__ . '/assets/js/robotics-services.js') ?: '1'; ?>" defer></script>
+	<script src="assets/js/company-tabs.js?v=<?php echo @filemtime(__DIR__ . '/assets/js/company-tabs.js') ?: '1'; ?>" defer></script>
+	<script src="assets/js/welcome-modal.js?v=<?php echo @filemtime(__DIR__ . '/assets/js/welcome-modal.js') ?: '1'; ?>" defer></script>
 </head>
