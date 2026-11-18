@@ -1,13 +1,13 @@
 /**
- * Intellekt Genie - Welcome Slideshow Popup Controller
- * Manages automatic slideshow, session storage persistence, keyboard controls,
- * pause-on-interaction, and responsive display.
+ * Intellekt Genie - Welcome Slideshow Popup Controller (Smooth Redesign)
+ * Manages GPU-accelerated carousel track, touch swipes, keyboard navigation,
+ * auto-advance progress, pause-on-interaction, and session storage persistence.
  */
 (function () {
     'use strict';
 
     var STORAGE_KEY = 'ig_welcome_slideshow_seen';
-    var SLIDE_DURATION = 5000; // 5 seconds per slide
+    var SLIDE_DURATION = 5500; // 5.5 seconds per slide for comfortable reading
 
     function initWelcomeModal() {
         // 1. Session Storage check: Only show once per browser session
@@ -24,6 +24,7 @@
 
         var dialog = document.getElementById('igWelcomeDialog');
         var backdrop = document.getElementById('igWelcomeBackdrop');
+        var track = document.getElementById('igWelcomeSlidesTrack');
         var closeBtn = document.getElementById('igWelcomeClose');
         var skipBtn = document.getElementById('igWelcomeSkip');
         var exploreBtn = document.getElementById('igWelcomeExplore');
@@ -38,14 +39,13 @@
 
         var currentSlide = 0;
         var totalSlides = slides.length;
-        var timerId = null;
         var progressIntervalId = null;
         var isPaused = false;
         var progressStep = 0;
         var progressIntervalMs = 50;
         var totalSteps = SLIDE_DURATION / progressIntervalMs;
 
-        // Display modal
+        // Display modal with smooth entrance
         modal.style.display = 'flex';
         // Force reflow for CSS transition
         void modal.offsetWidth;
@@ -58,6 +58,13 @@
         document.body.style.overflow = 'hidden';
 
         function updateSlideUI() {
+            // Translate the slides track smoothly on GPU
+            if (track) {
+                var offsetPct = currentSlide * (100 / totalSlides);
+                track.style.transform = 'translate3d(-' + offsetPct + '%, 0, 0)';
+            }
+
+            // Update slide active states (triggers staggered CSS entrance)
             slides.forEach(function (slide, idx) {
                 if (idx === currentSlide) {
                     slide.classList.add('active');
@@ -68,6 +75,7 @@
                 }
             });
 
+            // Update dot indicators
             dots.forEach(function (dot, idx) {
                 if (idx === currentSlide) {
                     dot.classList.add('active');
@@ -78,6 +86,7 @@
                 }
             });
 
+            // Update tabular counter
             if (counter) {
                 var currentFormatted = ('0' + (currentSlide + 1)).slice(-2);
                 var totalFormatted = ('0' + totalSlides).slice(-2);
@@ -150,29 +159,28 @@
         }
 
         function closeModal() {
-            // Stop timers immediately
             stopTimer();
 
-            // Record in session storage so it doesn't appear on subsequent page navigation
+            // Record in session storage so it doesn't appear again in this session
             try {
                 sessionStorage.setItem(STORAGE_KEY, 'true');
             } catch (e) {
-                // Ignore storage failure
+                // Ignore storage restriction
             }
 
-            // Restore scroll
+            // Restore document scroll
             document.documentElement.style.overflow = originalDocOverflow;
             document.body.style.overflow = originalBodyOverflow;
 
             // Animate close
             modal.classList.remove('is-active');
 
-            // Remove keyboard and click listeners
+            // Remove listeners
             document.removeEventListener('keydown', handleKeydown);
 
             setTimeout(function () {
                 modal.style.display = 'none';
-            }, 300);
+            }, 400);
         }
 
         function handleKeydown(event) {
@@ -190,21 +198,25 @@
             }
         }
 
-        // Attach event handlers
+        // Attach action handlers
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (skipBtn) skipBtn.addEventListener('click', closeModal);
         if (exploreBtn) exploreBtn.addEventListener('click', closeModal);
         if (backdrop) backdrop.addEventListener('click', closeModal);
 
-        if (nextBtn) nextBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            nextSlide();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                nextSlide();
+            });
+        }
 
-        if (prevBtn) prevBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            prevSlide();
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                prevSlide();
+            });
+        }
 
         dots.forEach(function (dot) {
             dot.addEventListener('click', function (e) {
@@ -216,14 +228,42 @@
             });
         });
 
-        // Pause automatic advancement on user interaction (hover, focus, touch)
+        // Touch swipe support for mobile & tablet
+        var touchStartX = 0;
+        var touchStartY = 0;
+        var touchEndX = 0;
+        var touchEndY = 0;
+
         if (dialog) {
             dialog.addEventListener('mouseenter', pauseTimer);
             dialog.addEventListener('mouseleave', resumeTimer);
-            dialog.addEventListener('touchstart', pauseTimer, { passive: true });
-            dialog.addEventListener('touchend', resumeTimer, { passive: true });
             dialog.addEventListener('focusin', pauseTimer);
             dialog.addEventListener('focusout', resumeTimer);
+
+            dialog.addEventListener('touchstart', function (e) {
+                pauseTimer();
+                if (e.changedTouches && e.changedTouches.length > 0) {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                }
+            }, { passive: true });
+
+            dialog.addEventListener('touchend', function (e) {
+                resumeTimer();
+                if (e.changedTouches && e.changedTouches.length > 0) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    var diffX = touchEndX - touchStartX;
+                    var diffY = touchEndY - touchStartY;
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+                        if (diffX < 0) {
+                            nextSlide();
+                        } else {
+                            prevSlide();
+                        }
+                    }
+                }
+            }, { passive: true });
         }
 
         document.addEventListener('keydown', handleKeydown);

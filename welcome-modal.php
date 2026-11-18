@@ -22,6 +22,7 @@
         <!-- Slides Container -->
         <div class="ig-welcome-body" id="igWelcomeBody">
             <div class="ig-welcome-slides-wrapper" id="igWelcomeSlidesWrapper">
+                <div class="ig-welcome-slides-track" id="igWelcomeSlidesTrack">
 
                 <!-- SLIDE 1: ABOUT INTELLEKT GENIE & VISION -->
                 <div class="ig-welcome-slide active" data-slide-index="0" role="group" aria-roledescription="slide" aria-label="1 of 4: About Intellekt Genie">
@@ -49,7 +50,11 @@
                         </div>
                         <div class="ig-slide-visual">
                             <div class="ig-visual-frame">
-                                <img src="assets/image/new-images/vision.webp" alt="Intellekt Genie Vision and Engineering" class="ig-visual-img" loading="eager">
+                                <div class="ig-visual-badge">
+                                    <span class="ig-badge-pulse"></span>
+                                    <span>AUTONOMOUS INTELLIGENCE</span>
+                                </div>
+                                <img src="assets/image/new-images/humanoid-ai-vision.png" alt="Intellekt Genie Vision and Engineering" class="ig-visual-img" loading="eager">
                                 <div class="ig-visual-caption">
                                     <span class="ig-caption-title">Intellekt Genie Technologies</span>
                                     <span class="ig-caption-desc">Applied autonomous systems and operational intelligence</span>
@@ -97,7 +102,11 @@
                         </div>
                         <div class="ig-slide-visual">
                             <div class="ig-visual-frame">
-                                <img src="assets/image/new-images/technical.webp" alt="Intellekt Genie Technical Engineering Approach" class="ig-visual-img" loading="lazy">
+                                <div class="ig-visual-badge">
+                                    <span class="ig-badge-pulse"></span>
+                                    <span>FIELD VERIFICATION // PASSED</span>
+                                </div>
+                                <img src="assets/image/new-images/robotic-arm-assembly.png" alt="Intellekt Genie Technical Engineering Approach" class="ig-visual-img" loading="lazy">
                                 <div class="ig-visual-caption">
                                     <span class="ig-caption-title">Field-Proven Engineering</span>
                                     <span class="ig-caption-desc">Disciplined verification from simulation to live production</span>
@@ -151,7 +160,11 @@
                         </div>
                         <div class="ig-slide-visual">
                             <div class="ig-visual-frame">
-                                <img src="assets/image/agentic-ai/agentic-ai-showcase.png" alt="Intellekt Genie Robotics and Agentic AI Solutions" class="ig-visual-img" loading="lazy">
+                                <div class="ig-visual-badge">
+                                    <span class="ig-badge-pulse"></span>
+                                    <span>UNIFIED ROBOTICS PLATFORM</span>
+                                </div>
+                                <img src="assets/image/new-images/solutions-suite.jpg" alt="Intellekt Genie Robotics and Agentic AI Solutions" class="ig-visual-img" loading="lazy">
                                 <div class="ig-visual-caption">
                                     <span class="ig-caption-title">Commercial Technology Suite</span>
                                     <span class="ig-caption-desc">Robotics, industrial automation, and enterprise AI workflows</span>
@@ -192,7 +205,11 @@
                         </div>
                         <div class="ig-slide-visual">
                             <div class="ig-visual-frame">
-                                <img src="assets/image/new-images/mission.webp" alt="Intellekt Genie Mission" class="ig-visual-img" loading="lazy">
+                                <div class="ig-visual-badge">
+                                    <span class="ig-badge-pulse"></span>
+                                    <span>ENTERPRISE DEPLOYMENT</span>
+                                </div>
+                                <img src="assets/image/new-images/mission-deployment.jpg" alt="Intellekt Genie Mission" class="ig-visual-img" loading="lazy">
                                 <div class="ig-visual-caption">
                                     <span class="ig-caption-title">Dependable Technology</span>
                                     <span class="ig-caption-desc">Empowering organizations with sustainable automation capabilities</span>
@@ -202,6 +219,7 @@
                     </div>
                 </div>
 
+                </div>
             </div>
         </div>
 
