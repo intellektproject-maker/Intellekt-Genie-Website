@@ -1,5 +1,5 @@
 /**
- * Intellekt Genie - Welcome Slideshow Popup Controller (Smooth Redesign)
+ * Intellekt Genie - Welcome Slideshow Popup Controller (Full Poster Redesign)
  * Manages GPU-accelerated carousel track, touch swipes, keyboard navigation,
  * auto-advance progress, pause-on-interaction, and session storage persistence.
  */
@@ -7,7 +7,7 @@
     'use strict';
 
     var STORAGE_KEY = 'ig_welcome_slideshow_seen';
-    var SLIDE_DURATION = 5500; // 5.5 seconds per slide for comfortable reading
+    var SLIDE_DURATION = 5500; // 5.5 seconds per poster slide
 
     function initWelcomeModal() {
         // 1. Session Storage check: Only show once per browser session
@@ -26,7 +26,6 @@
         var backdrop = document.getElementById('igWelcomeBackdrop');
         var track = document.getElementById('igWelcomeSlidesTrack');
         var closeBtn = document.getElementById('igWelcomeClose');
-        var skipBtn = document.getElementById('igWelcomeSkip');
         var exploreBtn = document.getElementById('igWelcomeExplore');
         var prevBtn = document.getElementById('igWelcomePrev');
         var nextBtn = document.getElementById('igWelcomeNext');
@@ -64,7 +63,7 @@
                 track.style.transform = 'translate3d(-' + offsetPct + '%, 0, 0)';
             }
 
-            // Update slide active states (triggers staggered CSS entrance)
+            // Update slide active states
             slides.forEach(function (slide, idx) {
                 if (idx === currentSlide) {
                     slide.classList.add('active');
@@ -200,7 +199,6 @@
 
         // Attach action handlers
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (skipBtn) skipBtn.addEventListener('click', closeModal);
         if (exploreBtn) exploreBtn.addEventListener('click', closeModal);
         if (backdrop) backdrop.addEventListener('click', closeModal);
 

@@ -1,8 +1,8 @@
 /* ==========================================================================
-   INTELLEKT GENIE - WELCOME SLIDESHOW POPUP STYLES (PREMIUM REDESIGN)
+   INTELLEKT GENIE - WELCOME SLIDESHOW POPUP STYLES (FULL POSTER REDESIGN)
    Brand Colors: Dark Navy (#060a14, #080d1a, #0a1120), Blue (#2563eb), Cyan (#38bdf8)
    Typography: Plus Jakarta Sans
-   Design: High-tech Engineering Viewport, Zero Layout Shifts, Fluid Transitions
+   Design: Full-Width, Full-Height Visual Poster Presentation
    ========================================================================== */
 
 /* 1. Modal Overlay & Backdrop */
@@ -37,9 +37,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 8, 15, 0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(4, 7, 14, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1;
     transition: opacity 0.4s ease;
 }
@@ -49,15 +49,15 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1140px;
-    max-height: 92vh;
-    background-color: #080d1a;
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 8px;
+    max-width: 1180px;
+    max-height: 94vh;
+    background-color: #060a14;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 45px -10px rgba(37, 99, 235, 0.28);
+    box-shadow: 0 28px 65px -15px rgba(0, 0, 0, 0.92), 0 0 50px -10px rgba(37, 99, 235, 0.32);
     transform: translate3d(0, 16px, 0) scale(0.975);
     opacity: 0;
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -74,7 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.95rem 1.6rem;
+    padding: 0.75rem 1.4rem;
     background-color: #060a14;
     border-bottom: 1px solid #162236;
     flex-shrink: 0;
@@ -88,7 +88,7 @@
 }
 
 .ig-welcome-logo {
-    height: 34px;
+    height: 32px;
     width: auto;
     display: block;
 }
@@ -96,31 +96,6 @@
 .ig-welcome-topbar-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-}
-
-.ig-welcome-skip-btn {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid #27364e;
-    color: #94a3b8;
-    padding: 0.42rem 0.9rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    transition: all 0.22s ease;
-}
-
-.ig-welcome-skip-btn:hover,
-.ig-welcome-skip-btn:focus-visible {
-    color: #38bdf8;
-    border-color: #38bdf8;
-    background-color: rgba(56, 189, 248, 0.1);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
-    outline: none;
 }
 
 .ig-welcome-close-btn {
@@ -129,7 +104,7 @@
     color: #cbd5e1;
     width: 34px;
     height: 34px;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -143,41 +118,26 @@
     background: #ef4444;
     border-color: #ef4444;
     color: #ffffff;
-    box-shadow: 0 0 14px rgba(239, 68, 68, 0.35);
+    box-shadow: 0 0 14px rgba(239, 68, 68, 0.4);
     outline: none;
 }
 
-/* 4. Modal Body & Slide Track (Zero Layout Shifts) */
+/* 4. Full Poster Modal Body & Slide Track */
 .ig-welcome-body {
     flex: 1 1 auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     position: relative;
-    background-color: #080d1a;
-    max-height: calc(92vh - 124px);
-    scrollbar-width: thin;
-    scrollbar-color: #1e293b #080d1a;
-}
-
-/* Custom Sleek Scrollbar */
-.ig-welcome-body::-webkit-scrollbar {
-    width: 6px;
-}
-.ig-welcome-body::-webkit-scrollbar-track {
-    background: #080d1a;
-}
-.ig-welcome-body::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 3px;
-}
-.ig-welcome-body::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background-color: #050912;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Slides Wrapper: viewport window for carousel track */
 .ig-welcome-slides-wrapper {
     position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -185,469 +145,79 @@
 .ig-welcome-slides-track {
     display: flex;
     width: 400%;
+    height: 100%;
     transform: translate3d(0%, 0, 0);
-    transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 
-/* Individual Slide */
+/* Individual Full Poster Slide */
 .ig-welcome-slide {
     flex: 0 0 25%;
     width: 25%;
     box-sizing: border-box;
-    padding: clamp(1rem, 2.2vh, 1.45rem) 2rem;
+    padding: 0;
+    margin: 0;
     opacity: 0.35;
-    transition: opacity 0.4s ease;
-    display: block;
+    transition: opacity 0.45s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #050912;
 }
 
 .ig-welcome-slide.active {
     opacity: 1;
 }
 
-/* 5. Slide Grid Layout — 40% Content (Left) : 60% Image (Right) */
-.ig-slide-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    gap: 1.85rem;
-    align-items: center;
-    min-height: auto;
-}
-
-.ig-slide-content {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.45rem, 1vh, 0.65rem);
-    justify-content: center;
-    min-width: 0;
-}
-
-/* Staggered Element Entrance Animations */
-.ig-welcome-slide.active .ig-slide-kicker {
-    animation: igFadeUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
-}
-.ig-welcome-slide.active .ig-slide-title {
-    animation: igFadeUp 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-}
-.ig-welcome-slide.active .ig-slide-text {
-    animation: igFadeUp 0.48s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
-}
-.ig-welcome-slide.active .ig-slide-callout,
-.ig-welcome-slide.active .ig-approach-steps,
-.ig-welcome-slide.active .ig-solutions-cards,
-.ig-welcome-slide.active .ig-mission-pillars {
-    animation: igFadeUp 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
-}
-.ig-welcome-slide.active .ig-slide-tags,
-.ig-welcome-slide.active .ig-slide-final-action {
-    animation: igFadeUp 0.54s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
-}
-.ig-welcome-slide.active .ig-slide-visual {
-    animation: igVisualEntrance 0.56s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
-}
-
-@keyframes igFadeUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 12px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes igVisualEntrance {
-    from {
-        opacity: 0;
-        transform: translate3d(12px, 0, 0) scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-}
-
-/* Kicker Badge */
-.ig-slide-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    color: #38bdf8;
-    text-transform: uppercase;
-}
-
-.ig-kicker-dot {
-    width: 7px;
-    height: 7px;
-    background-color: #38bdf8;
-    border-radius: 1px;
-    box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
-}
-
-.ig-slide-title {
-    font-size: 1.34rem;
-    font-weight: 700;
-    line-height: 1.24;
-    color: #ffffff;
-    letter-spacing: -0.015em;
-    margin: 0;
-}
-
-.ig-slide-text {
-    font-size: 0.84rem;
-    line-height: 1.48;
-    color: #cbd5e1;
-    margin: 0;
-}
-
-/* 6. Slide 1 Components: Vision Callout & Tags */
-.ig-slide-callout {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.14) 0%, rgba(14, 165, 233, 0.05) 100%);
-    border-left: 3px solid #38bdf8;
-    border-top: 1px solid rgba(56, 189, 248, 0.12);
-    border-right: 1px solid rgba(56, 189, 248, 0.08);
-    border-bottom: 1px solid rgba(56, 189, 248, 0.08);
-    padding: 0.62rem 0.88rem;
-    border-radius: 0 6px 6px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
-
-.ig-callout-label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: #38bdf8;
-    text-transform: uppercase;
-}
-
-.ig-callout-text {
-    font-size: 0.8rem;
-    color: #e2e8f0;
-    line-height: 1.42;
-    margin: 0;
-}
-
-.ig-slide-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.42rem;
-    margin-top: 0.12rem;
-}
-
-.ig-tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #cbd5e1;
-    background-color: rgba(15, 23, 42, 0.75);
-    border: 1px solid #1e293b;
-    padding: 0.26rem 0.55rem;
-    border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.2s ease;
-}
-
-.ig-tag:hover {
-    border-color: rgba(56, 189, 248, 0.4);
-    color: #ffffff;
-}
-
-.ig-tag i {
-    color: #38bdf8;
-}
-
-/* 7. Slide 2 Components: Approach Steps */
-.ig-approach-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.ig-approach-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-    padding: 0.48rem 0.75rem;
-    background-color: rgba(6, 10, 20, 0.7);
-    border: 1px solid #1a263a;
-    border-radius: 5px;
-    transition: border-color 0.22s ease, transform 0.22s ease;
-}
-
-.ig-approach-step:hover {
-    border-color: rgba(56, 189, 248, 0.35);
-    transform: translateX(3px);
-}
-
-.ig-step-num {
-    font-size: 0.74rem;
-    font-weight: 800;
-    color: #38bdf8;
-    background-color: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 0.2rem 0.42rem;
-    border-radius: 3px;
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-.ig-step-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-}
-
-.ig-step-detail strong {
-    font-size: 0.81rem;
-    color: #f1f5f9;
-}
-
-.ig-step-detail p {
-    font-size: 0.73rem;
-    color: #94a3b8;
-    margin: 0;
-    line-height: 1.34;
-}
-
-/* 8. Slide 3 Components: Solutions Cards */
-.ig-solutions-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.ig-solution-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-    padding: 0.48rem 0.75rem;
-    background-color: rgba(6, 10, 20, 0.7);
-    border: 1px solid #1a263a;
-    border-radius: 5px;
-    transition: border-color 0.22s ease, transform 0.22s ease;
-}
-
-.ig-solution-item:hover {
-    border-color: rgba(56, 189, 248, 0.35);
-    transform: translateX(3px);
-}
-
-.ig-solution-icon {
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(56, 189, 248, 0.1) 100%);
-    border: 1px solid rgba(56, 189, 248, 0.35);
-    color: #38bdf8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-size: 0.82rem;
-    flex-shrink: 0;
-}
-
-.ig-solution-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-}
-
-.ig-solution-heading {
-    font-size: 0.81rem;
-    font-weight: 700;
-    color: #f1f5f9;
-}
-
-.ig-solution-body p {
-    font-size: 0.73rem;
-    color: #94a3b8;
-    margin: 0;
-    line-height: 1.34;
-}
-
-/* 9. Slide 4 Components: Mission Pillars & Action */
-.ig-mission-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.ig-pillar {
-    padding: 0.48rem 0.75rem;
-    background-color: rgba(6, 10, 20, 0.7);
-    border: 1px solid #1a263a;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.12rem;
-    transition: border-color 0.22s ease;
-}
-
-.ig-pillar:hover {
-    border-color: rgba(56, 189, 248, 0.35);
-}
-
-.ig-pillar-title {
-    font-size: 0.81rem;
-    font-weight: 700;
-    color: #f1f5f9;
-}
-
-.ig-pillar p {
-    font-size: 0.73rem;
-    color: #94a3b8;
-    margin: 0;
-    line-height: 1.34;
-}
-
-.ig-slide-final-action {
-    margin-top: 0.25rem;
-}
-
-.ig-welcome-explore-btn {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    border: 1px solid #60a5fa;
-    color: #ffffff;
-    font-size: 0.84rem;
-    font-weight: 700;
-    padding: 0.58rem 1.3rem;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.38);
-    transition: all 0.22s ease;
-}
-
-.ig-welcome-explore-btn:hover,
-.ig-welcome-explore-btn:focus-visible {
-    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-    border-color: #93c5fd;
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-    transform: translateY(-1px);
-    outline: none;
-}
-
-/* 10. Visual Presentation (60% Right Column Precision Tech Viewport) */
-.ig-slide-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-}
-
-/* Outer frame with subtle ambient neon aura */
-.ig-visual-frame {
+/* 5. Full Poster Stage & Artwork */
+.ig-poster-stage {
     position: relative;
     width: 100%;
-    background-color: #060a14;
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: 7px;
-    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 30px -8px rgba(37, 99, 235, 0.22);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.ig-visual-frame:hover {
-    border-color: rgba(56, 189, 248, 0.45);
-    box-shadow: 0 20px 42px -10px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(56, 189, 248, 0.3);
-}
-
-/* Technical Status Badge on Visual */
-.ig-visual-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 4;
-    background: rgba(6, 10, 20, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(56, 189, 248, 0.32);
-    border-radius: 4px;
-    padding: 0.25rem 0.55rem;
-    font-size: 0.63rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: #38bdf8;
-    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
+    justify-content: center;
+    background-color: #050912;
+    overflow: hidden;
 }
 
-.ig-badge-pulse {
-    width: 6px;
-    height: 6px;
-    background-color: #38bdf8;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #38bdf8;
-    animation: igPulse 2s infinite ease-in-out;
+.ig-poster-img {
+    width: 100%;
+    height: auto;
+    max-height: calc(94vh - 116px);
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes igPulse {
-    0%, 100% {
+.ig-welcome-slide.active .ig-poster-img {
+    animation: igPosterEntrance 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes igPosterEntrance {
+    from {
+        opacity: 0.85;
+        transform: scale(1.015);
+    }
+    to {
         opacity: 1;
         transform: scale(1);
     }
-    50% {
-        opacity: 0.4;
-        transform: scale(0.75);
-    }
 }
 
-/* Image Presentation — Consistent 16:9 / 1.78:1 Framing Across All 4 Slides */
-.ig-visual-img {
-    width: 100%;
-    height: clamp(235px, 42vh, 335px);
-    object-fit: cover;
-    object-position: center 22%;
-    display: block;
-    border-bottom: 1px solid rgba(30, 41, 59, 0.9);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ig-visual-frame:hover .ig-visual-img {
-    transform: scale(1.02);
-}
-
-/* Caption Bar */
-.ig-visual-caption {
-    padding: 0.75rem 1.05rem;
-    background: linear-gradient(180deg, #090f1d 0%, #060a14 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 0.18rem;
-}
-
-.ig-caption-title {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #f1f5f9;
-    letter-spacing: 0.02em;
-}
-
-.ig-caption-desc {
-    font-size: 0.73rem;
-    color: #94a3b8;
-    line-height: 1.35;
-}
-
-/* 11. Modal Footer Chrome & Navigation */
+/* 6. Modal Footer Chrome & Navigation */
 .ig-welcome-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.85rem 1.6rem;
+    padding: 0.75rem 1.4rem;
     background-color: #060a14;
     border-top: 1px solid #162236;
     flex-shrink: 0;
@@ -700,7 +270,7 @@
 
 /* Auto-Slide Progress Bar */
 .ig-welcome-timer-bar {
-    width: 65px;
+    width: 70px;
     height: 3px;
     background-color: #162236;
     border-radius: 2px;
@@ -744,27 +314,29 @@
     outline: none;
 }
 
-.ig-welcome-nav-btn.ig-nav-next {
+.ig-welcome-nav-btn.ig-nav-next,
+.ig-welcome-nav-btn.ig-nav-explore {
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     border-color: #3b82f6;
     color: #ffffff;
 }
 
 .ig-welcome-nav-btn.ig-nav-next:hover,
-.ig-welcome-nav-btn.ig-nav-next:focus-visible {
+.ig-welcome-nav-btn.ig-nav-next:focus-visible,
+.ig-welcome-nav-btn.ig-nav-explore:hover,
+.ig-welcome-nav-btn.ig-nav-explore:focus-visible {
     background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
     border-color: #60a5fa;
     box-shadow: 0 0 14px rgba(37, 99, 235, 0.4);
 }
 
-/* 12. Accessibility: Reduced Motion */
+/* 7. Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     .ig-welcome-modal,
     .ig-welcome-dialog,
     .ig-welcome-slides-track,
     .ig-welcome-slide,
-    .ig-visual-img,
-    .ig-badge-pulse,
+    .ig-poster-img,
     .ig-welcome-slide.active * {
         transition: none !important;
         animation: none !important;
@@ -772,33 +344,19 @@
     }
 }
 
-/* 13. Responsive Layout Breakpoints */
-@media (max-width: 900px) {
-    .ig-slide-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        min-height: auto;
+/* 8. Responsive Layout Breakpoints */
+@media (max-width: 991px) {
+    .ig-welcome-modal {
+        padding: 0.85rem;
     }
 
-    .ig-slide-visual {
-        order: -1;
+    .ig-welcome-dialog {
+        max-width: 96vw;
+        max-height: 92vh;
     }
 
-    .ig-visual-img {
-        height: 265px;
-        object-position: center 20%;
-    }
-
-    .ig-welcome-slide {
-        padding: 1.35rem 1.25rem;
-    }
-
-    .ig-slide-title {
-        font-size: 1.35rem;
-    }
-
-    .ig-slide-content {
-        gap: 0.75rem;
+    .ig-poster-img {
+        max-height: calc(92vh - 110px);
     }
 }
 
@@ -808,46 +366,33 @@
     }
 
     .ig-welcome-dialog {
-        max-height: 96vh;
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 8px;
     }
 
     .ig-welcome-topbar {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 0.9rem;
     }
 
     .ig-welcome-logo {
-        height: 26px;
+        height: 24px;
     }
 
-    .ig-welcome-slide {
-        padding: 1rem 0.85rem;
+    .ig-welcome-close-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.95rem;
     }
 
-    .ig-slide-grid {
-        gap: 1rem;
-    }
-
-    .ig-slide-content {
-        gap: 0.65rem;
-    }
-
-    .ig-slide-title {
-        font-size: 1.15rem;
-    }
-
-    .ig-slide-text {
-        font-size: 0.82rem;
-        line-height: 1.5;
-    }
-
-    .ig-visual-img {
-        height: 195px;
-        object-position: center 20%;
+    .ig-poster-img {
+        max-height: calc(95vh - 104px);
     }
 
     .ig-welcome-footer {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 0.9rem;
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .ig-welcome-timer-bar {
@@ -855,7 +400,11 @@
     }
 
     .ig-welcome-status {
-        gap: 0.75rem;
+        gap: 0.65rem;
+    }
+
+    .ig-welcome-counter {
+        font-size: 0.76rem;
     }
 
     .ig-welcome-dot {
@@ -867,22 +416,7 @@
     }
 
     .ig-welcome-nav-btn {
-        padding: 0.4rem 0.75rem;
+        padding: 0.38rem 0.72rem;
         font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .ig-visual-badge {
-        font-size: 0.56rem;
-        padding: 0.18rem 0.45rem;
-        top: 8px;
-        right: 8px;
-        letter-spacing: 0.06em;
-    }
-
-    .ig-badge-pulse {
-        width: 5px;
-        height: 5px;
     }
 }
