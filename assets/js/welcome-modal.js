@@ -39,7 +39,6 @@
         var currentSlide = 0;
         var totalSlides = slides.length;
         var progressIntervalId = null;
-        var isPaused = false;
         var progressStep = 0;
         var progressIntervalMs = 50;
         var totalSteps = SLIDE_DURATION / progressIntervalMs;
@@ -118,8 +117,6 @@
         }
 
         function advanceProgress() {
-            if (isPaused) return;
-
             progressStep++;
             if (timerFill) {
                 var percentage = Math.min(100, (progressStep / totalSteps) * 100);
@@ -147,14 +144,6 @@
             stopTimer();
             resetProgress();
             startTimer();
-        }
-
-        function pauseTimer() {
-            isPaused = true;
-        }
-
-        function resumeTimer() {
-            isPaused = false;
         }
 
         function closeModal() {
@@ -233,13 +222,7 @@
         var touchEndY = 0;
 
         if (dialog) {
-            dialog.addEventListener('mouseenter', pauseTimer);
-            dialog.addEventListener('mouseleave', resumeTimer);
-            dialog.addEventListener('focusin', pauseTimer);
-            dialog.addEventListener('focusout', resumeTimer);
-
             dialog.addEventListener('touchstart', function (e) {
-                pauseTimer();
                 if (e.changedTouches && e.changedTouches.length > 0) {
                     touchStartX = e.changedTouches[0].screenX;
                     touchStartY = e.changedTouches[0].screenY;
@@ -247,7 +230,6 @@
             }, { passive: true });
 
             dialog.addEventListener('touchend', function (e) {
-                resumeTimer();
                 if (e.changedTouches && e.changedTouches.length > 0) {
                     touchEndX = e.changedTouches[0].screenX;
                     touchEndY = e.changedTouches[0].screenY;
